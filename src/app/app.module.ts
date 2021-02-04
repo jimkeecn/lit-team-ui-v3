@@ -27,6 +27,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgImageFullscreenViewModule } from 'ng-image-fullscreen-view';
 import { SharedModule } from "./modules/shared.module";
+import { LoginComponent } from './routes/login-register/login/login.component';
+import { RegisterComponent } from './routes/login-register/register/register.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,6 +50,8 @@ import { SharedModule } from "./modules/shared.module";
     TournamentTeamsComponent,
     TournamentSingleTeamComponent,
     LoginRegisterComponent,
+    LoginComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
