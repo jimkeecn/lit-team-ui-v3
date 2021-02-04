@@ -23,7 +23,10 @@ import { TournamentTeamsComponent } from './routes/tournament-detail/tournament-
 import { TournamentSingleTeamComponent } from './routes/tournament-detail/shared/tournament-single-team/tournament-single-team.component';
 import { LoginRegisterComponent } from './routes/login-register/login-register.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgImageFullscreenViewModule } from 'ng-image-fullscreen-view';
+import { SharedModule } from "./modules/shared.module";
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,7 +52,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    SharedModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+    NgImageFullscreenViewModule
   ],
   providers: [ApplicationService],
   bootstrap: [AppComponent]
