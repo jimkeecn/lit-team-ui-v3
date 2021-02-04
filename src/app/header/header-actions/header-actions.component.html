@@ -17,7 +17,7 @@
       </svg>
     </a>
   </div>
-  <div class="header-filter-toggle">
+  <!-- <div class="header-filter-toggle">
     <svg role="img" class="df-icon df-icon--filter">
       <use xlink:href="assets/img/necromancers.svg#filter"/>
     </svg>
@@ -52,7 +52,7 @@
         </div>
       </form>
     </div>
-  </div>
+  </div> -->
 <div class="header-top-bar-toggle d-md-none hide">
   <svg role="img" class="df-icon df-icon--joystick">
     <use xlink:href="assets/img/necromancers.svg#joystick"/>
@@ -73,7 +73,7 @@
     <li><a href="https://www.facebook.com/danfisher.dev/"><span class="link-subtitle">Facebook</span>Necrogame</a></li>
   </ul>
 </div>
-<div class="header-cart-toggle">
+<div class="header-cart-toggle" *ngIf="auth.isLogined()">
   <svg role="img" class="df-icon df-icon--bag">
     <use xlink:href="assets/img/necromancers.svg#bag"/>
   </svg>
@@ -90,7 +90,7 @@
     <use xlink:href="assets/img/necromancers.svg#search-close"/>
   </svg>
 </div>
-<div class="header-account hide">
+<div class="header-account hide"  *ngIf="auth.isLogined()">
   <div class="header-account__avatar">
     <img src="assets/img/samples/account-user-avatar.jpg" srcset="assets/img/samples/account-user-avatar@2x.jpg 2x" alt="">
   </div>
