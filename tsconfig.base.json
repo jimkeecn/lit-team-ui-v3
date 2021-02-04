@@ -15,6 +15,14 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "@app-models/*": [
+        "src/app/models/*"
+      ],   
+      "@app-services/*": [
+        "src/app/services/*"
+      ],  
+    },
   }
 }

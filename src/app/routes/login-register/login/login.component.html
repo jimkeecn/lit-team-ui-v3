@@ -1,9 +1,14 @@
-<form action="#" class="form login-form">
-    <div class="form-group">
-        <input type="email" class="form-control" id="input-email-1" placeholder="Your Email*">
+<form action="#" class="form login-form" [formGroup]="loginForm">
+    <div class="error-list" *ngIf="errors && errors.length > 0">
+        <ul>
+            <li *ngFor="let error of errors">{{error}}</li>
+        </ul>
     </div>
     <div class="form-group">
-        <input type="password" class="form-control" id="input-password-1"  placeholder="Your Password">
+        <input type="email" class="form-control" id="input-email-1" placeholder="Your Email*" formControlName="email">
+    </div>
+    <div class="form-group">
+        <input type="password" class="form-control" id="input-password-1"  placeholder="Your Password" formControlName="password">
     </div>
     <div class="form-group d-flex justify-content-between align-items-center">
         <label class="checkbox checkbox-inline">
@@ -13,7 +18,7 @@
             <a href="#">Forgot password?</a>
         </span>
     </div>
-    <button class="btn btn-block login-form__button">Login to your account!</button>
+    <button type="button" class="btn btn-block login-form__button"  [disabled]="submitDisable" (click)="login()">Login to your account!</button>
     <!-- <div class="login-form__info">or login with your social account</div>
     <a href="#" class="btn btn-block login-form__facebook-button">
         <i class="fab fa-facebook">&nbsp;</i>Facebook login

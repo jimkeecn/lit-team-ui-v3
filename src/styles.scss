@@ -1,7 +1,6 @@
-
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
-@import '~@angular/material/theming';
+@import "~@angular/material/theming";
 // Plus imports for other components in your app.
 
 // Include the common styles for Angular Material. We include this here so that you only
@@ -20,13 +19,15 @@ $lit-team-ui-v3-warn: mat-palette($mat-red);
 
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".
-$lit-team-ui-v3-theme: mat-light-theme((
-  color: (
-    primary: $lit-team-ui-v3-primary,
-    accent: $lit-team-ui-v3-accent,
-    warn: $lit-team-ui-v3-warn,
+$lit-team-ui-v3-theme: mat-light-theme(
+  (
+    color: (
+      primary: $lit-team-ui-v3-primary,
+      accent: $lit-team-ui-v3-accent,
+      warn: $lit-team-ui-v3-warn,
+    ),
   )
-));
+);
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
@@ -43,5 +44,103 @@ app-header-actions {
   margin-left: auto;
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+//#Mixin
+$lt-main-text-color: rgb(58, 58, 58);
+$lt-main-color: rgb(255, 224, 0);
+$lt-main-light-color: #ee7b3c;
+$lt-secondary-color: #06111b;
+$lit-light-color: #0d2236;
+$lt-danger: rgb(160, 6, 6);
+$lt-success: rgb(55, 163, 5);
+$lt-light-text-color: rgb(129, 153, 183);
+$lt-border-color: rgb(53, 63, 75);
+
+@mixin for-small-only {
+  @media only screen and (max-width: 800px) {
+    @content;
+  }
+}
+
+@mixin for-large-up {
+  @media only screen and (min-width: 801px) {
+    @content;
+  }
+}
+
+//#error-list
+.error-list ul {
+  border-radius: 12px;
+  list-style: none;
+  padding: 12px;
+  background-color: rgb(160, 6, 6);
+}
+
+.error-list ul li {
+  color: #fff;
+}
+
+//#snackbar
+.snackbar-success {
+  background-color: rgb(55, 163, 5);
+  color: #fff;
+}
+
+.snackbar-error {
+  background-color: rgb(160, 6, 6);
+  color: #fff;
+}
+
+.snackbar-loading {
+  background-color: rgb(8, 52, 78);
+  color: #fff;
+}
+
+.snackbar-loading::after {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: 0;
+  width: 50px;
+  height: 3px;
+  background-color: $lt-main-color;
+  animation-name: snack-bar-loading-animation;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes snack-bar-loading-animation {
+  0% {
+    left: calc(0%);
+    opacity: 0.3;
+  }
+  15% {
+    left: calc(15%);
+    opacity: 1;
+  }
+  30% {
+    left: calc(30%);
+    opacity: 1;
+  }
+  45% {
+    left: calc(45%);
+    opacity: 1;
+  }
+  60% {
+    left: calc(60%);
+    opacity: 0.7;
+  }
+  100% {
+    left: calc(75%);
+    opacity: 0;
+  }
+}
