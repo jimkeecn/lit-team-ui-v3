@@ -53,15 +53,15 @@
       </form>
     </div>
   </div> -->
-<div class="header-top-bar-toggle d-md-none hide">
+<!-- <div class="header-top-bar-toggle d-md-none hide">
   <svg role="img" class="df-icon df-icon--joystick">
     <use xlink:href="assets/img/necromancers.svg#joystick"/>
   </svg>
   <svg role="img" class="df-icon df-icon--close">
     <use xlink:href="assets/img/necromancers.svg#close"/>
   </svg>
-</div>
-<div class="header-social-toggle d-none d-md-block">
+</div> -->
+<!-- <div class="header-social-toggle d-none d-md-block">
   <svg role="img" class="df-icon df-icon--thumb-up">
     <use xlink:href="assets/img/necromancers.svg#thumb-up"/>
   </svg>
@@ -72,8 +72,8 @@
     <li><a href="https://twitter.com/danfisher_dev"><span class="link-subtitle">Twitter</span>Necrotwt</a></li>
     <li><a href="https://www.facebook.com/danfisher.dev/"><span class="link-subtitle">Facebook</span>Necrogame</a></li>
   </ul>
-</div>
-<div class="header-cart-toggle" *ngIf="auth.isLogined()">
+</div> -->
+<div class="header-cart-toggle" [hidden]="!auth.isLogined()">
   <svg role="img" class="df-icon df-icon--bag">
     <use xlink:href="assets/img/necromancers.svg#bag"/>
   </svg>
@@ -104,7 +104,7 @@
         <use xlink:href="assets/img/necromancers.svg#account"/>
       </svg>
     </a>
-    <a href="login-register.html">
+    <a href="#" title="logout" (click)="auth.logout()">
       <svg role="img" class="df-icon df-icon--logout">
         <use xlink:href="assets/img/necromancers.svg#logout"/>
       </svg>
