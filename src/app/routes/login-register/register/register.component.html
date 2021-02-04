@@ -1,14 +1,24 @@
-<form action="#" class="form register-form">
-    <div class="form-group">
-        <input type="email" class="form-control" id="input-email-2" placeholder="Your Email*">
+<form action="#" class="form register-form" [formGroup]="registerForm">
+    <div class="error-list" *ngIf="errors && errors.length > 0">
+        <ul>
+            <li *ngFor="let error of errors">{{error}}</li>
+        </ul>
     </div>
     <div class="form-group">
-        <input type="password" class="form-control" id="input-password-2"  placeholder="Your Password">
+        <input type="email" class="form-control" id="input-email-2" placeholder="Your Email*" formControlName="email">
     </div>
     <div class="form-group">
-        <input type="password" class="form-control" id="input-password-3"  placeholder="Repeat Password">
+        <input type="text" class="form-control"  placeholder="Your Summoner ID" formControlName="gameId">
     </div>
-    <button class="btn btn-primary btn-block register-form__button">Create your account!</button>
+    <div class="form-group">
+        <input type="password" class="form-control" id="input-password-2"  placeholder="Your Password" formControlName="password">
+    </div>
+    <div class="form-group">
+        <input type="password" class="form-control" id="input-password-3"  placeholder="Repeat Password" formControlName="confirmPassword">
+    </div>
+    <button class="btn btn-primary btn-block register-form__button" type="button" 
+    aria-label="register-button" (click)="register()" 
+    [disabled]="submitDisable">Create your account!</button>
     <div class="register-form__info">
         You'll receive a confirmation email with <br>a link to activate your account!
     </div>
