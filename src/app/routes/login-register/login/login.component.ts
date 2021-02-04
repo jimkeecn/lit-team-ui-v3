@@ -38,8 +38,8 @@ export class LoginComponent implements OnInit {
       this.app.openSnackBar('Logging to your account..', 'loading', 120000);
       this.auth.login(loginForm).subscribe(x => {
         this.submitDisable = false;
-        this.app.openSnackBar('Welcome to AOL Leagues', 'success');
-        this.route.navigate(['me']);
+        this.app.openSnackBar('Welcome to Lit Team', 'success');
+        this.route.navigate(['home']);
       }, (err: HttpErrorResponse) => {
         this.submitDisable = false;
         this.app.errorHandler(err);

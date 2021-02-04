@@ -20,7 +20,7 @@ export class AuthService {
   ) {
     this.baseUrl = environment.url;
     this.currentUserSubject = new BehaviorSubject<TokenModel>(
-      JSON.parse(localStorage.getItem('aol-test-currentUser'))
+      JSON.parse(localStorage.getItem('lit-team-currentUser'))
     );
     this.currentUser = this.currentUserSubject.asObservable();
   }
@@ -71,26 +71,26 @@ export class AuthService {
   }
 
   currentUserValue() {
-    return JSON.parse(localStorage.getItem('aol-test-currentUser'));
+    return JSON.parse(localStorage.getItem('lit-team-currentUser'));
   }
 
   isLogined() {
-    if (JSON.parse(localStorage.getItem('aol-test-currentUser'))) {
+    if (JSON.parse(localStorage.getItem('lit-team-currentUser'))) {
       return true;
     }
     return false;
   }
 
   logout() {
-    localStorage.removeItem('aol-test-currentUser');
+    localStorage.removeItem('lit-team-currentUser');
     this.currentUserSubject.next(null);
     this.app.invitations$.next([]);
     this.app.myDetails$.next(null);
-    this.route.navigate(['login']);
+    this.route.navigate(['sign']);
   }
 
   localStorageToken(user: TokenModel) {
-    localStorage.setItem('aol-test-currentUser', JSON.stringify(user));
+    localStorage.setItem('lit-team-currentUser', JSON.stringify(user));
   }
 
   getMyId() {
