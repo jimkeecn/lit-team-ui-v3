@@ -86,7 +86,7 @@ closeSnackBar() {
   this._snackBar.dismiss();
 }
 
-errorHandler(err:HttpErrorResponse){
+  errorHandler(err: HttpErrorResponse) {
   if(err.status == 400){
     this.openSnackBar(err.error,'error');
   }else{

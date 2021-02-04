@@ -44,16 +44,12 @@ app-header-actions {
   margin-left: auto;
 }
 
-html,
-body {
-  height: 100%;
-}
-body {
-  margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+/** ##overide angular material **/
+.cdk-overlay-container {
+  z-index: 999999;
 }
 
-//#Mixin
+/**  ##mixin **/
 $lt-main-text-color: rgb(58, 58, 58);
 $lt-main-color: rgb(255, 224, 0);
 $lt-main-light-color: #ee7b3c;
@@ -76,7 +72,12 @@ $lt-border-color: rgb(53, 63, 75);
   }
 }
 
-//#error-list
+/**  ##button **/
+button[type="button"]:disabled {
+  background-color: #666666 !important;
+}
+
+/**  ##error-list  **/
 .error-list ul {
   border-radius: 12px;
   list-style: none;
@@ -88,7 +89,7 @@ $lt-border-color: rgb(53, 63, 75);
   color: #fff;
 }
 
-//#snackbar
+/** ##snackbar **/
 .snackbar-success {
   background-color: rgb(55, 163, 5);
   color: #fff;
@@ -116,6 +117,7 @@ $lt-border-color: rgb(53, 63, 75);
   animation-duration: 2s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
+  z-index: 99999;
 }
 
 @keyframes snack-bar-loading-animation {
