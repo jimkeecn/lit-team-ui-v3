@@ -1,0 +1,14 @@
+@media (min-width: 992px) and (max-width: 1490px) {
+  :host {
+    padding: 90px;
+  }
+}
+
+:host,
+:host .accordion-item__link {
+  color: #fff !important;
+}
+
+.page-title {
+  color: #ffe000 !important;
+}

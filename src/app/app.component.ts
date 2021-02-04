@@ -1,10 +1,13 @@
 import { Component } from '@angular/core';
+import { ApplicationService } from './services/application.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'lit-team-ui-v3';
+  title = 'test-app';
+  constructor(public application:ApplicationService) {
+    
+  }
 }

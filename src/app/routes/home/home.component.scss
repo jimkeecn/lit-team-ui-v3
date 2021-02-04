@@ -1,0 +1,13 @@
+@media (min-width: 992px) {
+  .site-layout--horizontal .site-content :host {
+    width: -webkit-max-content;
+    width: -moz-max-content;
+    width: max-content;
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    height: 100vh;
+    min-width: 100%;
+  }
+}
