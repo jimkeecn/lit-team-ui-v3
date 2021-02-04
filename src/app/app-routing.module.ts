@@ -8,11 +8,15 @@ import { TournamentRulesComponent } from './routes/tournament-detail/tournament-
 import { TournamentContainerComponent } from './routes/tournament-detail/tournament-container/tournament-container.component';
 import { TournamentBracketsComponent } from './routes/tournament-detail/tournament-brackets/tournament-brackets.component';
 import { TournamentTeamsComponent } from './routes/tournament-detail/tournament-teams/tournament-teams.component';
+import { LoginRegisterComponent } from './routes/login-register/login-register.component';
 const routes: Routes = [
   {
     path:"home",
     component: HomeComponent,
-  
+  },
+  {
+    path:"sign",
+    component: LoginRegisterComponent,
   },
   {
     path:"upcoming-tournaments",

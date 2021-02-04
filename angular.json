@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "lit-team-ui-v3"
+    }
+  },
+  "defaultProject": "lit-team-ui-v3",
+  "cli": {
+    "analytics": false
+  }
 }

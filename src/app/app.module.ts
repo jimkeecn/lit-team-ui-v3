@@ -21,6 +21,7 @@ import { TournamentBracketsComponent } from './routes/tournament-detail/tourname
 import { TournamentMatchCardComponent } from './routes/tournament-detail/shared/tournament-match-card/tournament-match-card.component';
 import { TournamentTeamsComponent } from './routes/tournament-detail/tournament-teams/tournament-teams.component';
 import { TournamentSingleTeamComponent } from './routes/tournament-detail/shared/tournament-single-team/tournament-single-team.component';
+import { LoginRegisterComponent } from './routes/login-register/login-register.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { TournamentSingleTeamComponent } from './routes/tournament-detail/shared
     TournamentMatchCardComponent,
     TournamentTeamsComponent,
     TournamentSingleTeamComponent,
+    LoginRegisterComponent,
   ],
   imports: [
     BrowserModule,

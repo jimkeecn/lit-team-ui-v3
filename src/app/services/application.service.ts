@@ -36,6 +36,10 @@ export class ApplicationService {
           document.getElementById("wrapper").classList.add("site-content--center");
           document.getElementById("wrapper").classList.add("page");
           break;
+        case "/sign":
+          document.body.classList.add('preloader-is--active');
+          document.getElementById("wrapper").classList.add("login-page");
+          break;
         default:
           break;
       }
