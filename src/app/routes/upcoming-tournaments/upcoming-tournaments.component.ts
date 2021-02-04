@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ApplicationService } from 'src/app/services/application.service';
+import { ApplicationService } from 'src/app/services/app/application.service';
 
 @Component({
   selector: 'app-upcoming-tournaments',

@@ -11,7 +11,7 @@ import { SearchPanelComponent } from './overlays/search-panel/search-panel.compo
 import { CartPanelComponent } from './overlays/cart-panel/cart-panel.component';
 import { HomeComponent } from './routes/home/home.component';
 import { UpcomingTournamentsComponent } from './routes/upcoming-tournaments/upcoming-tournaments.component';
-import { ApplicationService } from './services/application.service';
+import { ApplicationService } from './services/app/application.service';
 import { TournamentOverviewComponent } from './routes/tournament-detail/tournament-overview/tournament-overview.component';
 import { TournamentRulesComponent } from './routes/tournament-detail/tournament-rules/tournament-rules.component';
 import { TournamentHeadingComponent } from './routes/tournament-detail/shared/tournament-heading/tournament-heading.component';
@@ -22,6 +22,7 @@ import { TournamentMatchCardComponent } from './routes/tournament-detail/shared/
 import { TournamentTeamsComponent } from './routes/tournament-detail/tournament-teams/tournament-teams.component';
 import { TournamentSingleTeamComponent } from './routes/tournament-detail/shared/tournament-single-team/tournament-single-team.component';
 import { LoginRegisterComponent } from './routes/login-register/login-register.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { LoginRegisterComponent } from './routes/login-register/login-register.c
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule
   ],
   providers: [ApplicationService],
   bootstrap: [AppComponent]
