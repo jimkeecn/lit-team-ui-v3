@@ -10,13 +10,13 @@
         <!-- Mobile Navigation -->
         <nav class="mobile-nav">
           <ul class="mobile-nav__list">
-            <li class="active">
+            <li [ngClass]="{'active':app.routeState == 1 }">
               <a [routerLink]="['home']">Home</a>
             </li>
-            <li class="">
+            <li [ngClass]="{'active':app.routeState == 2 }">
               <a [routerLink]="['upcoming-tournaments']">Tournaments</a>
             </li>
-            <li class="">
+            <li [ngClass]="{'active':app.routeState == 3 }">
               <a href="#">Steams and Videos</a>
               <ul class="mobile-nav__sub">
                 <li class=""><a href="matches-scores.html">Lives</a></li>
@@ -24,21 +24,21 @@
                 <li class=""><a href="matches-standings.html">Youtubers</a></li>
               </ul>
             </li>
-            <li class="">
+            <li [ngClass]="{'active':app.routeState == 4 }">
               <a href="#">Coaching</a>
               <ul class="mobile-nav__sub">
                 <li class=""><a href="shop.html">Coaches</a></li>
                 <li class=""><a href="shop-2.html">Free Hours</a></li>
               </ul>
             </li>
-            <li class="">
+            <li [ngClass]="{'active':app.routeState == 5 }">
               <a href="#">Shop</a>
               <ul class="mobile-nav__sub">
                 <li class=""><a href="shop.html">Our Products</a></li>
                 <li class=""><a href="shop-2.html">Litcoin Shop</a></li>
               </ul>
             </li>
-            <li class="">
+            <li [ngClass]="{'active':app.routeState == 6 }">
               <a>Team Pages</a>
               <ul class="mobile-nav__sub">
                 <li class=""><a href="team-selection-1.html">All Teams</a></li>
@@ -129,32 +129,32 @@
       <div id="dl-menu" class="dl-menuwrapper">
         <!-- <button class="dl-trigger">Open Menu</button> -->
         <ul class="dl-menu dl-menuopen">
-          <li class="active">
+          <li [ngClass]="{'active':app.routeState == 1 }">
             <a [routerLink]="['home']">Home</a>
           </li>
-          <li class=""><a [routerLink]="['upcoming-tournaments']">Tournaments</a>
+          <li [ngClass]="{'active':app.routeState == 2 }"><a [routerLink]="['upcoming-tournaments']">Tournaments</a>
           </li>
-          <li class=""><a href="#">Steams and Videos</a>
+          <li [ngClass]="{'active':app.routeState == 3 }"><a href="#">Steams and Videos</a>
             <ul class="dl-submenu">
               <li class=""><a >Lives</a></li>
               <li class=""><a >Streamers</a></li>
               <li class=""><a >Youtubers</a></li>
             </ul>
           </li>
-          <li class=""><a href="#">Coaching</a>
+          <li [ngClass]="{'active':app.routeState == 4 }"><a href="#">Coaching</a>
             <ul class="dl-submenu">
               <li class=""><a >Coaches</a></li>
               <li class=""><a >Free Hours</a></li>
             </ul>
           </li>
-          <li class="">
+          <li [ngClass]="{'active':app.routeState == 5 }">
             <a href="#">Shop</a>
             <ul class="dl-submenu">
               <li class=""><a >Our Product</a></li>
               <li class=""><a >Litcoin Shop</a></li>
             </ul>
           </li>
-          <li class="">
+          <li [ngClass]="{'active':app.routeState == 6 }">
             <a href="#">Teams</a>
             <ul class="dl-submenu">
               <li class="">

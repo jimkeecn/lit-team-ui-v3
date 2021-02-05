@@ -6,14 +6,18 @@ import { FormGroup, ValidationErrors, ValidatorFn } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { MemberRequestViewModel, MyFullDetail } from '../../models/user';
-import { formErrorState } from '../../models/appState';
+import { formErrorState, RouterActiveEnum } from '../../models/appState';
 import { MatDialog } from '@angular/material/dialog';
+
+
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApplicationService {
 
+  routeState: RouterActiveEnum;
   constructor(public route: Router,location: Location,private _snackBar: MatSnackBar, public dialog: MatDialog) {
     this.route.events.subscribe(val => { 
       this.removeBodyClasses();
@@ -25,6 +29,7 @@ export class ApplicationService {
         case "/home":
           document.body.classList.add('preloader-is--active');
           document.body.classList.add('site-layout--horizontal');
+          this.routeState = 1;
           break;
         case "/upcoming-tournaments":
           document.body.classList.add('preloader-is--active');
@@ -34,6 +39,7 @@ export class ApplicationService {
           document.body.classList.add('bg-image');
           document.getElementById("wrapper").classList.add("site-content--center");
           document.getElementById("wrapper").classList.add("page");
+          this.routeState = 2;
           break;
         case "/tournament-detail":
           document.body.classList.add('preloader-is--active');

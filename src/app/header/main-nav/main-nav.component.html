@@ -1,31 +1,31 @@
 <nav class="main-nav">
   <ul class="main-nav__list">
-    <li class="active"><a routerLink="home">Home</a></li>
+    <li [ngClass]="{'active':app.routeState == 1 }"><a routerLink="home">Home</a></li>
    
-    <li class="">
+    <li [ngClass]="{'active':app.routeState == 2 }">
       <a routerLink="upcoming-tournaments">Tournaments</a>
     </li>
-    <li class=""><a href="#">Steams and Videos</a>
+    <li [ngClass]="{'active':app.routeState == 3 }"><a href="#">Steams and Videos</a>
       <ul class="main-nav__sub">
         <li class=""><a href="blog-2.html">Live</a></li>
         <li class=""><a href="blog-1.html">Streamers</a></li>
         <li class=""><a href="blog-2.html">Youtubers</a></li>
       </ul>
     </li>
-    <li class=""><a href="#">Coaching</a>
+    <li [ngClass]="{'active':app.routeState == 4 }"><a href="#">Coaching</a>
       <ul class="main-nav__sub">
         <li class=""><a href="blog-2.html">Coaches</a></li>
         <li class=""><a href="blog-2.html">Free Hours</a></li>
       </ul>
     </li>
-    <li class="">
+    <li [ngClass]="{'active':app.routeState == 5 }">
       <a href="#">Shop</a>
       <ul class="main-nav__sub">
         <li class=""><a href="shop.html">Our Products</a></li>
         <li class=""><a href="shop-2.html">Litcoin Shop</a></li>
       </ul>
     </li>
-    <li class="">
+    <li [ngClass]="{'active':app.routeState == 6 }">
       <a href="#">Teams</a>
       <ul class="main-nav__sub">
         <li class="">
