@@ -1,5 +1,5 @@
 <div class="header-actions">
-  <div class="header-pagination">
+  <div class="header-pagination header-werido" >
     <a href="#" class="header-scroll-arrow header-scroll-arrow--left">
       <svg role="img" class="df-icon df-icon--left-arrow">
         <use xlink:href="assets/img/necromancers.svg#left-arrow"/>
@@ -73,7 +73,7 @@
     <li><a href="https://www.facebook.com/danfisher.dev/"><span class="link-subtitle">Facebook</span>Necrogame</a></li>
   </ul>
 </div> -->
-<div class="header-cart-toggle" [hidden]="!auth.isLogined()">
+<div class="header-cart-toggle header-werido"  [hidden]="!auth.isLogined()">
   <svg role="img" class="df-icon df-icon--bag">
     <use xlink:href="assets/img/necromancers.svg#bag"/>
   </svg>
@@ -82,7 +82,7 @@
   </svg>
   <span class="header-cart-toggle__items-count">4</span>
 </div>
-<div class="header-search-toggle">
+<div class="header-search-toggle header-werido">
   <svg role="img" class="df-icon df-icon--search">
     <use xlink:href="assets/img/necromancers.svg#search"/>
   </svg>
@@ -90,7 +90,7 @@
     <use xlink:href="assets/img/necromancers.svg#search-close"/>
   </svg>
 </div>
-<div class="header-account hide"  *ngIf="auth.isLogined()">
+<div class="header-account hide"  [hidden]="!auth.isLogined()">
   <div class="header-account__avatar">
     <img src="assets/img/samples/account-user-avatar.jpg" srcset="assets/img/samples/account-user-avatar@2x.jpg 2x" alt="">
   </div>

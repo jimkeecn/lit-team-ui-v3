@@ -58,6 +58,11 @@ export class ApplicationService {
       }
       document.getElementById("header-menu-toggle").classList.remove("toggled");
       document.getElementById("lit-site-wrapper").classList.remove("site-wrapper--has-menu-overlay");
+      document.querySelectorAll(".header-werido").forEach(x => { 
+        x.classList.remove("hide");
+      })
+      document.querySelector(".header-account").classList.add("hide");
+      
       setTimeout(() => {
         document.body.classList.remove('preloader-is--active');
       }, 1500);
