@@ -14,17 +14,6 @@
         </select>
     </div>
     <div class="row mt-sm-auto mb-sm-auto">
-        <div class="col-sm-6 col-lg-3">
-            <div class="team-selection-item team-selection-item--style-1 text-center">
-                <a class="team-selection-item__thumbnail">
-                    <div class="team-selection-item__thumbnail-inner">
-                        <img src="assets/img/samples/team-selection-thumb-01.jpg" alt="">
-                    </div>
-                    <img class="team-selection-item__logo team-selection-item__logo--middle" src="assets/img/team-selection-logo-01-70.png" srcset="assets/img/team-selection-logo-01-140.png 2x" alt="">
-                </a>
-                <span class="team-selection-item__subtitle h6">08/02/2021</span>
-                <h2 class="team-selection-item__title">Lit Team IRON to Diamond IV Tournament</h2>
-            </div>
-        </div>
+        <tournament-card class="col-sm-6 col-lg-3" [getTour]="tourney" *ngFor="let tourney of tournamentsList"></tournament-card>
     </div>
 </div>

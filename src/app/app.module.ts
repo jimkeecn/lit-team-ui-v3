@@ -29,6 +29,7 @@ import { NgImageFullscreenViewModule } from 'ng-image-fullscreen-view';
 import { SharedModule } from "./modules/shared.module";
 import { LoginComponent } from './routes/login-register/login/login.component';
 import { RegisterComponent } from './routes/login-register/register/register.component';
+import { TournamentCardComponent } from './routes/upcoming-tournaments/shared/tournament-card/tournament-card.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -52,6 +53,7 @@ import { RegisterComponent } from './routes/login-register/register/register.com
     LoginRegisterComponent,
     LoginComponent,
     RegisterComponent,
+    TournamentCardComponent,
   ],
   imports: [
     BrowserModule,
