@@ -50,6 +50,8 @@ export class ApplicationService {
         default:
           break;
       }
+      document.getElementById("header-menu-toggle").classList.remove("toggled");
+      document.getElementById("lit-site-wrapper").classList.remove("site-wrapper--has-menu-overlay");
       setTimeout(() => {
         document.body.classList.remove('preloader-is--active');
       }, 1500);
