@@ -29,19 +29,19 @@
     </div>
     <ul class="match-overview__footer list-unstyled">
         <li>
-            <span>Tournament Mode</span>Tournament Draft
+            <span>Tournament Mode</span> {{(state.detail$ | async).gameType}}
         </li>
         <li>
-            <span>Ranks</span>Iron IV - Diammon IV
+            <span>Ranks</span>{{(state.detail$ | async).minTeamRank}} - {{(state.detail$ | async).maxTeamRank}} 
         </li>
         <li>
-            <span>Game Mode</span> 5v5
+            <span>Game Mode</span> {{(state.detail$ | async).tournamentFormat}}
         </li>
         <li>
             <span>Prodraft</span>Mandatory
         </li>
         <li>
-            <span>Total Price</span>$75
+            <span>Total Price</span>{{(state.detail$ | async).prizePool | currency}}
         </li>
     </ul>
 </div>

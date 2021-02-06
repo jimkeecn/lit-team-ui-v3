@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { TournamentDetailStateService } from "@app-services/state/tournament-detail-state.service";
 @Component({
   selector: 'app-tournament-overview',
   templateUrl: './tournament-overview.component.html',
@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TournamentOverviewComponent implements OnInit {
 
-  constructor() { }
+  constructor(public state:TournamentDetailStateService) { }
 
   ngOnInit(): void {
   }

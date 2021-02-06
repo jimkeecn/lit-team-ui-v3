@@ -9,6 +9,7 @@ import { TournamentContainerComponent } from './routes/tournament-detail/tournam
 import { TournamentBracketsComponent } from './routes/tournament-detail/tournament-brackets/tournament-brackets.component';
 import { TournamentTeamsComponent } from './routes/tournament-detail/tournament-teams/tournament-teams.component';
 import { LoginRegisterComponent } from './routes/login-register/login-register.component';
+import { TournamentDetailResolverService } from '@app-services/resolver/tournament-detail-resolver.service';
 const routes: Routes = [
   {
     path:"home",
@@ -27,7 +28,10 @@ const routes: Routes = [
     children: [
       {
         path: ":id",
-        component:TournamentContainerComponent,
+        component: TournamentContainerComponent,
+        resolve: {
+          detail: TournamentDetailResolverService
+        },
         children: [
           {
             path: "overview",

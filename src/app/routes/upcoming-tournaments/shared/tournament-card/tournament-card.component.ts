@@ -12,7 +12,6 @@ export class TournamentCardComponent implements OnInit {
   _tournament: TournamentDTO = new TournamentDTO();
   @Input("getTour")
   set settTour(tournament: TournamentDTO) {
-    debugger;
     this._tournament = tournament;
   }
   

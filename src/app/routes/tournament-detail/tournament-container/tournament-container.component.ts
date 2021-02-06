@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { TournamentDetailStateService } from "@app-services/state/tournament-detail-state.service";
 
 @Component({
   selector: 'app-tournament-container',
@@ -6,8 +8,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./tournament-container.component.scss']
 })
 export class TournamentContainerComponent implements OnInit {
-
-  constructor() { }
+  
+  constructor(private route: ActivatedRoute, private state: TournamentDetailStateService) { 
+    state.detail$.next(this.route.snapshot.data.detail);
+  }
 
   ngOnInit(): void {
   }
