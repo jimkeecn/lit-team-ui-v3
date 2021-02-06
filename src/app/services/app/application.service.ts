@@ -8,6 +8,7 @@ import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { MemberRequestViewModel, MyFullDetail } from '../../models/user';
 import { formErrorState, RouterActiveEnum } from '../../models/appState';
 import { MatDialog } from '@angular/material/dialog';
+import { TournamentDetailStateService } from '@app-services/state/tournament-detail-state.service';
 
 
 
@@ -18,13 +19,22 @@ import { MatDialog } from '@angular/material/dialog';
 export class ApplicationService {
   routeTransferCompleted = true;
   routeState: RouterActiveEnum;
-  constructor(public route: Router,location: Location,private _snackBar: MatSnackBar, public dialog: MatDialog) {
+  constructor(public route: Router,location: Location,private _snackBar: MatSnackBar, public dialog: MatDialog,public tourneyDetailState:TournamentDetailStateService) {
     this.route.events.subscribe(val => {
       this.routeTransferCompleted = false;
       this.removeBodyClasses();
       var url = location.path();
       if (url.includes("tournament-detail")) {
         url = "/tournament-detail";
+        if (this.route.url.includes("overview")) {
+          this.tourneyDetailState.links = 1;
+        } else if (this.route.url.includes("rules")) {
+          this.tourneyDetailState.links = 2;
+        } else if (this.route.url.includes("teams")) {
+          this.tourneyDetailState.links = 3;
+        } else if (this.route.url.includes("brackets")) {
+          this.tourneyDetailState.links = 4;
+        }
       }
       switch (url) {
         case "/home":

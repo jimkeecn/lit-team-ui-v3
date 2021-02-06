@@ -54,3 +54,12 @@ export enum TournamentTimeEnum{
     Future = 2,
     Current = 3
 }
+
+
+
+export enum TournamentLinks{
+    overview = 1,
+    rules = 2,
+    teams = 3,
+    brackets = 4
+  }

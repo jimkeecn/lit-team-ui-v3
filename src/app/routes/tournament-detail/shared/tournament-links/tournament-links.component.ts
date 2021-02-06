@@ -1,12 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { TournamentLinks } from '@app-models/static';
+import { TournamentDetailStateService } from '@app-services/state/tournament-detail-state.service';
 
-export enum TournamentLinks{
-  overview = 1,
-  rules = 2,
-  teams = 3,
-  brackets = 4
-}
 
 @Component({
   selector: 'tournament-links',
@@ -15,20 +11,26 @@ export enum TournamentLinks{
 })
 export class TournamentLinksComponent implements OnInit {
   
-  links: TournamentLinks = 1;
-  constructor(router: Router) { 
-    if (router.url.includes("overview")) {
-      this.links = 1;
-    } else if (router.url.includes("rules")) {
-      this.links = 2;
-    } else if (router.url.includes("teams")) {
-      this.links = 3;
-    } else if (router.url.includes("brackets")) {
-      this.links = 4;
-    }
+ 
+  constructor(public router: Router, public state: TournamentDetailStateService) { 
+  
   }
 
   ngOnInit(): void {
+   
+  }
+
+  goToLink(link: TournamentLinks) {
+    if (link == TournamentLinks.overview) {
+      this.router.navigate(['tournament-detail',this.state.detail$.value.tournamentId,'overview'])
+    } else if (link == TournamentLinks.rules) {
+      this.router.navigate(['tournament-detail',this.state.detail$.value.tournamentId,'rules'])
+    } else if (link == TournamentLinks.brackets) {
+      this.router.navigate(['tournament-detail',this.state.detail$.value.tournamentId,'brackets'])
+    } else if (link == TournamentLinks.teams) {
+      this.router.navigate(['tournament-detail',this.state.detail$.value.tournamentId,'teams'])
+      
+    }
   }
 
 }
