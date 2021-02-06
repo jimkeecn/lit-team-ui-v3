@@ -16,10 +16,11 @@ import { MatDialog } from '@angular/material/dialog';
   providedIn: 'root'
 })
 export class ApplicationService {
-
+  routeTransferCompleted = true;
   routeState: RouterActiveEnum;
   constructor(public route: Router,location: Location,private _snackBar: MatSnackBar, public dialog: MatDialog) {
-    this.route.events.subscribe(val => { 
+    this.route.events.subscribe(val => {
+      this.routeTransferCompleted = false;
       this.removeBodyClasses();
       var url = location.path();
       if (url.includes("tournament-detail")) {
@@ -65,12 +66,13 @@ export class ApplicationService {
       
       setTimeout(() => {
         document.body.classList.remove('preloader-is--active');
-      }, 1500);
+        this.routeTransferCompleted = true;
+      }, 1300);
     })
   }
   
   removeBodyClasses() {
-    document.body.classList.remove('preloader-is--active');
+    //document.body.classList.remove('preloader-is--active');
     document.body.classList.remove('site-layout--horizontal');
     document.body.classList.remove('bg-fixed');
     document.body.classList.remove('bg--texture-05');

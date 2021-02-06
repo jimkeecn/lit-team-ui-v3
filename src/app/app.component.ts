@@ -7,7 +7,7 @@ import { ApplicationService } from './services/app/application.service';
 })
 export class AppComponent {
   title = 'test-app';
-  constructor(public application:ApplicationService) {
+  constructor(public app:ApplicationService) {
     
   }
 }
