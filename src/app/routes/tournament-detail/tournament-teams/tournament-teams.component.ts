@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TournamentDetailStateService } from '@app-services/state/tournament-detail-state.service';
 
 @Component({
   selector: 'app-tournament-teams',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TournamentTeamsComponent implements OnInit {
 
-  constructor() { }
+  constructor(public state : TournamentDetailStateService) { }
 
   ngOnInit(): void {
   }

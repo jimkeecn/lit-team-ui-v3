@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { TournamentDTO } from '@app-models/tournament';
+import { TourneyApiService } from '@app-services/api/tourney-api.service';
 import { TournamentDetailStateService } from "@app-services/state/tournament-detail-state.service";
 
 @Component({
@@ -9,8 +11,12 @@ import { TournamentDetailStateService } from "@app-services/state/tournament-det
 })
 export class TournamentContainerComponent implements OnInit {
   
-  constructor(private route: ActivatedRoute, private state: TournamentDetailStateService) { 
+  constructor(private route: ActivatedRoute, private state: TournamentDetailStateService, public api:TourneyApiService) { 
     state.detail$.next(this.route.snapshot.data.detail);
+    let tourney_detail : TournamentDTO = this.route.snapshot.data.detail;
+    api.getTeamsTournaments(tourney_detail.tournamentId).subscribe(res => { 
+      state.teams$.next(res);
+    })
   }
 
   ngOnInit(): void {

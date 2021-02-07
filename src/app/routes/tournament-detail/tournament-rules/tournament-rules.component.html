@@ -10,8 +10,8 @@
                     </div>
 
                     <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionFaqs">
-                        <div class="accordion-item__body">
-                            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas
+                        <div class="accordion-item__body" [innerHTML]="(state.detail$ | async).tournamentRule">
+                            
                         </div>
                     </div>
                 </div>
@@ -24,8 +24,7 @@
                     </div>
 
                     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionFaqs">
-                        <div class="accordion-item__body">
-                            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas
+                        <div class="accordion-item__body" [innerHTML]="(state.detail$ | async).description">
                         </div>
                     </div>
                 </div>
@@ -39,8 +38,12 @@
 
                     <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionFaqs">
                         <div class="accordion-item__body">
-                            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas
-                        </div>
+                            Well become a Free Agent, Fill in the form and we will post your information in #🔍find-players for teams or players to find you!
+You Will be granted the Free Agent role so that you can be found more easily
+<br>
+                            Fill This form in to be shown.
+                            <br>
+                            <a href="https://forms.gle/BDsB9YVSFS1nwtQF8">https://forms.gle/BDsB9YVSFS1nwtQF8   </a>                     </div>
                     </div>
                 </div>
                 <div class="accordion-item">
@@ -51,8 +54,7 @@
                         </button>
                     </div>
                     <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionFaqs">
-                        <div class="accordion-item__body">
-                            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas
+                        <div class="accordion-item__body" [innerHTML]="(state.detail$ | async).prizeText">
                         </div>
                     </div>
                 </div>
