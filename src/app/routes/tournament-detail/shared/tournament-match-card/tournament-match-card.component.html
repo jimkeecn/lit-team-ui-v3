@@ -1,8 +1,8 @@
 <div class="sep-18 oct-18 dec-18 jan-19 mar-19 apr-19 jun-19 jul-19 sep-19 oct-19 dec-19">
     <div class="match-score">
         <div class="match-score__header">
-            <div class="match-score__competition">#1</div>
-            <div class="match-score__date">Thursday, Jan 17th</div>
+            <div class="match-score__competition">#{{match.matchIndex}}</div>
+            <div class="match-score__date">{{match.date | date : 'dd/MM/yyyy hh:mm a'}}</div>
         </div>
         <div class="match-score__body">
             <figure class="match-team" role="group">
@@ -10,21 +10,21 @@
                     <img src="assets/img/samples/logo-necromancers-42.png" srcset="assets/img/samples/logo-necromancers-42@2x.png 2x" alt="Necromancers Logo">
                 </figure>
                 <figcaption>
-                    <div class="match-team__name">Necromancers</div>
-                        <div class="match-team__country ">United States</div>
+                    <div class="match-team__name">{{match.teamAName ? match.teamAName : "TBA"}}</div>
+                        <div class="match-team__country ">None</div>
                 </figcaption>
             </figure>
             <div class="match-result match-result--live">
-                <span class="match-result__score">4 : 2</span>
-                <span class="match-result__label">36:24</span>
+                <span class="match-result__score">{{match.teamAWinCounts}} : {{match.teamBWinCounts}}</span>
+                <span class="match-result__label">{{match.bracketFormatName}}</span>
             </div>
             <figure class="match-team" role="group">
                 <figure class="match-team-logo match-team-logo--team-2 right" role="group">
                     <img src="assets/img/samples/logo-rhinos-42.png" srcset="assets/img/samples/logo-rhinos-42@2x.png 2x" alt="Raging Rhinos Logo">
                 </figure>
                 <figcaption>
-                    <div class="match-team__name">Raging Rhinos</div>
-                        <div class="match-team__country ">Japan</div>
+                    <div class="match-team__name">{{match.teamBName ? match.teamBName : "TBA"}}</div>
+                        <div class="match-team__country ">None</div>
                 </figcaption>
             </figure>
         </div>

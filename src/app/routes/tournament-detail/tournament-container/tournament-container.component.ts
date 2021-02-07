@@ -17,6 +17,10 @@ export class TournamentContainerComponent implements OnInit {
     api.getTeamsTournaments(tourney_detail.tournamentId).subscribe(res => { 
       state.teams$.next(res);
     })
+    api.getTournamentBrackets(tourney_detail.tournamentId).subscribe(res => { 
+      console.log(res);
+      state.brackets$.next(res);
+    })
   }
 
   ngOnInit(): void {
