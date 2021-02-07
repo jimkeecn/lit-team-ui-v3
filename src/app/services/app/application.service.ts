@@ -39,11 +39,12 @@ export class ApplicationService {
       switch (url) {
         case "/home":
           document.body.classList.add('preloader-is--active');
+          document.body.classList.add('scroll-is--active');
           document.body.classList.add('site-layout--horizontal');
           this.routeState = 1;
           break;
         case "/upcoming-tournaments":
-          document.body.classList.add('preloader-is--active');
+          document.body.classList.add('scroll-is--active');
           document.body.classList.add('bg-fixed');
           document.body.classList.add('bg--texture-05');
           document.body.classList.add('bg--dotted-3x3');
@@ -53,7 +54,8 @@ export class ApplicationService {
           this.routeState = 2;
           break;
         case "/tournament-detail":
-          document.body.classList.add('preloader-is--active');
+          //document.body.classList.add('preloader-is--active');
+          document.body.classList.add('scroll-is--active');
           document.body.classList.add('bg-fixed');
           document.body.classList.add('bg--texture-05');
           document.body.classList.add('bg-image');
@@ -62,11 +64,13 @@ export class ApplicationService {
           break;
         case "/sign":
           document.body.classList.add('preloader-is--active');
+          document.body.classList.add('scroll-is--active');
           document.getElementById("wrapper").classList.add("login-page");
           break;
         default:
           break;
       }
+      
       document.getElementById("header-menu-toggle").classList.remove("toggled");
       document.getElementById("lit-site-wrapper").classList.remove("site-wrapper--has-menu-overlay");
       document.querySelectorAll(".header-werido").forEach(x => { 
@@ -82,7 +86,8 @@ export class ApplicationService {
   }
   
   removeBodyClasses() {
-    //document.body.classList.remove('preloader-is--active');
+    document.body.classList.remove('scroll-is--active');
+    document.body.classList.remove('preloader-is--active');
     document.body.classList.remove('site-layout--horizontal');
     document.body.classList.remove('bg-fixed');
     document.body.classList.remove('bg--texture-05');
