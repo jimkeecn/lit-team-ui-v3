@@ -12,6 +12,11 @@ enum BracketFilter{
   me = 2
 }
 
+class BracketOptions{
+  id: number;
+  name: string;
+}
+
 @Component({
   selector: 'app-tournament-brackets',
   templateUrl: './tournament-brackets.component.html',
@@ -35,39 +40,51 @@ enum BracketFilter{
 })
 export class TournamentBracketsComponent implements OnInit , AfterViewInit{
 
+  BracketOptions: BracketOptions[] = [
+    {
+      id: 1,
+      name:"All Teams"
+    },
+    {
+      id: 2,
+      name:"My Team Only"
+    }
+  ]
+
   bracketSelected: number = 0;
   currentBrackets: bracketDTO[] = [];
   bracketFilter$ = new BehaviorSubject<BracketFilter>(1);
+  bracketSelected$ = new BehaviorSubject<number>(0);
   constructor(public state: TournamentDetailStateService, public auth:AuthService) {
 
-    combineLatest([this.bracketFilter$, this.state.brackets$, this.auth.currentUserSubject]).pipe(map(x => { 
-      //debugger;
+    combineLatest([this.bracketFilter$, this.state.brackets$, this.auth.currentUserSubject,this.bracketSelected$]).pipe(map(x => { 
       let filter: BracketFilter = x[0];
-      let brackets = Object.assign([],[...x[1]]);
-      let myDetail = Object.assign({},x[2]);
+      let brackets = JSON.parse(JSON.stringify(x[1]));
+      let myDetail = JSON.parse(JSON.stringify(x[2]));
+      
       if (brackets.length > 0 && brackets && myDetail && myDetail.user.id) {
+        let bracketSelected = x[3] !== 0 ? x[3] : x[1][0].bracketKnockoutId;
         let my_team_id = myDetail.user.team.id;
+        let bracket = brackets.find(x => x.bracketKnockoutId == bracketSelected);
         if (filter == BracketFilter.me) {
-          brackets.forEach(brk => { 
-            let allBrackets = [...brk.brackets];
-            brk.brackets = [];
-            for (let y = 0; y < brk.brackets.length; y++){
-              if (allBrackets[y].teamA == my_team_id || allBrackets[y].teamB == my_team_id) {
-                brk.brackets.push(brk.brackets[y]);
-              }
+          let allBrackets = bracket.brackets;
+          bracket.brackets = [];
+          for (let y = 0; y < allBrackets.length; y++){
+            if (allBrackets[y].teamA == my_team_id || allBrackets[y].teamB == my_team_id) {
+              bracket.brackets.push(allBrackets[y]);
             }
-          })
-  
-          return brackets;
+          }
+          return [bracket.brackets,bracketSelected];
         } else {
-          return brackets;
+          let bracket = brackets.find(x => x.bracketKnockoutId == bracketSelected);
+          return [bracket.brackets,bracketSelected];
         }
       }
       return [];
     })).subscribe(res => { 
       if (res && res.length > 0) {
-        this.bracketSelected = res[0].bracketKnockoutId;
-        this.currentBrackets = [...res[0].brackets];
+        this.bracketSelected = res[1];
+        this.currentBrackets = [...res[0]];
       }
 
     })
@@ -82,11 +99,10 @@ export class TournamentBracketsComponent implements OnInit , AfterViewInit{
 
   switchBrackets(brackets:bracketDTO[]) {
     this.currentBrackets = [];
-    this.bracketSelected = brackets[0].bracketKnockoutId;
-    this.currentBrackets = brackets;
+    this.bracketSelected$.next(brackets[0].bracketKnockoutId);
   }
 
-  switchBracketFilter(filter:any) {
+  switchBracketTeamFilter(filter:any) {
     console.log(filter.target.value);
     this.bracketFilter$.next(parseInt(filter.target.value));
   }

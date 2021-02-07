@@ -44,6 +44,7 @@ export class ApplicationService {
           this.routeState = 1;
           break;
         case "/upcoming-tournaments":
+          document.body.classList.add('preloader-is--active');
           document.body.classList.add('scroll-is--active');
           document.body.classList.add('bg-fixed');
           document.body.classList.add('bg--texture-05');
