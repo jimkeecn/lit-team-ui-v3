@@ -6,9 +6,9 @@
 
     <div class="matches-filter">
         <label class="matches-filter__label">Team filter</label>
-        <select class="cs-select">
-            <option value="">All Teams</option>
-            <option value="" selected>My Team</option>
+        <select class="cs-select" [value]="bracketFilter$ | async" (change)="switchBracketFilter($event)">
+            <option [value]="1">All Teams</option>
+            <option [value]="2" selected>My Team</option>
         </select>
     </div>
 
