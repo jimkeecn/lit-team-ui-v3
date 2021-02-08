@@ -10,10 +10,13 @@ import { TournamentDetailStateService } from "@app-services/state/tournament-det
   styleUrls: ['./tournament-container.component.scss']
 })
 export class TournamentContainerComponent implements OnInit {
-  
+  tournamentName: string;
+  tournamentTime: Date;
   constructor(private route: ActivatedRoute, private state: TournamentDetailStateService, public api:TourneyApiService) { 
     state.detail$.next(this.route.snapshot.data.detail);
-    let tourney_detail : TournamentDTO = this.route.snapshot.data.detail;
+    let tourney_detail: TournamentDTO = this.route.snapshot.data.detail;
+    this.tournamentName = tourney_detail.name;
+    this.tournamentTime = tourney_detail.startDate;
     api.getTeamsTournaments(tourney_detail.tournamentId).subscribe(res => { 
       state.teams$.next(res);
     })

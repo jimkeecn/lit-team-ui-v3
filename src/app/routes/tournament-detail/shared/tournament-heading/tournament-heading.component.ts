@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'tournament-heading',
@@ -7,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TournamentHeadingComponent implements OnInit {
 
+
+  @Input() tournamentName: string;
+  @Input() tournamentTime: Date;
+  @Input() enableRegister: boolean = true;
   constructor() { }
 
   ngOnInit(): void {
