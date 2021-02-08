@@ -30,6 +30,11 @@ import { SharedModule } from "./modules/shared.module";
 import { LoginComponent } from './routes/login-register/login/login.component';
 import { RegisterComponent } from './routes/login-register/register/register.component';
 import { TournamentCardComponent } from './routes/upcoming-tournaments/shared/tournament-card/tournament-card.component';
+import { MatchContainerComponent } from './routes/match-detail/match-container/match-container.component';
+import { MatchOverviewComponent } from './routes/match-detail/match-overview/match-overview.component';
+import { MatchStatesComponent } from './routes/match-detail/match-states/match-states.component';
+import { MatchPlayersComponent } from './routes/match-detail/match-players/match-players.component';
+import { MatchSocialMediaComponent } from './routes/match-detail/match-social-media/match-social-media.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -54,6 +59,11 @@ import { TournamentCardComponent } from './routes/upcoming-tournaments/shared/to
     LoginComponent,
     RegisterComponent,
     TournamentCardComponent,
+    MatchContainerComponent,
+    MatchOverviewComponent,
+    MatchStatesComponent,
+    MatchPlayersComponent,
+    MatchSocialMediaComponent,
   ],
   imports: [
     BrowserModule,

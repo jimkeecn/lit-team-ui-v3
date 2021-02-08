@@ -10,6 +10,11 @@ import { TournamentBracketsComponent } from './routes/tournament-detail/tourname
 import { TournamentTeamsComponent } from './routes/tournament-detail/tournament-teams/tournament-teams.component';
 import { LoginRegisterComponent } from './routes/login-register/login-register.component';
 import { TournamentDetailResolverService } from '@app-services/resolver/tournament-detail-resolver.service';
+import { MatchContainerComponent } from './routes/match-detail/match-container/match-container.component';
+import { MatchOverviewComponent } from './routes/match-detail/match-overview/match-overview.component';
+import { MatchPlayersComponent } from './routes/match-detail/match-players/match-players.component';
+import { MatchStatesComponent } from './routes/match-detail/match-states/match-states.component';
+import { MatchSocialMediaComponent } from './routes/match-detail/match-social-media/match-social-media.component';
 const routes: Routes = [
   {
     path:"home",
@@ -48,6 +53,36 @@ const routes: Routes = [
           {
             path: "teams",
             component:TournamentTeamsComponent
+          }
+        ]
+      }
+    ]
+  },
+  {
+    path: "match-detail",
+    children: [
+      {
+        path: ":id",
+        component: MatchContainerComponent,
+        resolve: {
+          detail: TournamentDetailResolverService
+        },
+        children: [
+          {
+            path: "overview",
+            component:MatchOverviewComponent
+          },
+          {
+            path: "states",
+            component:MatchStatesComponent
+          },
+          {
+            path: "players",
+            component:MatchPlayersComponent
+          },
+          {
+            path: "social-media",
+            component:MatchSocialMediaComponent
           }
         ]
       }
