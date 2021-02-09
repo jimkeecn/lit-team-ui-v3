@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, Resolve, RouterStateSnapshot } from '@angular/router';
-import { TournamentDTO } from '@app-models/tournament';
+import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { TourneyApiService } from '@app-services/api/tourney-api.service';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
-export class TournamentDetailResolverService implements Resolve<TournamentDTO> {
+export class MatchDetailResolverService {
 
   constructor(public tourney: TourneyApiService) { }
   
@@ -15,7 +15,7 @@ export class TournamentDetailResolverService implements Resolve<TournamentDTO> {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<any>|Promise<any>|any {
-    return this.tourney.getTournamentById(parseInt(route.paramMap.get('id')));
+    return this.tourney.getBracketById(parseInt(route.paramMap.get('bracketId')));
   }
-  
+
 }

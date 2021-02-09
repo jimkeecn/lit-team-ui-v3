@@ -1,1 +1,26 @@
-<p>match-overview works!</p>
+<div class="match-overview mt-sm-auto mb-sm-auto">
+    <div class="match-overview__body">
+        <figure class="match-team" role="group">
+            <!-- <img class="match-team-img" [src]="(state.matchOverview$ | async).winner.iconUrl" alt="Lit Team Logo"> -->
+            <figcaption>
+                <div class="match-team__name">{{(state.bracketOverview$ | async).teamAName}}</div>
+                    <div class="match-team__country ">Team Red</div>
+            </figcaption>
+        </figure>
+        <div class="col-md-4">
+            <div class="match-overview__result">
+                <div class="match-result match-result--winner-right">
+                    <span class="match-result__score">{{(state.bracketOverview$ | async).teamAWinCounts}} : {{(state.bracketOverview$ | async).teamBWinCounts}}</span>
+                    <span class="match-result__label">Final score</span>
+                </div>
+            </div>
+        </div>
+        <figure class="match-team" role="group">
+            <!-- <img class="match-team-img" [src]="(state.matchOverview$ | async).loser.iconUrl" alt="Lit Team Logo"> -->
+            <figcaption>
+                <div class="match-team__name">{{(state.bracketOverview$ | async).teamBName}}</div>
+                    <div class="match-team__country ">Team Blue</div>
+            </figcaption>
+        </figure>
+    </div>
+</div>

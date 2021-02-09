@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { TournamentLinks } from '@app-models/static';
-import { BracketGroupDTO, TournamentDTO, TournamentTeamDTO } from '@app-models/tournament';
+import { bracketDTO, BracketGroupDTO, TournamentDTO, TournamentTeamDTO } from '@app-models/tournament';
+import { MatchViewModel } from '@app-models/user';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
@@ -11,5 +12,7 @@ export class TournamentDetailStateService {
   detail$ = new BehaviorSubject<TournamentDTO>(new TournamentDTO());
   teams$ = new BehaviorSubject<TournamentTeamDTO[]>([]);
   brackets$ = new BehaviorSubject<BracketGroupDTO[]>([]);
+  bracketOverview$ = new BehaviorSubject<bracketDTO>(null);
+  matches$ = new BehaviorSubject<MatchViewModel[]>([]);
   constructor() { }
 }

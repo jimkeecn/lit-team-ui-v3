@@ -106,4 +106,6 @@ export class TournamentBracketsComponent implements OnInit , AfterViewInit{
     console.log(filter.target.value);
     this.bracketFilter$.next(parseInt(filter.target.value));
   }
+
+  
 }

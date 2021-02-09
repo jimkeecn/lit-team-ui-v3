@@ -1,7 +1,7 @@
-<div class="sep-18 oct-18 dec-18 jan-19 mar-19 apr-19 jun-19 jul-19 sep-19 oct-19 dec-19">
-    <div class="match-score">
+<div>
+    <div class="match-score" >
         <div class="match-score__header">
-            <div class="match-score__competition">#{{match.matchIndex}}</div>
+            <div class="match-score__competition" >#{{match.matchIndex}}</div>
             <div class="match-score__date">{{match.date | date : 'dd/MM/yyyy hh:mm a'}}</div>
         </div>
         <div class="match-score__body">
@@ -34,30 +34,9 @@
             </figure>
             <ul class="match-stats-links">
                 <li>
-                    <a href="#">
-                        <svg role="img" class="df-icon df-icon--overview">
-                            <use xlink:href="assets/img/necromancers.svg#overview"/>
-                        </svg>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
+                    <a (click)="navigateToBracketDetail()">
                         <svg role="img" class="df-icon df-icon--stats">
                             <use xlink:href="assets/img/necromancers.svg#stats"/>
-                        </svg>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <svg role="img" class="df-icon df-icon--lineups">
-                            <use xlink:href="assets/img/necromancers.svg#lineups"/>
-                        </svg>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <svg role="img" class="df-icon df-icon--replay">
-                            <use xlink:href="assets/img/necromancers.svg#replay"/>
                         </svg>
                     </a>
                 </li>
