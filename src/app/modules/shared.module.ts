@@ -33,6 +33,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
+import { ClipboardModule } from '@angular/cdk/clipboard'
 @NgModule({
   declarations: [],
   imports: [CommonModule],
@@ -72,6 +73,7 @@ import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
     MatPaginatorModule,
     MatBottomSheetModule,
     MatRippleModule,
+    ClipboardModule
   ],
 })
 export class SharedModule {}

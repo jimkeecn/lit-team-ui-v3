@@ -23,7 +23,7 @@ import { TournamentTeamsComponent } from './routes/tournament-detail/tournament-
 import { TournamentSingleTeamComponent } from './routes/tournament-detail/shared/tournament-single-team/tournament-single-team.component';
 import { LoginRegisterComponent } from './routes/login-register/login-register.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgImageFullscreenViewModule } from 'ng-image-fullscreen-view';
 import { SharedModule } from "./modules/shared.module";
@@ -35,6 +35,7 @@ import { MatchOverviewComponent } from './routes/match-detail/match-overview/mat
 import { MatchStatesComponent } from './routes/match-detail/match-states/match-states.component';
 import { MatchPlayersComponent } from './routes/match-detail/match-players/match-players.component';
 import { MatchSocialMediaComponent } from './routes/match-detail/match-social-media/match-social-media.component';
+import { JwtInterceptor } from "@app-services/http/http.service";
 @NgModule({
   declarations: [
     AppComponent,
@@ -75,7 +76,8 @@ import { MatchSocialMediaComponent } from './routes/match-detail/match-social-me
     ReactiveFormsModule,
     NgImageFullscreenViewModule
   ],
-  providers: [ApplicationService],
+  providers: [ApplicationService,
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

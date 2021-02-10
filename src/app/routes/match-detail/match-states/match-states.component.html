@@ -11,7 +11,12 @@
                     Code 
                 </div>
                 <ul class="match-stats-widget__body ">
-                    <li><span>Tournament Code</span><span>{{match.matchCode}}</span><span class="get-code" (click)="getBracketCodeById(i)">Get Code</span></li>
+                    <li>
+                        <span>Tournament Code</span>
+                        <span >{{match.matchCode}}</span>
+                        <span class="get-code" *ngIf="!match.matchCode" (click)="getBracketCodeById(i)">Get Code</span>
+                        <button pan class="get-code" *ngIf="match.matchCode" [cdkCopyToClipboard]="match.matchCode" (click)="copyTournamentCode()">Copy</button>
+                    </li>
                 </ul>
             </div>
         </div>
