@@ -1,11 +1,20 @@
 <div class="matches-tabs mt-sm-auto mb-sm-auto">
     <ul class="matches-tabs__navigation matches-tabs__navigation--color-light nav" role="tablist">
         <li class="nav-item">
-            <a href="#tab-1" role="tab" data-toggle="tab" class="active">Game 01</a>
+            <a href="#{{match.matchId}}" role="tab" data-toggle="tab" class="active" *ngFor="let match of matches; let i = index">Game {{i + 1}}</a>
         </li>
     </ul>
-    <div class="matches-tabs__content tab-content">
-       
+    <div class="matches-tabs__content tab-content ">
+        <div class="match-stats-container tab-pane fade show active" [id]="match.matchId" role="tabpanel" *ngFor="let match of matches;let i = index">
+            <div class="match-stats-widget match-stats-widget--general match-state-replace-code">
+                <div class="match-stats-widget__header">
+                    Code 
+                </div>
+                <ul class="match-stats-widget__body ">
+                    <li><span>Tournament Code</span><span>{{match.matchCode}}</span><span class="get-code" (click)="getBracketCodeById(i)">Get Code</span></li>
+                </ul>
+            </div>
+        </div>
     </div>
 </div>
 

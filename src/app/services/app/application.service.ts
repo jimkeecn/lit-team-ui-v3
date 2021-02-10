@@ -118,9 +118,13 @@ closeSnackBar() {
 }
 
   errorHandler(err: HttpErrorResponse) {
-  if(err.status == 400){
-    this.openSnackBar(err.error,'error');
-  }else{
+    if (err.status == 400) {
+      debugger;
+      this.openSnackBar(err.error, 'error');
+    } else if (err.status == 401) { 
+      this.openSnackBar("Please login to your account","error");
+    }
+    else {
     this.openSnackBar("You have enounter system error.",'error');
   }
 }

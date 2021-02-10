@@ -1,7 +1,9 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { MatchViewModel } from '@app-models/user';
+import { MatchCodeResponse, MatchViewModel } from '@app-models/user';
 import { TourneyApiService } from '@app-services/api/tourney-api.service';
+import { ApplicationService } from '@app-services/app/application.service';
 import { TournamentDetailStateService } from '@app-services/state/tournament-detail-state.service';
 
 @Component({
@@ -11,12 +13,25 @@ import { TournamentDetailStateService } from '@app-services/state/tournament-det
 })
 export class MatchContainerComponent implements OnInit,AfterViewInit {
 
-  constructor(private route: ActivatedRoute, private state: TournamentDetailStateService, public api:TourneyApiService) {
+  _matches: MatchViewModel[] = [];
+  _tournamentCodes: MatchCodeResponse[] = [];
+  constructor(private route: ActivatedRoute, private state: TournamentDetailStateService, public api:TourneyApiService, public app:ApplicationService) {
     this.state.bracketOverview$.next(this.route.snapshot.data.detail);
   }
   ngOnInit(): void {
+    this.getBracketMatchesById();
   }
 
   ngAfterViewInit() {
   }
+
+  getBracketMatchesById() {
+    this.api.getBracketMatchesById(this.state.bracketOverview$.value.matchId).subscribe(res => { 
+      this._matches = res;
+      console.log(res);
+    })
+  }
+
+  
+
 }

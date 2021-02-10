@@ -238,7 +238,8 @@ export class TeamMemberUIModel extends TeamMemberViewModel{
     matchId:number;
     loser:TeamViewModel;
     winner:TeamViewModel;
-    clips:MatchClipModel[]
+    clips: MatchClipModel[];
+    matchCode: string;
 }
   
 

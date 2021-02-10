@@ -71,5 +71,10 @@ export class TourneyApiService {
     const url = `${this.baseUrl}/Bracket/${id}/matchesCode`;
     return this.http.get<MatchCodeResponse[]>(url).pipe(tap());
   }
+
+  getBracketCodeById(id: number,matchIndex:number): Observable<MatchCodeResponse>{
+    const url = `${this.baseUrl}/Bracket/${id}/matchCode/${matchIndex}`;
+    return this.http.get<MatchCodeResponse>(url).pipe(tap());
+  }
   
 }
