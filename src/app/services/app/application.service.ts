@@ -32,9 +32,9 @@ export class ApplicationService {
           this.tourneyDetailState.links = 2;
         } else if (this.route.url.includes("teams")) {
           this.tourneyDetailState.links = 3;
-        } else if (this.route.url.includes("brackets")) {
+        } else if (this.route.url.includes("bracket")) {
           this.tourneyDetailState.links = 4;
-        }
+        } 
       }
       switch (url) {
         case "/home":

@@ -11,7 +11,7 @@
             <div class="match-overview__result">
                 <div class="match-result match-result--winner-right">
                     <span class="match-result__score">{{(state.bracketOverview$ | async).teamAWinCounts}} : {{(state.bracketOverview$ | async).teamBWinCounts}}</span>
-                    <span class="match-result__label">Final score</span>
+                    <span class="match-result__label">Bracket #{{(state.bracketOverview$ | async).matchIndex}} Final score</span>
                 </div>
             </div>
         </div>

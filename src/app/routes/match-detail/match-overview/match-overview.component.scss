@@ -2,3 +2,9 @@
   width: 100px;
   height: 100px;
 }
+
+@media (min-width: 992px) {
+  .match-overview {
+    margin-bottom: 40px !important;
+  }
+}
