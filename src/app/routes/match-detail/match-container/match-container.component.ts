@@ -20,6 +20,7 @@ export class MatchContainerComponent implements OnInit,AfterViewInit {
   }
   ngOnInit(): void {
     this.getBracketMatchesById();
+    this.getBracketMatchCodes();
   }
 
   ngAfterViewInit() {
@@ -32,6 +33,12 @@ export class MatchContainerComponent implements OnInit,AfterViewInit {
     })
   }
 
+  getBracketMatchCodes() {
+    this.api.getBracketTournamentCodes(this.state.bracketOverview$.value.matchId).subscribe(res => { 
+      console.log(res);
+      this._tournamentCodes = res;
+    })
+  }
   
 
 }

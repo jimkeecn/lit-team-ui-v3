@@ -12,6 +12,7 @@ import { TournamentDetailStateService } from '@app-services/state/tournament-det
 export class MatchStatesComponent implements OnInit {
 
   @Input() matches = [];
+  @Input() tournamentCodes = [];
   constructor(public state: TournamentDetailStateService,
     public api: TourneyApiService,
     public app: ApplicationService,
