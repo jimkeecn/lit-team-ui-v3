@@ -73,8 +73,17 @@
     <li><a href="https://www.facebook.com/danfisher.dev/"><span class="link-subtitle">Facebook</span>Necrogame</a></li>
   </ul>
 </div> -->
-<div class="header-fire-toggle header-werido"  [hidden]="!auth.isLogined()">
+<div class="header-cart-toggle header-werido"  [hidden]="!auth.isLogined()">
   <svg role="img" class="df-icon df-icon--bag">
+    <use xlink:href="assets/img/necromancers.svg#bag"/>
+  </svg>
+  <svg role="img" class="df-icon df-icon--close">
+    <use xlink:href="assets/img/necromancers.svg#close"/>
+  </svg>
+  <span class="header-cart-toggle__items-count">4</span>
+</div>
+<div class="header-fire-toggle header-werido"  [hidden]="!auth.isLogined()">
+  <svg role="img" class="df-icon df-icon--fire">
     <use xlink:href="assets/img/necromancers.svg#damage"/>
   </svg>
   <svg role="img" class="df-icon df-icon--close">

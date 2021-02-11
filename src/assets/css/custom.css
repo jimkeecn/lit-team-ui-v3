@@ -84,7 +84,7 @@ body:not(.cursor-is--active) .header-fire-toggle {
   }
 }
 
-.header-fire-toggle.toggled .df-icon--bag {
+.header-fire-toggle.toggled .df-icon--fire {
   opacity: 0;
   -webkit-transform: scale(0.3);
   transform: scale(0.3);
@@ -95,6 +95,11 @@ body:not(.cursor-is--active) .header-fire-toggle {
   opacity: 1;
   -webkit-transform: scale(1);
   transform: scale(1);
+}
+
+/**Override site-wrapper--has-overlay **/
+.site-wrapper--has-overlay .fire-panel {
+  display: none;
 }
 
 /**Overlay Animation Override**/
