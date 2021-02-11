@@ -63,7 +63,7 @@ export class ApplicationService {
           document.body.classList.add('bg-image');
           document.getElementById("wrapper").classList.add("site-content--center");
           document.getElementById("wrapper").classList.add("page");
-          this.routeState = 2;
+          this.routeState = 6;
           break;
         case "/tournament-detail":
           //document.body.classList.add('preloader-is--active');
@@ -73,6 +73,7 @@ export class ApplicationService {
           document.body.classList.add('bg-image');
           document.getElementById("wrapper").classList.add("site-content--center");
           document.getElementById("wrapper").classList.add("page");
+          this.routeState = 2;
           break;
         case "/sign":
           document.body.classList.add('preloader-is--active');

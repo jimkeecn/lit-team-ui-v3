@@ -5,6 +5,15 @@
 	* Created by Dan Fisher
 */
 
+/*
+	IMPORTANT!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	File has been modified to add one more toggle panel "fireToggle"
+	It use site-wrapper--has-fire-overlay to control whether the fire panel is showing or not.
+	It has to come with custom.css file
+	
+
+*/
+
 ;(function ($){
 	'use strict';
 
@@ -46,6 +55,8 @@
 			this.headerMenuPanel();
 
 			this.headerCart();
+
+			this.headerFire();
 
 			this.headerSearch();
 
@@ -176,7 +187,8 @@
 
 		headerMenuPanel: function () {
 			var menuToggle      = $( '.header-menu-toggle' ),
-				siteWrapper     = $( '.site-wrapper' ),
+				siteWrapper = $('.site-wrapper'),
+				fireToggle = $('.header-fire-toggle'),
 				cartToggle      = $( '.header-cart-toggle' ),
 				searchToggle    = $( '.header-search-toggle' ),
 				socialToggle    = $( '.header-social-toggle' ),
@@ -223,6 +235,13 @@
 
 					menuToggle.toggleClass('toggled');
 
+					
+				
+					if (siteWrapper.hasClass('site-wrapper--has-fire-overlay')) {
+						fireToggle.toggleClass('toggled');
+						siteWrapper.toggleClass('site-wrapper--has-fire-overlay');
+					}
+
 					if ( siteWrapper.hasClass( 'site-wrapper--has-search-overlay' ) ) {
 						searchToggle.toggleClass( 'toggled' );
 						siteWrapper.toggleClass( 'site-wrapper--has-search-overlay' );
@@ -235,6 +254,7 @@
 
 					if ( _windowWidth > 767 ) {
 						cartToggle.toggleClass('hide');
+						fireToggle.toggleClass('hide');
 						searchToggle.toggleClass('hide');
 						socialToggle.toggleClass('hide');
 						account.toggleClass('hide');
@@ -280,7 +300,8 @@
 		},
 
 		headerCart: function () {
-			var cartToggle   = $('.header-cart-toggle'),
+			var cartToggle = $('.header-cart-toggle'),
+				fireToggle = $('.header-fire-toggle'),
 				searchToggle = $( '.header-search-toggle' ),
 				menuToggle   = $('.header-menu-toggle'),
 				topBarToggle = $('.header-top-bar-toggle'),
@@ -294,6 +315,13 @@
 
 					cartToggle.toggleClass('toggled');
 					siteWrapper.toggleClass('site-wrapper--has-overlay');
+
+					
+					if (siteWrapper.hasClass('site-wrapper--has-fire-overlay')) {
+						fireToggle.toggleClass('toggled');
+						siteWrapper.toggleClass('site-wrapper--has-fire-overlay');
+					}
+				
 
 					if ( siteWrapper.hasClass( 'site-wrapper--has-search-overlay' ) ) {
 						searchToggle.toggleClass( 'toggled' );
@@ -333,8 +361,69 @@
 			}
 		},
 
+		headerFire: function () {
+			var fireToggle = $('.header-fire-toggle'),
+				cartToggle   = $('.header-cart-toggle'),
+				searchToggle = $( '.header-search-toggle' ),
+				menuToggle   = $('.header-menu-toggle'),
+				topBarToggle = $('.header-top-bar-toggle'),
+				topBar       = $( '.menu-panel__top-bar' ),
+				siteWrapper  = $('.site-wrapper'),
+				siteOverlay  = $('.site-overlay');
+
+			if ( fireToggle.exists() ) {
+
+				var toggleFire = function () {
+
+					fireToggle.toggleClass('toggled');
+					siteWrapper.toggleClass('site-wrapper--has-fire-overlay');
+
+					if ( siteWrapper.hasClass( 'site-wrapper--has-overlay' ) ) {
+						cartToggle.toggleClass( 'toggled' );
+						siteWrapper.toggleClass( 'site-wrapper--has-overlay' );
+					}
+
+					if ( siteWrapper.hasClass( 'site-wrapper--has-search-overlay' ) ) {
+						searchToggle.toggleClass( 'toggled' );
+						siteWrapper.toggleClass( 'site-wrapper--has-search-overlay' );
+					}
+
+					if ( _windowWidth < 768 && siteWrapper.hasClass( 'site-wrapper--has-menu-overlay' ) ) {
+						menuToggle.toggleClass('toggled');
+						topBarToggle.toggleClass('hide');
+						siteWrapper.toggleClass('site-wrapper--has-menu-overlay');
+
+						if ( topBarToggle.hasClass('toggled') ) {
+							topBarToggle.removeClass('toggled');
+						}
+
+						if ( topBar.hasClass('toggled') ) {
+							topBar.removeClass('toggled');
+						}
+					}
+				};
+
+				fireToggle.on('click', function () {
+					toggleFire();
+				});
+
+				siteOverlay.on( 'click', function () {
+					if ( cartToggle.hasClass( 'toggled' ) ) {
+						toggleFire();
+					}
+				});
+
+				$(document).keyup( function(e) {
+					if ( e.keyCode === 27 && cartToggle.hasClass( 'toggled' ) ) {
+						toggleFire();
+					}
+				});
+			}
+		},
+
 		headerSearch: function () {
-			var searchToggle = $( '.header-search-toggle' ),
+			var searchToggle = $('.header-search-toggle'),
+				fireToggle = $('.header-fire-toggle'),
 				cartToggle   = $('.header-cart-toggle'),
 				menuToggle   = $('.header-menu-toggle'),
 				topBarToggle = $('.header-top-bar-toggle'),
@@ -347,6 +436,12 @@
 
 					searchToggle.toggleClass( 'toggled' );
 					siteWrapper.toggleClass( 'site-wrapper--has-search-overlay' );
+
+					
+					if (siteWrapper.hasClass('site-wrapper--has-fire-overlay')) {
+						fireToggle.toggleClass('toggled');
+						siteWrapper.toggleClass('site-wrapper--has-fire-overlay');
+					}
 
 					if ( siteWrapper.hasClass('site-wrapper--has-overlay') ) {
 						cartToggle.toggleClass('toggled');

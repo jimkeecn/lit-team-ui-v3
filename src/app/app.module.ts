@@ -37,6 +37,7 @@ import { MatchPlayersComponent } from './routes/match-detail/match-players/match
 import { MatchSocialMediaComponent } from './routes/match-detail/match-social-media/match-social-media.component';
 import { JwtInterceptor } from "@app-services/http/http.service";
 import { TeamStandingsComponent } from './routes/teams/team-standings/team-standings.component';
+import { NotificationPanelComponent } from './overlays/notification-panel/notification-panel.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -67,6 +68,7 @@ import { TeamStandingsComponent } from './routes/teams/team-standings/team-stand
     MatchPlayersComponent,
     MatchSocialMediaComponent,
     TeamStandingsComponent,
+    NotificationPanelComponent,
   ],
   imports: [
     BrowserModule,

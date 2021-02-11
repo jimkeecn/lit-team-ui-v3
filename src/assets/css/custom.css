@@ -4,3 +4,121 @@ Description:  You can add your custom CSS here and it will overwrite template st
 */
 
 /*# sourceMappingURL=maps/custom.css.map */
+
+.header-fire-toggle.hide {
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transform: translateY(-20%);
+  transform: translateY(-20%);
+}
+
+.header-fire-toggle .df-icon {
+  fill: #fff;
+  -webkit-transition: all 300ms ease;
+  transition: all 300ms ease;
+}
+
+.header-fire-toggle:hover .df-icon {
+  fill: #ffe000;
+}
+
+.header-fire-toggle .df-icon {
+  width: 24px;
+  height: 24px;
+}
+
+@media (min-width: 1920px) {
+  .header-fire-toggle .df-icon {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+.header-fire-toggle {
+  margin-left: 34px;
+}
+
+body:not(.cursor-is--active) .header-fire-toggle {
+  cursor: pointer;
+}
+
+@media (min-width: 1920px) {
+  .header-fire-toggle {
+    margin-left: 55px;
+  }
+}
+
+.header-fire-toggle {
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+
+@media (min-width: 1920px) {
+  .header-fire-toggle {
+    padding-top: 34px;
+    padding-bottom: 36px;
+  }
+}
+
+.header-fire-toggle {
+  position: relative;
+}
+
+.header-fire-toggle .df-icon--close,
+.header-fire-toggle .df-icon--search-close {
+  position: absolute;
+  top: 25px;
+  left: 0;
+  opacity: 0;
+  -webkit-transform: scale(0.3);
+  transform: scale(0.3);
+  -webkit-transform-origin: center;
+  transform-origin: center;
+}
+
+@media (min-width: 1920px) {
+  .header-fire-toggle .df-icon--close,
+  .header-fire-toggle .df-icon--search-close {
+    top: 35px;
+    left: 0;
+  }
+}
+
+.header-fire-toggle.toggled .df-icon--bag {
+  opacity: 0;
+  -webkit-transform: scale(0.3);
+  transform: scale(0.3);
+}
+
+.header-fire-toggle.toggled .df-icon--close,
+.header-fire-toggle.toggled .df-icon--search-close {
+  opacity: 1;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+}
+
+/**Overlay Animation Override**/
+.site-wrapper--has-fire-overlay .site-overlay,
+.site-wrapper--has-fire-redeem-overlay .site-overlay {
+  visibility: visible;
+  opacity: 1;
+  background-color: rgba(21, 23, 32, 0.96);
+}
+
+.site-wrapper--has-fire-overlay .cart-panel {
+  -webkit-transform: translateX(-100%);
+  transform: translateX(-100%);
+  -webkit-transition-delay: 100ms;
+  transition-delay: 100ms;
+}
+
+@media (max-width: 991.98px) {
+  html.touch .site-wrapper--has-fire-overlay .site-header {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+.fire-panel {
+  z-index: 1102;
+}
