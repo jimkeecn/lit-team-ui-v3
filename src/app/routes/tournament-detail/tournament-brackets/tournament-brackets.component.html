@@ -1,7 +1,11 @@
 
 <div class="mt-sm-auto mb-sm-auto">
     <ul class="matches-scores__navigation js-filter bracket-list">
-        <li data-filter=".sep-18" [ngClass]="{'active':bracket.bracketKnockoutId == bracketSelected}" (click)="switchBrackets(bracket.brackets)" *ngFor="let bracket of (state.brackets$ | async)"><span>{{currentBrackets.length}} games</span>{{bracket.bracketKnockoutName}}</li>
+        <li data-filter=".sep-18" 
+        [ngClass]="{'active':bracket.bracketKnockoutId == bracketSelected}" 
+        (click)="switchBrackets(bracket.brackets)" 
+        *ngFor="let bracket of (state.brackets$ | async)">
+        <span>{{bracket.brackets.length}} games</span>{{bracket.bracketKnockoutName}}</li>
     </ul>
 
     <div class="matches-filter">
