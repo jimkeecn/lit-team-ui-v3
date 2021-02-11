@@ -16,6 +16,8 @@ import { MatchOverviewComponent } from './routes/match-detail/match-overview/mat
 import { MatchPlayersComponent } from './routes/match-detail/match-players/match-players.component';
 import { MatchStatesComponent } from './routes/match-detail/match-states/match-states.component';
 import { MatchSocialMediaComponent } from './routes/match-detail/match-social-media/match-social-media.component';
+import { TeamStandingsComponent } from './routes/teams/team-standings/team-standings.component';
+import { TeamsResolverService } from "@app-services/resolver/teams-resolver.service";
 const routes: Routes = [
   {
     path:"home",
@@ -71,7 +73,13 @@ const routes: Routes = [
       }
     ]
   },
- 
+  {
+    path: "teams",
+    component: TeamStandingsComponent,
+    resolve: {
+      detail: TeamsResolverService
+    },
+ },
   { path: '', redirectTo: 'home', pathMatch: 'full' }, // redirect to `first-component`
   { path: '**', redirectTo: 'home' },
 ];

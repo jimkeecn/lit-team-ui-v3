@@ -1,0 +1,45 @@
+<div class="container container--large">
+    <div class="page-heading page-heading--default">
+        <div class="page-heading__subtitle h5 color-primary">Lit Team</div>
+        <h1 class="page-heading__title h2">All Teams</h1>
+    </div>
+    <div class="matches-filter">
+        <input type="text" placeholder="search for team name">
+    </div>
+    <div class="table-responsive mt-sm-auto mb-sm-auto">
+        <table class="table matches-table standings-table">
+            <thead>
+                <tr>
+                    <th>Index</th>
+                    <th>Team</th>
+                    <th>Wins</th>
+                    <th>Losses</th>
+                    <th>Win rate</th>
+                    <th>K/D/A</th>
+                    <th>MMR</th>
+                    <th>Streak</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let team of _teams;let i = index">
+                    <td>{{i + 1}}</td>
+                    <td class="standings-table__team">
+                        <figure class="match-team" role="group">
+                            <img [src]="team.iconUrl"  alt="Lit Team Team Icon">
+                            <figcaption>
+                                <div class="match-team__name">{{team.name}}</div>
+                                    <div class="match-team__country ">None</div>
+                            </figcaption>
+                        </figure>
+                    </td>
+                    <td class="standings-table__wins">{{team.wins}}</td>
+                    <td class="standings-table__losses">{{team.loses}}</td>
+                    <td>{{team.wins/(team.wins + team.loses) | percent}}</td>
+                    <td>none</td>
+                    <td>none</td>
+                    <td>none</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

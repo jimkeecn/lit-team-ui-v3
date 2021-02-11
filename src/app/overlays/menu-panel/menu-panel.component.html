@@ -155,15 +155,7 @@
             </ul>
           </li>
           <li [ngClass]="{'active':app.routeState == 6 }">
-            <a href="#">Teams</a>
-            <ul class="dl-submenu">
-              <li class="">
-                <a >All Teams</a>
-              </li>
-              <li class="">
-                <a>Toppest Teams</a>
-              </li>
-            </ul>
+            <a [routerLink]="['teams']">Teams</a>
           </li>
           <li>
             <a  [routerLink]="['sign']" *ngIf="!auth.isLogined()">Login</a>

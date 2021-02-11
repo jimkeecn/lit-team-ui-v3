@@ -54,6 +54,17 @@ export class ApplicationService {
           document.getElementById("wrapper").classList.add("page");
           this.routeState = 2;
           break;
+        case "/teams":
+          document.body.classList.add('preloader-is--active');
+          document.body.classList.add('scroll-is--active');
+          document.body.classList.add('bg-fixed');
+          document.body.classList.add('bg--texture-05');
+          document.body.classList.add('bg--dotted-3x3');
+          document.body.classList.add('bg-image');
+          document.getElementById("wrapper").classList.add("site-content--center");
+          document.getElementById("wrapper").classList.add("page");
+          this.routeState = 2;
+          break;
         case "/tournament-detail":
           //document.body.classList.add('preloader-is--active');
           document.body.classList.add('scroll-is--active');
