@@ -21,7 +21,6 @@ export class TeamStandingsComponent implements OnInit {
 
   ngOnInit(): void {
     this.teamSearch.valueChanges.pipe(distinctUntilChanged(),debounceTime(500),map(x => { 
-      debugger;
       let teams = [];
       for (let t = 0; t < this.allTeams.length; t++){
         if (this.allTeams[t].name.toLowerCase().includes(x.toLowerCase())) {
