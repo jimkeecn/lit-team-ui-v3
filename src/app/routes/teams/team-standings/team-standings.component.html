@@ -24,7 +24,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let team of _teams;let i = index">
+                <tr *ngFor="let team of _teams;let i = index" [routerLink]="['/team-detail/',team.id]">
                     <td>{{i + 1}}</td>
                     <td class="standings-table__team">
                         <figure class="match-team" role="group">
