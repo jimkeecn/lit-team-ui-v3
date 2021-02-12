@@ -4,7 +4,10 @@
         <h1 class="page-heading__title h2">All Teams</h1>
     </div>
     <div class="matches-filter">
-        <input type="text" placeholder="search for team name">
+        <form>
+            <input type="text" placeholder="search for team name" [formControl]="teamSearch">
+        </form>
+        
     </div>
     <div class="table-responsive mt-sm-auto mb-sm-auto">
         <table class="table matches-table standings-table">
