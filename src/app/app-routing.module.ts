@@ -20,6 +20,7 @@ import { TeamStandingsComponent } from './routes/teams/team-standings/team-stand
 import { TeamsResolverService } from "@app-services/resolver/teams-resolver.service";
 import { TeamContainerComponent } from './routes/team-detail/team-container/team-container.component';
 import { TeamOverviewComponent } from './routes/team-detail/team-overview/team-overview.component';
+import { TeamDetailResolverService} from "@app-services/resolver/team-detail-resolver.service";
 const routes: Routes = [
   {
     path:"home",
@@ -87,7 +88,7 @@ const routes: Routes = [
     path: "team-detail/:id",
     component: TeamContainerComponent,
         resolve: {
-          detail: MatchDetailResolverService
+          detail: TeamDetailResolverService
     }
   },
   { path: '', redirectTo: 'home', pathMatch: 'full' }, // redirect to `first-component`
