@@ -38,6 +38,10 @@ import { MatchSocialMediaComponent } from './routes/match-detail/match-social-me
 import { JwtInterceptor } from "@app-services/http/http.service";
 import { TeamStandingsComponent } from './routes/teams/team-standings/team-standings.component';
 import { NotificationPanelComponent } from './overlays/notification-panel/notification-panel.component';
+import { TeamContainerComponent } from './routes/team-detail/team-container/team-container.component';
+import { TeamOverviewComponent } from './routes/team-detail/team-overview/team-overview.component';
+import { TeamStatesComponent } from './routes/team-detail/team-states/team-states.component';
+import { TeamMembersComponent } from './routes/team-detail/team-members/team-members.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -69,6 +73,10 @@ import { NotificationPanelComponent } from './overlays/notification-panel/notifi
     MatchSocialMediaComponent,
     TeamStandingsComponent,
     NotificationPanelComponent,
+    TeamContainerComponent,
+    TeamOverviewComponent,
+    TeamStatesComponent,
+    TeamMembersComponent,
   ],
   imports: [
     BrowserModule,
