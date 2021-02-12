@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApplicationService } from '@app-services/app/application.service';
 
 @Component({
   selector: 'app-notification-panel',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NotificationPanelComponent implements OnInit {
 
-  constructor() { }
+  constructor(public app:ApplicationService) { }
 
   ngOnInit(): void {
   }
