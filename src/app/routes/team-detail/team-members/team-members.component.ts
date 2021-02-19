@@ -54,6 +54,22 @@ export class TeamMembersComponent implements OnInit, OnDestroy {
     
   }
 
+  getOpGG(gameId: string) {
+    return `https://oce.op.gg/summoner/userName=${gameId}`;
+  }
+
+  getTwitter(userName: string) {
+    return `https://twitter.com/${userName}`
+  }
+
+  getTwitch(userName: string) {
+    return `https://twitch.tv/${userName}`
+  }
+
+  getInstagram(userName: string) {
+    return `https://www.instagram.com/${userName}`
+  }
+
   stopInterval() {
     this.interval$.unsubscribe();
   }
