@@ -1,0 +1,58 @@
+:host {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  background-color: #fff;
+}
+
+:host .h4 + form {
+  margin-top: 38px;
+}
+
+@media (min-width: 768px) {
+  :host .h4 + form {
+    margin-top: 68px;
+  }
+}
+
+@media (min-width: 1920px) {
+  :host .h4 + form {
+    margin-top: 80px;
+  }
+}
+
+:host .h4 + .account-orders {
+  margin-top: 44px;
+}
+
+@media (min-width: 768px) {
+  :host .h4 + .account-orders {
+    margin-top: 55px;
+  }
+}
+
+@media (min-width: 1920px) {
+  :host .h4 + .account-orders {
+    margin-top: 68px;
+  }
+}
+
+@media (min-width: 992px) {
+  :host:before {
+    content: "";
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 33.33333%;
+    flex: 0 0 33.33333%;
+    display: block;
+    max-width: 620px;
+    min-height: calc(100vh - 72px);
+  }
+}
+
+@media (min-width: 1920px) {
+  :host:before {
+    min-height: calc(100vh - 100px);
+  }
+}

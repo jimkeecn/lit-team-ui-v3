@@ -21,6 +21,9 @@ import { TeamsResolverService } from "@app-services/resolver/teams-resolver.serv
 import { TeamContainerComponent } from './routes/team-detail/team-container/team-container.component';
 import { TeamOverviewComponent } from './routes/team-detail/team-overview/team-overview.component';
 import { TeamDetailResolverService} from "@app-services/resolver/team-detail-resolver.service";
+import { AccountContainerComponent } from './routes/account/account-container/account-container.component';
+import { AccountSettingComponent } from './routes/account/account-setting/account-setting.component';
+import { AccountTeamComponent } from './routes/account/account-team/account-team.component';
 const routes: Routes = [
   {
     path:"home",
@@ -90,6 +93,20 @@ const routes: Routes = [
         resolve: {
           detail: TeamDetailResolverService
     }
+  },
+  {
+    path: "account",
+    component:AccountContainerComponent,
+    children: [
+      {
+        path: "setting",
+        component: AccountSettingComponent,
+      },
+      {
+        path: "team",
+        component: AccountTeamComponent,
+      },
+    ]
   },
   { path: '', redirectTo: 'home', pathMatch: 'full' }, // redirect to `first-component`
   { path: '**', redirectTo: 'home' },

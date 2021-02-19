@@ -40,6 +40,11 @@ export class ApplicationService {
       if (url.includes("team-detail")) {
         url = "/team-detail";
       }
+
+      if (url.includes("account")) {
+        url = "/account";
+      }
+
       switch (url) {
         case "/home":
           document.body.classList.add('preloader-is--active');
@@ -58,6 +63,16 @@ export class ApplicationService {
           document.getElementById("wrapper").classList.add("page");
           this.routeState = 2;
           break;
+          case "/tournament-detail":
+            //document.body.classList.add('preloader-is--active');
+            document.body.classList.add('scroll-is--active');
+            document.body.classList.add('bg-fixed');
+            document.body.classList.add('bg--texture-05');
+            document.body.classList.add('bg-image');
+            document.getElementById("wrapper").classList.add("site-content--center");
+            document.getElementById("wrapper").classList.add("page");
+            this.routeState = 2;
+            break;
         case "/teams":
           document.body.classList.add('preloader-is--active');
           document.body.classList.add('scroll-is--active');
@@ -69,17 +84,7 @@ export class ApplicationService {
           document.getElementById("wrapper").classList.add("page");
           this.routeState = 6;
           break;
-        case "/tournament-detail":
-          //document.body.classList.add('preloader-is--active');
-          document.body.classList.add('scroll-is--active');
-          document.body.classList.add('bg-fixed');
-          document.body.classList.add('bg--texture-05');
-          document.body.classList.add('bg-image');
-          document.getElementById("wrapper").classList.add("site-content--center");
-          document.getElementById("wrapper").classList.add("page");
-          this.routeState = 2;
-          break;
-        case "/team-detail":
+          case "/team-detail":
             //document.body.classList.add('preloader-is--active');
             document.body.classList.add('scroll-is--active');
             document.body.classList.add('full-screen-preview');
@@ -87,11 +92,21 @@ export class ApplicationService {
             document.body.classList.add('bg-image');
             document.getElementById("wrapper").classList.add("team-info-page");
             this.routeState = 6;
-            break;
+          break;
+  
+   
+        case "/account":
+          //document.body.classList.add('preloader-is--active');
+          document.body.classList.add('scroll-is--active');
+          //document.body.classList.add('site-layout--default');
+          //document.getElementById("wrapper").classList.add("account-page");
+          this.routeState = 0;
+          break;
         case "/sign":
           document.body.classList.add('preloader-is--active');
           document.body.classList.add('scroll-is--active');
           document.getElementById("wrapper").classList.add("login-page");
+          this.routeState = 0;
           break;
         default:
           break;
@@ -115,6 +130,7 @@ export class ApplicationService {
     document.body.classList.remove('scroll-is--active');
     document.body.classList.remove('preloader-is--active');
     document.body.classList.remove('site-layout--horizontal');
+    document.body.classList.remove('site-layout--default');
     document.body.classList.remove('bg-fixed');
     document.body.classList.remove('bg--texture-05');
     document.body.classList.remove('bg--dotted-3x3');
@@ -122,6 +138,8 @@ export class ApplicationService {
     document.getElementById("wrapper").classList.remove("site-content--center");
     document.getElementById("wrapper").classList.remove("page");
     document.getElementById("wrapper").classList.remove("team-info-page");
+    document.getElementById("wrapper").classList.remove("account-page");
+    document.getElementById("wrapper").classList.remove("login-page");
   }
 
 /***Old App Service  ****/

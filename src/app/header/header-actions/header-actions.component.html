@@ -108,7 +108,7 @@
     <div class="header-account__name"> {{(auth.currentUserSubject | async).user.gameId }}</div>
   </div>
   <div class="header-account__icon">
-    <a href="shop-account-settings.html">
+    <a [routerLink]="['/account/setting']">
       <svg role="img" class="df-icon df-icon--account">
         <use xlink:href="assets/img/necromancers.svg#account"/>
       </svg>
