@@ -20,7 +20,7 @@
                 <!-- Filter -->
                 <ul class="team-player__filter list-unstyled nav">
                     <li class="team-player__filter-item" (click)="selectedId = member.id" *ngFor="let member of (state.overview$ | async).members">
-                        <a role="tab" data-toggle="tab" class="team-player__filter-inner active">
+                        <a role="tab" data-toggle="tab" class="team-player__filter-inner" [ngClass]="{'active': member.id == selectedId }">
                             <img src="assets/img/samples/streams-filter-avatar-02.png" alt="James Spiegel" class="team-player__filter-img">
                         </a>
                     </li>
