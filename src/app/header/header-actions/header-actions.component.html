@@ -105,7 +105,7 @@
   </div>
   <div class="header-account__body">
     Hello!
-    <div class="header-account__name">James Spiegel</div>
+    <div class="header-account__name"> {{(auth.currentUserSubject | async).user.gameId }}</div>
   </div>
   <div class="header-account__icon">
     <a href="shop-account-settings.html">
