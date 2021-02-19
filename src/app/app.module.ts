@@ -44,6 +44,10 @@ import { TeamStatesComponent } from './routes/team-detail/team-states/team-state
 import { TeamMembersComponent } from './routes/team-detail/team-members/team-members.component';
 import { MobileComponent } from './overlays/menu-panel/mobile/mobile.component';
 import { DesktopComponent } from './overlays/menu-panel/desktop/desktop.component';
+import { AccountContainerComponent } from './routes/account/account-container/account-container.component';
+import { AccountSettingComponent } from './routes/account/account-setting/account-setting.component';
+import { AccountTeamComponent } from './routes/account/account-team/account-team.component';
+import { AccountActionsComponent } from './routes/account/account-actions/account-actions.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -81,6 +85,10 @@ import { DesktopComponent } from './overlays/menu-panel/desktop/desktop.componen
     TeamMembersComponent,
     MobileComponent,
     DesktopComponent,
+    AccountContainerComponent,
+    AccountSettingComponent,
+    AccountTeamComponent,
+    AccountActionsComponent,
   ],
   imports: [
     BrowserModule,
