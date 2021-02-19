@@ -1,7 +1,8 @@
 import { animate, style, transition, trigger } from '@angular/animations';
 import { Xmb } from '@angular/compiler';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { TeamDetailStateService } from '@app-services/state/team-detail-state.service';
+import { interval } from 'rxjs';
 
 @Component({
   selector: 'team-members',
@@ -24,9 +25,10 @@ import { TeamDetailStateService } from '@app-services/state/team-detail-state.se
     )
   ]
 })
-export class TeamMembersComponent implements OnInit {
+export class TeamMembersComponent implements OnInit, OnDestroy {
   selectedId: number = 0;
   memberIds: number[] = [];
+  interval = interval(5000);
   constructor(public state: TeamDetailStateService) { 
     this.state.overview$.subscribe(x => { 
       this.selectedId = x.members[0].id;
@@ -39,30 +41,24 @@ export class TeamMembersComponent implements OnInit {
     })
   }
 
+  interval$ = this.interval.subscribe(val => {
+    let currentId = this.memberIds.findIndex(x => x == this.selectedId);
+    let nextId = currentId !== null
+      && currentId < this.memberIds.length - 1
+      ? currentId + 1 : 0;
+    console.log(nextId);
+    this.selectedId = this.memberIds[nextId];
+  });
+
   ngOnInit(): void {
-    if (this.memberIds.length > 0) {
-      setInterval(() => { 
-        let nextId = this.memberIds.findIndex(x => x == this.selectedId) !== null
-          && this.memberIds.findIndex(x => x == this.selectedId) < this.memberIds.length - 1
-          ? this.memberIds.findIndex(x => x == this.selectedId) + 1 : 0;
-        console.log(nextId);
-        this.selectedId = this.memberIds[nextId];
-
-
-        /**** easy logic here  ***** */
-        
-        // let currentIndex = this.memberIds.findIndex(x => x == this.selectedId);
-        // if (currentIndex < this.memberIds.length - 1) {
-        //   this.selectedId = this.memberIds[currentIndex + 1];
-        //   console.log(this.memberIds[currentIndex + 1])
-        // } else {
-        //   this.selectedId = this.memberIds[0];
-        //   console.log(this.memberIds[0]);
-        // }
-
-      },5000)
-    }
     
   }
 
+  stopInterval() {
+    this.interval$.unsubscribe();
+  }
+
+  ngOnDestroy() {
+    this.interval$.unsubscribe();
+  }
 }
