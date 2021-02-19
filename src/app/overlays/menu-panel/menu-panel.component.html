@@ -2,124 +2,71 @@
 
   <ul class="menu-panel__mobile-bar list-unstyled d-md-none">
     <li class="mobile-bar-item">
-      <a class="mobile-bar-item__header collapsed" data-toggle="collapse" href="#mobile_collapse_1" role="button" aria-expanded="false" aria-controls="mobile_collapse_1">
-        Main Links
-        <span class="main-nav__toggle">&nbsp;</span>
+      <a class="mobile-bar-item__header" [routerLink]="['home']" [ngClass]="{'active':app.routeState == 1 }" >
+        Home
       </a>
-      <div id="mobile_collapse_1" class="collapse mobile-bar-item__body">
+    </li>
+
+    <li class="mobile-bar-item">
+      <a class="mobile-bar-item__header" [ngClass]="{'active':app.routeState == 2 }" [routerLink]="['upcoming-tournaments']">
+        Tournaments
+      </a>
+    </li>
+    <li class="mobile-bar-item">
+      <a class="mobile-bar-item__header collapsed" data-toggle="collapse" href="#youtubers_lit_team" role="button" aria-expanded="false" aria-controls="youtubers" [ngClass]="{'active':app.routeState == 3 }" >
+        Steams and Videos <span class="main-nav__toggle">&nbsp;</span>
+      </a>
+      <div id="youtubers_lit_team" class="collapse mobile-bar-item__body">
         <!-- Mobile Navigation -->
         <nav class="mobile-nav">
           <ul class="mobile-nav__list">
-            <li [ngClass]="{'active':app.routeState == 1 }">
-              <a [routerLink]="['home']">Home</a>
-            </li>
-            <li [ngClass]="{'active':app.routeState == 2 }">
-              <a [routerLink]="['upcoming-tournaments']">Tournaments</a>
-            </li>
-            <li [ngClass]="{'active':app.routeState == 3 }">
-              <a href="#">Steams and Videos</a>
-              <ul class="mobile-nav__sub">
-                <li class=""><a href="matches-scores.html">Lives</a></li>
-                <li class=""><a href="matches-upcoming.html">Streamers</a></li>
-                <li class=""><a href="matches-standings.html">Youtubers</a></li>
-              </ul>
-            </li>
-            <li [ngClass]="{'active':app.routeState == 4 }">
-              <a href="#">Coaching</a>
-              <ul class="mobile-nav__sub">
-                <li class=""><a href="shop.html">Coaches</a></li>
-                <li class=""><a href="shop-2.html">Free Hours</a></li>
-              </ul>
-            </li>
-            <li [ngClass]="{'active':app.routeState == 5 }">
-              <a href="#">Shop</a>
-              <ul class="mobile-nav__sub">
-                <li class=""><a href="shop.html">Our Products</a></li>
-                <li class=""><a href="shop-2.html">Litcoin Shop</a></li>
-              </ul>
-            </li>
-            <li [ngClass]="{'active':app.routeState == 6 }">
-              <a>Team Pages</a>
-              <ul class="mobile-nav__sub">
-                <li class=""><a href="team-selection-1.html">All Teams</a></li>
-                <li class=""><a href="team-selection-2.html">Toppest Teams</a></li>
-              </ul>
-            </li>
-            <li>
-              <a  [routerLink]="['sign']" *ngIf="!auth.isLogined()">Login</a>
-            </li>
+            <li class=""><a >Lives</a></li>
+            <li class=""><a >Streamers</a></li>
+            <li class=""><a >Youtubers</a></li>
+          </ul>
+        </nav>
+        <!-- Mobile Navigation / End -->
+      </div>
+      
+    </li>
+    <li class="mobile-bar-item">
+      <a class="mobile-bar-item__header collapsed" data-toggle="collapse" href="#coaching_lit_team" role="button" aria-expanded="false" aria-controls="coaching" [ngClass]="{'active':app.routeState == 3 }" >
+        Coaching <span class="main-nav__toggle">&nbsp;</span>
+      </a>
+      <div id="coaching_lit_team" class="collapse mobile-bar-item__body">
+        <!-- Mobile Navigation -->
+        <nav class="mobile-nav">
+          <ul class="mobile-nav__list">
+            <li class=""><a >Coaches</a></li>
+            <li class=""><a >Free Hours</a></li>
           </ul>
         </nav>
         <!-- Mobile Navigation / End -->
       </div>
     </li>
     <li class="mobile-bar-item">
-      <a class="mobile-bar-item__header collapsed" data-toggle="collapse" href="#mobile_collapse_2" role="button" aria-expanded="false" aria-controls="mobile_collapse_2">
-        Social Links
-        <span class="main-nav__toggle">&nbsp;</span>
+      <a class="mobile-bar-item__header collapsed" data-toggle="collapse" href="#Shop_lit_team" role="button" aria-expanded="false" aria-controls="Shop" [ngClass]="{'active':app.routeState == 3 }" >
+        Shop <span class="main-nav__toggle">&nbsp;</span>
       </a>
-      <div id="mobile_collapse_2" class="collapse mobile-bar-item__body">
-        <ul class="social-menu social-menu--mobile-bar">
-          <li><a href="https://www.facebook.com/danfisher.dev/"><span>Facebook</span></a></li>
-          <li><a href="https://twitter.com/danfisher_dev"><span>Twitter</span></a></li>
-          <li><a href="https://twitch.tv"><span>Twitch</span></a></li>
-          <li><a href="https://discordapp.com"><span>Discord</span></a></li>
-        </ul>
-      </div>
-    </li>
-    <li class="mobile-bar-item mobile-bar-item--info">
-      <a class="mobile-bar-item__header collapsed" data-toggle="collapse" href="#mobile_collapse_3" role="button" aria-expanded="false" aria-controls="mobile_collapse_3">
-        Get in Touch!
-        <span class="main-nav__toggle">&nbsp;</span>
-      </a>
-      <div id="mobile_collapse_3" class="collapse mobile-bar-item__body">
-        <div class="mobile-bar-item__inner">
-          <ul class="list-unstyled">
-            <li class="info-box">
-              <div class="info-box__label">Max Parker - Recruiter</div>
-              <div class="info-box__content"><a href="mailto:#">mp-recruit<span class="color-primary">@</span>necromancers.com</a></div>
-            </li>
-            <li class="info-box">
-              <div class="info-box__label">Be our partner!</div>
-              <div class="info-box__content"><a href="mailto:#">partners<span class="color-primary">@</span>necromancers.com</a></div>
-            </li>
-            <li class="info-box">
-              <div class="info-box__label">General inquiries</div>
-              <div class="info-box__content"><a href="mailto:#">inquiries<span class="color-primary">@</span>necromancers.com</a></div>
-            </li>
+      <div id="Shop_lit_team" class="collapse mobile-bar-item__body">
+        <!-- Mobile Navigation -->
+        <nav class="mobile-nav">
+          <ul class="mobile-nav__list">
+            <li class=""><a >Our Products</a></li>
+            <li class=""><a >Litcoin shop</a></li>
           </ul>
-        </div>
-      </div>
-    </li>
-    <li class="mobile-bar-item mobile-bar-item--partners">
-      <a id="mobile_collapse_4h" class="mobile-bar-item__header collapsed" data-toggle="collapse" href="#mobile_collapse_4" role="button" aria-expanded="false" aria-controls="mobile_collapse_4">
-        Our Partners
-        <span class="main-nav__toggle">&nbsp;</span>
-      </a>
-      <div id="mobile_collapse_4" class="collapse mobile-bar-item__body">
-        <div class="mobile-bar-item__inner">
-          <ul class="widget-partners-mobile-carousel">
-            <li>
-              <img src="assets/img/samples/partner-carousel-img-01.png" alt="">
-            </li>
-            <li>
-              <img src="assets/img/samples/partner-carousel-img-02.png" alt="">
-            </li>
-            <li>
-              <img src="assets/img/samples/partner-carousel-img-03.png" alt="">
-            </li>
-          </ul>
-        </div>
+        </nav>
+        <!-- Mobile Navigation / End -->
       </div>
     </li>
     <li class="mobile-bar-item">
-      <a class="mobile-bar-item__header">
-        Account Settings
+      <a class="mobile-bar-item__header" [routerLink]="['teams']" [ngClass]="{'active':app.routeState == 6 }" >
+        Teams
       </a>
     </li>
     <li class="mobile-bar-item">
-      <a class="mobile-bar-item__header" (click)="auth.logout()">
-        Logout
+      <a class="mobile-bar-item__header" [routerLink]="['sign']" *ngIf="!auth.isLogined()">
+        Login
       </a>
     </li>
   </ul>
