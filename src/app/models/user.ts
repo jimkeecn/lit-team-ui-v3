@@ -92,7 +92,15 @@ export class LoginModel {
     user: MyFullDetail;
   }
   
-  export class MyFullDetail{
+  export class MyFullDetailExtend{
+    twitchId: string;
+    twitterId: string;
+    instagramId: string;
+    isTwitchLive?: boolean;
+    profileImage: string;
+}
+  
+  export class MyFullDetail extends MyFullDetailExtend{
     gameId:string;
     phone:string;
     name:string;
@@ -103,6 +111,8 @@ export class LoginModel {
     team: TeamViewModel;
     litCoins: number;
 }
+
+
   
 export class AddResultModel{
   name: string;
@@ -169,13 +179,13 @@ export class AddTeamModel{
    members:TeamMemberViewModel[] = []
   }
 
-  export class TeamMemberViewModel{
+  export class TeamMemberViewModel extends MyFullDetailExtend{
     id:number;
     gameId:string;
     position:string;
     acceptedDate:Date;
     isLeader:boolean;
-}
+  }
   
 export class TeamMemberUIModel extends TeamMemberViewModel{
   open: boolean = false;
