@@ -36,6 +36,10 @@ export class ApplicationService {
           this.tourneyDetailState.links = 4;
         } 
       }
+
+      if (url.includes("team-detail")) {
+        url = "/team-detail";
+      }
       switch (url) {
         case "/home":
           document.body.classList.add('preloader-is--active');
@@ -75,6 +79,15 @@ export class ApplicationService {
           document.getElementById("wrapper").classList.add("page");
           this.routeState = 2;
           break;
+        case "/team-detail":
+            //document.body.classList.add('preloader-is--active');
+            document.body.classList.add('scroll-is--active');
+            document.body.classList.add('full-screen-preview');
+            document.body.classList.add('bg--texture-05');
+            document.body.classList.add('bg-image');
+            document.getElementById("wrapper").classList.add("team-info-page");
+            this.routeState = 2;
+            break;
         case "/sign":
           document.body.classList.add('preloader-is--active');
           document.body.classList.add('scroll-is--active');
@@ -108,6 +121,7 @@ export class ApplicationService {
     document.body.classList.remove('bg-image');
     document.getElementById("wrapper").classList.remove("site-content--center");
     document.getElementById("wrapper").classList.remove("page");
+    document.getElementById("wrapper").classList.remove("team-info-page");
   }
 
 /***Old App Service  ****/

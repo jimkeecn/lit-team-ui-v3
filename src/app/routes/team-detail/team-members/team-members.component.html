@@ -1,1 +1,56 @@
-<p>team-members works!</p>
+<div class="team-player">
+    <div class="container container--large">
+        <div class="row">
+            <div class="col-md-12 col-lg-4 offset-lg-7 team-player__inner">
+
+                <!-- Decoration -->
+                <div class="ncr-page-decor">
+                    <div class="ncr-page-decor__layer-1">
+                        <div class="ncr-page-decor__layer-bg"></div>
+                    </div>
+                    <div class="ncr-page-decor__layer-2">
+                        <div class="ncr-page-decor__layer-bg"></div>
+                    </div>
+                    <div class="ncr-page-decor__layer-3"></div>
+                    <div class="ncr-page-decor__layer-4"></div>
+                    <div class="ncr-page-decor__layer-5"></div>
+                </div>
+                <!-- Decoration / End -->
+
+                <!-- Filter -->
+                <ul class="team-player__filter list-unstyled nav">
+                    <li class="team-player__filter-item" (click)="selectedId = member.id" *ngFor="let member of (state.overview$ | async).members">
+                        <a role="tab" data-toggle="tab" class="team-player__filter-inner active">
+                            <img src="assets/img/samples/streams-filter-avatar-02.png" alt="James Spiegel" class="team-player__filter-img">
+                        </a>
+                    </li>
+                </ul>
+                <!-- Filter / End -->
+                <div class="tab-content">
+
+                    <div class="tab-pane fade show active"  id="member-{{member.id}}" *ngFor="let member of (state.overview$ | async).members"   role="tabpanel">
+                        <div class="team-player__info" @inOutAnimation *ngIf="member.id == selectedId">
+                            <div class="team-player__header">
+                                <h2 class="team-player__name h6 color-primary">{{member.position}}</h2>
+                                <h1 class="team-player__nickname h3">
+                                    <span class="position-relative">{{member.gameId}}<a class="add-icon" href="team-player-1.html"></a></span>
+                                </h1>
+                                <ul class="social-menu social-menu--default">
+                                    <li><a href="https://www.facebook.com/danfisher.dev/" target="_blank"></a></li>
+                                    <li><a href="https://twitter.com/danfisher_dev" target="_blank"></a></li>
+                                    <li><a href="https://twitch.tv" target="_blank"></a></li>
+                                    <li><a href="https://www.instagram.com/dan.fisher.dev/" target="_blank"></a></li>
+                                </ul>
+                            </div>
+                            <div class="team-player__photo">
+                                <img src="assets/img/samples/team-info-page-player-photo-01.png" alt="James Spiegel aka DaVikinger90">
+                            </div>
+                        </div>
+                    </div>
+                
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
