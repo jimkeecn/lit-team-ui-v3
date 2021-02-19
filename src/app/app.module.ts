@@ -42,6 +42,8 @@ import { TeamContainerComponent } from './routes/team-detail/team-container/team
 import { TeamOverviewComponent } from './routes/team-detail/team-overview/team-overview.component';
 import { TeamStatesComponent } from './routes/team-detail/team-states/team-states.component';
 import { TeamMembersComponent } from './routes/team-detail/team-members/team-members.component';
+import { MobileComponent } from './overlays/menu-panel/mobile/mobile.component';
+import { DesktopComponent } from './overlays/menu-panel/desktop/desktop.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -77,6 +79,8 @@ import { TeamMembersComponent } from './routes/team-detail/team-members/team-mem
     TeamOverviewComponent,
     TeamStatesComponent,
     TeamMembersComponent,
+    MobileComponent,
+    DesktopComponent,
   ],
   imports: [
     BrowserModule,

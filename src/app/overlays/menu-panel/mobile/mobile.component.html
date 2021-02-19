@@ -1,0 +1,70 @@
+<ul class="menu-panel__mobile-bar list-unstyled d-md-none">
+    <li class="mobile-bar-item">
+      <a class="mobile-bar-item__header" [routerLink]="['home']" [ngClass]="{'active':app.routeState == 1 }" >
+        Home
+      </a>
+    </li>
+
+    <li class="mobile-bar-item">
+      <a class="mobile-bar-item__header" [ngClass]="{'active':app.routeState == 2 }" [routerLink]="['upcoming-tournaments']">
+        Tournaments
+      </a>
+    </li>
+    <li class="mobile-bar-item">
+      <a class="mobile-bar-item__header collapsed" data-toggle="collapse" href="#youtubers_lit_team" role="button" aria-expanded="false" aria-controls="youtubers" [ngClass]="{'active':app.routeState == 3 }" >
+        Steams and Videos <span class="main-nav__toggle">&nbsp;</span>
+      </a>
+      <div id="youtubers_lit_team" class="collapse mobile-bar-item__body">
+        <!-- Mobile Navigation -->
+        <nav class="mobile-nav">
+          <ul class="mobile-nav__list">
+            <li class=""><a >Lives</a></li>
+            <li class=""><a >Streamers</a></li>
+            <li class=""><a >Youtubers</a></li>
+          </ul>
+        </nav>
+        <!-- Mobile Navigation / End -->
+      </div>
+      
+    </li>
+    <li class="mobile-bar-item">
+      <a class="mobile-bar-item__header collapsed" data-toggle="collapse" href="#coaching_lit_team" role="button" aria-expanded="false" aria-controls="coaching" [ngClass]="{'active':app.routeState == 3 }" >
+        Coaching <span class="main-nav__toggle">&nbsp;</span>
+      </a>
+      <div id="coaching_lit_team" class="collapse mobile-bar-item__body">
+        <!-- Mobile Navigation -->
+        <nav class="mobile-nav">
+          <ul class="mobile-nav__list">
+            <li class=""><a >Coaches</a></li>
+            <li class=""><a >Free Hours</a></li>
+          </ul>
+        </nav>
+        <!-- Mobile Navigation / End -->
+      </div>
+    </li>
+    <li class="mobile-bar-item">
+      <a class="mobile-bar-item__header collapsed" data-toggle="collapse" href="#Shop_lit_team" role="button" aria-expanded="false" aria-controls="Shop" [ngClass]="{'active':app.routeState == 3 }" >
+        Shop <span class="main-nav__toggle">&nbsp;</span>
+      </a>
+      <div id="Shop_lit_team" class="collapse mobile-bar-item__body">
+        <!-- Mobile Navigation -->
+        <nav class="mobile-nav">
+          <ul class="mobile-nav__list">
+            <li class=""><a >Our Products</a></li>
+            <li class=""><a >Litcoin shop</a></li>
+          </ul>
+        </nav>
+        <!-- Mobile Navigation / End -->
+      </div>
+    </li>
+    <li class="mobile-bar-item">
+      <a class="mobile-bar-item__header" [routerLink]="['teams']" [ngClass]="{'active':app.routeState == 6 }" >
+        Teams
+      </a>
+    </li>
+    <li class="mobile-bar-item">
+      <a class="mobile-bar-item__header" [routerLink]="['sign']" *ngIf="!auth.isLogined()">
+        Login
+      </a>
+    </li>
+  </ul>
