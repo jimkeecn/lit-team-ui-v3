@@ -48,6 +48,7 @@ import { AccountContainerComponent } from './routes/account/account-container/ac
 import { AccountSettingComponent } from './routes/account/account-setting/account-setting.component';
 import { AccountTeamComponent } from './routes/account/account-team/account-team.component';
 import { AccountActionsComponent } from './routes/account/account-actions/account-actions.component';
+import { ForgotPasswordComponent } from './routes/login-register/forgot-password/forgot-password.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -89,6 +90,7 @@ import { AccountActionsComponent } from './routes/account/account-actions/accoun
     AccountSettingComponent,
     AccountTeamComponent,
     AccountActionsComponent,
+    ForgotPasswordComponent,
   ],
   imports: [
     BrowserModule,

@@ -34,7 +34,7 @@ export class LoginModel {
     email: string;
     password: string;
     confirmPassword: string;
-    gameId:string;
+    //gameId:string;
 
     static passwordMatchValidator(g: FormGroup) {
       if (g.get('password') && g.get('confirmPassword')) {
