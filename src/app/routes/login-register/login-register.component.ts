@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginRegisterComponent implements OnInit {
 
+  isForgotPassword: boolean = false;
   constructor() { }
 
   ngOnInit(): void {

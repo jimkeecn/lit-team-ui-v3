@@ -5,17 +5,17 @@
         </ul>
     </div>
     <div class="form-group">
-        <input type="email" class="form-control" id="input-email-1" placeholder="Your Email*" formControlName="email">
+        <input type="email" class="form-control" id="input-email-1" placeholder="Your Email*" formControlName="email" autocomplete="off">
     </div>
     <div class="form-group">
-        <input type="password" class="form-control" id="input-password-1"  placeholder="Your Password" formControlName="password">
+        <input type="password" class="form-control" id="input-password-1"  placeholder="Your Password" formControlName="password" autocomplete="off">
     </div>
     <div class="form-group d-flex justify-content-between align-items-center">
         <label class="checkbox checkbox-inline">
             <!-- <input class="checkbox-input" type="checkbox" name="rememberme" id="rememberme" checked> Remember me<span class="checkbox-label">&nbsp;</span> -->
         </label>
         <span class="password-reminder">
-            <a href="#">Forgot password?</a>
+            <a [routerLink]="['/reset-password-request']">Forgot password?</a>
         </span>
     </div>
     <button type="button" class="btn btn-block login-form__button"  [disabled]="submitDisable" (click)="login()">Login to your account!</button>

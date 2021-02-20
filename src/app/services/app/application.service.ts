@@ -45,6 +45,10 @@ export class ApplicationService {
         url = "/account";
       }
 
+      if (url.includes("reset-password")) {
+        url = "/reset-password";
+      }
+
       switch (url) {
         case "/home":
           document.body.classList.add('preloader-is--active');
@@ -108,6 +112,12 @@ export class ApplicationService {
           document.getElementById("wrapper").classList.add("login-page");
           this.routeState = 0;
           break;
+        case "/reset-password":
+            document.body.classList.add('preloader-is--active');
+            document.body.classList.add('scroll-is--active');
+            document.getElementById("wrapper").classList.add("login-page");
+            this.routeState = 0;
+            break;
         default:
           break;
       }
