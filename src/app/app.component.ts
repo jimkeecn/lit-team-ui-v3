@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { MemberRequestViewModel } from '@app-models/user';
 import { ApiService } from '@app-services/api/api.service';
+import { AuthService } from '@app-services/auth/auth.service';
 import { ApplicationService } from './services/app/application.service';
 
 @Component({
@@ -9,7 +10,12 @@ import { ApplicationService } from './services/app/application.service';
 })
 export class AppComponent {
   title = 'test-app';
-  constructor(public app:ApplicationService,public api:ApiService) {
+  constructor(public app: ApplicationService, public api: ApiService, public auth: AuthService) {
+    if (this.auth.isLogined()) {
+      this.auth.getMyDetail().subscribe(x => { 
+        
+      })
+    }
     
   }
 

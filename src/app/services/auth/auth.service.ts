@@ -90,7 +90,12 @@ export class AuthService {
   }
 
   localStorageToken(user: TokenModel) {
-    localStorage.setItem('lit-team-currentUser', JSON.stringify(user));
+    const ls : TokenModel = {
+      token: user.token,
+      expiration: user.expiration,
+      user : null
+    }
+    localStorage.setItem('lit-team-currentUser', JSON.stringify(ls));
   }
 
   getMyId() {
