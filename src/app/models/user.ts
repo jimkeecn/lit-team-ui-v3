@@ -122,6 +122,16 @@ export class LoginModel {
             } else if (type == "maxlength") {
               return "Username must less than 17 characters"
             }
+          break;
+        case 'twitterId':
+          if (type == "maxlength") {
+              return "Your twitter username must less than 30 characters"
+            }
+          break;
+        case 'instagramId':
+          if (type == "maxlength") {
+              return "Your Instagram username must less than 30 characters"
+            }
             break;
         default:
           break;
