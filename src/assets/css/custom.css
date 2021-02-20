@@ -11,6 +11,10 @@ Description:  You can add your custom CSS here and it will overwrite template st
   font-size: 0.725rem;
 }
 
+.flex-end {
+  justify-content: flex-end !important;
+}
+
 /*# sourceMappingURL=maps/custom.css.map */
 
 .header-fire-toggle.hide {
