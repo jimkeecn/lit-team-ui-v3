@@ -70,11 +70,11 @@ export class LoginModel {
           break;
           case 'gameId':
             if(type == "required"){
-              return "Summoner ID is required."
+              return "Username is required."
             } else if (type == "minlength") {
-              return "Summoner ID must more than 3 characters"
+              return "Username must more than 3 characters"
             } else if (type == "maxlength") {
-              return "Summoner ID must less than 17 characters"
+              return "Username must less than 17 characters"
             }
             break;
         default:
@@ -93,25 +93,49 @@ export class LoginModel {
   }
   
   export class MyFullDetailExtend{
-    twitchId: string;
-    twitterId: string;
-    instagramId: string;
+    twitchId?: string;
+    twitterId?: string;
+    instagramId?: string;
     isTwitchLive?: boolean;
-    profileImage: string;
+    profileImage?: string;
+    phone?: string;
+    name?: string;
+    email?: string;
+    position?: string;
+    gameId?:string;
+    static getErrorMessage(field,type){
+      switch (field) {
+        case 'phone':
+          if(type == "pattern"){
+            return "Mobile Number can only be digits"
+          } else if (type == "minlength") {
+            return "Mobile number must be 10 digits (e.g 0430281525"
+          } else if (type == "maxlength") {
+            return "Mobile number must be 10 digits (e.g 0430281525"
+          }
+          break;
+        case 'gameId':
+            if(type == "required"){
+              return "Username is required."
+            } else if (type == "minlength") {
+              return "Username must more than 3 characters"
+            } else if (type == "maxlength") {
+              return "Username must less than 17 characters"
+            }
+            break;
+        default:
+          break;
+      }
+    }
 }
   
   export class MyFullDetail extends MyFullDetailExtend{
-    gameId:string;
-    phone:string;
-    name:string;
-    email:string;
-    position:string;
+   
     isVerified:boolean;
     id:number;
     team: TeamViewModel;
     litCoins: number;
 }
-
 
   
 export class AddResultModel{

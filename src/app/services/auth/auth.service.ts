@@ -101,4 +101,27 @@ export class AuthService {
   getMyId() {
     return this.currentUserSubject.value.user.id
   }
+
+
+  /*** User Update APIs */
+  updateAccountDetails(data: any) : Observable<any>{
+  const url = `${this.baseUrl}/user/detail`;
+  return this.http.post<any>(url, data).pipe(tap(x=>{
+  
+  }));
+  }
+  
+  updateAccountSocial(data: any) : Observable<any>{
+    const url = `${this.baseUrl}/user/social`;
+    return this.http.post<any>(url, data).pipe(tap(x=>{
+    
+    }));
+  }
+
+  updateAccountTwitch(data: any) : Observable<any>{
+    const url = `${this.baseUrl}/user/twitch`;
+    return this.http.post<any>(url, data).pipe(tap(x=>{
+    
+    }));
+  }
 }

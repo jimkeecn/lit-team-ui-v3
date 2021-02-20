@@ -1,28 +1,34 @@
 <h2 class="h4">01. Account Details</h2>
-<form action="" class="form">
+<form action="" class="form" [formGroup]="detailForm">
+	<div class="error-list" *ngIf="errors && errors.length > 0">
+        <ul>
+            <li *ngFor="let error of errors">{{error}}</li>
+        </ul>
+    </div>
 	<div class="row">
 		<div class="col-md-6">
 			<div class="form-group">
-				<input type="text" class="form-control" id="input-name" placeholder="Your Username*" disabled>
-				<span class="form-notice">People will see this username when you comment</span>
-			</div>
-		</div>
-		<div class="col-md-6">
-			<div class="form-group">
-				<input type="email" class="form-control" id="input-email" placeholder="Email*" disabled>
+				<label>Your Email</label>
+				<input type="text" class="form-control"  placeholder="Email*" disabled value="{{(auth.currentUserSubject | async)?.user?.email}}">
 			</div>
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-md-6">
 			<div class="form-group">
-				<input type="text" class="form-control" id="input-username" placeholder="Phone Number">
+				<input type="text" class="form-control"  placeholder="Your Username*" formControlName="gameId">
+				<span class="form-notice">People will see this username when you comment</span>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="form-group">
+				<input type="text" class="form-control"  placeholder="Mobile Number" formControlName="phone">
 				<span class="form-notice">We need your phone number to verify your account.</span>
 			</div>
 		</div>
 	
 	</div>
 	<div class="form-group d-sm-flex justify-content-sm-between align-items-sm-center">
-		<button class="btn btn-secondary">Save Changes</button>
+		<button class="btn btn-secondary" (click)="save()">Save Changes</button>
 	</div>
 </form>

@@ -9,11 +9,11 @@ import { ApplicationService } from './services/app/application.service';
   templateUrl: './app.component.html',
 })
 export class AppComponent {
-  title = 'test-app';
+  title = 'Lit-Team-App';
   constructor(public app: ApplicationService, public api: ApiService, public auth: AuthService) {
     if (this.auth.isLogined()) {
       this.auth.getMyDetail().subscribe(x => { 
-        
+
       })
     }
     
