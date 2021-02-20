@@ -14,6 +14,7 @@ import { LoginModel, MyFullDetailExtend } from '@app-models/user';
 export class AccountDetailsComponent implements OnInit {
 
   errors: any[] = [];
+  isVerified: boolean = false;
   detailForm = this.fb.group({
     phone: new FormControl('',[Validators.pattern("^[0-9]*$"),Validators.minLength(10),Validators.maxLength(10)]),
     gameId : new FormControl('',[Validators.required,Validators.maxLength(16),Validators.minLength(3)]),
@@ -33,6 +34,7 @@ export class AccountDetailsComponent implements OnInit {
       if (x.user) {
         if (x.user.isVerified) {
           this.detailForm.get('phone').disable();
+          this.isVerified = x.user.isVerified;
         }
       }
     })
