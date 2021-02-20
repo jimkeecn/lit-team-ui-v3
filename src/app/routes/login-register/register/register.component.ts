@@ -39,7 +39,7 @@ export class RegisterComponent implements OnInit {
       this.submitDisable = true;
       this.app.openSnackBar('We are creating new account for you.', 'loading', 120000);
       this.auth.register(registerForm).subscribe(x=>{
-        this.route.navigate(['login']);
+        this.route.navigate(['sign']);
         this.submitDisable = false;
         this.app.openSnackBar('Please check your email, We have sent you a confirmation email.','success',10000)
       }, (err: HttpErrorResponse) => {
