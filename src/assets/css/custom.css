@@ -3,6 +3,10 @@ File Name: 		custom.css
 Description:  You can add your custom CSS here and it will overwrite template styles
 */
 
+.form-notice {
+  font-size: 0.725rem;
+}
+
 /*# sourceMappingURL=maps/custom.css.map */
 
 .header-fire-toggle.hide {
