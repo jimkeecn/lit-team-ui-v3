@@ -132,6 +132,11 @@ export class LoginModel {
           if (type == "maxlength") {
               return "Your Instagram username must less than 30 characters"
             }
+          break;
+        case 'twitchId':
+          if (type == "maxlength") {
+              return "Your Twitch username must less than 30 characters"
+            }
             break;
         default:
           break;

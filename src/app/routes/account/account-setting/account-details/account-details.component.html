@@ -16,6 +16,7 @@
 	<div class="row">
 		<div class="col-md-6">
 			<div class="form-group">
+				<label>Username</label>
 				<input type="text" class="form-control"  placeholder="Your Username*" formControlName="gameId">
 				<span class="form-notice" >People will see this username when you comment</span>
 				
@@ -23,7 +24,8 @@
 		</div>
 		<div class="col-md-6">
 			<div class="form-group">
-				<input type="text" class="form-control"  placeholder="Mobile Number" formControlName="phone">
+				<label>Mobile Number</label>
+				<input type="text" class="form-control"  placeholder="Mobile Number e.g 0430124331" formControlName="phone">
 				<span class="form-notice" *ngIf="isVerified == false">We need your phone number to verify your account.</span>
 				<span class="form-notice success" *ngIf="isVerified == true">Your mobile number has been verified</span>
 			</div>
