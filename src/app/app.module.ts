@@ -49,6 +49,8 @@ import { AccountSettingComponent } from './routes/account/account-setting/accoun
 import { AccountTeamComponent } from './routes/account/account-team/account-team.component';
 import { AccountActionsComponent } from './routes/account/account-actions/account-actions.component';
 import { ForgotPasswordComponent } from './routes/login-register/forgot-password/forgot-password.component';
+import { ConfirmEmailComponent } from './routes/login-register/confirm-email/confirm-email.component';
+import { ForgotPasswordRequestComponent } from './routes/login-register/forgot-password-request/forgot-password-request.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -91,6 +93,8 @@ import { ForgotPasswordComponent } from './routes/login-register/forgot-password
     AccountTeamComponent,
     AccountActionsComponent,
     ForgotPasswordComponent,
+    ConfirmEmailComponent,
+    ForgotPasswordRequestComponent,
   ],
   imports: [
     BrowserModule,

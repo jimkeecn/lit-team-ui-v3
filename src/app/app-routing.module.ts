@@ -24,6 +24,9 @@ import { TeamDetailResolverService} from "@app-services/resolver/team-detail-res
 import { AccountContainerComponent } from './routes/account/account-container/account-container.component';
 import { AccountSettingComponent } from './routes/account/account-setting/account-setting.component';
 import { AccountTeamComponent } from './routes/account/account-team/account-team.component';
+import { ConfirmEmailComponent } from './routes/login-register/confirm-email/confirm-email.component';
+import { ForgotPasswordRequestComponent } from './routes/login-register/forgot-password-request/forgot-password-request.component';
+import { ForgotPasswordComponent } from './routes/login-register/forgot-password/forgot-password.component';
 const routes: Routes = [
   {
     path:"home",
@@ -107,6 +110,18 @@ const routes: Routes = [
         component: AccountTeamComponent,
       },
     ]
+  },
+  {
+    path:"confirm-email/:token/:email",
+    component:ConfirmEmailComponent
+  },
+  {
+    path:"reset-password-request",
+    component:ForgotPasswordRequestComponent
+  },
+  {
+    path:"reset-password/:token/:email",
+    component:ForgotPasswordComponent
   },
   { path: '', redirectTo: 'home', pathMatch: 'full' }, // redirect to `first-component`
   { path: '**', redirectTo: 'home' },
