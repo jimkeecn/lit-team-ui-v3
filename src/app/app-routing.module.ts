@@ -111,7 +111,7 @@ const routes: Routes = [
         component: AccountGamesComponent,
       },
       {
-        path: "team",
+        path: "clan",
         component: AccountTeamComponent,
       },
     ]

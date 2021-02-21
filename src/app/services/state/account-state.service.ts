@@ -21,7 +21,7 @@ export class AccountStateService {
       else if (url.includes("games")) {
         this.menuState$.next(2);
       }
-      else if (url.includes("team")) {
+      else if (url.includes("clan")) {
         this.menuState$.next(3);
       }
     })
