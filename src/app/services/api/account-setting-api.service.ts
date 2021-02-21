@@ -45,11 +45,14 @@ export class AccountSettingApiService {
     const url = `${this.baseUrl}/user/GameAccounts`;
     return this.http.get<PlayerGameAccount[]>(url).pipe(
       map(x => { 
-        let current = x.findIndex(g => g.IsDelinked !== true);
+        let current = x.findIndex(g => g.isDelinked !== true);
         let old = [...x];
-        old.splice(current, 1);
+        if (current != -1) {
+          old.splice(current, 1);
+        }
+        
         const obj = {
-          current: x[current],
+          current: x[current] ? x[current] : null,
           used : old
         }
         return obj;

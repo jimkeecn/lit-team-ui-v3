@@ -325,14 +325,43 @@ export class PlayerGameAccount{
   gameStaticId: number;
   gameUniqueId: string;
   gameUniqueIntId: number;
-  GameUniqueName: string;
-  CreatedAt: Date;
-  UpdateAt: Date;
-  UpdateBy: number;
-  PlayId: number;
-  GameAccountId: number;
-  Position: number;
-  IsDelinked: boolean;
-  MyDescription: string;
-  IsVerified: boolean;
+  gameUniqueName: string;
+  createdAt: Date;
+  updateAt: Date;
+  updateBy: number;
+  playId: number;
+  gameAccountId: number;
+  position: number;
+  isDelinked: boolean;
+  myDescription: string;
+  isVerified: boolean;
+
+  static getErrorMessage(field,type){
+    switch (field) {
+      case 'gameStaticId':
+        if(type == "required"){
+          return "You must select a game."
+        } 
+        break;
+        case 'gameUniqueName':
+          if(type == "required"){
+            return "Summoner name is required"
+          } 
+          break;
+        case 'position':
+          if(type == "required"){
+            return "Position is required."
+          } 
+        break;
+        case 'myDescription':
+          if(type == "required"){
+            return "Description is required."
+          } else if (type == "maxlength") {
+            return "Description must less than 100 characters"
+          }
+        break;
+      default:
+        break;
+    }
+  }
 }

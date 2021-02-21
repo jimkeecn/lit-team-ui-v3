@@ -3,13 +3,18 @@
 	Please make sure you use your main account (highest ranking). You will be using this account to attend our tournaments.
 	<br>Once you've submit your account. there will be a cooling period for you to change the summoner name again. 
 	<br>If you have any question or request. Please contact our admin in our discord.</h5>
-<form action="" class="form" >
+<form action="" class="form" [formGroup]="detailForm">
+	<div class="error-list" *ngIf="errors && errors.length > 0">
+        <ul>
+            <li *ngFor="let error of errors">{{error}}</li>
+        </ul>
+    </div>
 	<div class="row">
 		<div class="col-md-6">
 			<div class="form-group">
 				<label>Which Game?</label>
-				<select class="form-control">
-                    <option>League of legends (OCE)</option>
+				<select class="form-control" formControlName="gameStaticId">
+                    <option value=1>League of legends (OCE)</option>
                 </select>
 				<span class="form-notice" >Currently we only support league of legends in OCE region</span>
 			</div>
@@ -17,9 +22,11 @@
 		<div class="col-md-6">
 			<div class="form-group">
 				<label>Summoner Name</label>
-				<input type="text" class="form-control"  placeholder="e.g TSM.Doublelift" >
+				<input type="text" class="form-control" [readOnly]="hasCurrent"  placeholder="e.g TSM.Doublelift" formControlName="gameUniqueName" >
 				<span class="form-notice">You summoner name will be displayed to other members</span>
-				<button type="button" class="refresh-summoner">Refresh</button>
+				<button type="button" *ngIf="hasCurrent" 
+				[disabled]="submitDisable" class="refresh-summoner"
+				(click)="refreshSummonerName()">Refresh</button>
 			</div>
 		</div>
 	</div>
@@ -27,28 +34,21 @@
 		<div class="col-md-6">
 			<div class="form-group">
 				<label>What is your main position?</label>
-				<select class="form-control">
-                    <option value="fill">Fill</option>
-					<option value="top">Top Laner</option>
-					<option value="jungler">Jungler</option>
-					<option value="mid">Mid Laner</option>
-					<option value="adc">ADC</option>
-					<option value="support">Support</option>
+				<select class="form-control" formControlName="position">
+                    <option *ngFor="let o of positions" [ngValue]="o.id">{{o.name}}</option>
                 </select>
 			</div>
 		</div>
 		<div class="col-md-6">
 			<div class="form-group">
 				<label>One sentence to descripe your playstyle</label>
-				<input type="text" class="form-control"  placeholder="usually go for first blood as much as possible." >
+				<input type="text" class="form-control"  placeholder="usually go for first blood as much as possible."   formControlName="myDescription">
 				<span class="form-notice">find something that discribe your playstyle accurately, so other member knows you better.</span>
 			</div>
 		</div>
 	</div>
-	<div class="form-group d-sm-flex justify-content-sm-between align-items-sm-center flex-end">
-		<button class="btn btn-secondary" >Submit</button>
-	</div>
-	<div class="form-group d-sm-flex justify-content-sm-between align-items-sm-center flex-end">
-		<button class="btn btn-secondary" >De-link</button>
+	<div class="form-group d-sm-flex justify-content-sm-between align-items-sm-center action-bar">
+		<button class="btn btn-danger" [disabled]="submitDisable" *ngIf="hasCurrent" (click)="delink()">Delink</button>
+		<button class="btn btn-secondary" [disabled]="submitDisable" (click)="submit()">Submit</button>
 	</div>
 </form>
