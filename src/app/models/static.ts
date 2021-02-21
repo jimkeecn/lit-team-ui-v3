@@ -49,6 +49,13 @@ export class TournamentFilter{
     }
 }
 
+export class GamesStatic{
+    gamesId: number;
+    gamesName: string;
+    gamesDescription: string;
+    gamesOtherDescription: string;
+}
+
 export enum TournamentTimeEnum{
     Past = 1,
     Future = 2,
