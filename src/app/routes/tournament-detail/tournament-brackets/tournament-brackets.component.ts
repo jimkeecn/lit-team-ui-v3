@@ -62,9 +62,9 @@ export class TournamentBracketsComponent implements OnInit , AfterViewInit{
       let brackets = JSON.parse(JSON.stringify(x[1]));
       let myDetail = JSON.parse(JSON.stringify(x[2]));
       
-      if (brackets.length > 0 && brackets && myDetail && myDetail.user.id) {
+      if (brackets.length > 0 && brackets && myDetail && myDetail?.user?.id) {
         let bracketSelected = x[3] !== 0 ? x[3] : x[1][0].bracketKnockoutId;
-        let my_team_id = myDetail.user.team.id;
+        let my_team_id = myDetail.user?.team?.id;
         let bracket = brackets.find(x => x.bracketKnockoutId == bracketSelected);
         if (filter == BracketFilter.me) {
           let allBrackets = bracket.brackets;
