@@ -27,6 +27,7 @@ import { AccountTeamComponent } from './routes/account/account-team/account-team
 import { ConfirmEmailComponent } from './routes/login-register/confirm-email/confirm-email.component';
 import { ForgotPasswordRequestComponent } from './routes/login-register/forgot-password-request/forgot-password-request.component';
 import { ForgotPasswordComponent } from './routes/login-register/forgot-password/forgot-password.component';
+import { AccountGamesComponent } from './routes/account/account-games/account-games.component';
 const routes: Routes = [
   {
     path:"home",
@@ -104,6 +105,10 @@ const routes: Routes = [
       {
         path: "setting",
         component: AccountSettingComponent,
+      },
+      {
+        path: "games",
+        component: AccountGamesComponent,
       },
       {
         path: "team",

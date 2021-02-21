@@ -54,6 +54,7 @@ import { ForgotPasswordRequestComponent } from './routes/login-register/forgot-p
 import { AccountDetailsComponent } from './routes/account/account-setting/account-details/account-details.component';
 import { SocialMediaComponent } from './routes/account/account-setting/social-media/social-media.component';
 import { TwitchComponent } from './routes/account/account-setting/twitch/twitch.component';
+import { AccountGamesComponent } from './routes/account/account-games/account-games.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -101,6 +102,7 @@ import { TwitchComponent } from './routes/account/account-setting/twitch/twitch.
     AccountDetailsComponent,
     SocialMediaComponent,
     TwitchComponent,
+    AccountGamesComponent,
   ],
   imports: [
     BrowserModule,
