@@ -1,4 +1,4 @@
-import { TeamViewModel } from './user';
+import { ClanViewModel } from './user';
 
 export class TournamentDTO{
     tournamentId: number;
@@ -32,7 +32,7 @@ export class TournamentDTO{
     registeredTeam: number;
 }
 
-export class TournamentTeamDTO extends TeamViewModel{
+export class TournamentTeamDTO extends ClanViewModel{
     registrationStatus; string;
     registrationStatusId: number;
 }

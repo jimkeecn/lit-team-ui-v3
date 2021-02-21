@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { TeamViewModel } from '@app-models/user';
+import { ClanViewModel } from '@app-models/user';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
@@ -7,6 +7,6 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class TeamDetailStateService {
 
-  overview$ = new BehaviorSubject<TeamViewModel>(new TeamViewModel());
+  overview$ = new BehaviorSubject<ClanViewModel>(new ClanViewModel());
   constructor() { }
 }

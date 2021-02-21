@@ -148,7 +148,7 @@ export class LoginModel {
    
     isVerified:boolean;
     id:number;
-    team: TeamViewModel;
+    team: ClanViewModel;
     litCoins: number;
 }
 
@@ -206,7 +206,7 @@ export class AddTeamModel{
   }
 }
 
-  export class TeamViewModel{
+  export class ClanViewModel{
    id:number;
    name:string;
    iconUrl:string;
@@ -214,11 +214,19 @@ export class AddTeamModel{
    totalScore:number;
    winrate:number;
    loses:number;
-   wins:number;
-   members:TeamMemberViewModel[] = []
+   wins: number;
+   clanSubTitle: string;
+   clanDescription: string;
+   clanRecruitment: string;
+   clanWebsite: string;
+   clanFacebook; string;
+   clanInstagram: string;
+   clanDiscord: string;
+   clanTwitter: string;
+   members:ClanMemberViewModel[] = []
   }
 
-  export class TeamMemberViewModel extends MyFullDetailExtend{
+  export class ClanMemberViewModel extends MyFullDetailExtend{
     id:number;
     gameId:string;
     position:string;
@@ -226,7 +234,7 @@ export class AddTeamModel{
     isLeader:boolean;
   }
   
-export class TeamMemberUIModel extends TeamMemberViewModel{
+export class ClanMemberUIModel extends ClanMemberViewModel{
   open: boolean = false;
 }
   
@@ -271,7 +279,7 @@ export class TeamMemberUIModel extends TeamMemberViewModel{
   }
 
   export class MemberRequestViewModel{
-    team:TeamViewModel;
+    team:ClanViewModel;
     teamId:number;
     playerId:number;
     id:number;
@@ -285,8 +293,8 @@ export class TeamMemberUIModel extends TeamMemberViewModel{
     recordUrl:string;
     invalid:boolean;
     matchId:number;
-    loser:TeamViewModel;
-    winner:TeamViewModel;
+    loser:ClanViewModel;
+    winner:ClanViewModel;
     clips: MatchClipModel[];
     matchCode: string;
 }

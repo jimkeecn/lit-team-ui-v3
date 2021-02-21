@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { distinctUntilChanged, map, switchMap, tap } from 'rxjs/operators';
-import { MatchClipRequest, MatchViewModel, MemberRequestCreateModel, MemberRequestViewModel, MyFullDetail, PlayerGameAccount, PlayerUpdateModel, TeamViewModel } from '@app-models/user';
+import { MatchClipRequest, MatchViewModel, MemberRequestCreateModel, MemberRequestViewModel, MyFullDetail, PlayerGameAccount, PlayerUpdateModel, ClanViewModel } from '@app-models/user';
 import { ApplicationService } from '@app-services/app/application.service';
 import { environment } from "../../../environments/environment";
 @Injectable({

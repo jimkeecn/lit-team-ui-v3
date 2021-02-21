@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { distinctUntilChanged, map, tap } from 'rxjs/operators';
-import { MatchClipRequest, MatchViewModel, MemberRequestCreateModel, MemberRequestViewModel, MyFullDetail, PlayerUpdateModel, TeamViewModel } from '@app-models/user';
+import { MatchClipRequest, MatchViewModel, MemberRequestCreateModel, MemberRequestViewModel, MyFullDetail, PlayerUpdateModel, ClanViewModel } from '@app-models/user';
 import { ApplicationService } from '@app-services/app/application.service';
 import { environment } from "../../../environments/environment";
 @Injectable({
@@ -42,30 +42,30 @@ export class ApiService {
     }));
   }
 
-  getAllTeam():Observable<TeamViewModel[]>{
+  getAllTeam():Observable<ClanViewModel[]>{
     const url = `${this.baseUrl}/teams`;
-    return this.http.get<TeamViewModel[]>(url).pipe(tap(x=>{
+    return this.http.get<ClanViewModel[]>(url).pipe(tap(x=>{
       //do something
     }));
   }
 
-  getTop10Team():Observable<TeamViewModel[]>{
+  getTop10Team():Observable<ClanViewModel[]>{
     const url = `${this.baseUrl}/teams/top10`;
-    return this.http.get<TeamViewModel[]>(url).pipe(tap(x=>{
+    return this.http.get<ClanViewModel[]>(url).pipe(tap(x=>{
       //do something
     }));
   }
 
-  getTeamInfoById(id:number):Observable<TeamViewModel>{
+  getTeamInfoById(id:number):Observable<ClanViewModel>{
     const url = `${this.baseUrl}/team/${id}`;
-    return this.http.get<TeamViewModel>(url).pipe(tap(x=>{
+    return this.http.get<ClanViewModel>(url).pipe(tap(x=>{
       //do something
     }));
   }
 
-  GetTeamByName(name: string): Observable<TeamViewModel[]>{
+  GetTeamByName(name: string): Observable<ClanViewModel[]>{
     const url = `${this.baseUrl}/team/search/${name}`;
-    return this.http.get<TeamViewModel[]>(url).pipe(tap(x=>{
+    return this.http.get<ClanViewModel[]>(url).pipe(tap(x=>{
       //do something
     }));
   }

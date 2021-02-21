@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { TeamViewModel } from '@app-models/user';
+import { ClanViewModel } from '@app-models/user';
 import { debounceTime, distinctUntilChanged, map, tap } from 'rxjs/operators';
 
 @Component({
@@ -12,8 +12,8 @@ import { debounceTime, distinctUntilChanged, map, tap } from 'rxjs/operators';
 export class TeamStandingsComponent implements OnInit {
 
   teamSearch = new FormControl("");
-  allTeams: TeamViewModel[] = [];
-  _teams: TeamViewModel[] = [];
+  allTeams: ClanViewModel[] = [];
+  _teams: ClanViewModel[] = [];
   constructor(private route: ActivatedRoute) {
     this._teams = this.route.snapshot.data.detail;
     this.allTeams = this.route.snapshot.data.detail;
