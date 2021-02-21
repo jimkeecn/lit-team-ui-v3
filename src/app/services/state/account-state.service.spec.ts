@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { StaticApiService } from './static-api.service';
+import { AccountStateService } from './account-state.service';
 
-describe('StaticApiService', () => {
-  let service: StaticApiService;
+describe('AccountStateService', () => {
+  let service: AccountStateService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(StaticApiService);
+    service = TestBed.inject(AccountStateService);
   });
 
   it('should be created', () => {

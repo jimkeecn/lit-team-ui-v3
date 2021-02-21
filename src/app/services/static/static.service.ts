@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { ApplicationService } from '@app-services/app/application.service';
 import { BehaviorSubject, Observable } from 'rxjs';
 import {
-  GameMode, StaticList, TournamentFormat,
+  GameMode, GamesStatic, StaticList, TournamentFormat,
   TournamentMap, TournamentType
 } from '@app-models/static';
 import { environment } from '../../../environments/environment';
@@ -59,6 +59,13 @@ export class StaticService {
       let origin = { ...this.$staticList.value };
       origin.tournamentFormats = x;
       this.$staticList.next(origin);
+    }));
+  }
+
+  getGames() : Observable<GamesStatic[]>{
+    const url = `${this.baseUrl}/static/Games`;
+    return this.http.get<any[]>(url).pipe(tap(x=>{
+      //do something
     }));
   }
 
