@@ -64,7 +64,7 @@ export class StaticService {
 
   getGames() : Observable<GamesStatic[]>{
     const url = `${this.baseUrl}/static/Games`;
-    return this.http.get<any[]>(url).pipe(tap(x=>{
+    return this.http.get<GamesStatic[]>(url).pipe(tap(x=>{
       //do something
     }));
   }

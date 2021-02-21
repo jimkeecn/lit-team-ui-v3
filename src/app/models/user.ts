@@ -291,8 +291,6 @@ export class TeamMemberUIModel extends TeamMemberViewModel{
     matchCode: string;
 }
   
-
-
 export class MatchClipModel{
     index?: number;
     videoUrl:string;
@@ -321,4 +319,20 @@ export class MatchCodeResponse{
   matchIndex: number;
   startTime: Date;
   riotMatchId: number;
+}
+
+export class PlayerGameAccount{
+  gameStaticId: number;
+  gameUniqueId: string;
+  gameUniqueIntId: number;
+  GameUniqueName: string;
+  CreatedAt: Date;
+  UpdateAt: Date;
+  UpdateBy: number;
+  PlayId: number;
+  GameAccountId: number;
+  Position: number;
+  IsDelinked: boolean;
+  MyDescription: string;
+  IsVerified: boolean;
 }
