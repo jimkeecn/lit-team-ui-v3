@@ -69,4 +69,10 @@ export enum TournamentLinks{
     rules = 2,
     teams = 3,
     brackets = 4
-  }
+}
+  
+export enum AccountMenuState{
+    details = 1,
+    gameAccounts = 2,
+    team = 3
+}

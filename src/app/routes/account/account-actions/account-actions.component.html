@@ -1,5 +1,5 @@
 <div class="account-navigation__header">
-    <a class="account-navigation__logout" href="./">
+    <a class="account-navigation__logout" (click)="auth.logout()">
         <svg role="img" class="df-icon df-icon--logout-circle">
             <use xlink:href="assets/img/necromancers.svg#logout-circle"/>
         </svg>
@@ -12,7 +12,7 @@
         <span class="account-navigation__browse-icon">&nbsp;</span>
     </a>
     <div class="account-navigation__subtitle">Welcome back!</div>
-    <div class="account-navigation__name h5">James Spiegel</div>
+    <div class="account-navigation__name h5">{{(auth.currentUserSubject | async)?.user?.gameId}}</div>
     <ul class="account-navigation__meta">
         <li>27<span>likes</span></li>
         <li>4<span>wins</span></li>
@@ -20,7 +20,10 @@
     </ul>
 </div>
 <ul class="account-navigation__menu">
-    <li ><a [routerLink]="['/account/setting']">Account Detail</a></li>
-    <li><a [routerLink]="['/account/games']">My Game Accounts</a></li>
-    <li><a [routerLink]="['/account/team']">My Team</a></li>
+    <li ><a [ngClass]="{'active': (state.menuState$ | async) == 1}" 
+        [routerLink]="['/account/setting']">Account Detail</a></li>
+    <li><a [ngClass]="{'active': (state.menuState$ | async) == 2}" 
+        [routerLink]="['/account/games']">My Game Accounts</a></li>
+    <li><a [ngClass]="{'active': (state.menuState$ | async) == 3}" 
+        [routerLink]="['/account/team']">My Team</a></li>
 </ul>

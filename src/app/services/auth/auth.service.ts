@@ -35,7 +35,7 @@ export class AuthService {
 
   getMyDetail(): Observable<any> {
     const url = `${this.baseUrl}/user`;
-    return this.http.get<any>(url).pipe(tap(user=>{
+    return this.http.get<any>(url).pipe(tap(user => {
       var data = { ...this.currentUserSubject.value };
       data.user = user;
       this.currentUserSubject.next(data);
