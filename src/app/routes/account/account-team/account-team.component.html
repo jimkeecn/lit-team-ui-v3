@@ -21,7 +21,7 @@
 	<div class="row" *ngIf="!hasClan">
 		<div class="col-md-6">
             <div class="form-group">
-				<label>Clan Icon</label>
+				<label>Clan Icon (Cannot be changed after)</label>
 				<input type="file" class="form-control" accept=".png,.jpg,.jpeg" 
 				(change)="onFileChange($event)" >
 				<span>Inapporiate icon will result in permanent ban on your Lit Team Account.</span>
@@ -50,7 +50,7 @@
 			<div class="form-group">
 				<label>Tell us about your clan.</label>
 				<textarea class="form-control" formControlName="clanDescription"  ></textarea>
-                <span class="form-notice">No more than 1000 characters</span>
+                <span class="form-notice">No more than 200 characters</span>
 			</div>
 		</div>
 	</div>
@@ -59,7 +59,7 @@
 			<div class="form-group">
 				<label>What do you want to say to other members?(recruitment annoucement)</label>
 				<textarea class="form-control" formControlName="clanRecruitment" ></textarea>
-                <span class="form-notice">No more than 1000 characters</span>
+                <span class="form-notice">No more than 200 characters</span>
 			</div>
 		</div>
 	</div>
@@ -101,15 +101,18 @@
 		</div>
 	</div>
 	<div class="form-group d-sm-flex justify-content-sm-between align-items-sm-center action-bar">
-		<button class="btn btn-danger" (click)="disband()">Disband</button>
-		<button class="btn btn-secondary" (click)="submit()">{{ hasClan ? "Save" : "Create"}}</button>
+		<button class="btn btn-danger" [disabled]="submitDisable" (click)="disband()">Disband</button>
+		<button class="btn btn-secondary" [disabled]="submitDisable" (click)="submit()">{{ hasClan ? "Save" : "Create"}}</button>
 	</div>
 </form>
 
 <div class="table-responsive mt-sm-auto mb-sm-auto" *ngIf="tabState == 2">
+	<p>
+		Please be careful with <b>edit</b>  permission, once you give the <b>edit</b> permission to other member, they can change everything to your Clan (including change other member's permissions.).
+	</p>
 	<div class="table-actions">
 		<input class="form-control" placeholder="username e.g litteamaccount" [(ngModel)]="inviteMemberName">
-		<button class="btn btn-secondary" (click)="inviteMember()">Invite</button>
+		<button class="btn btn-secondary" [disabled]="submitDisable" (click)="inviteMember()">Invite</button>
 		
 	</div>
 	
@@ -121,7 +124,8 @@
 				<td class="standings-table__losses">Allow Edit <input type="checkbox" [checked]="member.canEdit" (change)="memberChange(member.id,$event,'edit')"></td>
 				<td class="standings-table__losses">Allow Invite <input type="checkbox" [checked]="member.caninvite" (change)="memberChange(member.id,$event,'invite')"></td>
 				<td class="standings-table__losses">Allow Kick <input type="checkbox" [checked]="member.canKick" (change)="memberChange(member.id,$event,'kick')"></td>
-				<td><button class="btn btn-secondary" (click)="updateMember(member)">Change</button></td>
+				<td><button class="btn btn-secondary" [disabled]="submitDisable" (click)="updateMember(member)">Change</button></td>
+				<td><button class="btn btn-danger" [disabled]="submitDisable" (click)="kickMember(member)">Kick</button></td>
 			</tr>
 		</tbody>
 	</table>

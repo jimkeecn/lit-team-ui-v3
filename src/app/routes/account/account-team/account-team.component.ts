@@ -83,9 +83,11 @@ export class AccountTeamComponent implements OnInit {
   }
 
   updateMember(data) {
+    this.submitDisable = true;
     this.api.updateMember(data).subscribe(res => { 
       this.app.openSnackBar(`Member has been updated.`, 'success');
       this.getMyTeam();
+      this.submitDisable = false;
     }, (err: HttpErrorResponse) => {
       this.submitDisable = false;
       this.app.errorHandler(err);
@@ -93,12 +95,14 @@ export class AccountTeamComponent implements OnInit {
   }
   inviteMemberName: string;
   inviteMember() {
+    this.submitDisable = true;
     let obj: MemberRequestCreateModel = {
       gameId: this.inviteMemberName,
       clanId: this.clanInfo.id
     }
     console.log(obj);
     this.api.inviteMember(obj).subscribe(res => { 
+      this.submitDisable = false;
       this.app.openSnackBar(`An invitation has been sent.`, 'success');
       this.getMyTeam();
     }, (err: HttpErrorResponse) => {
@@ -142,6 +146,20 @@ export class AccountTeamComponent implements OnInit {
       })
     }
     
+  }
+
+  kickMember(member) {
+    this.submitDisable = true;
+    if (window.confirm(`Are you sure to remove this member "${member.gameId}"`)) {
+      this.api.removeMember(member.id).subscribe(res => { 
+        this.app.openSnackBar(`You have removed ${member.gameId}`, 'success');
+        this.getMyTeam();
+        this.submitDisable = false;
+      }, (err: HttpErrorResponse) => {
+        this.submitDisable = false;
+        this.app.errorHandler(err);
+      })
+    }
   }
 
   disband() {
