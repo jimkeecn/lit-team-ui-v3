@@ -1,1 +1,98 @@
-<p>account-team works!</p>
+<h2 class="h4" *ngIf="!hasClan">Start a new clan</h2>
+<div class="clan-icon" >
+	<img [src]="clanIcon">
+</div>
+<form action="" class="form" [formGroup]="detailForm">
+	<div class="error-list" *ngIf="errors && errors.length > 0">
+        <ul>
+            <li *ngFor="let error of errors">{{error}}</li>
+        </ul>
+    </div>
+	<h5 class="h6" *ngIf="!hasClan">01. Upload Clan Icon</h5>
+	<div class="row" *ngIf="!hasClan">
+		<div class="col-md-6">
+            <div class="form-group">
+				<label>Clan Icon</label>
+				<input type="file" class="form-control" accept=".png,.jpg,.jpeg" 
+				(change)="onFileChange($event)" >
+				<span>Inapporiate icon will result in permanent ban on your Lit Team Account.</span>
+			</div>
+		</div>
+	</div>
+    <h5 class="h6">{{hasClan ? '01' : '02'}}. Clan Basic Information</h5>
+	<div class="row">
+		<div class="col-md-6" >
+            <div class="form-group">
+				<label>Clan Name</label>
+				<input type="text" class="form-control" [readonly]="hasClan" placeholder="e.g TSM.AU" formControlName="name" >
+				<span *ngIf="hasClan">If you wish to change your Clan Name, please contact our admins</span>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="form-group">
+				<label>Clan subtitle</label>
+				<input type="text" class="form-control" formControlName="clanSubTitle"  placeholder="e.g the best clan in lit team." >
+				<span class="form-notice">A short description of the clan.</span>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="form-group">
+				<label>Tell us about your clan.</label>
+				<textarea class="form-control" formControlName="clanDescription"  ></textarea>
+                <span class="form-notice">No more than 1000 characters</span>
+			</div>
+		</div>
+	</div>
+    <div class="row">
+		<div class="col-md-12">
+			<div class="form-group">
+				<label>What do you want to say to other members?(recruitment annoucement)</label>
+				<textarea class="form-control" formControlName="clanRecruitment" ></textarea>
+                <span class="form-notice">No more than 1000 characters</span>
+			</div>
+		</div>
+	</div>
+    <h5 class="h6">03. Clan Social Media</h5>
+    <div class="row">
+		<div class="col-md-6">
+			<div class="form-group">
+				<label>Clan Website</label>
+				<input class="form-control" placeholder="https://litteam.gg" formControlName="clanWebsite">
+			</div>
+		</div>
+        <div class="col-md-6">
+			<div class="form-group">
+				<label>Clan Facebook</label>
+				<input class="form-control" placeholder="oceLitteam"  formControlName="clanFacebook">
+			</div>
+		</div>
+	</div>
+    <div class="row">
+		<div class="col-md-6">
+			<div class="form-group">
+				<label>Clan Instagram</label>
+				<input class="form-control" placeholder="oceLitteam" formControlName="clanInstagram">
+			</div>
+		</div>
+        <div class="col-md-6">
+			<div class="form-group">
+				<label>Clan Discord</label>
+				<input class="form-control" placeholder="oceLitteam" formControlName="clanDiscord">
+			</div>
+		</div>
+	</div>
+    <div class="row">
+		<div class="col-md-6">
+			<div class="form-group">
+				<label>Clan Twitter</label>
+				<input class="form-control" placeholder="oceLitteam" formControlName="clanTwitter">
+			</div>
+		</div>
+	</div>
+	<div class="form-group d-sm-flex justify-content-sm-between align-items-sm-center action-bar">
+		<button class="btn btn-danger" (click)="disband()">Disband</button>
+		<button class="btn btn-secondary" (click)="submit()">{{ hasClan ? "Save" : "Create"}}</button>
+	</div>
+</form>

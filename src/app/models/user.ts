@@ -185,8 +185,16 @@ export class AddResultModel{
   }
 }
 
-export class AddTeamModel{
+export class AddUpdateClanModel{
   name: string;
+  clanSubTitle: string;
+  clanDescription: string;
+  clanRecruitment: string;
+  clanWebsite: string;
+  clanFacebook: string;
+  clanInstagram: string;
+  clanDiscord: string;
+  clanTwitter: string;
   file: any;
 
   static getErrorMessage(field,type){
@@ -200,6 +208,13 @@ export class AddTeamModel{
           return "Team Name only allow english letter and space and digits."
         }
         break;
+      case 'clanSubTitle':
+          if(type == "required"){
+            return "Team Name is required."
+          } else if(type == "maxlength"){
+            return "Team Name must less than 50 characters."
+          } 
+          break;
       default:
         break;
     }
@@ -275,12 +290,12 @@ export class ClanMemberUIModel extends ClanMemberViewModel{
 
   export class MemberRequestCreateModel{
     gameId:string;
-    teamId:number;
+    clanId:number;
   }
 
   export class MemberRequestViewModel{
     team:ClanViewModel;
-    teamId:number;
+    clanId:number;
     playerId:number;
     id:number;
   }

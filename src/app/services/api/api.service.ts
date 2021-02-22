@@ -36,42 +36,56 @@ export class ApiService {
   }
 
   createNewTeam(data:FormData):Observable<any>{
-    const url = `${this.baseUrl}/team`;
+    const url = `${this.baseUrl}/clan`;
     return this.http.put<any>(url,data).pipe(tap(x=>{
       //do something
     }));
   }
 
+  updateTeam(data:any):Observable<any>{
+    const url = `${this.baseUrl}/clan`;
+    return this.http.post<any>(url,data).pipe(tap(x=>{
+      //do something
+    }));
+  }
+
+  getMyTeam():Observable<ClanViewModel>{
+    const url = `${this.baseUrl}/clan`;
+    return this.http.get<ClanViewModel>(url).pipe(tap(x=>{
+      //do something
+    }));
+  }
+
   getAllTeam():Observable<ClanViewModel[]>{
-    const url = `${this.baseUrl}/teams`;
+    const url = `${this.baseUrl}/clans`;
     return this.http.get<ClanViewModel[]>(url).pipe(tap(x=>{
       //do something
     }));
   }
 
   getTop10Team():Observable<ClanViewModel[]>{
-    const url = `${this.baseUrl}/teams/top10`;
+    const url = `${this.baseUrl}/clans/top10`;
     return this.http.get<ClanViewModel[]>(url).pipe(tap(x=>{
       //do something
     }));
   }
 
   getTeamInfoById(id:number):Observable<ClanViewModel>{
-    const url = `${this.baseUrl}/team/${id}`;
+    const url = `${this.baseUrl}/clan/${id}`;
     return this.http.get<ClanViewModel>(url).pipe(tap(x=>{
       //do something
     }));
   }
 
   GetTeamByName(name: string): Observable<ClanViewModel[]>{
-    const url = `${this.baseUrl}/team/search/${name}`;
+    const url = `${this.baseUrl}/clan/search/${name}`;
     return this.http.get<ClanViewModel[]>(url).pipe(tap(x=>{
       //do something
     }));
   }
 
   getTeamInfoByIdWithMatches(id:number):Observable<MatchViewModel[]>{
-    const url = `${this.baseUrl}/team/${id}/matches`;
+    const url = `${this.baseUrl}/clan/${id}/matches`;
     return this.http.get<MatchViewModel[]>(url).pipe(tap(x=>{
       //do something
     }));
