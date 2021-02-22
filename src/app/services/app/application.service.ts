@@ -160,6 +160,12 @@ myDetails$ =  new BehaviorSubject(this.myDetails);
 
 invitations$ = new BehaviorSubject<MemberRequestViewModel[]>([]);
 
+removeFromInvitations(id) {
+  let invs = [...this.invitations$.value];
+  let index = invs.findIndex(x => x.id == id);
+  invs.splice(index, 1);
+  this.invitations$.next(invs);
+}
 openSnackBar(message, type,duration?) {
   this._snackBar.open(message, null, {
     duration: duration ? duration : 5000,
@@ -205,6 +211,7 @@ formErrorHandler(form: FormGroup){
 }
 
 
+  /*** Notification ***/
 }
 
 
