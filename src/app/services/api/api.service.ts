@@ -129,6 +129,12 @@ export class ApiService {
     }))
   }
 
+  updateMember(data:any): Observable<any>{
+    const url = `${this.baseUrl}/member`;
+    return this.http.post<any>(url,data).pipe(tap(x=>{
+    }))
+  }
+
   addNewMatchResult(data:FormData):Observable<any>{
     const url = `${this.baseUrl}/match`;
     return this.http.put<any>(url,data).pipe(tap(x=>{

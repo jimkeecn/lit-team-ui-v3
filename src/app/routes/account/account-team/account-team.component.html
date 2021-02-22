@@ -2,7 +2,16 @@
 <div class="clan-icon" >
 	<img [src]="clanIcon">
 </div>
-<form action="" class="form" [formGroup]="detailForm">
+
+<div class="clan-tab">
+	<a  [ngClass]="{'btn-secondary':tabState == 1 }" (click)="tabState = 1">
+		Basic Information
+	</a>
+	<a  [ngClass]="{'btn-secondary':tabState == 2 }" (click)="tabState = 2">
+		Manage Members
+	</a>
+</div>
+<form action="" class="form" [formGroup]="detailForm" *ngIf="tabState == 1">
 	<div class="error-list" *ngIf="errors && errors.length > 0">
         <ul>
             <li *ngFor="let error of errors">{{error}}</li>
@@ -96,3 +105,24 @@
 		<button class="btn btn-secondary" (click)="submit()">{{ hasClan ? "Save" : "Create"}}</button>
 	</div>
 </form>
+
+<div class="table-responsive mt-sm-auto mb-sm-auto" *ngIf="tabState == 2">
+	<div class="table-actions">
+		<input class="form-control" placeholder="username e.g litteamaccount" [(ngModel)]="inviteMemberName">
+		<button class="btn btn-secondary" (click)="inviteMember()">Invite</button>
+		
+	</div>
+	
+	<table class="table matches-table">
+		<tbody>
+			<tr *ngFor="let member of members">
+				<td>{{member.gameId}}</td>
+				<td>{{member.acceptedDate | date : 'dd/MM/yyyy'}}</td>
+				<td class="standings-table__losses">Allow Edit <input type="checkbox" [checked]="member.canEdit" (change)="memberChange(member.id,$event,'edit')"></td>
+				<td class="standings-table__losses">Allow Invite <input type="checkbox" [checked]="member.caninvite" (change)="memberChange(member.id,$event,'invite')"></td>
+				<td class="standings-table__losses">Allow Kick <input type="checkbox" [checked]="member.canKick" (change)="memberChange(member.id,$event,'kick')"></td>
+				<td><button class="btn btn-secondary" (click)="updateMember(member)">Change</button></td>
+			</tr>
+		</tbody>
+	</table>
+</div>

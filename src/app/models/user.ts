@@ -246,7 +246,11 @@ export class AddUpdateClanModel{
     gameId:string;
     position:string;
     acceptedDate:Date;
-    isLeader:boolean;
+    isLeader: boolean;
+    canKick: boolean;
+    caninvite: boolean;
+    canEdit: boolean;
+    isChanged?: boolean = false;
   }
   
 export class ClanMemberUIModel extends ClanMemberViewModel{
