@@ -3,5 +3,5 @@
         <span class="color-primary">{{tournamentTime | date : 'medium'}} </span> 
     </div>
     <h1 class="page-heading__title h2">{{tournamentName}}</h1>
-    <a class="btn btn-lg btn-warning" (click)="register()">Register</a>
+    <a class="btn btn-lg btn-warning"  (click)="register()">{{isRegistered ? "Manage My Team" : "Register"}}</a>
 </div>

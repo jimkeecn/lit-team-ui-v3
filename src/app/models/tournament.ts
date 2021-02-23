@@ -1,4 +1,4 @@
-import { ClanViewModel } from './user';
+import { ClanMemberViewModel, ClanViewModel } from './user';
 
 export class TournamentDTO{
     tournamentId: number;
@@ -35,6 +35,19 @@ export class TournamentDTO{
 export class TournamentTeamDTO extends ClanViewModel{
     registrationStatus; string;
     registrationStatusId: number;
+}
+
+export class TournamentRegistrationDTO{
+  tournamentRegistrationId: number;
+  registrationStatus; string;
+  registrationStatusId: number;
+  leaderId: number;
+  leader: string;
+  leaderIcon: string;
+  name: string;
+  clanId: number;
+  clanName: string;
+  members:ClanMemberViewModel[]
 }
 
 

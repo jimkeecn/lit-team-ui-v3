@@ -30,11 +30,13 @@
         </form>
     </ng-container>
     <ng-container *ngIf="step == 2">
-        <h2 class="h4">2. Please invite your teammate to {{detailForm.get('name').value}}</h2>
-        <p>This team will be temporarily created for the sole purpose of joining this tournament. Team will be disband automatically after tournament is finished.</p>
+        <h2 class="h4">2. Invite your teammate to <b>{{detailForm.get('name').value}}</b></h2>
+        <p>This team will be temporarily created for the sole purpose of joining this tournament. 
+            Team will be disband automatically after tournament is finished.</p>
+            
     </ng-container>
     <div class="form-group d-sm-flex justify-content-sm-between align-items-sm-center action-bar">
-        <button class="btn btn-danger"  (click)="discard()">Discard</button>
-        <button class="btn btn-secondary" (click)="register()" *ngIf="step == 1" >Next</button>
+        <button class="btn btn-danger" [disabled]="submitDisable" (click)="discard()">Discard</button>
+        <button class="btn btn-secondary" [disabled]="submitDisable" (click)="register()" *ngIf="step == 1" >Next</button>
     </div>
 </div>

@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { TournamentTeamDTO } from '@app-models/tournament';
+import { TournamentRegistrationDTO, TournamentTeamDTO } from '@app-models/tournament';
 
 @Component({
   selector: 'tournament-single-team',
@@ -8,7 +8,7 @@ import { TournamentTeamDTO } from '@app-models/tournament';
 })
 export class TournamentSingleTeamComponent implements OnInit {
 
-  @Input() team: TournamentTeamDTO;
+  @Input() team: TournamentRegistrationDTO;
   constructor() { }
 
   ngOnInit(): void {

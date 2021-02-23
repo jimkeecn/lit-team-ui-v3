@@ -42,7 +42,10 @@ export class TournamentRegistrationComponent implements OnInit {
 
   ngOnInit(): void {
     this.app.clan$.subscribe(res => { 
-      this.clanId = res.id
+      if (res) {
+        this.clanId = res.id
+      }
+      
     })
     this.detailForm.get("isClan").valueChanges.subscribe(res => { 
       if (res == true) {
@@ -51,6 +54,19 @@ export class TournamentRegistrationComponent implements OnInit {
         this.detailForm.patchValue({clanId:null})
       }
       console.log(this.detailForm.value);
+    })
+
+    this.state.teams$.subscribe(res => { 
+      if (res && res.length > 0) {
+        let myTeam = res.find(x => x.leaderId == this.auth.currentUserSubject.value.user.id);
+        if (myTeam != null) {
+          this.step = 2;
+          this.detailForm.patchValue(myTeam);
+        } else {
+          this.step = 1;
+        }
+      }
+     
     })
   }
 

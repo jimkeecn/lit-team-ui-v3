@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { TournamentDetailStateService } from '@app-services/state/tournament-detail-state.service';
 import { elementAt } from 'rxjs/operators';
 
 @Component({
@@ -11,13 +12,16 @@ export class TournamentHeadingComponent implements OnInit {
 
   @Input() tournamentName: string;
   @Input() tournamentTime: Date;
-  @Input() enableRegister: boolean = true;
+  @Input() isRegistered: boolean = false;
+
   constructor() { }
 
   ngOnInit(): void {
+    
   }
 
   register() {
     document.querySelector(".tournament-container").classList.add("registration-overlay-active");
   }
+
 }

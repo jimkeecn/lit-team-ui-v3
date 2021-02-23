@@ -6,7 +6,7 @@ import { environment } from "../../../environments/environment";
 import { BehaviorSubject, Observable } from 'rxjs';
 import { GameMode, StaticList, TournamentFilter, TournamentFormat, TournamentMap, TournamentTimeEnum, TournamentType } from '@app-models/static';
 import { tap } from 'rxjs/operators';
-import { BracketGroupDTO, TournamentDTO, TournamentTeamDTO } from '@app-models/tournament';
+import { BracketGroupDTO, TournamentDTO, TournamentRegistrationDTO, TournamentTeamDTO } from '@app-models/tournament';
 import { MatchCodeResponse, MatchViewModel } from '@app-models/user';
 
 @Injectable({
@@ -42,10 +42,17 @@ export class TourneyApiService {
     return this.http.get<TournamentDTO>(url).pipe(tap());
   }
 
+  //Decrecapted
   getTeamsTournaments(id:number):Observable<TournamentTeamDTO[]> {
     const url = `${this.baseUrl}/Tournament/${id}/teams`;
     return this.http.get<TournamentTeamDTO[]>(url).pipe(tap());
   }
+
+  getRegistrationsTournaments(id:number):Observable<TournamentRegistrationDTO[]> {
+    const url = `${this.baseUrl}/Tournament/${id}/teams`;
+    return this.http.get<TournamentRegistrationDTO[]>(url).pipe(tap());
+  }
+
 
   registerTournamentById(id:number,data:any):Observable<number> {
     const url = `${this.baseUrl}/Tournament/${id}/register`;

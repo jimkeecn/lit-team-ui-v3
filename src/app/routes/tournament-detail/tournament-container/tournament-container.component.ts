@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { TournamentDTO } from '@app-models/tournament';
 import { TourneyApiService } from '@app-services/api/tourney-api.service';
+import { AuthService } from '@app-services/auth/auth.service';
 import { TournamentDetailStateService } from "@app-services/state/tournament-detail-state.service";
 
 @Component({
@@ -12,13 +13,22 @@ import { TournamentDetailStateService } from "@app-services/state/tournament-det
 export class TournamentContainerComponent implements OnInit {
   tournamentName: string;
   tournamentTime: Date;
-  constructor(private route: ActivatedRoute, private state: TournamentDetailStateService, public api:TourneyApiService) { 
+  isRegistered: boolean = false;
+  constructor(private route: ActivatedRoute, private state: TournamentDetailStateService,
+    public api: TourneyApiService,public auth:AuthService) { 
     state.detail$.next(this.route.snapshot.data.detail);
     let tourney_detail: TournamentDTO = this.route.snapshot.data.detail;
     this.tournamentName = tourney_detail.name;
     this.tournamentTime = tourney_detail.startDate;
-    api.getTeamsTournaments(tourney_detail.tournamentId).subscribe(res => { 
+    api.getRegistrationsTournaments(tourney_detail.tournamentId).subscribe(res => { 
       state.teams$.next(res);
+      for (let x = 0; x < res.length; x++){
+        res[x].members.forEach(y => { 
+          if (y.id == this.auth.currentUserSubject.value.user?.id) {
+            this.isRegistered = true;
+          }
+        })
+      }
     })
     api.getTournamentBrackets(tourney_detail.tournamentId).subscribe(res => { 
       console.log(res);
@@ -27,6 +37,7 @@ export class TournamentContainerComponent implements OnInit {
   }
 
   ngOnInit(): void {
+   
   }
 
 }
