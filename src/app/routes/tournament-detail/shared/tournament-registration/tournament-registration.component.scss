@@ -1,3 +1,5 @@
+@import "../../../../../styles.scss";
+
 h2,
 h5,
 p,
@@ -33,4 +35,13 @@ select option {
 
 .matches-table {
   margin-bottom: 20px;
+}
+
+.matches-table button {
+  border: none;
+}
+
+.btn-normal {
+  color: #fff;
+  border: 1px #fff solid;
 }

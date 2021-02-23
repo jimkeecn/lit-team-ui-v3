@@ -93,6 +93,21 @@ export class TournamentRegistrationComponent implements OnInit {
     document.querySelector(".tournament-container").classList.remove("registration-overlay-active");
   }
 
+  disband() {
+    if (window.confirm("Are you sure to unregister this tournament?")) {
+      this.submitDisable = true;
+      this.api.disbandTournamentById(this.state.detail$.value.tournamentId)
+        .subscribe(res => { 
+          this.app.openSnackBar(`You have unregistered this tournament.`, 'success');
+          this.submitDisable = false;
+          this.step = 1;
+      }, (err: HttpErrorResponse) => {
+            this.submitDisable = false;
+            this.app.errorHandler(err);
+          })
+    }
+  }
+
   register() {
     switch (this.step) {
       case 1:

@@ -59,6 +59,11 @@ export class TourneyApiService {
     return this.http.post<number>(url,data).pipe(tap());
   }
 
+  disbandTournamentById(id:number):Observable<number> {
+    const url = `${this.baseUrl}/Tournament/${id}/disband`;
+    return this.http.post<number>(url,null).pipe(tap());
+  }
+
   getTournamentBrackets(id:number):Observable<BracketGroupDTO[]> {
     const url = `${this.baseUrl}/Tournament/${id}/brackets`;
     return this.http.get<BracketGroupDTO[]>(url).pipe(tap());

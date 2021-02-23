@@ -53,14 +53,15 @@
                             <td>{{member.userName}}</td>
                             <td>{{member.gameId}}</td>
                             <td>{{getPositonText(member.position)}}</td>
-                            <td><button [disabled]="submitDisable" (click)="kickMember(member)">remove</button></td>
+                            <td><button class="btn-danger" [disabled]="submitDisable" (click)="kickMember(member)">remove</button></td>
                         </tr>
                     </tbody>
                 </table>
             </div>
     </ng-container>
     <div class="form-group d-sm-flex justify-content-sm-between align-items-sm-center action-bar">
-        <button class="btn btn-danger" [disabled]="submitDisable" (click)="discard()">Discard</button>
+        <button class="btn btn-normal" [disabled]="submitDisable" (click)="discard()">Close</button>
+        <button class="btn btn-danger" [disabled]="submitDisable" (click)="disband()" *ngIf="step == 2">Disband</button>
         <button class="btn btn-secondary" [disabled]="submitDisable" (click)="register()" *ngIf="step == 1" >Next</button>
     </div>
 </div>
