@@ -251,6 +251,7 @@ export class AddUpdateClanModel{
     caninvite: boolean;
     canEdit: boolean;
     isChanged?: boolean = false;
+    userName: string;
   }
   
 export class ClanMemberUIModel extends ClanMemberViewModel{

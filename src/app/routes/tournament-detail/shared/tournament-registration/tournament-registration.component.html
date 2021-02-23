@@ -31,9 +31,33 @@
     </ng-container>
     <ng-container *ngIf="step == 2">
         <h2 class="h4">2. Invite your teammate to <b>{{detailForm.get('name').value}}</b></h2>
-        <p>This team will be temporarily created for the sole purpose of joining this tournament. 
-            Team will be disband automatically after tournament is finished.</p>
-            
+        <p>Please invite your teammate by using Summoner Name. click on summoner ID will open op.gg.</p>
+
+            <div class="table-responsive mt-sm-auto mb-sm-auto">
+                <div class="table-actions">
+                    <input class="form-control" [(ngModel)]="inviteMemberName">
+                    <button class="btn btn-secondary" [disabled]="submitDisable" (click)="inviteMember()">Invite</button>
+                </div>
+                
+                <table class="table matches-table">
+                    <thead>
+                        <tr>
+                            <th>UserName</th>
+                            <th>Summoner ID</th>
+                            <th>Position</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let member of members">
+                            <td>{{member.userName}}</td>
+                            <td>{{member.gameId}}</td>
+                            <td>{{getPositonText(member.position)}}</td>
+                            <td><button [disabled]="submitDisable" (click)="kickMember(member)">remove</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
     </ng-container>
     <div class="form-group d-sm-flex justify-content-sm-between align-items-sm-center action-bar">
         <button class="btn btn-danger" [disabled]="submitDisable" (click)="discard()">Discard</button>

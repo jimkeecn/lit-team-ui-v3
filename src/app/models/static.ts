@@ -76,3 +76,12 @@ export enum AccountMenuState{
     gameAccounts = 2,
     team = 3
 }
+
+export enum LeagueOfLegendsPosition{
+    Fill = 0,
+    Top = 1,
+    Jungler = 2,
+    Mid = 3,
+    ADC = 4,
+    Support = 5
+}

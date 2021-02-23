@@ -11,3 +11,26 @@ select:focus {
 select option {
   color: #222;
 }
+
+.table thead th {
+  border: none;
+}
+
+.table tbody td {
+  text-transform: none !important;
+}
+
+.table-actions {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.table-actions button {
+  padding: 5px 15px;
+}
+
+.matches-table {
+  margin-bottom: 20px;
+}

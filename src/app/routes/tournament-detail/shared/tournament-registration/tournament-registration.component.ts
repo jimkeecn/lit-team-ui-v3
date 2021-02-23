@@ -11,6 +11,7 @@ import { ApiService } from '@app-services/api/api.service';
 import { AddUpdateClanModel } from "@app-models/user";
 import { TourneyApiService } from '@app-services/api/tourney-api.service';
 import { TournamentRegistration } from '@app-models/tournament';
+import { LeagueOfLegendsPosition } from '@app-models/static';
 @Component({
   selector: 'tournament-registration',
   templateUrl: './tournament-registration.component.html',
@@ -37,6 +38,7 @@ export class TournamentRegistrationComponent implements OnInit {
     clanId: new FormControl(null)
   })
   
+  members: any[] = [];
   constructor(public state:TournamentDetailStateService, public auth: AuthService, public app:ApplicationService,
     private fb: FormBuilder, public api:TourneyApiService) { }
 
@@ -57,19 +59,36 @@ export class TournamentRegistrationComponent implements OnInit {
     })
 
     this.state.teams$.subscribe(res => { 
-      if (res && res.length > 0) {
-        let myTeam = res.find(x => x.leaderId == this.auth.currentUserSubject.value.user.id);
-        if (myTeam != null) {
-          this.step = 2;
-          this.detailForm.patchValue(myTeam);
-        } else {
-          this.step = 1;
-        }
+      for (let x = 0; x < res.length; x++){
+        res[x].members.forEach(y => { 
+          if (y.id == this.auth.currentUserSubject.value.user?.id) {
+            this.step = 2;
+            this.detailForm.patchValue(res[x]);
+            this.members = res[x].members;
+          }
+        })
       }
-     
     })
   }
 
+  getPositonText(number) {
+    switch (number) {
+      case LeagueOfLegendsPosition.Fill:
+        return "Fill";
+      case LeagueOfLegendsPosition.Top:
+        return "Top Laner";
+      case LeagueOfLegendsPosition.Jungler:
+        return "Jungler";
+      case LeagueOfLegendsPosition.Mid:
+        return "Mid Laner";
+      case LeagueOfLegendsPosition.ADC:
+        return "ADC";
+      case LeagueOfLegendsPosition.Support:
+        return "Support";
+      default:
+        return "Full";
+    }
+  }
   discard() {
     document.querySelector(".tournament-container").classList.remove("registration-overlay-active");
   }
