@@ -47,9 +47,9 @@ export class TourneyApiService {
     return this.http.get<TournamentTeamDTO[]>(url).pipe(tap());
   }
 
-  registerTournamentById(id:number):Observable<number> {
+  registerTournamentById(id:number,data:any):Observable<number> {
     const url = `${this.baseUrl}/Tournament/${id}/register`;
-    return this.http.post<number>(url,null).pipe(tap());
+    return this.http.post<number>(url,data).pipe(tap());
   }
 
   getTournamentBrackets(id:number):Observable<BracketGroupDTO[]> {

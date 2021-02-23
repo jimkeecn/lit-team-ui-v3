@@ -1,8 +1,9 @@
-<div class="container">
-    <tournament-heading [tournamentName]="tournamentName" [tournamentTime]="tournamentTime" enableRegister="false"></tournament-heading>
+<div class="container tournament-container">
+    <tournament-heading [tournamentName]="tournamentName" 
+    [tournamentTime]="tournamentTime" enableRegister="false"></tournament-heading>
 
     <tournament-links></tournament-links>
 
     <router-outlet></router-outlet>
-    
+    <tournament-registration></tournament-registration>
 </div>

@@ -55,6 +55,7 @@ import { AccountDetailsComponent } from './routes/account/account-setting/accoun
 import { SocialMediaComponent } from './routes/account/account-setting/social-media/social-media.component';
 import { TwitchComponent } from './routes/account/account-setting/twitch/twitch.component';
 import { AccountGamesComponent } from './routes/account/account-games/account-games.component';
+import { TournamentRegistrationComponent } from './routes/tournament-detail/shared/tournament-registration/tournament-registration.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -103,6 +104,7 @@ import { AccountGamesComponent } from './routes/account/account-games/account-ga
     SocialMediaComponent,
     TwitchComponent,
     AccountGamesComponent,
+    TournamentRegistrationComponent,
   ],
   imports: [
     BrowserModule,

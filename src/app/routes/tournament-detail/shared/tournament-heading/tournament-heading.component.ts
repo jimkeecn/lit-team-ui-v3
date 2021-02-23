@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { elementAt } from 'rxjs/operators';
 
 @Component({
   selector: 'tournament-heading',
@@ -16,4 +17,7 @@ export class TournamentHeadingComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  register() {
+    document.querySelector(".tournament-container").classList.add("registration-overlay-active");
+  }
 }

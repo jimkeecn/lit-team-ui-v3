@@ -61,3 +61,23 @@ export class BracketGroupDTO{
     bracketKnockoutName: string;
     brackets:bracketDTO[]
 }
+
+export class TournamentRegistration{
+    name: string;
+    clanId: number;
+    static getErrorMessage(field,type){
+        switch (field) {
+          case 'name':
+            if(type == "required"){
+              return "Team Name is required."
+            } else if(type == "maxlength"){
+              return "Team Name must less than 20 characters."
+            } else if(type == "pattern"){
+              return "Team Name must only contain english letter and number and space."
+            }
+            break;
+          default:
+            break;
+        }
+      }
+}

@@ -5,7 +5,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { FormGroup, ValidationErrors, ValidatorFn } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
-import { MemberRequestViewModel, MyFullDetail } from '../../models/user';
+import { ClanViewModel, MemberRequestViewModel, MyFullDetail } from '../../models/user';
 import { formErrorState, RouterActiveEnum } from '../../models/appState';
 import { MatDialog } from '@angular/material/dialog';
 import { TournamentDetailStateService } from '@app-services/state/tournament-detail-state.service';
@@ -159,7 +159,7 @@ myDetails : MyFullDetail = new MyFullDetail();
 myDetails$ =  new BehaviorSubject(this.myDetails);
 
 invitations$ = new BehaviorSubject<MemberRequestViewModel[]>([]);
-
+clan$ = new BehaviorSubject<ClanViewModel>(null);
 removeFromInvitations(id) {
   let invs = [...this.invitations$.value];
   let index = invs.findIndex(x => x.id == id);

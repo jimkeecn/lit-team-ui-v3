@@ -15,15 +15,24 @@ export class AppComponent {
       this.auth.getMyDetail().subscribe(x => { 
 
       })
+      this.getMyClan();
+      this.getAllInvitations()
     }
     
-    this.getAllInvitations()
+  
   }
 
   getAllInvitations(){
     this.api.getAllInvitations().subscribe(res=>{
       console.log(`invitations:${res.length}`);
       this.app.invitations$.next(res);
+    })
+  }
+
+  getMyClan() {
+    this.api.getMyTeam().subscribe(res => { 
+      console.log(res);
+      this.app.clan$.next(res);
     })
   }
 }

@@ -1,0 +1,40 @@
+<div class="registration-overlay"></div>
+<div class="registration-form">
+    <ng-container *ngIf="step == 1">
+        <h2 class="h4">1. Create a team to register</h2>
+        <p>This team will be temporarily created for the sole purpose of joining this tournament. Team will be disband automatically after tournament is finished.</p>
+        <form class="form" [formGroup]="detailForm">
+            <div class="error-list" *ngIf="errors && errors.length > 0">
+                <ul>
+                    <li *ngFor="let error of errors">{{error}}</li>
+                </ul>
+            </div>
+            <div class="row">
+                <div class="col-md-6" >
+                    <div class="form-group">
+                        <label>Team Name</label>
+                        <input type="text" class="form-control"  placeholder="e.g TSM.AU" formControlName="name" >
+                        <span class="form-notice">This name will be displayed to other member.</span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Represent your CLAN</label>
+                        <select class="form-control" formControlName="isClan">
+                            <option [ngValue]="opt.value" *ngFor="let opt of options">{{opt.name}}</option>
+                        </select>
+                        <span class="form-notice">Represent your CLAN to earn reputation for your clan.</span>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </ng-container>
+    <ng-container *ngIf="step == 2">
+        <h2 class="h4">2. Please invite your teammate to {{detailForm.get('name').value}}</h2>
+        <p>This team will be temporarily created for the sole purpose of joining this tournament. Team will be disband automatically after tournament is finished.</p>
+    </ng-container>
+    <div class="form-group d-sm-flex justify-content-sm-between align-items-sm-center action-bar">
+        <button class="btn btn-danger"  (click)="discard()">Discard</button>
+        <button class="btn btn-secondary" (click)="register()" *ngIf="step == 1" >Next</button>
+    </div>
+</div>

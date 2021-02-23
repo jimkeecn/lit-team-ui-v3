@@ -146,3 +146,57 @@ button[type="button"]:disabled {
     opacity: 0;
   }
 }
+
+/**Registration Form**/
+.registration-overlay {
+  left: 0;
+  z-index: 1100;
+  width: 100%;
+  height: calc(100% - 72px);
+  position: fixed;
+  background-color: transparent;
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: visibility 0s, opacity 320ms ease;
+  transition: visibility 0s, opacity 320ms ease;
+}
+
+.registration-overlay-active .registration-overlay {
+  visibility: visible;
+  opacity: 1;
+  background-color: rgba(21, 23, 32, 0.96);
+  top: 0;
+}
+
+.registration-form {
+  position: fixed;
+  overflow-y: scroll;
+  z-index: 1101;
+  left: 100%;
+  height: calc(100% - 72px);
+  width: 100%;
+  padding: 30px 15px;
+  text-align: left;
+  -webkit-transition: -webkit-transform ease 440ms 0ms;
+  transition: -webkit-transform ease 440ms 0ms;
+  transition: transform ease 440ms 0ms;
+  transition: transform ease 440ms 0ms, -webkit-transform ease 440ms 0ms;
+  -webkit-transition-delay: 0;
+  transition-delay: 0;
+  color: #fff;
+  background-color: #222430;
+  top: 0;
+}
+
+.registration-overlay-active .registration-form {
+  -webkit-transform: translateX(-100%);
+  transform: translateX(-100%);
+  -webkit-transition-delay: 100ms;
+  transition-delay: 100ms;
+}
+
+@media (min-width: 992px) {
+  .registration-form {
+    width: 700px;
+  }
+}
