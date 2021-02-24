@@ -30,11 +30,11 @@
         </form>
     </ng-container>
     <ng-container *ngIf="step == 2">
-        <h2 class="h4">2. Invite your teammate to <b>{{detailForm.get('name').value}}</b></h2>
-        <p>Please invite your teammate by using Summoner Name. click on summoner ID will open op.gg.</p>
+        <h2 class="h4">Invite your teammate to <b>{{detailForm.get('name').value}}</b></h2>
+        <p *ngIf="isLeader">Please invite your teammate by using Summoner Name. click on summoner ID will open op.gg.</p>
 
             <div class="table-responsive mt-sm-auto mb-sm-auto">
-                <div class="table-actions">
+                <div class="table-actions" *ngIf="isLeader">
                     <input class="form-control" [(ngModel)]="inviteMemberName">
                     <button class="btn btn-secondary" [disabled]="submitDisable" (click)="inviteMember()">Invite</button>
                 </div>
@@ -52,7 +52,7 @@
                             <td>{{member.userName}}</td>
                             <td>{{member.gameId}}</td>
                             <td>{{getPositonText(member.position)}}</td>
-                            <td><button class="btn-danger" [disabled]="submitDisable" (click)="kick(member.id)">remove</button></td>
+                            <td><button class="btn-danger" [disabled]="submitDisable" *ngIf="isLeader" (click)="kick(member.id)">remove</button></td>
                         </tr>
                     </tbody>
                 </table>
@@ -60,7 +60,7 @@
     </ng-container>
     <div class="form-group d-sm-flex justify-content-sm-between align-items-sm-center action-bar">
         <button class="btn btn-normal" [disabled]="submitDisable" (click)="discard()">Close</button>
-        <button class="btn btn-danger" [disabled]="submitDisable" (click)="disband()" *ngIf="step == 2">Disband</button>
+        <button class="btn btn-danger" [disabled]="submitDisable" (click)="disband()" *ngIf="step == 2 && isLeader">Disband</button>
         <button class="btn btn-secondary" [disabled]="submitDisable" (click)="register()" *ngIf="step == 1" >Next</button>
     </div>
 </div>
