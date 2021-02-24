@@ -1,7 +1,7 @@
 <h4 class="cart-panel__title text-white">Lit Team Notifications (<span class="cart-panel__items-count">{{(app.invitations$ | async).length}}</span>)</h4>
 <div class="cart-panel__content">
   <div class="table-responsive">
-    <table class="table shop-table">
+    <table class="table shop-table notification-table">
       <thead>
         <tr>
           <th class="product__info"></th>
@@ -10,31 +10,12 @@
         </tr>
       </thead>
       <!---*ngFor="let inv of (app.invitations$ | async)"  [src]="team.team.iconUrl"-->
-      <tbody>
-        <tr *ngFor="let inv of (app.invitations$ | async)" >
-          <td class="product__info">
-            <figure class="product__thumb">
-              <a><img  [src]="inv.team.iconUrl" alt=""></a>
-            </figure>
-            <div class="product__info-content">
-              <h5 class="product__name"><a>{{inv.team?.name}}</a></h5>
-              <span class="product__cat">{{inv.team?.clanSubTitle}}</span>
-              <span class="product__info-details">you have received an invitation from this team.</span>
-            </div>
-          </td>
-          <td class="product__remove" >
-            <a (click)="accept(inv.id)" >
-              <svg role="img" class="df-icon df-icon--bag"  ><use xlink:href="assets/img/necromancers.svg#thumb-up"></use></svg>
-            </a>
-
-          </td>
-          <td class="product__remove" (click)="api.denialApplication(inv.id)">
-            <a (click)="reject(inv.id)">
-              <svg role="img" class="df-icon df-icon--bag" ><use xlink:href="assets/img/necromancers.svg#close"></use></svg>
-            </a>
-           
-          </td>
+      <tbody *ngFor="let notification of (app.notifications$ | async)">
+        <tr clan-invite-notification [data]="notification.data" *ngIf="notification.type == 1">
         </tr>
+        <tr tournament-invite-notification [data]="notification.data" *ngIf="notification.type == 2">
+        </tr>
+        
       </tbody>
     </table>
   </div>
