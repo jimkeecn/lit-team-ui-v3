@@ -1,6 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
-import { ApiService } from '@app-services/api/api.service';
+import { TournamentInvitationNotification } from '@app-models/tournament';
+import { TourneyApiService } from '@app-services/api/tourney-api.service';
 import { ApplicationService } from '@app-services/app/application.service';
 
 @Component({
@@ -10,17 +11,18 @@ import { ApplicationService } from '@app-services/app/application.service';
 })
 export class TournamentInviteNotificationComponent implements OnInit {
 
-  @Input() data: any;
-  constructor(public app:ApplicationService, public api:ApiService) { }
+  @Input() index: number;
+  @Input() data: TournamentInvitationNotification;
+  constructor(public app:ApplicationService, public api:TourneyApiService) { }
 
   ngOnInit(): void {
   }
 
   accept(id) {
     console.log(id);
-    this.api.acceptApplication(id).subscribe(res => { 
-      this.app.openSnackBar(`Start journey with your clan mates!`, 'success');
-      this.app.removeFromInvitations(id);
+    this.api.acceptTournamentInvitation(id).subscribe(res => { 
+      this.app.openSnackBar(`Start tournament with your team mates!`, 'success');
+      this.app.removeFromNotifications(this.index);
     }, (err: HttpErrorResponse) => {
       this.app.errorHandler(err);
     })
@@ -28,9 +30,10 @@ export class TournamentInviteNotificationComponent implements OnInit {
 
   reject(id) {
     console.log(id);
-    this.api.denialApplication(id).subscribe(res => { 
+    this.api.rejectTournamentInvitation(id).subscribe(res => { 
+      debugger;
       this.app.openSnackBar(`You rejected an invitation`, 'success');
-      this.app.removeFromInvitations(id);
+      this.app.removeFromNotifications(this.index);
     }, (err: HttpErrorResponse) => {
       this.app.errorHandler(err);
     })

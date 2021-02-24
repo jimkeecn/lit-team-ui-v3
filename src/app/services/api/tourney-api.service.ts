@@ -80,7 +80,7 @@ export class TourneyApiService {
   }
 
   acceptTournamentInvitation(id:number):Observable<number> {
-    const url = `${this.baseUrl}/TournamentRegistration/${id}/Invite`;
+    const url = `${this.baseUrl}/TournamentRegistration/${id}/Accept`;
     return this.http.post<number>(url,null).pipe(tap());
   }
 

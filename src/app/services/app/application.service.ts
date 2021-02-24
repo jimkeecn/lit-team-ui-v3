@@ -166,12 +166,12 @@ clan$ = new BehaviorSubject<ClanViewModel>(null);
 
 
 
-removeFromInvitations(id) {
-  let invs = [...this.invitations$.value];
-  let index = invs.findIndex(x => x.id == id);
+removeFromNotifications(index) {
+  let invs = [...this.notifications$.value];
   invs.splice(index, 1);
-  this.invitations$.next(invs);
+  this.notifications$.next(invs);
 }
+  
 openSnackBar(message, type,duration?) {
   this._snackBar.open(message, null, {
     duration: duration ? duration : 5000,

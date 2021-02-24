@@ -10,10 +10,10 @@
         </tr>
       </thead>
       <!---*ngFor="let inv of (app.invitations$ | async)"  [src]="team.team.iconUrl"-->
-      <tbody *ngFor="let notification of (app.notifications$ | async)">
-        <tr clan-invite-notification [data]="notification.data" *ngIf="notification.type == 1">
+      <tbody *ngFor="let notification of (app.notifications$ | async); let i = index">
+        <tr clan-invite-notification [data]="notification.data" [index]="i" *ngIf="notification.type == 1" >
         </tr>
-        <tr tournament-invite-notification [data]="notification.data" *ngIf="notification.type == 2">
+        <tr tournament-invite-notification [data]="notification.data" [index]="i" *ngIf="notification.type == 2">
         </tr>
         
       </tbody>

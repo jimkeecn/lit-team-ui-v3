@@ -1,5 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
+import { MemberRequestViewModel } from '@app-models/user';
 import { ApiService } from '@app-services/api/api.service';
 import { ApplicationService } from '@app-services/app/application.service';
 
@@ -10,7 +11,8 @@ import { ApplicationService } from '@app-services/app/application.service';
 })
 export class ClanInviteNotificationComponent implements OnInit {
 
-  @Input() data: any;
+  @Input() index: number;
+  @Input() data: MemberRequestViewModel;
   constructor(public app:ApplicationService, public api:ApiService) { }
 
   ngOnInit(): void {
@@ -20,7 +22,7 @@ export class ClanInviteNotificationComponent implements OnInit {
     console.log(id);
     this.api.acceptApplication(id).subscribe(res => { 
       this.app.openSnackBar(`Start journey with your clan mates!`, 'success');
-      this.app.removeFromInvitations(id);
+      this.app.removeFromNotifications(this.index);
     }, (err: HttpErrorResponse) => {
       this.app.errorHandler(err);
     })
@@ -30,7 +32,7 @@ export class ClanInviteNotificationComponent implements OnInit {
     console.log(id);
     this.api.denialApplication(id).subscribe(res => { 
       this.app.openSnackBar(`You rejected an invitation`, 'success');
-      this.app.removeFromInvitations(id);
+      this.app.removeFromNotifications(this.index);
     }, (err: HttpErrorResponse) => {
       this.app.errorHandler(err);
     })

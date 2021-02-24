@@ -20,8 +20,6 @@ export class AppComponent {
 
       })
       this.getMyClan();
-      // this.getAllInvitations();
-      // this.getTournamentInvitation();
       combineLatest([api.getAllInvitations(), tApi.getTournamentInvitation()]).pipe(map(data => { 
         const clanInvs = JSON.parse(JSON.stringify(data[0]));
         const tourInvs = JSON.parse(JSON.stringify(data[1]));
@@ -57,62 +55,13 @@ export class AppComponent {
   
   }
 
-  // getAllInvitations(){
-  //   this.api.getAllInvitations().pipe(map(invs => { 
-  //     let array:notificationObject[] = [];
-
-  //     for (let x = 0; x < invs.length; x++){
-  //       let obj:notificationObject = {
-  //         data: invs[x],
-  //         time: invs[x].date,
-  //         type: notificationType.ClanInvitation
-  //       }
-  //       array.push(obj);
-  //     }
-
-  //     return array;
-  //   })).subscribe(res=>{
-  //     console.log(`invitations:${res.length}`);
-  //     let notifications = [...this.app.notifications$.value]
-  //     for (let x = 0; x < res.length; x++){
-  //       notifications.push(res[x]);
-  //     }
-  //     this.app.notifications$.next(notifications);
-  //   })
-  // }
-
-  combineLatest()
-
-  
-
-  // getTournamentInvitation() {
-  //   this.tApi.getTournamentInvitation().pipe(map(invs => { 
-  //     let array:notificationObject[] = [];
-
-  //     for (let x = 0; x < invs.length; x++){
-  //       let obj:notificationObject = {
-  //         data: invs[x],
-  //         time: invs[x].date,
-  //         type: notificationType.TournamentInvitation
-  //       }
-  //       array.push(obj);
-  //     }
-
-  //     return array;
-  //   })).subscribe(res => { 
-  //     console.log(`invitations:${res.length}`);
-  //     let notifications = [...this.app.notifications$.value]
-  //     for (let x = 0; x < res.length; x++){
-  //       notifications.push(res[x]);
-  //     }
-  //     this.app.notifications$.next(notifications);
-  //   });
-  // }
-
   getMyClan() {
     this.api.getMyTeam().subscribe(res => { 
       console.log(res);
-      this.app.clan$.next(res);
+      if (res) {
+        this.app.clan$.next(res);
+      }
+      
     })
   }
 }
