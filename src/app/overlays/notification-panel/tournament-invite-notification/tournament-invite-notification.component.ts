@@ -31,7 +31,6 @@ export class TournamentInviteNotificationComponent implements OnInit {
   reject(id) {
     console.log(id);
     this.api.rejectTournamentInvitation(id).subscribe(res => { 
-      debugger;
       this.app.openSnackBar(`You rejected an invitation`, 'success');
       this.app.removeFromNotifications(this.index);
     }, (err: HttpErrorResponse) => {

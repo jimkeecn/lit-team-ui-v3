@@ -115,6 +115,7 @@ export class TournamentRegistrationComponent implements OnInit {
       .subscribe(res => { 
         this.app.openSnackBar(`A player has been removed from your team.`, 'success');
         this.submitDisable = false;
+        this.members.splice(this.members.findIndex(x => x.id == userId), 1);
     }, (err: HttpErrorResponse) => {
           this.submitDisable = false;
           this.app.errorHandler(err);

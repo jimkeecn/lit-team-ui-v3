@@ -52,7 +52,7 @@
                             <td>{{member.userName}}</td>
                             <td>{{member.gameId}}</td>
                             <td>{{getPositonText(member.position)}}</td>
-                            <td><button class="btn-danger" [disabled]="submitDisable" (click)="kickMember(member)">remove</button></td>
+                            <td><button class="btn-danger" [disabled]="submitDisable" (click)="kick(member.id)">remove</button></td>
                         </tr>
                     </tbody>
                 </table>
