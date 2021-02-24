@@ -108,6 +108,20 @@ export class TournamentRegistrationComponent implements OnInit {
     }
   }
 
+  kick(userId:number) {
+    if (window.confirm("Are you sure to remove this player from your team?")) { 
+      this.submitDisable = true;
+      this.api.kickFromTournamentById(this.state.detail$.value.tournamentId,userId)
+      .subscribe(res => { 
+        this.app.openSnackBar(`A player has been removed from your team.`, 'success');
+        this.submitDisable = false;
+    }, (err: HttpErrorResponse) => {
+          this.submitDisable = false;
+          this.app.errorHandler(err);
+        })
+    }
+  }
+
   register() {
     switch (this.step) {
       case 1:
@@ -134,6 +148,23 @@ export class TournamentRegistrationComponent implements OnInit {
         break;
     }
   
-    
   }
+
+  inviteMemberName: string;
+  inviteMember() {
+    this.submitDisable = true;
+    let obj: MemberRequestCreateModel = {
+      gameId: this.inviteMemberName,
+      clanId:0
+    }
+    console.log(obj);
+    this.api.inviteToTournamentById(this.state.detail$.value.tournamentId,obj).subscribe(res => { 
+      this.submitDisable = false;
+      this.app.openSnackBar(`An invitation has been sent.`, 'success');
+    }, (err: HttpErrorResponse) => {
+      this.submitDisable = false;
+      this.app.errorHandler(err);
+    })
+  }
+
 }

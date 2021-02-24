@@ -59,8 +59,33 @@ export class TourneyApiService {
     return this.http.post<number>(url,data).pipe(tap());
   }
 
+  inviteToTournamentById(id:number,data:any):Observable<number> {
+    const url = `${this.baseUrl}/Tournament/${id}/invite`;
+    return this.http.post<number>(url,data).pipe(tap());
+  }
+
+  kickFromTournamentById(id:number,userId:number):Observable<number> {
+    const url = `${this.baseUrl}/Tournament/${id}/kick/${userId}`;
+    return this.http.post<number>(url,null).pipe(tap());
+  }
+
   disbandTournamentById(id:number):Observable<number> {
     const url = `${this.baseUrl}/Tournament/${id}/disband`;
+    return this.http.post<number>(url,null).pipe(tap());
+  }
+
+  getTournamentInvitation():Observable<number> {
+    const url = `${this.baseUrl}/TournamentRegistration`;
+    return this.http.get<number>(url).pipe(tap());
+  }
+
+  acceptTournamentInvitation(id:number):Observable<number> {
+    const url = `${this.baseUrl}/TournamentRegistration/${id}/Invite`;
+    return this.http.post<number>(url,null).pipe(tap());
+  }
+
+  rejectTournamentInvitation(id:number):Observable<number> {
+    const url = `${this.baseUrl}/TournamentRegistration/${id}/Reject`;
     return this.http.post<number>(url,null).pipe(tap());
   }
 
