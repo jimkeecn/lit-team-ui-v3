@@ -56,6 +56,8 @@ import { SocialMediaComponent } from './routes/account/account-setting/social-me
 import { TwitchComponent } from './routes/account/account-setting/twitch/twitch.component';
 import { AccountGamesComponent } from './routes/account/account-games/account-games.component';
 import { TournamentRegistrationComponent } from './routes/tournament-detail/shared/tournament-registration/tournament-registration.component';
+import { ClanInviteNotificationComponent } from './overlays/notification-panel/clan-invite-notification/clan-invite-notification.component';
+import { TournamentInviteNotificationComponent } from './overlays/notification-panel/tournament-invite-notification/tournament-invite-notification.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -105,6 +107,8 @@ import { TournamentRegistrationComponent } from './routes/tournament-detail/shar
     TwitchComponent,
     AccountGamesComponent,
     TournamentRegistrationComponent,
+    ClanInviteNotificationComponent,
+    TournamentInviteNotificationComponent,
   ],
   imports: [
     BrowserModule,
