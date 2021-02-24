@@ -94,3 +94,11 @@ export class TournamentRegistration{
         }
       }
 }
+
+export class TournamentInvitationNotification{
+  tournamentName: string;
+  leaderName: string;
+  teamName: string;
+  id: number;
+  date:Date
+}

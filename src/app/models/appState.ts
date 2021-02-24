@@ -15,3 +15,15 @@ export enum RouterActiveEnum{
     shop = 5,
     teams = 6
 }
+
+
+export class notificationObject{
+    time: Date;
+    data: any;
+    type: notificationType;
+}
+
+export enum notificationType{
+    ClanInvitation = 1,
+    TournamentInvitation = 2
+}

@@ -1,1 +1,22 @@
-<p>tournament-invite-notification works!</p>
+<td class="product__info">
+    <figure class="product__thumb">
+      <a><img   src="../../../../assets/img/team-selection-logo-02-70.png"></a>
+    </figure>
+    <div class="product__info-content">
+      <h5 class="product__name"><a>{{data.tournamentName}}</a></h5>
+      <span class="product__cat">{{data.teamName}}</span>
+      <span class="product__info-details"><b>{{data.leaderName}}</b> has sent you an invitation to join this tournament.</span>
+    </div>
+  </td>
+  <td class="product__remove" >
+    <a (click)="accept(data.id)" >
+      <svg role="img" class="df-icon df-icon--bag"  ><use xlink:href="assets/img/necromancers.svg#thumb-up"></use></svg>
+    </a>
+  
+  </td>
+  <td class="product__remove">
+    <a (click)="reject(data.id)">
+      <svg role="img" class="df-icon df-icon--bag" ><use xlink:href="assets/img/necromancers.svg#close"></use></svg>
+    </a>
+   
+  </td>

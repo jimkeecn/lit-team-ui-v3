@@ -6,7 +6,7 @@ import { environment } from "../../../environments/environment";
 import { BehaviorSubject, Observable } from 'rxjs';
 import { GameMode, StaticList, TournamentFilter, TournamentFormat, TournamentMap, TournamentTimeEnum, TournamentType } from '@app-models/static';
 import { tap } from 'rxjs/operators';
-import { BracketGroupDTO, TournamentDTO, TournamentRegistrationDTO, TournamentTeamDTO } from '@app-models/tournament';
+import { BracketGroupDTO, TournamentDTO, TournamentInvitationNotification, TournamentRegistrationDTO, TournamentTeamDTO } from '@app-models/tournament';
 import { MatchCodeResponse, MatchViewModel } from '@app-models/user';
 
 @Injectable({
@@ -74,9 +74,9 @@ export class TourneyApiService {
     return this.http.post<number>(url,null).pipe(tap());
   }
 
-  getTournamentInvitation():Observable<number> {
+  getTournamentInvitation():Observable<TournamentInvitationNotification[]> {
     const url = `${this.baseUrl}/TournamentRegistration`;
-    return this.http.get<number>(url).pipe(tap());
+    return this.http.get<TournamentInvitationNotification[]>(url).pipe(tap());
   }
 
   acceptTournamentInvitation(id:number):Observable<number> {

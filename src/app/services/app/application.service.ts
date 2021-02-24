@@ -6,9 +6,10 @@ import { FormGroup, ValidationErrors, ValidatorFn } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { ClanViewModel, MemberRequestViewModel, MyFullDetail } from '../../models/user';
-import { formErrorState, RouterActiveEnum } from '../../models/appState';
+import { formErrorState, notificationObject, RouterActiveEnum } from '../../models/appState';
 import { MatDialog } from '@angular/material/dialog';
 import { TournamentDetailStateService } from '@app-services/state/tournament-detail-state.service';
+import { map, switchMap, tap } from 'rxjs/operators';
 
 
 
@@ -160,6 +161,11 @@ myDetails$ =  new BehaviorSubject(this.myDetails);
 
 invitations$ = new BehaviorSubject<MemberRequestViewModel[]>([]);
 clan$ = new BehaviorSubject<ClanViewModel>(null);
+
+  notifications$ = new BehaviorSubject<notificationObject[]>([]);
+
+
+
 removeFromInvitations(id) {
   let invs = [...this.invitations$.value];
   let index = invs.findIndex(x => x.id == id);

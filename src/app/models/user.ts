@@ -302,7 +302,8 @@ export class ClanMemberUIModel extends ClanMemberViewModel{
     team:ClanViewModel;
     clanId:number;
     playerId:number;
-    id:number;
+    id: number;
+    date: Date;
   }
 
   export class MatchViewModel{
