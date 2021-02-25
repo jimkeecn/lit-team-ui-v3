@@ -13,4 +13,9 @@ export class TournamentTeamsComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
+  openTeamdetail(team) {
+    this.state.display_team_detail$.next(team);
+    document.querySelector(".tournament-container").classList.add("team-detail-overlay-active");
+  }
 }

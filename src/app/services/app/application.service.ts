@@ -108,13 +108,13 @@ export class ApplicationService {
           this.routeState = 0;
           break;
         case "/sign":
-          document.body.classList.add('preloader-is--active');
+          //document.body.classList.add('preloader-is--active');
           document.body.classList.add('scroll-is--active');
           document.getElementById("wrapper").classList.add("login-page");
           this.routeState = 0;
           break;
         case "/reset-password":
-            document.body.classList.add('preloader-is--active');
+            //document.body.classList.add('preloader-is--active');
             document.body.classList.add('scroll-is--active');
             document.getElementById("wrapper").classList.add("login-page");
             this.routeState = 0;

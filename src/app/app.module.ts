@@ -58,6 +58,7 @@ import { AccountGamesComponent } from './routes/account/account-games/account-ga
 import { TournamentRegistrationComponent } from './routes/tournament-detail/shared/tournament-registration/tournament-registration.component';
 import { ClanInviteNotificationComponent } from './overlays/notification-panel/clan-invite-notification/clan-invite-notification.component';
 import { TournamentInviteNotificationComponent } from './overlays/notification-panel/tournament-invite-notification/tournament-invite-notification.component';
+import { TournamentTeamDetailComponent } from './routes/tournament-detail/shared/tournament-team-detail/tournament-team-detail.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -109,6 +110,7 @@ import { TournamentInviteNotificationComponent } from './overlays/notification-p
     TournamentRegistrationComponent,
     ClanInviteNotificationComponent,
     TournamentInviteNotificationComponent,
+    TournamentTeamDetailComponent,
   ],
   imports: [
     BrowserModule,

@@ -148,7 +148,8 @@ button[type="button"]:disabled {
 }
 
 /**Registration Form**/
-.registration-overlay {
+.registration-overlay,
+.team-detail-overlay {
   left: 0;
   z-index: 1100;
   width: 100%;
@@ -161,14 +162,16 @@ button[type="button"]:disabled {
   transition: visibility 0s, opacity 320ms ease;
 }
 
-.registration-overlay-active .registration-overlay {
+.registration-overlay-active .registration-overlay,
+.team-detail-overlay-active .team-detail-overlay {
   visibility: visible !important;
   opacity: 1 !important;
   background-color: rgba(21, 23, 32, 0.96) !important;
   top: 0 !important;
 }
 
-.registration-form {
+.registration-form,
+.team-detail-form {
   position: fixed;
   overflow-y: scroll;
   z-index: 1101;
@@ -188,7 +191,8 @@ button[type="button"]:disabled {
   top: 0;
 }
 
-.registration-overlay-active .registration-form {
+.registration-overlay-active .registration-form,
+.team-detail-overlay-active .team-detail-form {
   -webkit-transform: translateX(-100%);
   transform: translateX(-100%);
   -webkit-transition-delay: 100ms;
@@ -196,7 +200,8 @@ button[type="button"]:disabled {
 }
 
 @media (min-width: 992px) {
-  .registration-form {
+  .registration-form,
+  .team-detail-form {
     width: 700px;
   }
 }

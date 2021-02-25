@@ -1,7 +1,7 @@
 <div class="container container--large">
     <div class="page-heading page-heading--default">
         <div class="page-heading__subtitle h5 color-primary">Lit Team</div>
-        <h1 class="page-heading__title h2">All Teams</h1>
+        <h1 class="page-heading__title h2">All Clans</h1>
     </div>
     <div class="matches-filter">
         <form>
@@ -14,13 +14,10 @@
             <thead>
                 <tr>
                     <th>Index</th>
-                    <th>Team</th>
+                    <th>Clan Name</th>
                     <th>Wins</th>
-                    <th>Losses</th>
-                    <th>Win rate</th>
-                    <th>K/D/A</th>
-                    <th>MMR</th>
-                    <th>Streak</th>
+                    <th>Clan Points</th>
+                    <th>Clan Level</th>
                 </tr>
             </thead>
             <tbody>
@@ -36,11 +33,8 @@
                         </figure>
                     </td>
                     <td class="standings-table__wins">{{team.wins}}</td>
-                    <td class="standings-table__losses">{{team.loses}}</td>
-                    <td>{{team.wins/(team.wins + team.loses) | percent}}</td>
-                    <td>none</td>
-                    <td>none</td>
-                    <td>none</td>
+                    <td>not implemented</td>
+                    <td>not implemented</td>
                 </tr>
             </tbody>
         </table>
