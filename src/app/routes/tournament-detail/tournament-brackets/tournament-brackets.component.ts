@@ -1,11 +1,12 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
-import { bracketDTO, BracketGroupDTO } from '@app-models/tournament';
+import { bracketDTO, BracketGroupDTO, TournamentRegistration, TournamentRegistrationDTO } from '@app-models/tournament';
 import { TournamentDetailStateService } from '@app-services/state/tournament-detail-state.service';
 import { trigger, state, style, animate, transition } from '@angular/animations';
 import { BehaviorSubject, combineLatest, zip } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { ApplicationService } from '@app-services/app/application.service';
 import { AuthService } from '@app-services/auth/auth.service';
+import { MyFullDetail } from '@app-models/user';
 
 enum BracketFilter{
   all = 1,
@@ -57,15 +58,26 @@ export class TournamentBracketsComponent implements OnInit , AfterViewInit{
   bracketSelected$ = new BehaviorSubject<number>(0);
   constructor(public state: TournamentDetailStateService, public auth:AuthService) {
 
-    combineLatest([this.bracketFilter$, this.state.brackets$, this.auth.currentUserSubject,this.bracketSelected$]).pipe(map(x => { 
+    combineLatest([this.bracketFilter$, this.state.brackets$, this.auth.currentUserSubject,this.bracketSelected$, this.state.teams$]).pipe(map(x => { 
       let filter: BracketFilter = x[0];
       let brackets = JSON.parse(JSON.stringify(x[1]));
       let myDetail = JSON.parse(JSON.stringify(x[2]));
-      
-      if (brackets.length > 0 && brackets && myDetail && myDetail?.user?.id) {
+      let teams: TournamentRegistrationDTO[] = JSON.parse(JSON.stringify(x[4]));
+  
+      if (brackets.length > 0 && brackets && myDetail && myDetail.user) {
         let bracketSelected = x[3] !== 0 ? x[3] : x[1][0].bracketKnockoutId;
-        let my_team_id = myDetail.user?.team?.id;
         let bracket = brackets.find(x => x.bracketKnockoutId == bracketSelected);
+
+        let my_team_id = null;
+        if (myDetail && myDetail.user) {
+          for (var t = 0; t < teams.length; t++){
+            const found = teams[t].members.find(y => y.id == myDetail.user.id);
+            if (found) {
+              my_team_id = teams[t].tournamentRegistrationId
+            }
+          }
+        }
+
         if (filter == BracketFilter.me) {
           let allBrackets = bracket.brackets;
           bracket.brackets = [];
@@ -96,6 +108,7 @@ export class TournamentBracketsComponent implements OnInit , AfterViewInit{
 
   ngAfterViewInit() {
   }
+  
 
   switchBrackets(brackets:bracketDTO[]) {
     this.currentBrackets = [];

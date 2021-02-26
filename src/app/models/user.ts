@@ -1,4 +1,5 @@
 import { FormGroup } from '@angular/forms';
+import { TournamentRegistrationDTO } from './tournament';
 
 export class LoginModel {
     email: string;
@@ -314,8 +315,8 @@ export class ClanMemberUIModel extends ClanMemberViewModel{
     recordUrl:string;
     invalid:boolean;
     matchId:number;
-    loser:ClanViewModel;
-    winner:ClanViewModel;
+    loser:TournamentRegistrationDTO;
+    winner:TournamentRegistrationDTO;
     clips: MatchClipModel[];
     matchCode: string;
 }
