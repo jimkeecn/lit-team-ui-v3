@@ -14,13 +14,11 @@ import { TournamentDetailStateService } from '@app-services/state/tournament-det
 export class MatchContainerComponent implements OnInit,AfterViewInit {
 
   _matches: MatchViewModel[] = [];
-  _tournamentCodes: MatchCodeResponse[] = [];
   constructor(private route: ActivatedRoute, private state: TournamentDetailStateService, public api:TourneyApiService, public app:ApplicationService) {
     this.state.bracketOverview$.next(this.route.snapshot.data.detail);
   }
   ngOnInit(): void {
     this.getBracketMatchesById();
-    this.getBracketMatchCodes();
   }
 
   ngAfterViewInit() {
@@ -33,12 +31,6 @@ export class MatchContainerComponent implements OnInit,AfterViewInit {
     })
   }
 
-  getBracketMatchCodes() {
-    this.api.getBracketTournamentCodes(this.state.bracketOverview$.value.matchId).subscribe(res => { 
-      console.log(res);
-      this._tournamentCodes = res;
-    })
-  }
   
 
 }

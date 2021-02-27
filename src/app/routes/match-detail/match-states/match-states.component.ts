@@ -21,20 +21,6 @@ export class MatchStatesComponent implements OnInit {
   ngOnInit(): void {
   }
 
-
-  getBracketCodeById(index) {
-    this.api.getBracketCodeById(this.state.bracketOverview$.value.matchId,index + 1).subscribe(res => { 
-      console.log(res);
-      this.matches.forEach((x, i) => { 
-        if (i == index) {
-          x.matchCode = res.riotTournamentCode;
-        }
-      })
-    }, (err: HttpErrorResponse) => {
-      this.app.errorHandler(err);
-    })
-  }
-
   copyTournamentCode() {
     this.app.openSnackBar("You have copied the code","success")
   }

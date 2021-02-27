@@ -318,7 +318,10 @@ export class ClanMemberUIModel extends ClanMemberViewModel{
     loser:TournamentRegistrationDTO;
     winner:TournamentRegistrationDTO;
     clips: MatchClipModel[];
-    matchCode: string;
+    riotTournamentCode: string;
+    matchIndex: number;
+    riotGameId: number;
+    riotGameTime: Date;
 }
   
 export class MatchClipModel{

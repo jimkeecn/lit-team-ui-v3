@@ -1,4 +1,4 @@
-import { ClanMemberViewModel, ClanViewModel } from './user';
+import { ClanMemberViewModel, ClanViewModel, MatchCodeResponse, MatchViewModel } from './user';
 
 export class TournamentDTO{
     tournamentId: number;

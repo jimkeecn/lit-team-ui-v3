@@ -1,11 +1,11 @@
 <div class="matches-tabs mt-sm-auto mb-sm-auto">
     <ul class="matches-tabs__navigation matches-tabs__navigation--color-light nav" role="tablist">
         <li class="nav-item">
-            <a href="#{{'code'+i}}" role="tab" data-toggle="tab" class="state-code-list"  *ngFor="let match of tournamentCodes; let i = index">Game {{i + 1}}</a>
+            <a href="#{{'code'+i}}" role="tab" data-toggle="tab" class="state-code-list"  *ngFor="let match of matches; let i = index">Game {{i + 1}}</a>
         </li>
     </ul>
     <div class="matches-tabs__content tab-content ">
-        <div class="match-stats-container tab-pane fade" [id]="'code'+i" role="tabpanel" *ngFor="let match of tournamentCodes;let i = index">
+        <div class="match-stats-container tab-pane fade" [id]="'code'+i" role="tabpanel" *ngFor="let match of matches;let i = index">
             <div class="match-stats-widget match-stats-widget--general match-state-replace-code">
                 <div class="match-stats-widget__header">
                     Code 
