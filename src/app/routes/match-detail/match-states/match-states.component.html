@@ -6,7 +6,7 @@
     </ul>
     <div class="matches-tabs__content tab-content ">
         <div class="match-stats-container tab-pane fade" [id]="'code'+i" role="tabpanel" *ngFor="let match of matches;let i = index">
-            <div class="match-stats-widget match-stats-widget--general match-state-replace-code">
+            <div class="match-stats-widget match-stats-widget--general match-state-replace-code" *ngIf="!match.riotGameId">
                 <div class="match-stats-widget__header">
                     Code 
                 </div>
@@ -15,6 +15,29 @@
                         <span>Tournament Code</span>
                         <span >{{match.riotTournamentCode}}</span>
                         <button pan class="get-code"  [cdkCopyToClipboard]="match.riotTournamentCode" (click)="copyTournamentCode()">Copy</button>
+                    </li>
+                </ul>
+            </div>
+            <div class="match-stats-widget match-stats-widget--general match-state-replace-code" *ngIf="match.riotGameId && match.invalid">
+                <div class="match-stats-widget__header">
+                    Please upload your match replay 
+                </div>
+                <ul class="match-stats-widget__body ">
+                    <li>
+                        <span><input type="file" accept=".rofl" (change)="onFileChange($event)"></span>
+                        <button class="get-code" [disabled]="submitDisable" (click)="upload(match.matchId)">upload</button>
+                    </li>
+                </ul>
+            </div>
+            <div class="match-stats-widget match-stats-widget--general match-state-replace-code" *ngIf="!match.invalid">
+                <div class="match-stats-widget__header">
+                    Result
+                </div>
+                <ul class="match-stats-widget__body reverse">
+                    <li>
+                        <span>{{match.winner.name}}</span>
+                        <span>Defeats</span>
+                        <span>{{match.loser.name}}</span>
                     </li>
                 </ul>
             </div>

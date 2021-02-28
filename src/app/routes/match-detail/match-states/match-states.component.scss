@@ -18,3 +18,17 @@ button.get-code {
 .state-code-list {
   margin-right: 20px;
 }
+
+.match-stats-widget--general
+  .match-stats-widget__body.reverse
+  > li
+  > span:first-child {
+  color: #fff;
+}
+
+.match-stats-widget--general
+  .match-stats-widget__body.reverse
+  > li
+  > span:last-child {
+  color: #5e627e;
+}
