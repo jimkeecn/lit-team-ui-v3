@@ -63,6 +63,11 @@
       </a>
     </li>
     <li class="mobile-bar-item">
+      <a class="mobile-bar-item__header" [routerLink]="['/account/setting']" *ngIf="auth.isLogined()">
+        My Account
+      </a>
+    </li>
+    <li class="mobile-bar-item">
       <a class="mobile-bar-item__header" [routerLink]="['sign']" *ngIf="!auth.isLogined()">
         Login/Register
       </a>
