@@ -17,4 +17,5 @@ export class TournamentDetailStateService {
   matches$ = new BehaviorSubject<MatchViewModel[]>([]);
   display_team_detail$ = new BehaviorSubject<TournamentRegistrationDTO>(null)
   constructor() { }
+  
 }
