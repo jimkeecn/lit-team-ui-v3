@@ -94,6 +94,11 @@ export class TourneyApiService {
     return this.http.get<BracketGroupDTO[]>(url).pipe(tap());
   }
 
+  getTournamentGroups(id:number):Observable<BracketGroupDTO[]> {
+    const url = `${this.baseUrl}/Tournament/${id}/groups`;
+    return this.http.get<BracketGroupDTO[]>(url).pipe(tap());
+  }
+
   getBracketById(id: number): Observable<BracketGroupDTO>{
     const url = `${this.baseUrl}/Bracket/${id}`;
     return this.http.get<BracketGroupDTO>(url).pipe(tap());

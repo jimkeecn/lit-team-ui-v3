@@ -12,6 +12,7 @@ export class TournamentDetailStateService {
   detail$ = new BehaviorSubject<TournamentDTO>(new TournamentDTO());
   teams$ = new BehaviorSubject<TournamentRegistrationDTO[]>([]);
   brackets$ = new BehaviorSubject<BracketGroupDTO[]>([]);
+  groups$ = new BehaviorSubject<BracketGroupDTO[]>([]);
   bracketOverview$ = new BehaviorSubject<bracketDTO>(null);
   matches$ = new BehaviorSubject<MatchViewModel[]>([]);
   display_team_detail$ = new BehaviorSubject<TournamentRegistrationDTO>(null)

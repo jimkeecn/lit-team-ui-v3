@@ -1,16 +1,37 @@
 
+<div class="mt-sm-auto mb-sm-auto" >
+    <ul class="matches-scores__navigation js-filter bracket-list">
+        <li data-filter=".sep-18" 
+        [ngClass]="{'active':bracket.bracketKnockoutId == bracketSelected}" 
+        (click)="switchBrackets(bracket.brackets,'group')" 
+        *ngFor="let bracket of (state.groups$ | async)">
+        <span>{{bracket.brackets.length}} games</span>{{bracket.bracketKnockoutName}}</li>
+    </ul>
+
+    <div class="matches-filter">
+        <label class="matches-filter__label">Team filter</label>
+        <select class="cs-select" [value]="groupBracketFilter$ | async" (change)="switchBracketTeamFilter($event,'group')">
+            <option [value]="option.id" *ngFor="let option of BracketOptions">{{option.name}}</option>
+        </select>
+    </div>
+
+    <div class="matches-scores row">
+       <app-tournament-match-card [@inOutAnimation] [match]="bracket" class="col-md-12 col-lg-6" *ngFor="let bracket of currentGroupBrackets"></app-tournament-match-card>
+    </div>
+</div>
+
 <div class="mt-sm-auto mb-sm-auto">
     <ul class="matches-scores__navigation js-filter bracket-list">
         <li data-filter=".sep-18" 
         [ngClass]="{'active':bracket.bracketKnockoutId == bracketSelected}" 
-        (click)="switchBrackets(bracket.brackets)" 
+        (click)="switchBrackets(bracket.brackets,'knockout')" 
         *ngFor="let bracket of (state.brackets$ | async)">
         <span>{{bracket.brackets.length}} games</span>{{bracket.bracketKnockoutName}}</li>
     </ul>
 
     <div class="matches-filter">
         <label class="matches-filter__label">Team filter</label>
-        <select class="cs-select" [value]="bracketFilter$ | async" (change)="switchBracketTeamFilter($event)">
+        <select class="cs-select" [value]="bracketFilter$ | async" (change)="switchBracketTeamFilter($event,'knockout')">
             <option [value]="option.id" *ngFor="let option of BracketOptions">{{option.name}}</option>
         </select>
     </div>
