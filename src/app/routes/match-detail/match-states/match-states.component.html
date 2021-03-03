@@ -14,7 +14,7 @@
                     <li>
                         <span>Tournament Code</span>
                         <span >{{match.riotTournamentCode}}</span>
-                        <button pan class="get-code"  [cdkCopyToClipboard]="match.riotTournamentCode" (click)="copyTournamentCode()">Copy</button>
+                        <button class="get-code"  [cdkCopyToClipboard]="match.riotTournamentCode" (click)="copyTournamentCode()">Copy</button>
                     </li>
                 </ul>
             </div>
@@ -29,7 +29,7 @@
                     </li>
                 </ul>
             </div>
-            <div class="match-stats-widget match-stats-widget--general match-state-replace-code" *ngIf="!match.invalid">
+            <div class="match-stats-widget match-stats-widget--general match-state-replace-code" *ngIf="!match.invalid && match.winnerId && match.loserId">
                 <div class="match-stats-widget__header">
                     Result
                 </div>

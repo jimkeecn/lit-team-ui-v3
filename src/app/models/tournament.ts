@@ -66,7 +66,9 @@ export class bracketDTO{
     bracketFormatId: number;
     bracketFormatName: string;
     tournamentId: number;
-    matchIndex: number;
+  matchIndex: number;
+  groupId: number;
+  groupName: string;
 }
 
 export class BracketGroupDTO{

@@ -29,9 +29,8 @@
             </figure>
         </div>
         <div class="match-score__footer">
-            <figure class="match-team-logo match-team-logo--team-1" role="group">
-                <img src="assets/img/samples/logo-necromancers-42.png" srcset="assets/img/samples/logo-necromancers-42@2x.png 2x" alt="Necromancers Logo">
-            </figure>
+            <a  (click)="openTeamdetail(match.teamA)"><img  class="match-team-logo" src="assets/img/samples/team-selection-thumb-team.png" alt="Lit Team Logo"></a>
+            
             <ul class="match-stats-links">
                 <li>
                     <a (click)="navigateToBracketDetail()">
@@ -41,9 +40,8 @@
                     </a>
                 </li>
             </ul>
-            <figure class="match-team-logo match-team-logo--team-2" role="group">
-                <img src="assets/img/samples/logo-rhinos-42.png" srcset="assets/img/samples/logo-rhinos-42@2x.png 2x" alt="Raging Rhinos Logo">
-            </figure>
-        </div>
+            <a  (click)="openTeamdetail(match.teamB)"><img  class="match-team-logo" src="assets/img/samples/team-selection-thumb-team.png" alt="Lit Team Logo"></a>
+            
+          </div>
     </div>
 </div>

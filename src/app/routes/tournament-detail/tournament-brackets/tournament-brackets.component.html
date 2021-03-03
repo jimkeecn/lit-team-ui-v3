@@ -1,7 +1,7 @@
-<div class="mt-sm-auto mb-sm-auto" >
+<div class="mt-sm-auto mb-sm-auto" *ngIf="(state.groups$ | async).length > 0">
   
     <ul class="matches-scores__navigation js-filter bracket-list">
-        <li data-filter=".sep-18" 
+        <li
         [ngClass]="{'active':bracket.bracketKnockoutId == bracketSelected}" 
         (click)="switchBrackets(bracket.brackets,'group')" 
         *ngFor="let bracket of (state.groups$ | async)">
@@ -20,9 +20,9 @@
     </div>
 </div>
 
-<div class="mt-sm-auto mb-sm-auto">
+<div class="mt-sm-auto mb-sm-auto" *ngIf="(state.brackets$ | async).length > 0">
     <ul class="matches-scores__navigation js-filter bracket-list">
-        <li data-filter=".sep-18" 
+        <li
         [ngClass]="{'active':bracket.bracketKnockoutId == bracketSelected}" 
         (click)="switchBrackets(bracket.brackets,'knockout')" 
         *ngFor="let bracket of (state.brackets$ | async)">

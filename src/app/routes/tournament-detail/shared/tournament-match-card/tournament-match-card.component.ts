@@ -22,4 +22,12 @@ export class TournamentMatchCardComponent implements OnInit {
     this.router.navigate(['tournament-detail',this.state.detail$.value.tournamentId,'bracket-detail',this.match.matchId])
   }
 
+
+  openTeamdetail(teamId) {
+    var team = this.state.teams$.value.find(x => x.tournamentRegistrationId == teamId);
+
+    this.state.display_team_detail$.next(team);
+    document.querySelector(".tournament-container").classList.add("team-detail-overlay-active");
+  }
+
 }

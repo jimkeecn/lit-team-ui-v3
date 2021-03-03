@@ -4,6 +4,7 @@ import { TournamentDTO } from '@app-models/tournament';
 import { TourneyApiService } from '@app-services/api/tourney-api.service';
 import { AuthService } from '@app-services/auth/auth.service';
 import { TournamentDetailStateService } from "@app-services/state/tournament-detail-state.service";
+import { tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-tournament-container',
@@ -20,7 +21,10 @@ export class TournamentContainerComponent implements OnInit {
     let tourney_detail: TournamentDTO = this.route.snapshot.data.detail;
     this.tournamentName = tourney_detail.name;
     this.tournamentTime = tourney_detail.startDate;
-    api.getRegistrationsTournaments(tourney_detail.tournamentId).subscribe(res => { 
+    api.getRegistrationsTournaments(tourney_detail.tournamentId).pipe(tap(x => { 
+      state.teams$.next([]);
+      
+    })).subscribe(res => { 
       state.teams$.next(res);
       for (let x = 0; x < res.length; x++){
         res[x].members.forEach(y => { 
@@ -30,11 +34,17 @@ export class TournamentContainerComponent implements OnInit {
         })
       }
     })
-    api.getTournamentBrackets(tourney_detail.tournamentId).subscribe(res => { 
+    api.getTournamentBrackets(tourney_detail.tournamentId).pipe(tap(x => { 
+      state.brackets$.next([]);
+      
+    })).subscribe(res => { 
       console.log(res);
       state.brackets$.next(res);
     })
-    api.getTournamentGroups(tourney_detail.tournamentId).subscribe(res => { 
+    api.getTournamentGroups(tourney_detail.tournamentId).pipe(tap(x => { 
+      state.groups$.next([]);
+      
+    })).subscribe(res => { 
       console.log(res);
       state.groups$.next(res);
     })

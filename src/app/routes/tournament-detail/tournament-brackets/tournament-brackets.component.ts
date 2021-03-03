@@ -162,10 +162,10 @@ export class TournamentBracketsComponent implements OnInit , AfterViewInit{
   }
   
 
-  switchBrackets(brackets: bracketDTO[], type) {
-    if (type = "group") { 
+  switchBrackets(brackets: bracketDTO[], type?) {
+    if (type == "group") { 
       this.currentGroupBrackets = [];
-      this.groupBracketSelected$.next(brackets[0].bracketKnockoutId);
+      this.groupBracketSelected$.next(brackets[0].groupId);
     } else {
       this.currentBrackets = [];
       this.bracketSelected$.next(brackets[0].bracketKnockoutId);
@@ -174,7 +174,7 @@ export class TournamentBracketsComponent implements OnInit , AfterViewInit{
   }
 
   switchBracketTeamFilter(filter: any, type) {
-    if (type = "group") {
+    if (type == "group") {
       console.log(filter.target.value);
     this.groupBracketFilter$.next(parseInt(filter.target.value));
     } else{
