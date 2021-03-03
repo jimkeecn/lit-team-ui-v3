@@ -53,10 +53,19 @@ export class TourneyApiService {
     return this.http.get<TournamentRegistrationDTO[]>(url).pipe(tap());
   }
 
-
   registerTournamentById(id:number,data:any):Observable<number> {
     const url = `${this.baseUrl}/Tournament/${id}/register`;
     return this.http.post<number>(url,data).pipe(tap());
+  }
+
+  registerAsFreeAgentTournamentById(id:number):Observable<number> {
+    const url = `${this.baseUrl}/Tournament/${id}/freeAgent`;
+    return this.http.post<number>(url,null).pipe(tap());
+  }
+
+  getFreeAgentTournamentById(id:number):Observable<number> {
+    const url = `${this.baseUrl}/Tournament/${id}/freeAgents`;
+    return this.http.get<number>(url).pipe(tap());
   }
 
   inviteToTournamentById(id:number,data:any):Observable<number> {
