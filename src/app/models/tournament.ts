@@ -1,4 +1,4 @@
-import { ClanMemberViewModel, ClanViewModel, MatchCodeResponse, MatchViewModel } from './user';
+import { ClanMemberViewModel, ClanViewModel, MatchCodeResponse, MatchViewModel, MyFullDetail, PlayerGameAccount } from './user';
 
 export class TournamentDTO{
     tournamentId: number;
@@ -103,4 +103,13 @@ export class TournamentInvitationNotification{
   teamName: string;
   id: number;
   date:Date
+}
+
+export class TournamentRegistrationFreeAgent{
+  id: number;
+  tournamentId: number;
+  registrationTime: Date;
+  userId: number;
+  player: MyFullDetail;
+  account: PlayerGameAccount;
 }

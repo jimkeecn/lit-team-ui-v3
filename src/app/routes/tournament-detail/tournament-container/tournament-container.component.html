@@ -1,10 +1,14 @@
 <div class="container tournament-container">
     <tournament-heading [tournamentName]="tournamentName" 
-    [tournamentTime]="tournamentTime" [isRegistered]="isRegistered" (registerAsFreeAgent)="registerAsFreeAgent($event)"></tournament-heading>
+    [tournamentTime]="tournamentTime" 
+    [isRegistered]="isRegistered" 
+    (registerAsFreeAgent)="registerAsFreeAgent($event)"
+    [isRegisteredAsFreeAgent]="isRegisteredAsFreeAgent"></tournament-heading>
 
     <tournament-links></tournament-links>
 
     <router-outlet></router-outlet>
     <tournament-registration></tournament-registration>
     <tournament-team-detail></tournament-team-detail>
+
 </div>

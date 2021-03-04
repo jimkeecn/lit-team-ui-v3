@@ -25,6 +25,8 @@ export class TournamentLinksComponent implements OnInit {
       this.router.navigate(['tournament-detail',this.state.detail$.value.tournamentId,'overview'])
     } else if (link == TournamentLinks.rules) {
       this.router.navigate(['tournament-detail',this.state.detail$.value.tournamentId,'rules'])
+    } else if (link == TournamentLinks.agents) {
+      this.router.navigate(['tournament-detail',this.state.detail$.value.tournamentId,'agents'])
     } else if (link == TournamentLinks.brackets) {
       this.router.navigate(['tournament-detail',this.state.detail$.value.tournamentId,'brackets'])
     } else if (link == TournamentLinks.teams) {

@@ -67,8 +67,9 @@ export enum TournamentTimeEnum{
 export enum TournamentLinks{
     overview = 1,
     rules = 2,
-    teams = 3,
-    brackets = 4
+    agents = 3,
+    teams = 4,
+    brackets = 5
 }
   
 export enum AccountMenuState{

@@ -28,6 +28,7 @@ import { ConfirmEmailComponent } from './routes/login-register/confirm-email/con
 import { ForgotPasswordRequestComponent } from './routes/login-register/forgot-password-request/forgot-password-request.component';
 import { ForgotPasswordComponent } from './routes/login-register/forgot-password/forgot-password.component';
 import { AccountGamesComponent } from './routes/account/account-games/account-games.component';
+import { TournamentFreeAgentsComponent } from './routes/tournament-detail/tournament-free-agents/tournament-free-agents.component';
 const routes: Routes = [
   {
     path:"home",
@@ -62,6 +63,10 @@ const routes: Routes = [
           {
             path: "brackets",
             component:TournamentBracketsComponent
+          },
+          {
+            path: "agents",
+            component:TournamentFreeAgentsComponent
           },
           {
             path: "teams",

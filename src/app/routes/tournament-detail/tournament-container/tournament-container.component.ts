@@ -6,6 +6,7 @@ import { TourneyApiService } from '@app-services/api/tourney-api.service';
 import { ApplicationService } from '@app-services/app/application.service';
 import { AuthService } from '@app-services/auth/auth.service';
 import { TournamentDetailStateService } from "@app-services/state/tournament-detail-state.service";
+import { BehaviorSubject } from 'rxjs';
 import { tap } from 'rxjs/operators';
 
 @Component({
@@ -18,6 +19,8 @@ export class TournamentContainerComponent implements OnInit {
   tournamentTime: Date;
   isRegistered: boolean = false;
   tournamentId: number = 0;
+  isRegisteredAsFreeAgent: boolean = false;
+
   constructor(private route: ActivatedRoute, private state: TournamentDetailStateService,
     public api: TourneyApiService,public auth:AuthService,public app:ApplicationService) { 
     state.detail$.next(this.route.snapshot.data.detail);
@@ -62,16 +65,23 @@ export class TournamentContainerComponent implements OnInit {
     })
 
     api.getFreeAgentTournamentById(tourney_detail.tournamentId).subscribe(res => { 
-
+      state.free_agents$.next(res);
+      res.forEach(y => { 
+        if (y.userId == this.auth.currentUserSubject.value.user?.id) {
+          this.isRegisteredAsFreeAgent = true;
+        }
+      })
       console.log(res);
     })
   }
 
   registerAsFreeAgent(event) {
     if (event == true) {
-      this.api.registerAsFreeAgentTournamentById(this.tournamentId)
-        .subscribe(res => { 
+      this.api.registerAsFreeAgentTournamentById(this.tournamentId).pipe(tap(x => { 
+
+      })).subscribe(res => { 
           console.log(res);
+          
       }, (err: HttpErrorResponse) => {
         this.app.errorHandler(err);
       })
@@ -79,7 +89,6 @@ export class TournamentContainerComponent implements OnInit {
   }
 
   ngOnInit(): void {
-   
   }
 
 }

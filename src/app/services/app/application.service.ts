@@ -31,10 +31,13 @@ export class ApplicationService {
           this.tourneyDetailState.links = 1;
         } else if (this.route.url.includes("rules")) {
           this.tourneyDetailState.links = 2;
-        } else if (this.route.url.includes("teams")) {
+        } else if (this.route.url.includes("agents")) {
           this.tourneyDetailState.links = 3;
-        } else if (this.route.url.includes("bracket")) {
+        }
+        else if (this.route.url.includes("teams")) {
           this.tourneyDetailState.links = 4;
+        } else if (this.route.url.includes("bracket")) {
+          this.tourneyDetailState.links = 5;
         } 
       }
 

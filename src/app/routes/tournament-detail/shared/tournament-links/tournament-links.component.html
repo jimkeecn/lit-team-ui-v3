@@ -1,29 +1,28 @@
 <ul class="match-stats-links match-stats-links--main">
     <li (click)="goToLink(1)">
         <a  [ngClass]="{'active':state.links == 1}" title="Overview">
-            <svg role="img" class="df-icon df-icon--overview">
-                <use xlink:href="assets/img/necromancers.svg#overview"/>
-            </svg>
+            <i class="fas fa-medal df-icon"></i>
         </a>
     </li>
     <li (click)="goToLink(2)">
         <a [ngClass]="{'active':state.links == 2}" title="Rules">
-            <svg role="img" class="df-icon df-icon--team-overview">
-                <use xlink:href="assets/img/necromancers.svg#team-overview"/>
-            </svg>
+            <i class="fas fa-info df-icon"></i>
         </a>
     </li>
     <li (click)="goToLink(3)">
-        <a [ngClass]="{'active':state.links == 3}">
-            <svg role="img" class="df-icon df-icon--lineups">
-                <use xlink:href="assets/img/necromancers.svg#lineups"/>
-            </svg>
+        <a [ngClass]="{'active':state.links == 3}" title="Free Agents">
+            <i class="fas fa-user df-icon"></i>
         </a>
     </li>
     <li (click)="goToLink(4)">
-        <a [ngClass]="{'active':state.links == 4}">
-            <svg role="img" class="df-icon df-icon--replay">
-                <use xlink:href="assets/img/necromancers.svg#replay"/>
+        <a [ngClass]="{'active':state.links == 4}" title="Teams">
+            <i class="fas fa-users df-icon"></i>
+        </a>
+    </li>
+    <li (click)="goToLink(5)">
+        <a [ngClass]="{'active':state.links == 5}" title="Overview">
+            <svg role="img" class="df-icon df-icon--overview">
+                <use xlink:href="assets/img/necromancers.svg#overview"/>
             </svg>
         </a>
     </li>
