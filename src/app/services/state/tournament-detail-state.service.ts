@@ -17,6 +17,7 @@ export class TournamentDetailStateService {
   matches$ = new BehaviorSubject<MatchViewModel[]>([]);
   display_team_detail$ = new BehaviorSubject<TournamentRegistrationDTO>(null);
   free_agents$ = new BehaviorSubject<TournamentRegistrationFreeAgent[]>([]);
+  isRegistered: boolean = false;
   constructor() { }
   
 }

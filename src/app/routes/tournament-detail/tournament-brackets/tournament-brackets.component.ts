@@ -41,6 +41,8 @@ class BracketOptions{
 })
 export class TournamentBracketsComponent implements OnInit , AfterViewInit{
 
+  stage: number = 1;
+  
   BracketOptions: BracketOptions[] = [
     {
       id: 1,

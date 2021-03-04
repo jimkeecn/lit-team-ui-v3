@@ -10,7 +10,7 @@
                 <th>GameID</th>
                 <th>Position</th>
                 <th>Description</th>
-                <th></th>
+                <th *ngIf="state.isRegistered"></th>
             </tr>
         </thead>
         <tbody>
@@ -19,7 +19,7 @@
               <td >{{player.account.gameUniqueName}}<a class="op-gg"  [href]="getOpGG(player.account.gameUniqueName)" target="_blank">op.gg</a></td>
               <td>{{getPositonText(player.account.position)}}</td>
               <td>{{player.account.myDescription}}</td>
-              <td><button class="btn btn-primary" (click)="invite(player.account.gameUniqueName)">Invite to my team</button></td>
+              <td *ngIf="state.isRegistered"><button class="btn btn-primary" (click)="invite(player.account.gameUniqueName)">Invite to my team</button></td>
             </tr>
         </tbody>
     </table>

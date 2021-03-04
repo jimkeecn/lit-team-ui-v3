@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { TournamentDetailStateService } from '@app-services/state/tournament-detail-state.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
@@ -39,6 +39,8 @@ export class TournamentRegistrationComponent implements OnInit {
     clanId: new FormControl(null)
   })
   
+  @Output() getTeam = new EventEmitter();
+
   members: any[] = [];
   constructor(public state:TournamentDetailStateService, public auth: AuthService, public app:ApplicationService,
     private fb: FormBuilder, public api:TourneyApiService) { }
@@ -145,6 +147,7 @@ export class TournamentRegistrationComponent implements OnInit {
             this.app.openSnackBar(`Created a new team.`, 'success');
             this.submitDisable = false;
             this.step = 2;
+            this.getTeam.emit(true);
           }, (err: HttpErrorResponse) => {
             this.submitDisable = false;
             this.app.errorHandler(err);

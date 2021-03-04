@@ -28,21 +28,7 @@ export class TournamentContainerComponent implements OnInit {
     this.tournamentName = tourney_detail.name;
     this.tournamentTime = tourney_detail.startDate;
     this.tournamentId = tourney_detail.tournamentId;
-    api.getRegistrationsTournaments(tourney_detail.tournamentId).pipe(tap(x => { 
-      state.teams$.next([]);
-      
-    })).subscribe(res => { 
-      state.teams$.next(res);
-      for (let x = 0; x < res.length; x++){
-        res[x].members.forEach(y => { 
-          if (y.id == this.auth.currentUserSubject.value.user?.id) {
-            this.isRegistered = true;
-          }
-        })
-      }
-    }, (err: HttpErrorResponse) => {
-      this.app.errorHandler(err);
-    })
+    this.getTeam(true);
 
     api.getTournamentBrackets(tourney_detail.tournamentId).pipe(tap(x => { 
       state.brackets$.next([]);
@@ -64,8 +50,30 @@ export class TournamentContainerComponent implements OnInit {
       this.app.errorHandler(err);
     })
 
-    api.getFreeAgentTournamentById(tourney_detail.tournamentId).subscribe(res => { 
-      state.free_agents$.next(res);
+    this.getFreeAgents();
+  }
+
+  getTeam(data) {
+    this. api.getRegistrationsTournaments(this.tournamentId).pipe(tap(x => { 
+      this.state.teams$.next([]);
+      
+    })).subscribe(res => { 
+      this.state.teams$.next(res);
+      for (let x = 0; x < res.length; x++){
+        res[x].members.forEach(y => { 
+          if (y.id == this.auth.currentUserSubject.value.user?.id) {
+            this.state.isRegistered = true;
+            this.isRegistered = true;
+          }
+        })
+      }
+    }, (err: HttpErrorResponse) => {
+      this.app.errorHandler(err);
+    })
+  }
+  getFreeAgents() {
+    this.api.getFreeAgentTournamentById(this.tournamentId).subscribe(res => { 
+      this.state.free_agents$.next(res);
       res.forEach(y => { 
         if (y.userId == this.auth.currentUserSubject.value.user?.id) {
           this.isRegisteredAsFreeAgent = true;
@@ -81,7 +89,7 @@ export class TournamentContainerComponent implements OnInit {
 
       })).subscribe(res => { 
           console.log(res);
-          
+          this.getFreeAgents();
       }, (err: HttpErrorResponse) => {
         this.app.errorHandler(err);
       })

@@ -8,7 +8,7 @@
     <tournament-links></tournament-links>
 
     <router-outlet></router-outlet>
-    <tournament-registration></tournament-registration>
+    <tournament-registration (getTeam)="getTeam($event)"></tournament-registration>
     <tournament-team-detail></tournament-team-detail>
 
 </div>

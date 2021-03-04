@@ -1,4 +1,9 @@
-<div class="mt-sm-auto mb-sm-auto" *ngIf="(state.groups$ | async).length > 0">
+<div class="bracket-type">
+    <h2 (click)="stage = 1" [ngClass]="{'active': stage == 1}">Group Stage</h2>
+    <h2 (click)="stage = 2" [ngClass]="{'active': stage == 2}">Final Brackets</h2>
+</div>
+
+<div class="mt-sm-auto mb-sm-auto" *ngIf="(state.groups$ | async).length > 0 && stage == 1">
   
     <ul class="matches-scores__navigation js-filter bracket-list">
         <li
@@ -20,7 +25,7 @@
     </div>
 </div>
 
-<div class="mt-sm-auto mb-sm-auto" *ngIf="(state.brackets$ | async).length > 0">
+<div class="mt-sm-auto mb-sm-auto" *ngIf="(state.brackets$ | async).length > 0 && stage == 2">
     <ul class="matches-scores__navigation js-filter bracket-list">
         <li
         [ngClass]="{'active':bracket.bracketKnockoutId == bracketSelected}" 

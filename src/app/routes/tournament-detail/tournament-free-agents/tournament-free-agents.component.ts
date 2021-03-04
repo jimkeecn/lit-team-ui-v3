@@ -1,5 +1,5 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { LeagueOfLegendsPosition } from '@app-models/static';
 import { MemberRequestCreateModel } from '@app-models/user';
 import { TourneyApiService } from '@app-services/api/tourney-api.service';
