@@ -6,7 +6,8 @@
     <table class="table matches-table standings-table">
         <thead>
             <tr>
-                <th>Summoner Name</th>
+                <th>User</th>
+                <th>GameID</th>
                 <th>Position</th>
                 <th>Description</th>
                 <th></th>
@@ -14,7 +15,8 @@
         </thead>
         <tbody>
             <tr *ngFor="let player of (state.free_agents$ | async);let i = index">
-              <td class="first-td">{{player.account.gameUniqueName}}<a class="op-gg"  [href]="getOpGG(player.account.gameUniqueName)" target="_blank">op.gg</a></td>
+              <td class="first-td">{{player.player.gameId}}</td>
+              <td >{{player.account.gameUniqueName}}<a class="op-gg"  [href]="getOpGG(player.account.gameUniqueName)" target="_blank">op.gg</a></td>
               <td>{{getPositonText(player.account.position)}}</td>
               <td>{{player.account.myDescription}}</td>
               <td><button class="btn btn-primary" (click)="invite(player.account.gameUniqueName)">Invite to my team</button></td>
