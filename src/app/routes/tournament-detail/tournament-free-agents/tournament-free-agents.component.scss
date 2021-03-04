@@ -1,5 +1,42 @@
+@import "../../../../styles.scss";
+
 @media (min-width: 992px) and (max-width: 1490px) {
   :host {
     padding: 0px;
   }
+}
+
+.match-team img {
+  width: 20px;
+  height: 20px;
+  float: left;
+  position: relative;
+  top: 5px;
+  margin-right: 10px;
+}
+
+.matches-table tbody tr {
+  opacity: 0.8;
+  transition: 0.3s opacity ease;
+  cursor: pointer;
+}
+
+.matches-table tbody tr:hover {
+  opacity: 1;
+}
+
+.table-responsive {
+  max-height: 400px;
+}
+
+.op-gg {
+  cursor: pointer;
+  padding: 3px;
+  color: $lt-main-color;
+  position: relative;
+  margin-left: 5px;
+}
+
+td {
+  width: 30% !important;
 }
