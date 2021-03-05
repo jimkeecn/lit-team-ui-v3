@@ -1,6 +1,10 @@
 @media (min-width: 992px) and (max-width: 1490px) {
   :host {
-    padding: 0px;
+    padding: 0 0 0 90px;
+  }
+
+  h2 {
+    font-size: 2.5rem !important;
   }
 }
 
