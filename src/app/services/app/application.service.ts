@@ -4,12 +4,14 @@ import { Location } from "@angular/common";
 import { HttpErrorResponse } from '@angular/common/http';
 import { FormGroup, ValidationErrors, ValidatorFn } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { BehaviorSubject, Observable, Subject } from 'rxjs';
+import { BehaviorSubject, combineLatest, Observable, Subject } from 'rxjs';
 import { ClanViewModel, MemberRequestViewModel, MyFullDetail } from '../../models/user';
-import { formErrorState, notificationObject, RouterActiveEnum } from '../../models/appState';
+import { formErrorState, notificationObject, notificationType, RouterActiveEnum } from '../../models/appState';
 import { MatDialog } from '@angular/material/dialog';
 import { TournamentDetailStateService } from '@app-services/state/tournament-detail-state.service';
 import { map, switchMap, tap } from 'rxjs/operators';
+import { ApiService } from '@app-services/api/api.service';
+import { TourneyApiService } from '@app-services/api/tourney-api.service';
 
 
 
@@ -20,7 +22,9 @@ import { map, switchMap, tap } from 'rxjs/operators';
 export class ApplicationService {
   routeTransferCompleted = true;
   routeState: RouterActiveEnum;
-  constructor(public route: Router,location: Location,private _snackBar: MatSnackBar, public dialog: MatDialog,public tourneyDetailState:TournamentDetailStateService) {
+  constructor(private route: Router, location: Location, private _snackBar: MatSnackBar,
+    private dialog: MatDialog, private tourneyDetailState: TournamentDetailStateService,
+  private api:ApiService,private tApi:TourneyApiService) {
     this.route.events.subscribe(val => {
       this.routeTransferCompleted = false;
       this.removeBodyClasses();
@@ -221,6 +225,39 @@ formErrorHandler(form: FormGroup){
 
 
   /*** Notification ***/
+
+  getNotification() {
+    combineLatest([this.api.getAllInvitations(), this.tApi.getTournamentInvitation()]).pipe(map(data => { 
+      const clanInvs = JSON.parse(JSON.stringify(data[0]));
+      const tourInvs = JSON.parse(JSON.stringify(data[1]));
+
+      let array:notificationObject[] = [];
+
+      for (let x = 0; x < clanInvs.length; x++){
+      let obj:notificationObject = {
+        data: clanInvs[x],
+        time: clanInvs[x].date,
+        type: notificationType.ClanInvitation
+      }
+      array.push(obj);
+      }
+      
+      for (let x = 0; x < tourInvs.length; x++){
+        let obj:notificationObject = {
+          data: tourInvs[x],
+          time: tourInvs[x].date,
+          type: notificationType.TournamentInvitation
+        }
+        array.push(obj);
+      }
+
+      return array;
+    })).subscribe(res => { 
+      console.log(`invitations:${res.length}`);
+      this.notifications$.next(res);
+      console.log(res);
+    })
+  }
 }
 
 

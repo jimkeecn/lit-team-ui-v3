@@ -16,9 +16,7 @@ export class TourneyApiService {
 
   baseUrl: string = '';
   constructor(
-    private http: HttpClient,
-    private route: Router,
-    private app:ApplicationService
+    private http: HttpClient
   ) {
     this.baseUrl = environment.url;
   }

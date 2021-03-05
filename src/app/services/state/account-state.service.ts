@@ -11,7 +11,7 @@ import { AuthService } from '@app-services/auth/auth.service';
 export class AccountStateService {
 
   menuState$ = new BehaviorSubject<AccountMenuState>(1);
-  constructor(public route: Router,location: Location,) {
+  constructor(private route: Router,location: Location,) {
     this.route.events.subscribe(val => {
       var url = location.path();
 

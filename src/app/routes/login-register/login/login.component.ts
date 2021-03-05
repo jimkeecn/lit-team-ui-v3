@@ -39,6 +39,7 @@ export class LoginComponent implements OnInit {
       this.auth.login(loginForm).subscribe(x => {
         this.submitDisable = false;
         this.app.openSnackBar('Welcome to Lit Team', 'success');
+        this.app.getNotification();
         this.route.navigate(['home']);
       }, (err: HttpErrorResponse) => {
         this.submitDisable = false;

@@ -14,8 +14,6 @@ export class ApiService {
   baseUrl: string = '';
   constructor(
     private http: HttpClient,
-    private route: Router,
-    private app:ApplicationService
   ) {
     this.baseUrl = environment.url;
   }
@@ -101,7 +99,6 @@ export class ApiService {
   getAllInvitations():Observable<MemberRequestViewModel[]>{
     const url = `${this.baseUrl}/MemberRequest`;
     return this.http.get<any>(url).pipe(tap(x=>{
-      this.app.invitations$.next(x);
     }))
   }
 

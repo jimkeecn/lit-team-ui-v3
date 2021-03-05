@@ -20,40 +20,13 @@ export class AppComponent {
 
       })
       this.getMyClan();
-      combineLatest([api.getAllInvitations(), tApi.getTournamentInvitation()]).pipe(map(data => { 
-        const clanInvs = JSON.parse(JSON.stringify(data[0]));
-        const tourInvs = JSON.parse(JSON.stringify(data[1]));
-
-        let array:notificationObject[] = [];
-
-        for (let x = 0; x < clanInvs.length; x++){
-        let obj:notificationObject = {
-          data: clanInvs[x],
-          time: clanInvs[x].date,
-          type: notificationType.ClanInvitation
-        }
-        array.push(obj);
-        }
-        
-        for (let x = 0; x < tourInvs.length; x++){
-          let obj:notificationObject = {
-            data: tourInvs[x],
-            time: tourInvs[x].date,
-            type: notificationType.TournamentInvitation
-          }
-          array.push(obj);
-        }
-
-        return array;
-      })).subscribe(res => { 
-        console.log(`invitations:${res.length}`);
-        app.notifications$.next(res);
-        console.log(res);
-      })
+      this.app.getNotification();
     }
     
   
   }
+
+  
 
   getMyClan() {
     this.api.getMyTeam().subscribe(res => { 
