@@ -29,7 +29,15 @@ export class TournamentContainerComponent implements OnInit {
     this.tournamentTime = tourney_detail.startDate;
     this.tournamentId = tourney_detail.tournamentId;
     this.getTeam(true);
-
+    api.getTournamentChampionshipById(tourney_detail.tournamentId).pipe(tap(x => { 
+      state.championship$.next(null);
+      
+    })).subscribe(res => { 
+      console.log(res);
+      state.championship$.next(res);
+    }, (err: HttpErrorResponse) => {
+      this.app.errorHandler(err);
+    })
     api.getTournamentBrackets(tourney_detail.tournamentId).pipe(tap(x => { 
       state.brackets$.next([]);
       
@@ -61,7 +69,7 @@ export class TournamentContainerComponent implements OnInit {
       this.state.teams$.next(res);
       for (let x = 0; x < res.length; x++){
         res[x].members.forEach(y => { 
-          if (y.id == this.auth.currentUserSubject.value.user?.id) {
+          if (this.auth.isLogined() && y.id == this.auth.currentUserSubject.value.user?.id) {
             this.state.isRegistered = true;
             this.isRegistered = true;
           }
@@ -75,7 +83,7 @@ export class TournamentContainerComponent implements OnInit {
     this.api.getFreeAgentTournamentById(this.tournamentId).subscribe(res => { 
       this.state.free_agents$.next(res);
       res.forEach(y => { 
-        if (y.userId == this.auth.currentUserSubject.value.user?.id) {
+        if (this.auth.isLogined() && y.userId == this.auth.currentUserSubject.value.user?.id) {
           this.isRegisteredAsFreeAgent = true;
         }
       })

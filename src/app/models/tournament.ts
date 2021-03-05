@@ -113,3 +113,12 @@ export class TournamentRegistrationFreeAgent{
   player: MyFullDetail;
   account: PlayerGameAccount;
 }
+
+
+export class TournamentChampionship{
+  tournament: TournamentDTO;
+  champion: TournamentRegistrationDTO;
+  championWins: number;
+  secondPlace: TournamentRegistrationDTO;
+  secondPlaceWins: number;
+}

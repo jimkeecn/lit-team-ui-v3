@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { TournamentLinks } from '@app-models/static';
-import { bracketDTO, BracketGroupDTO, TournamentDTO, TournamentRegistrationDTO, TournamentRegistrationFreeAgent, TournamentTeamDTO } from '@app-models/tournament';
+import { bracketDTO, BracketGroupDTO, TournamentChampionship, TournamentDTO, TournamentRegistrationDTO, TournamentRegistrationFreeAgent, TournamentTeamDTO } from '@app-models/tournament';
 import { ClanMemberViewModel, MatchViewModel } from '@app-models/user';
 import { BehaviorSubject } from 'rxjs';
 
@@ -18,6 +18,7 @@ export class TournamentDetailStateService {
   display_team_detail$ = new BehaviorSubject<TournamentRegistrationDTO>(null);
   free_agents$ = new BehaviorSubject<TournamentRegistrationFreeAgent[]>([]);
   isRegistered: boolean = false;
+  championship$ = new BehaviorSubject<TournamentChampionship>(null);
   constructor() { }
   
 }

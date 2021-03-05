@@ -73,34 +73,49 @@ export class TournamentBracketsComponent implements OnInit , AfterViewInit{
       let myDetail = JSON.parse(JSON.stringify(x[2]));
       let teams: TournamentRegistrationDTO[] = JSON.parse(JSON.stringify(x[4]));
   
-      if (brackets.length > 0 && brackets && myDetail && myDetail.user) {
-        let bracketSelected = x[3] !== 0 ? x[3] : x[1][0].bracketKnockoutId;
-        let bracket = brackets.find(x => x.bracketKnockoutId == bracketSelected);
-
-        let my_team_id = null;
-        if (myDetail && myDetail.user) {
-          for (var t = 0; t < teams.length; t++){
-            const found = teams[t].members.find(y => y.id == myDetail.user.id);
-            if (found) {
-              my_team_id = teams[t].tournamentRegistrationId
+      if (this.auth.isLogined()) {
+        if (brackets.length > 0 && brackets && myDetail && myDetail.user) {
+          let bracketSelected = x[3] !== 0 ? x[3] : x[1][0].bracketKnockoutId;
+          let bracket = brackets.find(x => x.bracketKnockoutId == bracketSelected);
+  
+          let my_team_id = null;
+          if (myDetail && myDetail.user) {
+            for (var t = 0; t < teams.length; t++){
+              const found = teams[t].members.find(y => y.id == myDetail.user.id);
+              if (found) {
+                my_team_id = teams[t].tournamentRegistrationId
+              }
             }
+          }
+  
+          if (filter == BracketFilter.me) {
+            let allBrackets = bracket.brackets;
+            bracket.brackets = [];
+            for (let y = 0; y < allBrackets.length; y++){
+              if (allBrackets[y].teamA == my_team_id || allBrackets[y].teamB == my_team_id) {
+                bracket.brackets.push(allBrackets[y]);
+              }
+            }
+            return [bracket.brackets,bracketSelected];
+          } else {
+            let bracket = brackets.find(x => x.bracketKnockoutId == bracketSelected);
+            return [bracket.brackets,bracketSelected];
           }
         }
-
-        if (filter == BracketFilter.me) {
-          let allBrackets = bracket.brackets;
-          bracket.brackets = [];
-          for (let y = 0; y < allBrackets.length; y++){
-            if (allBrackets[y].teamA == my_team_id || allBrackets[y].teamB == my_team_id) {
-              bracket.brackets.push(allBrackets[y]);
-            }
+      } else {
+        if (brackets.length > 0 && brackets) {
+          let bracketSelected = x[3] !== 0 ? x[3] : x[1][0].bracketKnockoutId;
+          if (filter == BracketFilter.me) {
+            let bracket = brackets.find(x => x.bracketKnockoutId == bracketSelected);
+            bracket.brackets = [];
+            return [bracket.brackets,bracketSelected];
+          } else {
+            let bracket = brackets.find(x => x.bracketKnockoutId == bracketSelected);
+            return [bracket.brackets,bracketSelected];
           }
-          return [bracket.brackets,bracketSelected];
-        } else {
-          let bracket = brackets.find(x => x.bracketKnockoutId == bracketSelected);
-          return [bracket.brackets,bracketSelected];
         }
       }
+     
       return [];
     })).subscribe(res => { 
       if (res && res.length > 0) {
@@ -116,35 +131,50 @@ export class TournamentBracketsComponent implements OnInit , AfterViewInit{
       let brackets = JSON.parse(JSON.stringify(x[1]));
       let myDetail = JSON.parse(JSON.stringify(x[2]));
       let teams: TournamentRegistrationDTO[] = JSON.parse(JSON.stringify(x[4]));
+      if (this.auth.isLogined()) {
+        if (brackets.length > 0 && brackets && myDetail && myDetail.user) {
+          let bracketSelected = x[3] !== 0 ? x[3] : x[1][0].bracketKnockoutId;
+          let bracket = brackets.find(x => x.bracketKnockoutId == bracketSelected);
   
-      if (brackets.length > 0 && brackets && myDetail && myDetail.user) {
-        let bracketSelected = x[3] !== 0 ? x[3] : x[1][0].bracketKnockoutId;
-        let bracket = brackets.find(x => x.bracketKnockoutId == bracketSelected);
-
-        let my_team_id = null;
-        if (myDetail && myDetail.user) {
-          for (var t = 0; t < teams.length; t++){
-            const found = teams[t].members.find(y => y.id == myDetail.user.id);
-            if (found) {
-              my_team_id = teams[t].tournamentRegistrationId
+          let my_team_id = null;
+          if (myDetail && myDetail.user) {
+            for (var t = 0; t < teams.length; t++){
+              const found = teams[t].members.find(y => y.id == myDetail.user.id);
+              if (found) {
+                my_team_id = teams[t].tournamentRegistrationId
+              }
             }
+          }
+  
+          if (filter == BracketFilter.me) {
+            let allBrackets = bracket.brackets;
+            bracket.brackets = [];
+            for (let y = 0; y < allBrackets.length; y++){
+              if (allBrackets[y].teamA == my_team_id || allBrackets[y].teamB == my_team_id) {
+                bracket.brackets.push(allBrackets[y]);
+              }
+            }
+            return [bracket.brackets,bracketSelected];
+          } else {
+            let bracket = brackets.find(x => x.bracketKnockoutId == bracketSelected);
+            return [bracket.brackets,bracketSelected];
           }
         }
-
-        if (filter == BracketFilter.me) {
-          let allBrackets = bracket.brackets;
-          bracket.brackets = [];
-          for (let y = 0; y < allBrackets.length; y++){
-            if (allBrackets[y].teamA == my_team_id || allBrackets[y].teamB == my_team_id) {
-              bracket.brackets.push(allBrackets[y]);
-            }
+      } else {
+        if (brackets.length > 0 && brackets) {
+          let bracketSelected = x[3] !== 0 ? x[3] : x[1][0].bracketKnockoutId;
+  
+          if (filter == BracketFilter.me) {
+            let bracket = brackets.find(x => x.bracketKnockoutId == bracketSelected);
+            bracket.brackets = [];
+            return [bracket.brackets,bracketSelected];
+          } else {
+            let bracket = brackets.find(x => x.bracketKnockoutId == bracketSelected);
+            return [bracket.brackets,bracketSelected];
           }
-          return [bracket.brackets,bracketSelected];
-        } else {
-          let bracket = brackets.find(x => x.bracketKnockoutId == bracketSelected);
-          return [bracket.brackets,bracketSelected];
         }
       }
+   
       return [];
     })).subscribe(res => { 
       if (res && res.length > 0) {

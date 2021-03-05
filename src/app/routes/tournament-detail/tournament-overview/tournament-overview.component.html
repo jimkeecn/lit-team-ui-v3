@@ -5,15 +5,15 @@
                 <img src="assets/img/samples/logo-necromancers-180.png" srcset="assets/img/samples/logo-necromancers-180@2x.png 2x" alt="Necromancers Logo">
             </figure>
             <figcaption>
-                <div class="match-team__name">ETA</div>
+                <div class="match-team__name">{{(state.championship$ | async) ? (state.championship$ | async).champion.name : "ETA"}}</div>
                     <div class="match-team__country ">Champion Team</div>
             </figcaption>
         </figure>
         <div class="col-md-4">
             <div class="match-overview__result">
                 <div class="match-result match-result--winner-right">
-                    <span class="match-result__score">0 : 0</span>
-                    <span class="match-result__label">Final score</span>
+                    <span class="match-result__score" *ngIf="(state.championship$ | async)?.championWins && (state.championship$ | async)?.secondPlaceWins">0 : 0</span>
+                    <span class="match-result__label" *ngIf="(state.championship$ | async)?.championWins && (state.championship$ | async)?.secondPlaceWins">Final score</span>
                 </div>
             </div>
         </div>
@@ -22,7 +22,7 @@
                 <img src="assets/img/samples/logo-rhinos-180.png" srcset="assets/img/samples/logo-rhinos-180@2x.png 2x" alt="Raging Rhinos Logo">
             </figure>
             <figcaption>
-                <div class="match-team__name">ETA</div>
+                <div class="match-team__name">{{(state.championship$ | async) ? (state.championship$ | async).secondPlace.name : "ETA"}}</div>
                     <div class="match-team__country ">2nd Place Team</div>
             </figcaption>
         </figure>

@@ -62,27 +62,29 @@ export class TournamentRegistrationComponent implements OnInit {
     })
 
     this.state.teams$.subscribe(res => { 
-      for (let x = 0; x < res.length; x++){
+      if (this.auth.isLogined()) {
+        for (let x = 0; x < res.length; x++){
         
-        res[x].members.forEach(y => { 
-          if (y.id == this.auth.currentUserSubject.value.user?.id) {
-            this.step = 2;
-            this.detailForm.patchValue(res[x]);
-            this.members = res[x].members;
+          res[x].members.forEach(y => { 
+            if (y.id == this.auth.currentUserSubject.value.user?.id) {
+              this.step = 2;
+              this.detailForm.patchValue(res[x]);
+              this.members = res[x].members;
+            }
+  
+            
+          })
+  
+          let foundLeader = res.find(x => x.leaderId == this.auth.currentUserSubject.value.user.id);
+          if (!foundLeader) {
+            this.isLeader = false;
+          } else {
+            this.isLeader = true;
           }
-
-          
-        })
-
-
+         
+          }
       }
-
-      let foundLeader = res.find(x => x.leaderId == this.auth.currentUserSubject.value.user.id);
-      if (!foundLeader) {
-        this.isLeader = false;
-      } else {
-        this.isLeader = true;
-      }
+      
     })
   }
 
