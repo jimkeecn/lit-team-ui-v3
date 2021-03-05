@@ -128,4 +128,7 @@ export class AccountGamesComponent implements OnInit {
     })
   }
 
+  checkHistory() {
+    alert("Currently, you can only access your history by sending a request to our discord admins.");
+  }
 }

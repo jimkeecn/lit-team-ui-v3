@@ -1,19 +1,20 @@
 <h2 class="h4">Link your game account to your lit team account.</h2>
 <h5 class="h6" *ngIf="!hasCurrent" >
 	Please make sure you use your main account (highest ranking). You will be using this account to attend our tournaments.
-	<br>Once you've submit your account. there will be a cooling period for you to change the summoner name again. 
 	<br>If you have any question or request. Please contact our admin in our discord.</h5>
 <h5 class="h6" *ngIf="hasCurrent" >
 	If you have changed your summoner name, please click refresh button to update your summoner name.
 	<br><br>
 	If you wish to delink your current account, please click delink button.
 	<br><br>
-	We will record all your account changing history and the history will be accessable by admins and verified members to avoid sharing accounts or bring unfairness to our tournaments.
+	We will record all your account changing history and the history can be accessable by admins and verified members and Tournament Host by requests.
 	<br><br>
 	You have changed your account for
 	 <span class="text-danger">{{usedAccounts.length}}</span> times. 
-	 If you like to access your history, please click <a href="#" class="text-primary">here</a>
+	 If you like to access your history, please click <a class="text-primary" (click)="checkHistory()">here</a>
 </h5>
+
+<h5 class="h6">If you want to delink your account. Make sure you are not registered in any active tournaments.</h5>
 <form action="" class="form" [formGroup]="detailForm">
 	<div class="error-list" *ngIf="errors && errors.length > 0">
         <ul>
