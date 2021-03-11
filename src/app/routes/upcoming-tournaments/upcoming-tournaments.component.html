@@ -7,10 +7,10 @@
     </div>
     <div class="matches-filter">
         <label class="matches-filter__label">Tournament Filter</label>
-        <select class="cs-select">
-            <option value="" selected>Upcoming Tournaments</option>
-            <option value="">Featured Tournaments</option>
-            <option value="">Past Tournaments</option>
+        <select  (change)="changeTimeline($event.target.value)">
+            <option value="2" selected>Upcoming Tournaments</option>
+            <option value="3">Ongoing Tournaments</option>
+            <option value="1">Past Tournaments</option>
         </select>
     </div>
     <div class="row mt-sm-auto mb-sm-auto">

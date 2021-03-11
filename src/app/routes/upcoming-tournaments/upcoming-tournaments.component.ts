@@ -33,9 +33,9 @@ export class UpcomingTournamentsComponent implements OnInit {
     })
   }
 
-  changeTimeline(id:number) {
+  changeTimeline(id) {
     let param = { ...this.$filter.value };
-    param.timeEmun = id;
+    param.timeEmun = parseInt(id);
     this.$filter.next(param);
     this.getTournaments();
   }
