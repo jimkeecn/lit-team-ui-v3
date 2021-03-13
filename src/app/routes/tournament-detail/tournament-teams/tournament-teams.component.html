@@ -2,12 +2,12 @@
     <h1 class="page-heading__title h3">Game Squads</h1>
 </div>
 <div class="matches-filter">
-    <label class="matches-filter__label">Status filter (4/12)</label>
+    <!-- <label class="matches-filter__label">Status filter (4/12)</label>
     <select class="cs-select">
         <option value="">Approved</option>
         <option value="" selected>Pending</option>
         <option value="" selected>Rejected</option>
-    </select>
+    </select> -->
 </div>
 <div class="row mt-sm-auto mb-sm-auto">
   <tournament-single-team [team]="team" class="col-sm-6 col-lg-3" (click)="openTeamdetail(team)" *ngFor="let team of (state.teams$ | async)"></tournament-single-team>
