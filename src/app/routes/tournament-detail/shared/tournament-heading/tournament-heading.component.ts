@@ -17,6 +17,8 @@ export class TournamentHeadingComponent implements OnInit {
   @Input() isRegistered: boolean = false;
   @Output() registerAsFreeAgent = new EventEmitter();
   @Input() isRegisteredAsFreeAgent: boolean = false;
+  @Input() isActive;
+  datetimenow = Date.now();
   constructor() { }
 
   ngOnInit(): void {

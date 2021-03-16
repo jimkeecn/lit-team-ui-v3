@@ -20,13 +20,14 @@ export class TournamentContainerComponent implements OnInit {
   isRegistered: boolean = false;
   tournamentId: number = 0;
   isRegisteredAsFreeAgent: boolean = false;
-
+  isActive : boolean;
   constructor(private route: ActivatedRoute, private state: TournamentDetailStateService,
     public api: TourneyApiService,public auth:AuthService,public app:ApplicationService) { 
     state.detail$.next(this.route.snapshot.data.detail);
     let tourney_detail: TournamentDTO = this.route.snapshot.data.detail;
     this.tournamentName = tourney_detail.name;
     this.tournamentTime = tourney_detail.startDate;
+    this.isActive = tourney_detail.isActive;
     this.tournamentId = tourney_detail.tournamentId;
     this.getTeam(true);
     api.getTournamentChampionshipById(tourney_detail.tournamentId).pipe(tap(x => { 

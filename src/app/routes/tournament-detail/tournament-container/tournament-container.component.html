@@ -1,6 +1,7 @@
 <div class="container tournament-container">
     <tournament-heading [tournamentName]="tournamentName" 
     [tournamentTime]="tournamentTime" 
+    [isActive]="isActive"
     [isRegistered]="isRegistered" 
     (registerAsFreeAgent)="registerAsFreeAgent($event)"
     [isRegisteredAsFreeAgent]="isRegisteredAsFreeAgent"></tournament-heading>

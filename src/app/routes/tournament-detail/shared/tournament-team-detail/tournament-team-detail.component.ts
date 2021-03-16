@@ -41,4 +41,19 @@ export class TournamentTeamDetailComponent implements OnInit {
         return "Full";
     }
   }
+
+  checkTeamOnOpgg() {
+    let teams = this.state.display_team_detail$.value;
+    let url = "https://oce.op.gg/multi/query=";
+    let params = "";
+
+    if (teams) {
+      for (let x = 0; x < teams.members.length; x++){
+        params += teams.members[x].gameId + ",";
+      }
+    }
+   
+
+    return url + params;
+  }
 }

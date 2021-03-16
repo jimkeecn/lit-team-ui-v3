@@ -3,6 +3,6 @@
         <span class="color-primary">{{tournamentTime | date : 'medium'}} </span> 
     </div>
     <h1 class="page-heading__title h3">{{tournamentName}}</h1>
-    <a class="btn btn-md btn-primary"  (click)="register()">{{isRegistered ? "View My Team" : "Register AS Team"}}</a>
-    <a class="btn btn-md btn-primary"  (click)="registerAsFreeAgentFn()" *ngIf="!isRegistered && !isRegisteredAsFreeAgent">Register As Free Agent</a>
+    <a class="btn btn-md btn-primary" *ngIf="isActive"  (click)="register()">{{isRegistered ? "View My Team" : "Register AS Team"}}</a>
+    <a class="btn btn-md btn-primary"  (click)="registerAsFreeAgentFn()" *ngIf="!isRegistered && !isRegisteredAsFreeAgent && isActive">Register As Free Agent</a>
 </div>
