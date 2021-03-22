@@ -29,6 +29,7 @@ import { ForgotPasswordRequestComponent } from './routes/login-register/forgot-p
 import { ForgotPasswordComponent } from './routes/login-register/forgot-password/forgot-password.component';
 import { AccountGamesComponent } from './routes/account/account-games/account-games.component';
 import { TournamentFreeAgentsComponent } from './routes/tournament-detail/tournament-free-agents/tournament-free-agents.component';
+import { EasterEventComponent } from './routes/easter-event/easter-event.component';
 const routes: Routes = [
   {
     path:"home",
@@ -132,6 +133,10 @@ const routes: Routes = [
   {
     path:"reset-password/:token/:email",
     component:ForgotPasswordComponent
+  },
+  {
+    path: "easter-event",
+    component:EasterEventComponent
   },
   { path: '', redirectTo: 'home', pathMatch: 'full' }, // redirect to `first-component`
   { path: '**', redirectTo: 'home' },

@@ -105,6 +105,13 @@ export class ApplicationService {
             document.getElementById("wrapper").classList.add("team-info-page");
             this.routeState = 6;
           break;
+         case "/easter-event":
+            //document.body.classList.add('preloader-is--active');
+            document.body.classList.add('scroll-is--active');
+          document.body.classList.add('full-screen-preview');
+          document.body.classList.add('bg-image');
+            this.routeState = 7;
+          break;
   
    
         case "/account":

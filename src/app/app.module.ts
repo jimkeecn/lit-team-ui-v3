@@ -60,6 +60,7 @@ import { ClanInviteNotificationComponent } from './overlays/notification-panel/c
 import { TournamentInviteNotificationComponent } from './overlays/notification-panel/tournament-invite-notification/tournament-invite-notification.component';
 import { TournamentTeamDetailComponent } from './routes/tournament-detail/shared/tournament-team-detail/tournament-team-detail.component';
 import { TournamentFreeAgentsComponent } from './routes/tournament-detail/tournament-free-agents/tournament-free-agents.component';
+import { EasterEventComponent } from './routes/easter-event/easter-event.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -113,6 +114,7 @@ import { TournamentFreeAgentsComponent } from './routes/tournament-detail/tourna
     TournamentInviteNotificationComponent,
     TournamentTeamDetailComponent,
     TournamentFreeAgentsComponent,
+    EasterEventComponent,
   ],
   imports: [
     BrowserModule,
