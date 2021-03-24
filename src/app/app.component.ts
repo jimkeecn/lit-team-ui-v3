@@ -7,6 +7,7 @@ import { AuthService } from '@app-services/auth/auth.service';
 import { map, switchMap } from 'rxjs/operators';
 import { ApplicationService } from './services/app/application.service';
 import { BehaviorSubject, combineLatest, zip } from 'rxjs';
+import { EasterEventStateService } from '@app-services/state/easter-event-state.service';
 
 @Component({
   selector: 'app-root',
@@ -14,7 +15,7 @@ import { BehaviorSubject, combineLatest, zip } from 'rxjs';
 })
 export class AppComponent {
   title = 'Lit-Team-App';
-  constructor(public app: ApplicationService, public api: ApiService, public auth: AuthService, public tApi:TourneyApiService) {
+  constructor(public app: ApplicationService, public api: ApiService, public auth: AuthService, public tApi:TourneyApiService, private easterState:EasterEventStateService) {
     if (this.auth.isLogined()) {
       this.auth.getMyDetail().subscribe(x => { 
 
@@ -22,7 +23,8 @@ export class AppComponent {
       this.getMyClan();
       this.app.getNotification();
     }
-    
+    this.easterState.getEvent();
+    this.easterState.getEventStages();
   
   }
 

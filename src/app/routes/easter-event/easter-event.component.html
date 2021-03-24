@@ -1,32 +1,24 @@
 <div class="easter-event-container">
+    <div class="easter-event-header">
+        <div class="easter-event-name">{{(state.state$ | async)?.event.eventName}}</div>
+        <div class="easter-event-current-stage">{{(state.state$ | async)?.currentOpenStage.eventStageName}}</div>
+        <div class="easter-event-actions">
+            
+        </div>
+    </div>
     <div class="easter-event-content">
-        <div class="stage ">
+        <div class="stage" [ngClass]="{'closed' : stage.eventStageStatusId == 1 }" 
+        *ngFor="let stage of (state.state$ | async)?.eventStageSimple">
             <div class="stageMask">
-               <button class="btn btn-secondary" type="button">CHECK QUESTS</button>
+                <div class="stage-action">
+                    <button class="btn btn-secondary" type="button" *ngIf="stage.eventStageStatusId == 2">READ STORY</button>
+
+                    <button class="btn btn-secondary" type="button" *ngIf="stage.eventStageStatusId == 2">CHECK QUESTS</button>
+                </div>
+               <i class="fas fa-lock" *ngIf="stage.eventStageStatusId == 1 "></i>
             </div>
             <img class="stageImage" 
-            src="https://am-a.akamaihd.net/image?f=https%3A%2F%2Funiverse-comics.leagueoflegends.com%2Fcomics%2Fen_us%2Fryze%2Fryze-comic%2Fdesktop%2Fryze-01-01.jpg%3Fv%3D0c62d97d87e0c4732c639bc0499662cd&resize=4000:">
-        </div>
-        <div class="stage closed">
-            <div class="stageMask">
-                <i class="fas fa-lock"></i>
-            </div>
-            <img class="stageImage" 
-            src="https://am-a.akamaihd.net/image?f=https%3A%2F%2Funiverse-comics.leagueoflegends.com%2Fcomics%2Fen_us%2Fvarus%2Fissue-2%2Fdesktop%2Fvarus-02-01-pa.jpg%3Fv%3D8fe27ecd236251b308e436d87e477a78&resize=4000:">
-        </div>
-        <div class="stage closed">
-            <div class="stageMask">
-                <i class="fas fa-lock"></i>
-            </div>
-            <img class="stageImage" 
-            src="https://am-a.akamaihd.net/image?f=https%3A%2F%2Funiverse-comics.leagueoflegends.com%2Fcomics%2Fen_us%2Fvarus%2Fissue-1%2Fdesktop%2Fvarus-01-01-pa.jpg%3Fv%3D1ae85f3a533922b2750be9c3c4d0b911&resize=4000:">
-        </div>
-        <div class="stage closed">
-            <div class="stageMask">
-                <i class="fas fa-lock"></i>
-            </div>
-            <img class="stageImage" 
-            src="https://am-a.akamaihd.net/image?f=https%3A%2F%2Funiverse-comics.leagueoflegends.com%2Fcomics%2Fen_us%2Fjinx-ziggs%2Fpaint-the-town%2Fdesktop%2Fjinxziggs-01-00-full.jpg%3Fv%3D401755554213a3c6a54dad9c36eb9717&resize=4000:">
+            [src]="stage.eventStageImage">
         </div>
     </div>
 </div>

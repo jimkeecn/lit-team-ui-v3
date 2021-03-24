@@ -1,73 +1,93 @@
-.easter-event-container{
-    // background-image: url("https://images.contentstack.io/v3/assets/blt731acb42bb3d1659/blt1168636c3a93b9e9/5f52d5af95701623b75e6d1d/01_Banner_State_Of_Skins_Kindred_Splash.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    width:100%;
-    height: 100%;
-    position: absolute;
-    color:#fff;
+.easter-event-container {
+  // background-image: url("https://images.contentstack.io/v3/assets/blt731acb42bb3d1659/blt1168636c3a93b9e9/5f52d5af95701623b75e6d1d/01_Banner_State_Of_Skins_Kindred_Splash.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  color: #fff;
 }
 
+.easter-event-header {
+  height: 40px;
+  display: flex;
+}
 
+.easter-event-name {
+  flex: 1;
+}
 
-.easter-event-container .easter-event-content{
-    color:#fff;
-    position: absolute;
-    width:100%;
-    height: 100%;
+.easter-event-current-stage {
+  flex: 2;
+}
+
+.easter-event-actions {
+  flex: 1;
+}
+
+.easter-event-container .easter-event-content {
+  color: #fff;
+  position: absolute;
+  width: 100%;
+  height: calc(100% - 40px);
 }
 
 @media (min-width: 992px) {
-    .easter-event-container .easter-event-content{
-        display:flex;
-        flex-direction: row;
-    }
-  }
-
-
-.easter-event-content .stage{
-    flex:1 25%;
-    width:100%;
-    height: calc( 100% - 72px);
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    position: relative;
-}
-
-
-
-.stageImage{
-    width:98%;
-    height: 98%;
-    transition: all 0.5s ease;
-    position:absolute;
-    z-index: 99;
-}
-
-.stageMask{
-    width: 100%;
-    height: 100%;
-    position:absolute;
-    background-color: rgba(0,0,0,0.5);
-    z-index: 100;
+  .easter-event-container .easter-event-content {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: row;
+  }
 }
 
-.stage.closed .stageMask{
-    background-color: rgba(0,0,0,0.9);
-   
+.easter-event-content .stage {
+  flex: 1 25%;
+  width: 100%;
+  height: calc(100% - 72px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
 }
 
-.stage.closed i{
-    font-size: 40px;
-    opacity: 0.5;
+.stageImage {
+  width: 98%;
+  height: 98%;
+  transition: all 0.5s ease;
+  position: absolute;
+  z-index: 99;
 }
 
-.easter-event-content .stage:hover .stageImage{
-    width:100%;
-    height: 100%;
+.stageMask {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.stage.closed .stageMask {
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.stage.closed i {
+  font-size: 40px;
+  opacity: 0.5;
+}
+
+.easter-event-content .stage:hover .stageImage {
+  width: 100%;
+  height: 100%;
+}
+
+.stage-action {
+  display: flex;
+  flex-direction: column;
+}
+
+.stage-action button {
+  margin-bottom: 20px;
 }

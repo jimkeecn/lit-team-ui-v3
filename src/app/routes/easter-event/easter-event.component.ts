@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { EasterEventStateService } from '@app-services/state/easter-event-state.service';
 
 @Component({
   selector: 'app-easter-event',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EasterEventComponent implements OnInit {
 
-  constructor() { }
+  constructor(public state: EasterEventStateService) {
+  }
 
   ngOnInit(): void {
+    
   }
+
+  
 
 }

@@ -4,9 +4,9 @@
 
 export const environment = {
   production: false,
-  //url: 'https://localhost:44392/api'
+  url: 'https://localhost:44392/api'
   //url: 'https://litteam.gg:44392/api',
-  url:'https://api.litteam.gg/api'
+  //url:'https://api.litteam.gg/api'
 };
 
 /*
