@@ -9,12 +9,16 @@ import { EasterEventStateService } from '@app-services/state/easter-event-state.
 export class EasterEventComponent implements OnInit {
 
   constructor(public state: EasterEventStateService) {
+    this.state.getEvent();
   }
 
   ngOnInit(): void {
     
   }
 
-  
+  return($event) {
+    if($event)
+    this.state.isStory = false;
+  }
 
 }

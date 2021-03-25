@@ -61,6 +61,7 @@ import { TournamentInviteNotificationComponent } from './overlays/notification-p
 import { TournamentTeamDetailComponent } from './routes/tournament-detail/shared/tournament-team-detail/tournament-team-detail.component';
 import { TournamentFreeAgentsComponent } from './routes/tournament-detail/tournament-free-agents/tournament-free-agents.component';
 import { EasterEventComponent } from './routes/easter-event/easter-event.component';
+import { EasterEventStoryboardComponent } from './routes/easter-event/easter-event-storyboard/easter-event-storyboard.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -115,6 +116,7 @@ import { EasterEventComponent } from './routes/easter-event/easter-event.compone
     TournamentTeamDetailComponent,
     TournamentFreeAgentsComponent,
     EasterEventComponent,
+    EasterEventStoryboardComponent,
   ],
   imports: [
     BrowserModule,

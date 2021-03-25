@@ -24,8 +24,7 @@ export class AppComponent {
       this.app.getNotification();
     }
     this.easterState.getEvent();
-    this.easterState.getEventStages();
-  
+    
   }
 
   

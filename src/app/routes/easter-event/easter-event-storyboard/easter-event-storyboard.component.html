@@ -1,0 +1,18 @@
+<div class="story-action">
+    <div class="return" (click)="returnFn()">
+        <i class="fas fa-chevron-left"></i>
+        Return to Event
+    </div>
+</div>
+<div class="story" *ngFor="let story of (state.currentStoryBoard$ | async)">
+    <h1>{{story.storyboardTitle}}</h1>
+    <div class="image">
+        <img [src]="story.imageUrl">
+    </div>
+    <div class="text" [innerHtml]="story.text">
+
+    </div>
+</div>
+<div class="footer" >
+
+</div>

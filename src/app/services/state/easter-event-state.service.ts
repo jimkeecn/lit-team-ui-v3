@@ -1,19 +1,21 @@
 import { Injectable } from '@angular/core';
 import { EasterEventApiService } from '@app-services/api/easter-event-api.service';
-import { EventDTO, EventStageDTO, EventStageSimple, EventStateObject } from '@app-models/easterEvent';
+import { EventDTO, EventStageDTO, EventStageSimple, EventStateObject, EventStoryboardDTO } from '@app-models/easterEvent';
 import { BehaviorSubject, combineLatest, zip } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
 export class EasterEventStateService {
 
-  event$ = new BehaviorSubject<EventDTO>(null)
-  eventStage$ = new BehaviorSubject<EventStageDTO[]>([])
-  state$ = new BehaviorSubject<EventStateObject>(null) 
+  event$ = new BehaviorSubject<EventDTO>(null);
+  eventStage$ = new BehaviorSubject<EventStageDTO[]>([]);
+  state$ = new BehaviorSubject<EventStateObject>(null);
+  currentStoryBoard$ = new BehaviorSubject<EventStoryboardDTO[]>([]);
+  isStory = false;
   constructor(public easterApi: EasterEventApiService) {
     combineLatest([this.event$, this.eventStage$]).subscribe(res => {
       if (res[0] && res[1].length > 0) {
-        var event = res[0];
+      var event = res[0];
       var eventStages = res[1];
       var currentStage = this.getCurrentStage(eventStages);
       var stagesSimple = this.getEventStageSimple(event, eventStages);
@@ -33,14 +35,20 @@ export class EasterEventStateService {
     this.easterApi.getEasterEvent().subscribe(res => {
       this.event$.next(res);
     })
-  }
 
-  getEventStages() {
     this.easterApi.getEasterEventStages().subscribe(res => {
       this.eventStage$.next(res);
     })
   }
 
+
+  setCurrentStoryBoard(stageId:number) {
+    this.isStory = true;
+    var stage = this.state$.value.stages.find(x => x.eventStageId == stageId);
+    this.currentStoryBoard$.next(stage.eventStageStoryboards);
+  }
+
+  
 
 
   private getCurrentStage(stages: EventStageDTO[]): EventStageDTO {
@@ -55,13 +63,13 @@ export class EasterEventStateService {
 
     for (let x = 0; x < 4; x++){
  
-      if (stages[x] && stages[x].eventStageStatusId == 2) {
+      if (dc_stages[x] && dc_stages[x].eventStageStatusId == 2) {
         let object: EventStageSimple = {
-          eventStageId: stages[x].eventStageId,
-          eventStageIndex: stages[x].eventStageIndex,
-          eventStageName: stages[x].eventStageName,
-          eventStageStatusId: stages[x].eventStageStatusId,
-          eventStageImage: stages[x].eventStageStoryboards.length > 0 ? stages[x].eventStageStoryboards[0].imageUrl : event.thumbnailUrl
+          eventStageId: dc_stages[x].eventStageId,
+          eventStageIndex: dc_stages[x].eventStageIndex,
+          eventStageName: dc_stages[x].eventStageName,
+          eventStageStatusId: dc_stages[x].eventStageStatusId,
+          eventStageImage: dc_stages[x].eventStageStoryboards.length > 0 ? dc_stages[x].eventStageStoryboards[0].imageUrl : event.thumbnailUrl
         }
         stagesSimple.push(object);
       } else {

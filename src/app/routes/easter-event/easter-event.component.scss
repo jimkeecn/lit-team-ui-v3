@@ -23,6 +23,40 @@
 
 .easter-event-actions {
   flex: 1;
+  display: flex;
+}
+
+.easter-event-actions * {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.easter-event-actions i {
+  max-width: 50px;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.5s ease;
+}
+
+.easter-event-actions i:hover {
+  opacity: 1;
+}
+
+.easter-event-actions button {
+  max-width: 100px;
+  height: 70%;
+  margin-top: 7px;
+}
+
+.easter-event-actions input {
+  padding: 0;
+  color: #fff;
+}
+
+.easter-event-actions input::placeholder {
+  color: #f9f9f9;
 }
 
 .easter-event-container .easter-event-content {

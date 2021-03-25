@@ -3,7 +3,10 @@
         <div class="easter-event-name">{{(state.state$ | async)?.event.eventName}}</div>
         <div class="easter-event-current-stage">{{(state.state$ | async)?.currentOpenStage.eventStageName}}</div>
         <div class="easter-event-actions">
-            
+            <input type="text" class="form-control" placeholder="Put Game ID Here">
+            <button type="button" class="btn btn-sm btn-secondary">Submit</button>
+            <i class="fas fa-trophy"></i>
+            <i class="fas fa-question-circle"></i>
         </div>
     </div>
     <div class="easter-event-content">
@@ -11,7 +14,10 @@
         *ngFor="let stage of (state.state$ | async)?.eventStageSimple">
             <div class="stageMask">
                 <div class="stage-action">
-                    <button class="btn btn-secondary" type="button" *ngIf="stage.eventStageStatusId == 2">READ STORY</button>
+                    <button class="btn btn-secondary" 
+                    type="button" 
+                    *ngIf="stage.eventStageStatusId == 2" 
+                    (click)="state.setCurrentStoryBoard(stage.eventStageId)">READ STORY</button>
 
                     <button class="btn btn-secondary" type="button" *ngIf="stage.eventStageStatusId == 2">CHECK QUESTS</button>
                 </div>
@@ -22,3 +28,5 @@
         </div>
     </div>
 </div>
+
+<app-easter-event-storyboard *ngIf="state.isStory" (return)="return($event)"></app-easter-event-storyboard>
