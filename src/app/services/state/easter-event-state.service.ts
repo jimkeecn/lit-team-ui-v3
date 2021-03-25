@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { EasterEventApiService } from '@app-services/api/easter-event-api.service';
 import { EventDTO, EventStageDTO, EventStageSimple, EventStateObject, EventStoryboardDTO } from '@app-models/easterEvent';
 import { BehaviorSubject, combineLatest, zip } from 'rxjs';
+import { state } from '@angular/animations';
 @Injectable({
   providedIn: 'root'
 })

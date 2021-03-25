@@ -10,6 +10,7 @@ export class EasterEventComponent implements OnInit {
 
   constructor(public state: EasterEventStateService) {
     this.state.getEvent();
+    this.state.isStory = false;
   }
 
   ngOnInit(): void {
