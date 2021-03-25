@@ -1,0 +1,38 @@
+<div class="story-action">
+    <div class="return" (click)="returnFn()">
+        <i class="fas fa-chevron-left"></i>
+        Return to Event
+    </div>
+</div>
+<div class="table-responsive mt-sm-auto mb-sm-auto">
+    <table class="table matches-table standings-table">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Score</th>
+                <th>Progress</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let task of (state.currentStageTasks$ | async)">
+                <td>{{task.eventTaskName}}</td>
+                <td>{{task.description}}</td>
+                <td>{{task.eventTaskRewards[0].quantity}}</td>
+                <td>
+                    <span *ngIf="task.eventTaskName !== 'The Opening' 
+                    && task.eventTaskName !== '开终章 1'  
+                    && task.eventTaskName !== '开终章 2'">{{task.isTaskDone ? "1/1" : '0/1'}}</span>
+                    <span *ngIf="task.eventTaskName == 'The Opening'">{{task.count}}/5</span>
+                    <span *ngIf="task.eventTaskName == '开终章 1'">{{task.count}}/10</span>
+                    <span *ngIf="task.eventTaskName == '开终章 2'">{{task.count}}/5</span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="footer" >
+
+</div>
+

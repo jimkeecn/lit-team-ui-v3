@@ -62,6 +62,7 @@ import { TournamentTeamDetailComponent } from './routes/tournament-detail/shared
 import { TournamentFreeAgentsComponent } from './routes/tournament-detail/tournament-free-agents/tournament-free-agents.component';
 import { EasterEventComponent } from './routes/easter-event/easter-event.component';
 import { EasterEventStoryboardComponent } from './routes/easter-event/easter-event-storyboard/easter-event-storyboard.component';
+import { EasterEventTasksComponent } from './routes/easter-event/easter-event-tasks/easter-event-tasks.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -117,6 +118,7 @@ import { EasterEventStoryboardComponent } from './routes/easter-event/easter-eve
     TournamentFreeAgentsComponent,
     EasterEventComponent,
     EasterEventStoryboardComponent,
+    EasterEventTasksComponent,
   ],
   imports: [
     BrowserModule,

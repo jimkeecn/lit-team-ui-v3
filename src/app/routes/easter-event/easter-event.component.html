@@ -19,7 +19,10 @@
                     *ngIf="stage.eventStageStatusId == 2" 
                     (click)="state.setCurrentStoryBoard(stage.eventStageId)">READ STORY</button>
 
-                    <button class="btn btn-secondary" type="button" *ngIf="stage.eventStageStatusId == 2">CHECK QUESTS</button>
+                    <button class="btn btn-secondary" 
+                    type="button" 
+                    *ngIf="stage.eventStageStatusId == 2"
+                    (click)="state.getTask(stage.eventStageId)">CHECK QUESTS</button>
                 </div>
                <i class="fas fa-lock" *ngIf="stage.eventStageStatusId == 1 "></i>
             </div>
@@ -29,4 +32,5 @@
     </div>
 </div>
 
-<app-easter-event-storyboard *ngIf="state.isStory" (return)="return($event)"></app-easter-event-storyboard>
+<app-easter-event-storyboard *ngIf="state.isStory" [@slideLeftAnimation] (return)="returnFromStage($event)"></app-easter-event-storyboard>
+<app-easter-event-tasks *ngIf="state.isTask" [@slideLeftAnimation] (return)="returnFromTask($event)"></app-easter-event-tasks>

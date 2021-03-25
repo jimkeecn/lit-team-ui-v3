@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { EasterEventApiService } from '@app-services/api/easter-event-api.service';
-import { EventDTO, EventStageDTO, EventStageSimple, EventStateObject, EventStoryboardDTO } from '@app-models/easterEvent';
+import { EventDTO, EventStageDTO, EventStageSimple, EventStateObject, EventStoryboardDTO, EventTaskDTO, UserEventDTO } from '@app-models/easterEvent';
 import { BehaviorSubject, combineLatest, zip } from 'rxjs';
 import { state } from '@angular/animations';
 @Injectable({
@@ -8,15 +8,18 @@ import { state } from '@angular/animations';
 })
 export class EasterEventStateService {
 
+  userState$ = new BehaviorSubject<UserEventDTO>(null);
   event$ = new BehaviorSubject<EventDTO>(null);
   eventStage$ = new BehaviorSubject<EventStageDTO[]>([]);
   state$ = new BehaviorSubject<EventStateObject>(null);
   currentStoryBoard$ = new BehaviorSubject<EventStoryboardDTO[]>([]);
+  currentStageTasks$ = new BehaviorSubject<EventTaskDTO[]>([]);
   isStory = false;
+  isTask = false;
   constructor(public easterApi: EasterEventApiService) {
-    combineLatest([this.event$, this.eventStage$]).subscribe(res => {
+    combineLatest([this.userState$, this.eventStage$]).subscribe(res => {
       if (res[0] && res[1].length > 0) {
-      var event = res[0];
+      var event = res[0].event;
       var eventStages = res[1];
       var currentStage = this.getCurrentStage(eventStages);
       var stagesSimple = this.getEventStageSimple(event, eventStages);
@@ -34,7 +37,7 @@ export class EasterEventStateService {
   
   getEvent() {
     this.easterApi.getEasterEvent().subscribe(res => {
-      this.event$.next(res);
+      this.userState$.next(res);
     })
 
     this.easterApi.getEasterEventStages().subscribe(res => {
@@ -45,10 +48,19 @@ export class EasterEventStateService {
 
   setCurrentStoryBoard(stageId:number) {
     this.isStory = true;
+    this.isTask = false;
     var stage = this.state$.value.stages.find(x => x.eventStageId == stageId);
     this.currentStoryBoard$.next(stage.eventStageStoryboards);
   }
 
+  getTask(stageId: number) {
+    this.isStory = false;
+    var stages = this.userState$.value.event.eventStages;
+    var stage = stages.find(x => x.eventStageId == stageId);
+    this.currentStageTasks$.next(stage.eventTasks);
+    console.log(this.currentStageTasks$.value);
+    this.isTask = true;
+  }
   
 
 
@@ -87,5 +99,8 @@ export class EasterEventStateService {
     console.log('simple', stagesSimple);
     return stagesSimple;
   }
+
+
+
   
 }

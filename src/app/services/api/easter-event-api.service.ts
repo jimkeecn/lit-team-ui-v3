@@ -8,7 +8,7 @@ import { GameMode, StaticList, TournamentFilter, TournamentFormat, TournamentMap
 import { tap } from 'rxjs/operators';
 import { BracketGroupDTO, TournamentChampionship, TournamentDTO, TournamentInvitationNotification, TournamentRegistrationDTO, TournamentRegistrationFreeAgent, TournamentTeamDTO } from '@app-models/tournament';
 import { MatchCodeResponse, MatchViewModel } from '@app-models/user';
-import { EventDTO ,EventStageDTO} from '@app-models/easterEvent';
+import { EventDTO ,EventStageDTO, UserEventDTO} from '@app-models/easterEvent';
 @Injectable({
   providedIn: 'root'
 })
@@ -21,9 +21,9 @@ export class EasterEventApiService {
     this.baseUrl = environment.url;
   }
 
-  getEasterEvent():Observable<EventDTO> {
+  getEasterEvent():Observable<UserEventDTO> {
     const url = `${this.baseUrl}/EasterEvent/2`;
-    return this.http.get<EventDTO>(url).pipe(tap());
+    return this.http.get<UserEventDTO>(url).pipe(tap());
   }
 
   getEasterEventStages():Observable<EventStageDTO[]> {

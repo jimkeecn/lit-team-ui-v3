@@ -26,6 +26,7 @@ export class EventTaskDTO{
     eventTaskName: string;
     description: string;
     isTaskDone: boolean;
+    count: number;
     eventTaskRewards: EventTaskRewardDTO[];
 }
 
@@ -60,4 +61,10 @@ export class EventStateObject{
     currentOpenStage: EventStageDTO;
     stages: EventStageDTO[];
     eventStageSimple: EventStageSimple[];
+}
+
+export class UserEventDTO{
+    userId?: number;
+    totalScore?: number;
+    event:EventDTO
 }
