@@ -20,10 +20,14 @@ export class EasterEventStateService {
   isLadder = false;
   constructor(public easterApi: EasterEventApiService) {
     combineLatest([this.userState$, this.eventStage$]).subscribe(res => {
-      if (res[0] && res[1].length > 0) {
+      if (res[0] && res[1]) {
       var event = res[0].event;
       var eventStages = res[1];
-      var currentStage = this.getCurrentStage(eventStages);
+      var currentStage
+        if (res[1].length > 0) {
+          currentStage = this.getCurrentStage(eventStages);
+        }
+     
       var stagesSimple = this.getEventStageSimple(event, eventStages);
 
       var stateValue = { ...this.state$.value };
