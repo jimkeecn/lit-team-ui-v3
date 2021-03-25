@@ -8,7 +8,7 @@ import { GameMode, StaticList, TournamentFilter, TournamentFormat, TournamentMap
 import { tap } from 'rxjs/operators';
 import { BracketGroupDTO, TournamentChampionship, TournamentDTO, TournamentInvitationNotification, TournamentRegistrationDTO, TournamentRegistrationFreeAgent, TournamentTeamDTO } from '@app-models/tournament';
 import { MatchCodeResponse, MatchViewModel } from '@app-models/user';
-import { EventDTO ,EventStageDTO, UserEventDTO} from '@app-models/easterEvent';
+import { EventDTO ,EventStageDTO, UserEventDTO, UserScoreLadderDTO} from '@app-models/easterEvent';
 @Injectable({
   providedIn: 'root'
 })
@@ -29,5 +29,15 @@ export class EasterEventApiService {
   getEasterEventStages():Observable<EventStageDTO[]> {
     const url = `${this.baseUrl}/EasterEvent/Stages/2`;
     return this.http.get<EventStageDTO[]>(url).pipe(tap());
+  }
+
+  getEasterEventLadder():Observable<UserScoreLadderDTO[]> {
+    const url = `${this.baseUrl}/EasterEvent/ladder/2`;
+    return this.http.get<UserScoreLadderDTO[]>(url).pipe(tap());
+  }
+
+  postGameResult(param) {
+    const url = `${this.baseUrl}/EasterEvent/2`;
+    return this.http.post<UserEventDTO>(url,param).pipe(tap());
   }
 }

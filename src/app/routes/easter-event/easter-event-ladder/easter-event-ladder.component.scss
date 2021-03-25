@@ -1,0 +1,41 @@
+:host {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: black;
+  z-index: 101;
+  overflow-y: auto;
+}
+
+.story-action {
+  height: 20px;
+  width: 100%;
+  color: #fff;
+}
+
+.return {
+  cursor: pointer;
+  margin-left: 20px;
+  margin-top: 10px;
+  transition: margin-left 0.5s ease;
+}
+
+.return:hover {
+  margin-left: 10px;
+}
+
+.story-action .fas {
+  font-size: 12px;
+}
+
+.table-responsive {
+  margin-top: 40 !important;
+  padding: 40px;
+}
+
+.footer {
+  width: 100%;
+  padding: 72px 0;
+}

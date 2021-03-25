@@ -68,3 +68,9 @@ export class UserEventDTO{
     totalScore?: number;
     event:EventDTO
 }
+
+export class UserScoreLadderDTO{
+    userId: number;
+    name: string;
+    totalScore: number;
+}

@@ -3,9 +3,9 @@
         <div class="easter-event-name">{{(state.state$ | async)?.event.eventName}}</div>
         <div class="easter-event-current-stage">{{(state.state$ | async)?.currentOpenStage.eventStageName}}</div>
         <div class="easter-event-actions">
-            <input type="text" class="form-control" placeholder="Put Game ID Here">
-            <button type="button" class="btn btn-sm btn-secondary">Submit</button>
-            <i class="fas fa-trophy"></i>
+            <input type="text" class="form-control" placeholder="Put Game ID Here" [(ngModel)]="gameId">
+            <button type="button" class="btn btn-sm btn-secondary" [disabled]="submitDisable" (click)="postGameResult()">Submit</button>
+            <i class="fas fa-trophy" (click)="state.getLadder()"></i>
             <i class="fas fa-question-circle"></i>
         </div>
     </div>
@@ -34,3 +34,4 @@
 
 <app-easter-event-storyboard *ngIf="state.isStory" [@slideLeftAnimation] (return)="returnFromStage($event)"></app-easter-event-storyboard>
 <app-easter-event-tasks *ngIf="state.isTask" [@slideLeftAnimation] (return)="returnFromTask($event)"></app-easter-event-tasks>
+<app-easter-event-ladder *ngIf="state.isLadder" [@slideLeftAnimation] (return)="returnFromLadder($event)"></app-easter-event-ladder>
