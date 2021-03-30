@@ -209,3 +209,12 @@ button[type="button"]:disabled {
 .table tbody + tbody {
   border-top: none !important;
 }
+
+.accordion-item__body h1,
+.accordion-item__body h2,
+.accordion-item__body h3,
+.accordion-item__body h4,
+.accordion-item__body h5,
+.accordion-item__body h6 {
+  color: #fff !important;
+}

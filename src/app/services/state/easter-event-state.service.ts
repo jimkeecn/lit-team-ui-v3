@@ -18,6 +18,7 @@ export class EasterEventStateService {
   isStory = false;
   isTask = false;
   isLadder = false;
+  isHelp = false;
   constructor(public easterApi: EasterEventApiService) {
     combineLatest([this.userState$, this.eventStage$]).subscribe(res => {
       if (res[0] && res[1]) {
@@ -74,7 +75,9 @@ export class EasterEventStateService {
     this.isLadder = true;
   }
   
-
+  getHelp() {
+    this.isHelp = true;
+  }
 
   private getCurrentStage(stages: EventStageDTO[]): EventStageDTO {
     var dc_stages:EventStageDTO[] = JSON.parse(JSON.stringify(stages));

@@ -40,7 +40,11 @@
   padding: 72px 0;
 }
 
-.standings-table thead th:first-child,
-.standings-table tbody td:first-child {
-  width: 150px !important;
+.page-content {
+  padding: 40px;
+}
+
+.accordion-item__link,
+.accordion-item__body {
+  color: #fff !important;
 }

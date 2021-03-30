@@ -1,0 +1,71 @@
+<div class="story-action">
+    <div class="return" (click)="returnFn()">
+        <i class="fas fa-chevron-left"></i>
+        Return to Event
+    </div>
+</div>
+<div class="page-content">
+    <div class="accordion" id="accordionFaqs">
+        <div class="accordion-item">
+            <div class="accordion-item__header" id="headingOne">
+                <button class="accordion-item__link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                   About the event
+                    <span class="accordion-item__icon">&nbsp;</span>
+                </button>
+            </div>
+
+            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionFaqs">
+                <div class="accordion-item__body" >
+                    <p>This event is to celebrate Easter by using 4 champions (Ivern, Lulu, Riven, Fizz) 
+                        and go through a series of adventures to complete the story.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <div class="accordion-item__header" id="headingTwo">
+                <button class="accordion-item__link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                    Group Task vs Individual Task
+                    <span class="accordion-item__icon">&nbsp;</span>
+                </button>
+            </div>
+
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionFaqs">
+                <div class="accordion-item__body" >
+                    There are two types of quest in this event.
+                    <ul>
+                        <li>Individual Quest : A individual quest is designed for granting score once the task is finish.</li>
+                        <li>Group Quest: A group quest is for openning the next stage. 
+                            this quest is require all players to complete. 
+                            It does not give score, 
+                            however event will continue to next stage if requirement are met.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <div class="accordion-item__header" id="headingThree">
+                <button class="accordion-item__link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                   How do I complete task?
+                    <span class="accordion-item__icon">&nbsp;</span>
+                </button>
+            </div>
+
+            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionFaqs">
+                <div class="accordion-item__body">
+                    In the event main page, you can submit the gameId of your game at the top right of the page. GameId is a unique ID that provide by Riot once you complete a riot game. 
+                    You can see your gameId in your Match History in league of legend client. It usually at the top side of the match detail screen. If you have problem finding your gameId, Please contact our admin in discord.
+                    <ul>
+                        <li>Game must be played in either Blind Pick Mode or Draft Pick Mode or ARAM.</li>
+                        <li>Game must use one of following champions: Ivern, Riven, Lulu, Fizz</li>
+                        <li>Game must be played within the event period.</li>
+                        <li>Game cannot be reused for same player.</li>
+                        <li>Player cannot queue the game with friends from the other team and fed the states to complete the quest. if we found someone intentionally cheating the states, player involved maybe banned from the event.</li>
+                        <li>However player can queue with friends within the same team.</li>
+                        <li>Same GameId can be used by different player if those player are in that game.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

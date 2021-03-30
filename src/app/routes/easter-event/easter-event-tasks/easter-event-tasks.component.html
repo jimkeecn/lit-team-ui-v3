@@ -20,12 +20,12 @@
                 <td>{{task.description}}</td>
                 <td>{{task.eventTaskRewards[0].quantity}}</td>
                 <td>
-                    <span *ngIf="task.eventTaskName !== 'The Opening' 
-                    && task.eventTaskName !== '开终章 1'  
-                    && task.eventTaskName !== '开终章 2'">{{task.isTaskDone ? "1/1" : '0/1'}}</span>
-                    <span *ngIf="task.eventTaskName == 'The Opening'">{{task.count}}/5</span>
-                    <span *ngIf="task.eventTaskName == '开终章 1'">{{task.count}}/10</span>
-                    <span *ngIf="task.eventTaskName == '开终章 2'">{{task.count}}/5</span>
+                    <span *ngIf="task.eventTaskName !== 'The Opening(G)' 
+                    && task.eventTaskName !== 'Dragon Slayer(G)'  
+                    && task.eventTaskName !== 'Baron Slayer(G)'">{{task.isTaskDone ? "1/1" : '0/1'}}</span>
+                    <span *ngIf="task.eventTaskName == 'The Opening(G)'">{{task.count}}/40</span>
+                    <span *ngIf="task.eventTaskName == 'Dragon Slayer(G)'">{{task.count}}/120</span>
+                    <span *ngIf="task.eventTaskName == 'Baron Slayer(G)'">{{task.count}}/30</span>
                 </td>
             </tr>
         </tbody>

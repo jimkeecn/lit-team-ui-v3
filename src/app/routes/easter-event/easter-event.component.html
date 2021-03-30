@@ -5,8 +5,8 @@
         <div class="easter-event-actions">
             <input type="text" class="form-control" placeholder="Put Game ID Here" [(ngModel)]="gameId">
             <button type="button" class="btn btn-sm btn-secondary" [disabled]="submitDisable" (click)="postGameResult()">Submit</button>
-            <i class="fas fa-trophy" (click)="state.getLadder()"></i>
-            <i class="fas fa-question-circle"></i>
+            <i class="fas fa-trophy" title="Event Ladder" (click)="state.getLadder()"></i>
+            <i class="fas fa-question-circle" title="How to play this event?" (click)="state.getHelp()"></i>
         </div>
     </div>
     <div class="easter-event-content">
@@ -35,3 +35,4 @@
 <app-easter-event-storyboard *ngIf="state.isStory" [@slideLeftAnimation] (return)="returnFromStage($event)"></app-easter-event-storyboard>
 <app-easter-event-tasks *ngIf="state.isTask" [@slideLeftAnimation] (return)="returnFromTask($event)"></app-easter-event-tasks>
 <app-easter-event-ladder *ngIf="state.isLadder" [@slideLeftAnimation] (return)="returnFromLadder($event)"></app-easter-event-ladder>
+<app-easter-event-help *ngIf="state.isHelp" [@slideLeftAnimation] (return)="returnFromHelp($event)"></app-easter-event-help>

@@ -53,6 +53,10 @@ export class EasterEventComponent implements OnInit {
     if($event)
     this.state.isLadder = false;
   }
+  returnFromHelp($event) {
+    if($event)
+    this.state.isHelp = false;
+  }
 
   postGameResult() {
     if (this.gameId) {
