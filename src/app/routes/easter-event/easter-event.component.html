@@ -1,7 +1,7 @@
 <div class="easter-event-container">
     <div class="easter-event-header">
         <div class="easter-event-name">{{(state.state$ | async)?.event.eventName}}</div>
-        <div class="easter-event-current-stage">Current Stage : {{(state.state$ | async)?.currentOpenStage?.eventStageName}}</div>
+        <div class="easter-event-current-stage">Event period: {{(state.state$ | async)?.event.startTime | date : 'dd/MM'}} - {{(state.state$ | async)?.event.endtime | date : 'dd/MM'}}</div>
         <div class="easter-event-actions">
             <input type="text" class="form-control" placeholder="Put Game ID Here" [(ngModel)]="gameId">
             <button type="button" class="btn btn-sm btn-secondary" [disabled]="submitDisable" (click)="postGameResult()">Submit</button>

@@ -39,3 +39,22 @@
   width: 100%;
   padding: 72px 0;
 }
+
+.fa-medal.first {
+  color: yellow;
+}
+
+.fa-medal.second {
+  color: silver;
+}
+
+.fa-medal.third {
+  color: brown;
+}
+
+.standings-table thead th:first-child,
+.standings-table tbody td:first-child {
+  width: 50px !important;
+  text-align: center;
+  padding-right: 24px;
+}
