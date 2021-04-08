@@ -30,6 +30,7 @@ export class TournamentContainerComponent implements OnInit {
     this.isActive = tourney_detail.isActive;
     this.tournamentId = tourney_detail.tournamentId;
     this.getTeam(true);
+    this.getMyRecentHistoryTeam();
     api.getTournamentChampionshipById(tourney_detail.tournamentId).pipe(tap(x => { 
       state.championship$.next(null);
       
@@ -103,6 +104,16 @@ export class TournamentContainerComponent implements OnInit {
         this.app.errorHandler(err);
       })
     }
+  }
+
+  getMyRecentHistoryTeam() {
+    this.api.getMyRecentHistoryTeam(this.tournamentId).pipe(tap(x => { 
+
+    })).subscribe(res => {
+      this.state.recentTeams$.next(res);
+    }, (err: HttpErrorResponse) => {
+      this.app.errorHandler(err);
+    })
   }
 
   ngOnInit(): void {

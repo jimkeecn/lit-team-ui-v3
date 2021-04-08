@@ -218,6 +218,17 @@ export class TournamentRegistrationComponent implements OnInit {
     this.app.openSnackBar("You have copied the link.", "success");
   }
 
+  getTeamMember(members: ClanMemberViewModel[]) {
+    var members_string = "";
+    if (members.length > 0) {
+      for (var x = 0; x < members.length; x++){
+        members_string += x == members.length - 1 ? members[x].gameId : members[x].gameId + ", "
+      }
+    }
+
+    return members_string;
+  }
+
   private constructInviteLink(code): string {
     //token
     let baseUrl = environment.web; //tournament-invite/:tournamentId/:token

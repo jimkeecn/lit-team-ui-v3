@@ -21,6 +21,8 @@ export class TourneyApiService {
     this.baseUrl = environment.url;
   }
 
+ 
+
   getupcomingFeatureTournament():Observable<TournamentDTO[]> {
     let param: TournamentFilter = {
       isFeatured: true,
@@ -59,6 +61,11 @@ export class TourneyApiService {
   registerTournamentById(id:number,data:any):Observable<TournamentRegistrationDTO> {
     const url = `${this.baseUrl}/Tournament/${id}/register`;
     return this.http.post<TournamentRegistrationDTO>(url,data).pipe(tap());
+  }
+
+  getMyRecentHistoryTeam(id:number):Observable<TournamentRegistrationDTO[]> {
+    const url = `${this.baseUrl}/User/RecentTourneyTeam/${id}`;
+    return this.http.get<TournamentRegistrationDTO[]>(url).pipe(tap());
   }
 
   quiteTournamentById(id:number):Observable<number> {

@@ -19,6 +19,7 @@ export class TournamentDetailStateService {
   free_agents$ = new BehaviorSubject<TournamentRegistrationFreeAgent[]>([]);
   isRegistered: boolean = false;
   championship$ = new BehaviorSubject<TournamentChampionship>(null);
+  recentTeams$ = new BehaviorSubject<TournamentRegistrationDTO[]>(null); 
   constructor() { }
   
 }

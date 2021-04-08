@@ -1,7 +1,7 @@
 <div class="registration-overlay"></div>
 <div class="registration-form">
     <ng-container *ngIf="step == 1">
-        <h2 class="h4">1. Create a team to register</h2>
+        <h2 class="h4">Create a new team to register</h2>
         <p>This team will be temporarily created for the sole purpose of joining this tournament. Team will be disband automatically after tournament is finished.</p>
         <form class="form" [formGroup]="detailForm">
             <div class="error-list" *ngIf="errors && errors.length > 0">
@@ -31,10 +31,8 @@
     </ng-container>
     <ng-container *ngIf="step == 2">
         <h2 class="h4">Invite your teammate to <b>{{detailForm.get('name').value}}</b></h2>
-      
-
             <div class="table-responsive mt-sm-auto mb-sm-auto">
-                <p *ngIf="isLeader">Please invite your teammate by using Summoner Name. click on summoner ID will open op.gg.</p>
+                <p *ngIf="isLeader">Please invite your teammate by using Summoner Name.</p>
                 <div class="table-actions" *ngIf="isLeader">
                     <input class="form-control" [(ngModel)]="inviteMemberName">
                     <button class="btn btn-secondary" [disabled]="submitDisable" (click)="inviteMember()">Invite</button>
@@ -65,10 +63,33 @@
                 </table>
             </div>
     </ng-container>
+  
     <div class="form-group d-sm-flex justify-content-sm-between align-items-sm-center action-bar">
         <button class="btn btn-normal" [disabled]="submitDisable" (click)="discard()">Close</button>
         <button class="btn btn-danger" [disabled]="submitDisable" (click)="disband()" *ngIf="step == 2 && isLeader">Disband</button>
         <button class="btn btn-danger" [disabled]="submitDisable" (click)="quit()" *ngIf="step == 2 && !isLeader">widthdraw</button>
         <button class="btn btn-secondary" [disabled]="submitDisable" (click)="register()" *ngIf="step == 1" >Next</button>
     </div>
+    <ng-container>
+        <h2 class="h4 line-breaker"></h2>
+        <p>In this section, we are showing teams that you have recently created. the member is seperated by commaand will not include the leader</p>
+        <div class="table-responsive mt-sm-auto mb-sm-auto">
+            <table class="table matches-table standings-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Members (Summoner Name)</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let team of (state.recentTeams$ | async); let i = index">
+                        <td>{{team.name}}</td>
+                        <td>{{getTeamMember(team.members)}}</td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </ng-container>
 </div>

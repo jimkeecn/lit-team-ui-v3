@@ -50,3 +50,15 @@ select option {
   background-color: transparent !important;
   border-bottom: 1px solid #dfe0e5 !important;
 }
+
+.standings-table thead th:first-child,
+.standings-table tbody td:first-child {
+  width: 200px !important;
+  text-align: left;
+  padding-right: 24px;
+}
+
+.line-breaker {
+  border-top: solid 1px #ddd;
+  padding-top: 20px;
+}
