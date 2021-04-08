@@ -61,6 +61,12 @@ export class TourneyApiService {
     return this.http.post<TournamentRegistrationDTO>(url,data).pipe(tap());
   }
 
+  quiteTournamentById(id:number):Observable<number> {
+    const url = `${this.baseUrl}/Tournament/${id}/quit`;
+    return this.http.get<number>(url).pipe(tap());
+  }
+
+
   getInviteCodeForTournament(id:number):Observable<string> {
     const url = `${this.baseUrl}/Tournament/${id}/inviteCode`;
     return this.http.get(url,{ responseType: 'text' }).pipe(tap());

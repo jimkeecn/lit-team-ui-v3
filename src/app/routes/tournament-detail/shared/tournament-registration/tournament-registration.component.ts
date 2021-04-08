@@ -142,6 +142,20 @@ export class TournamentRegistrationComponent implements OnInit {
     }
   }
 
+  quit() {
+    if (window.confirm("Are you sure to widthdraw from this tournament?")) { 
+      this.submitDisable = true;
+      this.api.quiteTournamentById(this.state.detail$.value.tournamentId)
+      .subscribe(res => { 
+        this.app.openSnackBar(`You have widthdraw from this tournament.`, 'success');
+        this.submitDisable = false;
+        location.reload();
+    }, (err: HttpErrorResponse) => {
+          this.submitDisable = false;
+          this.app.errorHandler(err);
+        })
+    }
+  }
   register() {
     switch (this.step) {
       case 1:
