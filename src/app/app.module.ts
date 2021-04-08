@@ -65,6 +65,7 @@ import { EasterEventStoryboardComponent } from './routes/easter-event/easter-eve
 import { EasterEventTasksComponent } from './routes/easter-event/easter-event-tasks/easter-event-tasks.component';
 import { EasterEventLadderComponent } from './routes/easter-event/easter-event-ladder/easter-event-ladder.component';
 import { EasterEventHelpComponent } from './routes/easter-event/easter-event-help/easter-event-help.component';
+import { TournamentInviteComponent } from './routes/tournament-invite/tournament-invite.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -123,6 +124,7 @@ import { EasterEventHelpComponent } from './routes/easter-event/easter-event-hel
     EasterEventTasksComponent,
     EasterEventLadderComponent,
     EasterEventHelpComponent,
+    TournamentInviteComponent,
   ],
   imports: [
     BrowserModule,

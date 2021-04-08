@@ -30,6 +30,7 @@ import { ForgotPasswordComponent } from './routes/login-register/forgot-password
 import { AccountGamesComponent } from './routes/account/account-games/account-games.component';
 import { TournamentFreeAgentsComponent } from './routes/tournament-detail/tournament-free-agents/tournament-free-agents.component';
 import { EasterEventComponent } from './routes/easter-event/easter-event.component';
+import { TournamentInviteComponent } from './routes/tournament-invite/tournament-invite.component';
 const routes: Routes = [
   {
     path:"home",
@@ -88,6 +89,10 @@ const routes: Routes = [
         ]
       }
     ]
+  },
+  {
+    path: "tournament-invite/:tournamentId/:token",
+    component:TournamentInviteComponent
   },
   {
     path: "teams",

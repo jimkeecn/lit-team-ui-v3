@@ -12,6 +12,8 @@ import { AddUpdateClanModel } from "@app-models/user";
 import { TourneyApiService } from '@app-services/api/tourney-api.service';
 import { TournamentRegistration } from '@app-models/tournament';
 import { LeagueOfLegendsPosition } from '@app-models/static';
+import { environment } from "../../../../../environments/environment";
+
 @Component({
   selector: 'tournament-registration',
   templateUrl: './tournament-registration.component.html',
@@ -185,5 +187,29 @@ export class TournamentRegistrationComponent implements OnInit {
       this.app.errorHandler(err);
     })
   }
+
+  inviteLink = "";
+  getInviteCode() {
+    this.submitDisable = true;
+    this.api.getInviteCodeForTournament(this.state.detail$.value.tournamentId).subscribe(res => {
+      this.inviteLink = this.constructInviteLink(res);
+      this.submitDisable = false;
+    }, (err: HttpErrorResponse) => {
+      this.submitDisable = false;
+      this.app.errorHandler(err);
+    })
+  }
+
+  copyLink() {
+    this.app.openSnackBar("You have copied the link.", "success");
+  }
+
+  private constructInviteLink(code): string {
+    //token
+    let baseUrl = environment.web; //tournament-invite/:tournamentId/:token
+    baseUrl = baseUrl + `tournament-invite/${this.state.detail$.value.tournamentId}/${code}`
+    return baseUrl;
+  }
+
 
 }

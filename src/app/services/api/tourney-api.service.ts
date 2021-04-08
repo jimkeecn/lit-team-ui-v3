@@ -56,9 +56,19 @@ export class TourneyApiService {
     return this.http.get<TournamentRegistrationDTO[]>(url).pipe(tap());
   }
 
-  registerTournamentById(id:number,data:any):Observable<number> {
+  registerTournamentById(id:number,data:any):Observable<TournamentRegistrationDTO> {
     const url = `${this.baseUrl}/Tournament/${id}/register`;
-    return this.http.post<number>(url,data).pipe(tap());
+    return this.http.post<TournamentRegistrationDTO>(url,data).pipe(tap());
+  }
+
+  getInviteCodeForTournament(id:number):Observable<string> {
+    const url = `${this.baseUrl}/Tournament/${id}/inviteCode`;
+    return this.http.get(url,{ responseType: 'text' }).pipe(tap());
+  }
+
+  getInviteByCodeToTournament(id:number,token:number):Observable<string> {
+    const url = `${this.baseUrl}/Tournament/${id}/getInviteByCode/${token}`;
+    return this.http.get(url,{ responseType: 'text' }).pipe(tap());
   }
 
   registerAsFreeAgentTournamentById(id:number):Observable<number> {

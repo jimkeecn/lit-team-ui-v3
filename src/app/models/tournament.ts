@@ -47,7 +47,8 @@ export class TournamentRegistrationDTO{
   name: string;
   clanId: number;
   clanName: string;
-  members:ClanMemberViewModel[]
+  members: ClanMemberViewModel[];
+  UniqueID: string;
 }
 
 

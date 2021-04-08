@@ -45,3 +45,8 @@ select option {
   color: #fff;
   border: 1px #fff solid;
 }
+
+.invite-link:read-only {
+  background-color: transparent !important;
+  border-bottom: 1px solid #dfe0e5 !important;
+}
