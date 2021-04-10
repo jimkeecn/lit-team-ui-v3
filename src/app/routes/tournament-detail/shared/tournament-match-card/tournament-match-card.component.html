@@ -2,34 +2,42 @@
     <div class="match-score" >
         <div class="match-score__header">
             <div class="match-score__competition" >#{{match.matchIndex}}</div>
-            <div class="match-score__date">{{match.date | date : 'dd/MM/yyyy hh:mm a'}}</div>
+            <!-- <div class="match-score__date">{{match.date | date : 'dd/MM/yyyy hh:mm a'}}</div> -->
+            <div class="match-score__competition" *ngIf="match.matchIndex <= 4">Next Match : #1</div>
+            <div class="match-score__competition" *ngIf="match.matchIndex > 4">Next Match : #{{match.matchIndex % 2 == 0 ? match.matchIndex / 2 : (match.matchIndex + 1) / 2}}</div>
         </div>
         <div class="match-score__body">
-            <figure class="match-team" role="group">
+            <figure class="match-team" role="group" *ngIf="match.teamAName">
                 <figure class="match-team-logo match-team-logo--team-1" role="group">
-                    <img src="assets/img/samples/logo-necromancers-42.png" srcset="assets/img/samples/logo-necromancers-42@2x.png 2x" alt="Necromancers Logo">
+                    <img src="assets/img/samples/logo-necromancers-42.png" srcset="assets/img/samples/logo-necromancers-42@2x.png 2x">
                 </figure>
                 <figcaption>
-                    <div class="match-team__name">{{match.teamAName ? match.teamAName : "TBA"}}</div>
-                        <div class="match-team__country ">None</div>
+                    <div class="match-team__name">{{match.teamAName}}</div>
+                    <div class="match-team__country ">None</div>
                 </figcaption>
             </figure>
-            <div class="match-result match-result--live">
+            <figure class="match-team bye-match" *ngIf="!match.teamAName">
+                <h2>BYE</h2>
+            </figure>
+            <div class="match-result match-result--live" >
                 <span class="match-result__score">{{match.teamAWinCounts}} : {{match.teamBWinCounts}}</span>
                 <span class="match-result__label">{{match.bracketFormatName}}</span>
             </div>
-            <figure class="match-team" role="group">
+            <figure class="match-team" role="group" *ngIf="match.teamBName"> 
                 <figure class="match-team-logo match-team-logo--team-2 right" role="group">
-                    <img src="assets/img/samples/logo-rhinos-42.png" srcset="assets/img/samples/logo-rhinos-42@2x.png 2x" alt="Raging Rhinos Logo">
+                    <img src="assets/img/samples/logo-rhinos-42.png" srcset="assets/img/samples/logo-rhinos-42@2x.png 2x">
                 </figure>
                 <figcaption>
-                    <div class="match-team__name">{{match.teamBName ? match.teamBName : "TBA"}}</div>
-                        <div class="match-team__country ">None</div>
+                    <div class="match-team__name">{{match.teamBName}}</div>
+                    <div class="match-team__country ">None</div>
                 </figcaption>
+            </figure>
+            <figure class="match-team bye-match" *ngIf="!match.teamBName">
+                <h2>BYE</h2>
             </figure>
         </div>
         <div class="match-score__footer">
-            <a  (click)="openTeamdetail(match.teamA)"><img  class="match-team-logo" src="assets/img/samples/team-selection-thumb-team.png" alt="Lit Team Logo"></a>
+            <a  (click)="openTeamdetail(match.teamA)" ><img  class="match-team-logo" *ngIf="match.teamA" src="assets/img/samples/team-selection-thumb-team.png" alt="Lit Team Logo"></a>
             
             <ul class="match-stats-links">
                 <li>
@@ -40,7 +48,7 @@
                     </a>
                 </li>
             </ul>
-            <a  (click)="openTeamdetail(match.teamB)"><img  class="match-team-logo" src="assets/img/samples/team-selection-thumb-team.png" alt="Lit Team Logo"></a>
+            <a  (click)="openTeamdetail(match.teamB)" ><img  class="match-team-logo" *ngIf="match.teamB" src="assets/img/samples/team-selection-thumb-team.png" alt="Lit Team Logo"></a>
             
           </div>
     </div>

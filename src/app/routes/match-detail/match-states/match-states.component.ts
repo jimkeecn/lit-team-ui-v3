@@ -15,6 +15,7 @@ export class MatchStatesComponent implements OnInit {
   @Input() matches = [];
   @Input() tournamentCodes = [];
   file: any;
+  matchIndex: number = 0;
   constructor(public state: TournamentDetailStateService,
     public api: ApiService,
     public app: ApplicationService,
