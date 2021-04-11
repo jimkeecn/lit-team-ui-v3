@@ -70,7 +70,7 @@
         <button class="btn btn-danger" [disabled]="submitDisable" (click)="quit()" *ngIf="step == 2 && !isLeader">Widthdraw</button>
         <button class="btn btn-secondary" [disabled]="submitDisable" (click)="register()" *ngIf="step == 1" >Next</button>
     </div>
-    <ng-container *ngIf="(state.recentTeams$ | async).length > 0">
+    <ng-container *ngIf="(state.recentTeams$ | async)?.length > 0">
         <h2 class="h4 line-breaker" style="margin-top:60px"></h2>
         <p class="h4">Last two teams you created.</p>
         <div class="table-responsive mt-sm-auto mb-sm-auto">
