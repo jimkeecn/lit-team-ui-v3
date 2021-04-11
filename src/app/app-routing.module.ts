@@ -31,6 +31,7 @@ import { AccountGamesComponent } from './routes/account/account-games/account-ga
 import { TournamentFreeAgentsComponent } from './routes/tournament-detail/tournament-free-agents/tournament-free-agents.component';
 import { EasterEventComponent } from './routes/easter-event/easter-event.component';
 import { TournamentInviteComponent } from './routes/tournament-invite/tournament-invite.component';
+import { AccountNotificationsComponent } from './routes/account/account-notifications/account-notifications.component';
 const routes: Routes = [
   {
     path:"home",
@@ -125,6 +126,10 @@ const routes: Routes = [
         path: "clan",
         component: AccountTeamComponent,
       },
+      {
+        path: "notification",
+        component:AccountNotificationsComponent
+      }
     ]
   },
   {

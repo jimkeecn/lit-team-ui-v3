@@ -150,6 +150,7 @@ export class LoginModel {
     isVerified:boolean;
     id:number;
     team: ClanViewModel;
+    notification: UserNotificationTypeConfigDTO[];
     litCoins: number;
 }
 
@@ -369,6 +370,8 @@ export class PlayerGameAccount{
   myDescription: string;
   isVerified: boolean;
 
+
+  
   static getErrorMessage(field,type){
     switch (field) {
       case 'gameStaticId':
@@ -397,4 +400,12 @@ export class PlayerGameAccount{
         break;
     }
   }
+}
+
+export class UserNotificationTypeConfigDTO{
+  notificationId: number;
+  createAt: Date;
+  updateAt: Date;
+  email: boolean;
+  inbox: boolean;
 }

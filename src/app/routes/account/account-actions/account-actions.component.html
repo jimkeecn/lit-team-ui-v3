@@ -1,5 +1,5 @@
 <div class="account-navigation__header">
-    <a class="account-navigation__logout" (click)="auth.logout()">
+    <a class="account-navigation__logout" title="Log out" (click)="auth.logout()">
         <svg role="img" class="df-icon df-icon--logout-circle">
             <use xlink:href="assets/img/necromancers.svg#logout-circle"/>
         </svg>
@@ -7,7 +7,7 @@
             <use xlink:href="assets/img/necromancers.svg#logout-arrow"/>
         </svg>
     </a>
-    <a class="account-navigation__avatar" onclick="alert('we dont support upload logo yet.')">
+    <a class="account-navigation__avatar" onclick="alert('we dont support logo at the moment.')">
         <img src="assets/img/samples/account-user-avatar-lg.jpg" alt="">
         <span class="account-navigation__browse-icon">&nbsp;</span>
     </a>
@@ -26,4 +26,6 @@
         [routerLink]="['/account/games']">My Game Accounts</a></li>
     <!-- <li><a [ngClass]="{'active': (state.menuState$ | async) == 3}" 
         [routerLink]="['/account/clan']">My Clan</a></li> -->
+    <li><a [ngClass]="{'active': (state.menuState$ | async) == 4}" 
+        [routerLink]="['/account/notification']">Notification</a></li>   
 </ul>

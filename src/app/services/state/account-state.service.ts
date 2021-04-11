@@ -24,6 +24,9 @@ export class AccountStateService {
       else if (url.includes("clan")) {
         this.menuState$.next(3);
       }
+      else if (url.includes("notification")) {
+        this.menuState$.next(4);
+      }
     })
    }
 }

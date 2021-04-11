@@ -1,0 +1,42 @@
+<h2 class="h4">Configure how do you want to receive our notification.</h2>
+
+
+<ul class="notification-list">
+    <li class="notification-item" *ngFor="let notification of notifications">
+        <div class="notification-name ">
+            {{notification.notificationName}}
+        </div>
+        <div class="notification-description">
+            {{notification.notificationDescription}}
+        </div>
+        <ul class="inner-list">
+            <li>
+                <div class="name">
+                    Platform Inbox (cannot be changed ATM)
+                </div>
+                <div class="action">
+                    <label class="switch">
+                        <input type="checkbox" checked disabled>
+                        <span class="slider round"></span>
+                      </label>
+                </div>
+            </li>
+            <li>
+                <div class="name">
+                    Registered Email
+                </div>
+                <div class="action">
+                    <label class="switch">
+                        <input type="checkbox" [checked]="notification.email" (change)="notificationChange(notification.notificationId,$event,'email')">
+                        <span class="slider round"></span>
+                      </label>
+                </div>
+            </li>
+        </ul>
+    </li>
+</ul>
+
+
+<div class="form-group d-sm-flex justify-content-sm-between align-items-sm-center action-bar">
+    <button class="btn btn-secondary" [disabled]="submitDisable" (click)="change()">Change</button>
+</div>

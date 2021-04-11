@@ -56,6 +56,14 @@ export class GamesStatic{
     gamesOtherDescription: string;
 }
 
+export class NotificationType{
+    notificationId: number;
+    notificationName: string;
+    email: boolean;
+    inbox: boolean;
+    notificationDescription: string;
+}
+
 export enum TournamentTimeEnum{
     Past = 1,
     Future = 2,

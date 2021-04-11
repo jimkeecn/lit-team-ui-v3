@@ -6,6 +6,7 @@ import { HttpClient } from '@angular/common/http';
 import { tap } from "rxjs/operators";
 import { TokenModel, LoginModel, RegisterModel } from '../../models/user';
 import { ApplicationService } from '../app/application.service';
+import { NotificationType } from '@app-models/static';
 @Injectable({
   providedIn: 'root',
 })
@@ -122,6 +123,13 @@ export class AuthService {
     const url = `${this.baseUrl}/user/twitch`;
     return this.http.post<any>(url, data).pipe(tap(x=>{
     
+    }));
+  }
+
+  updateAccountNotification(data:NotificationType[]):Observable<any>{
+    const url = `${this.baseUrl}/user/notifications`;
+    return this.http.post<any>(url,data).pipe(tap(x=>{
+      //do something
     }));
   }
 }

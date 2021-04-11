@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { ApplicationService } from '@app-services/app/application.service';
 import { BehaviorSubject, Observable } from 'rxjs';
 import {
-  GameMode, GamesStatic, StaticList, TournamentFormat,
+  GameMode, GamesStatic, NotificationType, StaticList, TournamentFormat,
   TournamentMap, TournamentType
 } from '@app-models/static';
 import { environment } from '../../../environments/environment';
@@ -69,5 +69,10 @@ export class StaticService {
     }));
   }
 
-
+  getNotificationType() : Observable<NotificationType[]>{
+    const url = `${this.baseUrl}/static/NotificationTypes`;
+    return this.http.get<NotificationType[]>(url).pipe(tap(x=>{
+      //do something
+    }));
+  }
 }
