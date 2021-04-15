@@ -42,6 +42,6 @@
     </div>
 
     <div class="matches-scores row">
-       <app-tournament-match-card [@inOutAnimation] [match]="bracket" class="col-md-12 col-lg-6" *ngFor="let bracket of currentBrackets"></app-tournament-match-card>
+       <app-tournament-match-card [@inOutAnimation] [match]="bracket" [total]="(state.brackets$ | async).length" class="col-md-12 col-lg-6" *ngFor="let bracket of currentBrackets"></app-tournament-match-card>
     </div>
 </div>

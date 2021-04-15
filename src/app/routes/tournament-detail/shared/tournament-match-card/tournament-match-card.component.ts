@@ -12,6 +12,7 @@ import { TournamentDetailStateService } from '@app-services/state/tournament-det
 export class TournamentMatchCardComponent implements OnInit {
 
   @Input() match: bracketDTO;
+  @Input() total: number;
   constructor(public router: Router, public state: TournamentDetailStateService) { }
 
   ngOnInit(): void {
@@ -28,6 +29,18 @@ export class TournamentMatchCardComponent implements OnInit {
 
     this.state.display_team_detail$.next(team);
     document.querySelector(".tournament-container").classList.add("team-detail-overlay-active");
+  }
+
+  checkFirstRound() {
+    if (this.match && this.total) {
+      if (this.match.matchIndex > this.total / 2) {
+        return true;
+      } else {
+        return false;
+      }
+    } else {
+      return false;
+    }
   }
 
 }

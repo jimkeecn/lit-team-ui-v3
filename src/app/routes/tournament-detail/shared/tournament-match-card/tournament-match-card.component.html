@@ -17,7 +17,7 @@
                 </figcaption>
             </figure>
             <figure class="match-team bye-match" *ngIf="!match.teamAName">
-                <h2>BYE</h2>
+                <h2 *ngIf="checkFirstRound()">BYE</h2><h2 *ngIf="!checkFirstRound()">ETA</h2>
             </figure>
             <div class="match-result match-result--live" >
                 <span class="match-result__score">{{match.teamAWinCounts}} : {{match.teamBWinCounts}}</span>
@@ -33,7 +33,7 @@
                 </figcaption>
             </figure>
             <figure class="match-team bye-match" *ngIf="!match.teamBName">
-                <h2>BYE</h2>
+                <h2 *ngIf="checkFirstRound()">BYE</h2><h2 *ngIf="!checkFirstRound()">ETA</h2>
             </figure>
         </div>
         <div class="match-score__footer">
