@@ -1,0 +1,163 @@
+<div class="match-stats-widget match-stats-widget--general match-state-replace-code" *ngIf="!match.riotGameId">
+    <div class="match-stats-widget__header">
+        Copy the code below to your league of legends client. 
+    </div>
+    <ul class="match-stats-widget__body ">
+        <li>
+            <span>Tournament Code</span>
+            <span >{{match.riotTournamentCode}}</span>
+            <button class="get-code"  [cdkCopyToClipboard]="match.riotTournamentCode" (click)="copyTournamentCode()">Copy</button>
+        </li>
+    </ul>
+</div>
+<div class="match-stats-widget match-stats-widget--general match-state-replace-code" *ngIf="match.riotGameId && match.invalid">
+    <div class="match-stats-widget__header">
+        Please upload your match replay 
+    </div>
+    <ul class="match-stats-widget__body ">
+        <li>
+            <span><input type="file" accept=".rofl" (change)="onFileChange($event)"></span>
+            <button class="get-code" [disabled]="submitDisable" (click)="upload(match.matchId)">upload</button>
+        </li>
+    </ul>
+</div>
+<!-- <div class="match-stats-widget match-stats-widget--general match-state-replace-code" *ngIf="!match.invalid && match.winnerId && match.loserId">
+    <div class="match-stats-widget__header">
+        Result
+    </div>
+    <ul class="match-stats-widget__body reverse">
+        <li>
+            <span>{{match.winner.name}}</span>
+            <span>Defeats</span>
+            <span>{{match.loser.name}}</span>
+        </li>
+    </ul>
+  
+</div> -->
+<ng-container *ngIf="match.winnerId && match.loserId">
+    <div class="match-stats-widget match-stats-widget--general">
+        <div class="match-stats-widget__header">
+            General Stats
+        </div>
+        <ul class="match-stats-widget__body">
+            <li>
+                <figure class="match-team" role="group">
+                    <!-- <figure class="match-team-logo match-team-logo--team-1" role="group">
+                        <img src="assets/img/samples/logo-necromancers-30.png" srcset="assets/img/samples/logo-necromancers-30@2x.png 2x" alt="NCR Logo">
+                    </figure> -->
+                    <figcaption>
+                        <!-- <div class="match-team__name">ETA</div> -->
+                            <div class="match-team__result team-red">team red</div>
+                    </figcaption>
+                </figure>
+                <div class="match-result">
+                    <span class="match-result__score">{{teams[0].isWin ? "1" : "0"}} : {{teams[1].isWin ? "1" : "0"}}</span>
+                </div>
+                <figure class="match-team" role="group">
+                    <!-- <figure class="match-team-logo match-team-logo--team-4" role="group">
+                        <img src="assets/img/samples/logo-panthers-30.png" srcset="assets/img/samples/logo-panthers-30@2x.png 2x" alt="ICP Logo">
+                    </figure> -->
+                    <figcaption>
+                        <!-- <div class="match-team__name">ETA</div> -->
+                            <div class="match-team__result team-blue ">team blue</div>
+                    </figcaption>
+                </figure>
+            </li>
+            <li><span>Duration</span><span>{{matchDuration}}</span></li>
+            <li><span>Status</span><span>Final Score</span></li>
+        </ul>
+    </div>
+    <div class="match-stats-widget">
+        <div class="match-stats-widget__header">
+            Teams Matchup
+        </div>
+        <ul class="match-stats-widget__body">
+            <li>
+                <div class="match-stats-progress match-stats-progress--double">
+                    <div class="match-stats-progress__score">{{teams[0].totalKills}}</div>
+                    <div class="match-stats-progress__bar">
+                        <span class="team-red" [style.width.%]="lol.getBarPercentage(teams[0].totalKills,teams[1].totalKills)">&nbsp;</span>
+                    </div>
+                    <div class="match-stats-progress__label">Kills</div>
+                    <div class="match-stats-progress__bar">
+                        <span class="team-blue" [style.width.%]="lol.getBarPercentage(teams[1].totalKills,teams[0].totalKills)">&nbsp;</span>
+                    </div>
+                    <div class="match-stats-progress__score">{{teams[1].totalKills}}</div>
+                </div>
+            </li>
+            <li>
+                <div class="match-stats-progress match-stats-progress--double">
+                    <div class="match-stats-progress__score">{{teams[0].totalDeaths}}</div>
+                    <div class="match-stats-progress__bar">
+                        <span class="team-red" [style.width.%]="lol.getBarPercentage(teams[0].totalDeaths,teams[1].totalDeaths)">&nbsp;</span>
+                    </div>
+                    <div class="match-stats-progress__label">Deaths</div>
+                    <div class="match-stats-progress__bar">
+                        <span class="team-blue" [style.width.%]="lol.getBarPercentage(teams[1].totalDeaths,teams[0].totalDeaths)">&nbsp;</span>
+                    </div>
+                    <div class="match-stats-progress__score">{{teams[1].totalDeaths}}</div>
+                </div>
+            </li>
+            <li>
+                <div class="match-stats-progress match-stats-progress--double">
+                    <div class="match-stats-progress__score">{{teams[0].totalAssists}}</div>
+                    <div class="match-stats-progress__bar">
+                        <span class="team-red" [style.width.%]="lol.getBarPercentage(teams[0].totalAssists,teams[1].totalAssists)">&nbsp;</span>
+                    </div>
+                    <div class="match-stats-progress__label">Assists</div>
+                    <div class="match-stats-progress__bar">
+                        <span class="team-blue" [style.width.%]="lol.getBarPercentage(teams[1].totalAssists,teams[0].totalAssists)">&nbsp;</span>
+                    </div>
+                    <div class="match-stats-progress__score">{{teams[1].totalAssists}}</div>
+                </div>
+            </li>
+            <li>
+                <div class="match-stats-progress match-stats-progress--double">
+                    <div class="match-stats-progress__score">{{teams[0].totalGolds}}k</div>
+                    <div class="match-stats-progress__bar">
+                        <span class="team-red" [style.width.%]="lol.getBarPercentage(teams[0].totalGolds,teams[1].totalGolds)">&nbsp;</span>
+                    </div>
+                    <div class="match-stats-progress__label">Golds</div>
+                    <div class="match-stats-progress__bar">
+                        <span class="team-blue" [style.width.%]="lol.getBarPercentage(teams[1].totalGolds,teams[0].totalGolds)">&nbsp;</span>
+                    </div>
+                    <div class="match-stats-progress__score">{{teams[1].totalGolds}}k</div>
+                </div>
+            </li>
+            <li class="match-stats-widget__details">
+                <ul>
+                    <li>
+                        <svg role="img" class="df-icon df-icon--towers-destroyed">
+                            <use xlink:href="assets/img/necromancers.svg#towers-destroyed"/>
+                        </svg>
+                        <span class="team-red">{{teams[0].towerKills}}</span> - <span class="team-blue">{{teams[1].towerKills}}</span>
+                    </li>
+                    <li>
+                        <svg role="img" class="df-icon df-icon--inhibitors-destroyed">
+                            <use xlink:href="assets/img/necromancers.svg#inhibitors-destroyed"/>
+                        </svg>
+                        <span class="team-red">{{teams[0].inhibitorKills}}</span> - <span class="team-blue">{{teams[1].inhibitorKills}}</span>
+                    </li>
+                    <li>
+                        <svg role="img" class="df-icon df-icon--baron-kills">
+                            <use xlink:href="assets/img/necromancers.svg#baron-kills"/>
+                        </svg>
+                        <span class="team-red">{{teams[0].baronKills}}</span> - <span class="team-blue">{{teams[1].baronKills}}</span>
+                    </li>
+                    <li>
+                        <svg role="img" class="df-icon df-icon--dragon-kills">
+                            <use xlink:href="assets/img/necromancers.svg#dragon-kills"/>
+                        </svg>
+                        <span class="team-red">{{teams[0].dragonKills}}</span> - <span class="team-blue">{{teams[1].dragonKills}}</span>
+                    </li>
+                    <li>
+                        <svg role="img" class="df-icon df-icon--rift-heralds-killed">
+                            <use xlink:href="assets/img/necromancers.svg#rift-heralds-killed"/>
+                        </svg>
+                        <span class="team-red">{{teams[0].riftHeraldKills}}</span> - <span class="team-blue">{{teams[1].riftHeraldKills}}</span>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</ng-container>

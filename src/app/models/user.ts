@@ -323,6 +323,7 @@ export class ClanMemberUIModel extends ClanMemberViewModel{
     matchIndex: number;
     riotGameId: number;
     riotGameTime: Date;
+    matchResultJson: string;
 }
   
 export class MatchClipModel{

@@ -4,7 +4,7 @@ import { ApiService } from '@app-services/api/api.service';
 import { TourneyApiService } from '@app-services/api/tourney-api.service';
 import { ApplicationService } from '@app-services/app/application.service';
 import { TournamentDetailStateService } from '@app-services/state/tournament-detail-state.service';
-
+import { LolMatchDetailService } from '@app-services/state/leagueoflegends/lol-match-detail.service';
 @Component({
   selector: 'match-states',
   templateUrl: './match-states.component.html',
@@ -19,7 +19,8 @@ export class MatchStatesComponent implements OnInit {
   constructor(public state: TournamentDetailStateService,
     public api: ApiService,
     public app: ApplicationService,
-    public dc:ChangeDetectorRef) { }
+    public dc: ChangeDetectorRef,
+  public lol:LolMatchDetailService) { }
 
   ngOnInit(): void {
   }
