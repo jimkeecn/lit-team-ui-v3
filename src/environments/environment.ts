@@ -5,10 +5,11 @@
 export const environment = {
   production: false,
   web: 'http://localhost:4200/',
-  //url: 'https://localhost:44392/api'
+  url: 'https://localhost:44392/api',
   //url: 'https://litteam.gg:44392/api',
-  url:'https://api.litteam.gg/api',
+  //url:'https://api.litteam.gg/api',
   //url:'https://test.litteam.gg/api'
+  liveUrl:'https://localhost:5001/api'
 };
 
 /*

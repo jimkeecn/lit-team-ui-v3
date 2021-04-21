@@ -7,6 +7,7 @@ import { tap } from "rxjs/operators";
 import { TokenModel, LoginModel, RegisterModel } from '../../models/user';
 import { ApplicationService } from '../app/application.service';
 import { NotificationType } from '@app-models/static';
+import { SignalRService } from '@app-services/live/signal-r.service';
 @Injectable({
   providedIn: 'root',
 })
@@ -17,7 +18,8 @@ export class AuthService {
   constructor(
     private http: HttpClient,
     private route: Router,
-    private app:ApplicationService
+    private app: ApplicationService,
+    private live:SignalRService
   ) {
     this.baseUrl = environment.url;
     this.currentUserSubject = new BehaviorSubject<TokenModel>(
@@ -40,6 +42,7 @@ export class AuthService {
       var data = { ...this.currentUserSubject.value };
       data.user = user;
       this.currentUserSubject.next(data);
+      this.live.startNotificationListening(data.user.id);
     }));
   }
 
