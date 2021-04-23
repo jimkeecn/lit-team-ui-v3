@@ -22,6 +22,7 @@ export class MatchCheckinComponent implements OnInit {
   submitDisable: boolean = false;
   isMyGame: boolean = false;
   isPassCheckedIn: boolean = false;
+  isStartCheckedIn: boolean = true;
   constructor(private api:TourneyApiService, private state: TournamentDetailStateService, private auth:AuthService,private app:ApplicationService) { }
 
   ngOnInit(): void {
@@ -96,8 +97,10 @@ export class MatchCheckinComponent implements OnInit {
     let currentDate = new Date().getTime();
     let targetDate = new Date(dateEnd).getTime(); // set the countdown date
 
-    if (currentDate > targetDate  || currentDate < targetDate - 900000 ) {
+    if (currentDate > targetDate ) {
       this.isPassCheckedIn = true;
+    } else if (currentDate < targetDate - 900000) {
+      this.isStartCheckedIn = false;
     } else {
       let hours, minutes, seconds; // variables for time units
       let count = 0;
@@ -110,8 +113,8 @@ export class MatchCheckinComponent implements OnInit {
           minutes = pad( Math.floor( secondsLeft / 60 ) );
           seconds = pad( Math.floor( secondsLeft % 60 ) );
           // format countdown string + set tag value
-        console.log(`${hours > 0? hours + ":" : ""} ${minutes > 0? minutes + ":" : ""} ${seconds}`);
-        document.getElementById('timer').innerHTML = `${hours > 0? hours + ":" : ""} ${minutes > 0? minutes + ":" : ""} ${seconds}`;
+        //console.log(`${hours > 0? hours + ":" : ""} ${minutes > 0? minutes + ":" : ""} ${seconds}`);
+        document.getElementById('timer').innerHTML = `${Math.floor( secondsLeft / 3600 ) > 0? hours + ":" : ""} ${Math.floor( secondsLeft / 60 ) > 0? minutes + ":" : ""} ${Math.floor( secondsLeft % 60 ) > 0 ? seconds : "00" }`;
       }
       function pad(n) {
           return (n < 10 ? '0' : '') + n;

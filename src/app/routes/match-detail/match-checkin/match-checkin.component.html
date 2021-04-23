@@ -1,4 +1,4 @@
-<div class="check-in-container" >
+<div class="check-in-container" [hidden]="!isStartCheckedIn">
     <div class="header-counterdown" [hidden]="isPassCheckedIn">
         <h5 class="h5">Check In Timer : <span id="timer" ></span> </h5>
         <p>Check Ready to check in this bracket.</p>
