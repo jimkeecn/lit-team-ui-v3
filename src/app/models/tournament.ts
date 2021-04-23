@@ -123,3 +123,16 @@ export class TournamentChampionship{
   secondPlace: TournamentRegistrationDTO;
   secondPlaceWins: number;
 }
+
+export class MatchCheckInTeam{
+  registrationName: string;
+  registrationId: number;
+  individuals:MatchCheckInIndividual[]
+}
+
+export class MatchCheckInIndividual{
+  userName: string;
+  gameName: string;
+  isCheckedIn: boolean;
+  userId: number;
+}

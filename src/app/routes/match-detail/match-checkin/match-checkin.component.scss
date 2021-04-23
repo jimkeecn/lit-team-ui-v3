@@ -1,0 +1,70 @@
+* {
+  color: #fff;
+}
+
+:host {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 100%;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 2px;
+}
+
+.check-in-container {
+  flex: 1;
+  position: relative;
+  background-color: #3d405670;
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.3);
+}
+
+.header-counterdown {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 0;
+}
+.header-counterdown h5,
+.header-counterdown p {
+  width: 100%;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+}
+
+.check-in-collapser {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  background-color: #3d4056;
+  padding: 5px 10px 3px 10px;
+  cursor: pointer;
+}
+
+.team-list {
+  display: flex;
+}
+
+.team-ready-list {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+}
+
+.team-b-list {
+  justify-content: flex-end;
+}
+
+.footer-ready {
+  display: flex;
+  justify-content: flex-end;
+  padding: 20px;
+}

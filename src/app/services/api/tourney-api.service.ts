@@ -6,7 +6,7 @@ import { environment } from "../../../environments/environment";
 import { BehaviorSubject, Observable } from 'rxjs';
 import { GameMode, StaticList, TournamentFilter, TournamentFormat, TournamentMap, TournamentTimeEnum, TournamentType } from '@app-models/static';
 import { tap } from 'rxjs/operators';
-import { BracketGroupDTO, TournamentChampionship, TournamentDTO, TournamentInvitationNotification, TournamentRegistrationDTO, TournamentRegistrationFreeAgent, TournamentTeamDTO } from '@app-models/tournament';
+import { BracketGroupDTO, MatchCheckInTeam, TournamentChampionship, TournamentDTO, TournamentInvitationNotification, TournamentRegistrationDTO, TournamentRegistrationFreeAgent, TournamentTeamDTO } from '@app-models/tournament';
 import { MatchCodeResponse, MatchViewModel } from '@app-models/user';
 
 @Injectable({
@@ -152,6 +152,21 @@ export class TourneyApiService {
   getBracketCodeById(id: number,matchIndex:number): Observable<MatchCodeResponse>{
     const url = `${this.baseUrl}/Bracket/${id}/matchCode/${matchIndex}`;
     return this.http.get<MatchCodeResponse>(url).pipe(tap());
+  }
+
+  getBracketCheckIns(id: number): Observable<MatchCheckInTeam[]>{
+    const url = `${this.baseUrl}/Bracket/${id}/checkin`;
+    return this.http.get<MatchCheckInTeam[]>(url).pipe(tap());
+  }
+
+  checkInBracket(id: number): Observable<MatchCodeResponse>{
+    const url = `${this.baseUrl}/Bracket/${id}/checkin`;
+    return this.http.post<MatchCodeResponse>(url,null).pipe(tap());
+  }
+
+  removeCheckInBracket(id: number): Observable<MatchCodeResponse>{
+    const url = `${this.baseUrl}/Bracket/${id}/checkin`;
+    return this.http.delete<MatchCodeResponse>(url).pipe(tap());
   }
   
 }

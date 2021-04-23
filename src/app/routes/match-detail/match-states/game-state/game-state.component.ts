@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Team } from '@app-models/leagueoflegenes';
 import { MatchViewModel } from '@app-models/user';
+import { ApplicationService } from '@app-services/app/application.service';
 import { LolMatchDetailService } from '@app-services/state/leagueoflegends/lol-match-detail.service';
 
 @Component({
@@ -23,9 +24,12 @@ export class GameStateComponent implements OnInit {
     }
   }
 
-  constructor(public lol : LolMatchDetailService) { }
+  constructor(public lol : LolMatchDetailService, private app:ApplicationService) { }
 
   ngOnInit(): void {
   }
 
+  copyTournamentCode() {
+    this.app.openSnackBar("You have copied the code","success")
+  }
 }
