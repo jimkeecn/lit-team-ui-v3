@@ -11,14 +11,14 @@ export class SignalRService {
   private baseUrl: string = '';
 
   buildConnection(   ) {
-    this.http.get(this.baseUrl + "/LitTeamHub", { responseType: 'text' }).subscribe(res => {
+    this.http.get(this.baseUrl + "/api/LitTeamHub", { responseType: 'text' }).subscribe(res => {
       console.log("Activated Live API");
     })
   }
 
   startConnection = () => {
     this.hubConnection = new signalR.HubConnectionBuilder()
-                            .withUrl('https://localhost:5001/LitTeamHub')
+                            .withUrl(`${this.baseUrl }/LitTeamHub`)
                             .build();
     this.hubConnection
       .start()

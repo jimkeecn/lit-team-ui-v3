@@ -9,7 +9,7 @@ export const environment = {
   //url: 'https://litteam.gg:44392/api',
   //url:'https://api.litteam.gg/api',
   //url:'https://test.litteam.gg/api'
-  liveUrl:'https://localhost:5001/api'
+  liveUrl:'https://localhost:5001'
 };
 
 /*

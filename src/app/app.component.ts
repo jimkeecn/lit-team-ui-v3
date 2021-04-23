@@ -22,8 +22,8 @@ export class AppComponent {
     public tApi: TourneyApiService, private easterState: EasterEventStateService,
     public staticService: StaticService, public stateState: StaticStateService,
     public live: SignalRService) {
-    //live.startConnection();
-    //live.buildConnection();
+    live.startConnection();
+    live.buildConnection();
     if (this.auth.isLogined()) {
       console.log(auth.currentUserSubject.value);
       this.auth.getMyDetail().subscribe(x => { 
