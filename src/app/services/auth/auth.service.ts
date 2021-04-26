@@ -42,7 +42,7 @@ export class AuthService {
       var data = { ...this.currentUserSubject.value };
       data.user = user;
       this.currentUserSubject.next(data);
-      this.live.startNotificationListening(data.user.id);
+     // this.live.startNotificationListening(data.user.id);
     }));
   }
 

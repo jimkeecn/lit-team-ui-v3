@@ -1,5 +1,5 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { MatchCheckInTeam } from '@app-models/tournament';
 import { TourneyApiService } from '@app-services/api/tourney-api.service';
 import { ApplicationService } from '@app-services/app/application.service';
@@ -12,7 +12,7 @@ import { MatchStatesComponent } from '../match-states/match-states.component';
   templateUrl: './match-checkin.component.html',
   styleUrls: ['./match-checkin.component.scss']
 })
-export class MatchCheckinComponent implements OnInit {
+export class MatchCheckinComponent implements OnInit , OnDestroy{
   timer: any = "";
   isReady: boolean = false
   isCollapsed: boolean = false;
@@ -92,8 +92,8 @@ export class MatchCheckinComponent implements OnInit {
 
   
 
+  intervalFn: any[] = [];
   checkInTimer(dateEnd) {
-    debugger;
     let currentDate = new Date().getTime();
     let targetDate = new Date(dateEnd).getTime(); // set the countdown date
 
@@ -120,10 +120,18 @@ export class MatchCheckinComponent implements OnInit {
           return (n < 10 ? '0' : '') + n;
       }   
       getCountdown(0);
-      setInterval(function () { getCountdown(count++ ); }, 1000);
+      var interval = setInterval(function () { getCountdown(count++) }, 1000);
+      this.intervalFn.push(interval);
     }
  
   }
 
+
+
+  ngOnDestroy() {
+    this.intervalFn.forEach(x => {
+      clearInterval(x);
+    })
+  }
  
 }
