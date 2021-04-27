@@ -218,3 +218,11 @@ button[type="button"]:disabled {
 .accordion-item__body h6 {
   color: #fff !important;
 }
+
+.cart-panel .product__remove {
+  padding-top: 0;
+  vertical-align: middle;
+}
+.notification-detail {
+  font-size: 0.75rem !important;
+}

@@ -89,7 +89,7 @@
   <svg role="img" class="df-icon df-icon--close">
     <use xlink:href="assets/img/necromancers.svg#close"/>
   </svg>
-  <span class="header-cart-toggle__items-count" [hidden]="(app.notifications$ | async).length == 0">{{(app.notifications$ | async).length}}</span>
+  <span class="header-cart-toggle__items-count" [hidden]="(noState.notifications$ | async).length == 0">{{(noState.notifications$ | async).length}}</span>
 </div>
 <div class="header-search-toggle header-werido">
   <svg role="img" class="df-icon df-icon--search">

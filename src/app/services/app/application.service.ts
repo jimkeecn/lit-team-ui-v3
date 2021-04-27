@@ -156,6 +156,7 @@ export class ApplicationService {
       document.getElementById("lit-site-wrapper").classList.remove("site-wrapper--has-menu-overlay");
       document.querySelectorAll(".header-werido").forEach(x => { 
         x.classList.remove("hide");
+        x.classList.remove("toggled");
       })
       document.querySelector(".header-account").classList.add("hide");
       
@@ -180,6 +181,7 @@ export class ApplicationService {
     document.getElementById("wrapper").classList.remove("team-info-page");
     document.getElementById("wrapper").classList.remove("account-page");
     document.getElementById("wrapper").classList.remove("login-page");
+    document.getElementById("lit-site-wrapper").classList.remove("site-wrapper--has-fire-overlay");
   }
 
 /***Old App Service  ****/
@@ -191,15 +193,7 @@ myDetails$ =  new BehaviorSubject(this.myDetails);
 invitations$ = new BehaviorSubject<MemberRequestViewModel[]>([]);
 clan$ = new BehaviorSubject<ClanViewModel>(null);
 
-  notifications$ = new BehaviorSubject<notificationObject[]>([]);
 
-
-
-removeFromNotifications(index) {
-  let invs = [...this.notifications$.value];
-  invs.splice(index, 1);
-  this.notifications$.next(invs);
-}
   
 openSnackBar(message, type,duration?) {
   this._snackBar.open(message, null, {
@@ -246,40 +240,50 @@ formErrorHandler(form: FormGroup){
 }
 
 
-  /*** Notification ***/
+  /*** Notification Deprecated ***/
 
-  getNotification() {
-    combineLatest([this.api.getAllInvitations(), this.tApi.getTournamentInvitation()]).pipe(map(data => { 
-      const clanInvs = JSON.parse(JSON.stringify(data[0]));
-      const tourInvs = JSON.parse(JSON.stringify(data[1]));
+  // notifications$ = new BehaviorSubject<notificationObject[]>([]);
 
-      let array:notificationObject[] = [];
 
-      for (let x = 0; x < clanInvs.length; x++){
-      let obj:notificationObject = {
-        data: clanInvs[x],
-        time: clanInvs[x].date,
-        type: notificationType.ClanInvitation
-      }
-      array.push(obj);
-      }
+
+  // removeFromNotifications(index) {
+  //   let invs = [...this.notifications$.value];
+  //   invs.splice(index, 1);
+  //   this.notifications$.next(invs);
+  // }
+
+  // getNotification() {
+  //   combineLatest([this.api.getAllInvitations(), this.tApi.getTournamentInvitation()]).pipe(map(data => { 
+  //     const clanInvs = JSON.parse(JSON.stringify(data[0]));
+  //     const tourInvs = JSON.parse(JSON.stringify(data[1]));
+
+  //     let array:notificationObject[] = [];
+
+  //     for (let x = 0; x < clanInvs.length; x++){
+  //     let obj:notificationObject = {
+  //       data: clanInvs[x],
+  //       time: clanInvs[x].date,
+  //       type: notificationType.ClanInvitation
+  //     }
+  //     array.push(obj);
+  //     }
       
-      for (let x = 0; x < tourInvs.length; x++){
-        let obj:notificationObject = {
-          data: tourInvs[x],
-          time: tourInvs[x].date,
-          type: notificationType.TournamentInvitation
-        }
-        array.push(obj);
-      }
+  //     for (let x = 0; x < tourInvs.length; x++){
+  //       let obj:notificationObject = {
+  //         data: tourInvs[x],
+  //         time: tourInvs[x].date,
+  //         type: notificationType.TournamentInvitation
+  //       }
+  //       array.push(obj);
+  //     }
 
-      return array;
-    })).subscribe(res => { 
-      console.log(`invitations:${res.length}`);
-      this.notifications$.next(res);
-      console.log(res);
-    })
-  }
+  //     return array;
+  //   })).subscribe(res => { 
+  //     console.log(`invitations:${res.length}`);
+  //     this.notifications$.next(res);
+  //     console.log(res);
+  //   })
+  // }
 }
 
 

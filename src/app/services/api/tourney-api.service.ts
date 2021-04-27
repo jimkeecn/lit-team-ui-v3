@@ -109,18 +109,21 @@ export class TourneyApiService {
     return this.http.post<number>(url,null).pipe(tap());
   }
 
-  getTournamentInvitation():Observable<TournamentInvitationNotification[]> {
-    const url = `${this.baseUrl}/TournamentRegistration`;
-    return this.http.get<TournamentInvitationNotification[]>(url).pipe(tap());
-  }
+  /*** Deprecated
+   *   This API should be removed once Notification is fully implemented
+   */
+  // getTournamentInvitation():Observable<TournamentInvitationNotification[]> {
+  //   const url = `${this.baseUrl}/TournamentRegistration`;
+  //   return this.http.get<TournamentInvitationNotification[]>(url).pipe(tap());
+  // }
 
-  acceptTournamentInvitation(id:number):Observable<number> {
-    const url = `${this.baseUrl}/TournamentRegistration/${id}/Accept`;
+  acceptTournamentInvitation(id:number,nocId:number):Observable<number> {
+    const url = `${this.baseUrl}/TournamentRegistration/${id}/Accept/${nocId}`;
     return this.http.post<number>(url,null).pipe(tap());
   }
 
-  rejectTournamentInvitation(id:number):Observable<number> {
-    const url = `${this.baseUrl}/TournamentRegistration/${id}/Reject`;
+  rejectTournamentInvitation(id:number,nocId:number):Observable<number> {
+    const url = `${this.baseUrl}/TournamentRegistration/${id}/Reject/${nocId}`;
     return this.http.post<number>(url,null).pipe(tap());
   }
 

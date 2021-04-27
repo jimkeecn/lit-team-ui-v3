@@ -96,11 +96,15 @@ export class ApiService {
     }))
   }
 
-  getAllInvitations():Observable<MemberRequestViewModel[]>{
-    const url = `${this.baseUrl}/MemberRequest`;
-    return this.http.get<any>(url).pipe(tap(x=>{
-    }))
-  }
+  
+  /*** Deprecated
+   *   This API should be removed once Notification is fully implemented
+   */
+  // getAllInvitations():Observable<MemberRequestViewModel[]>{
+  //   const url = `${this.baseUrl}/MemberRequest`;
+  //   return this.http.get<any>(url).pipe(tap(x=>{
+  //   }))
+  // }
 
   removeApplication(id:number):Observable<any>{
     const url = `${this.baseUrl}/MemberRequest/${id}/remove`;

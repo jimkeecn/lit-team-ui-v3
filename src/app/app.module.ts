@@ -70,6 +70,7 @@ import { AccountNotificationsComponent } from './routes/account/account-notifica
 import { GameStateComponent } from './routes/match-detail/match-states/game-state/game-state.component';
 import { MatchCheckinComponent } from './routes/match-detail/match-checkin/match-checkin.component';
 import { TeamReadyComponent } from './routes/match-detail/match-checkin/team-ready/team-ready.component';
+import { BracketCheckinNotificationComponent } from './overlays/notification-panel/bracket-checkin-notification/bracket-checkin-notification.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -133,6 +134,7 @@ import { TeamReadyComponent } from './routes/match-detail/match-checkin/team-rea
     GameStateComponent,
     MatchCheckinComponent,
     TeamReadyComponent,
+    BracketCheckinNotificationComponent,
   ],
   imports: [
     BrowserModule,

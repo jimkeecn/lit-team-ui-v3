@@ -1,0 +1,18 @@
+<td class="product__info">
+    <figure class="product__thumb">
+      <a><img  [src]="data.tournamentImageUrl" alt=""></a>
+    </figure>
+    <div class="product__info-content">
+      <h5 class="product__name"><a>Bracket Check In</a></h5>
+      <span class="product__cat">{{data.tournamentName}}  </span>
+      <span class="product__info-details notification-detail">Check-In in Tournament {{data.tournamentName}} - {{data.bracketKnockoutName}}(#{{data.matchIndex}}) has already started.</span>
+    </div>
+  </td>
+  <td class="product__remove">
+
+  </td>
+  <td class="product__remove">
+    <a [routerLink]="['tournament-detail',data.tournamentID,'bracket-detail',data.bracketID]">
+      <svg role="img" class="df-icon df-icon--bag" ><use xlink:href="assets/img/necromancers.svg#right-arrow"></use></svg>
+    </a>
+  </td>

@@ -5,6 +5,8 @@ import { Router } from '@angular/router';
 import { AuthService } from "@app-services/auth/auth.service";
 import { ApplicationService } from "@app-services/app/application.service";
 import { LoginModel } from '@app-models/user';
+import { NotificationApiService } from '@app-services/api/notification-api.service';
+import { NotificationStateService } from '@app-services/state/notification-state.service';
 
 @Component({
   selector: 'login-form',
@@ -21,7 +23,9 @@ export class LoginComponent implements OnInit {
   
   submitDisable: boolean = false;
 
-   constructor(private route:Router, private auth:AuthService, private fb:FormBuilder, private app:ApplicationService) { }
+  constructor(private route: Router, private auth: AuthService, private fb: FormBuilder,
+    private app: ApplicationService, private noService: NotificationApiService,
+    private noState:NotificationStateService) { }
 
 
   ngOnInit(): void {
@@ -39,7 +43,9 @@ export class LoginComponent implements OnInit {
       this.auth.login(loginForm).subscribe(x => {
         this.submitDisable = false;
         this.app.openSnackBar('Welcome to Lit Team', 'success');
-        this.app.getNotification();
+        this.noService.getMyNotification().subscribe(res => {
+          this.noState.notifications$.next(res);
+        });
         this.route.navigate(['home']);
       }, (err: HttpErrorResponse) => {
         this.submitDisable = false;

@@ -1,4 +1,4 @@
-<h4 class="cart-panel__title text-white">Lit Team Notifications (<span class="cart-panel__items-count">{{(app.invitations$ | async).length}}</span>)</h4>
+<h4 class="cart-panel__title text-white">Lit Team Notifications (<span class="cart-panel__items-count">{{(nocService.notifications$ | async).length}}</span>)</h4>
 <div class="cart-panel__content">
   <div class="table-responsive">
     <table class="table shop-table notification-table">
@@ -10,12 +10,18 @@
         </tr>
       </thead>
       <!---*ngFor="let inv of (app.invitations$ | async)"  [src]="team.team.iconUrl"-->
-      <tbody *ngFor="let notification of (app.notifications$ | async); let i = index">
-        <tr clan-invite-notification [data]="notification.data" [index]="i" *ngIf="notification.type == 1" >
+      <tbody *ngFor="let notification of (nocService.notifications$ | async); let i = index">
+        <tr clan-invite-notification [data]="notification.message" [index]="i" 
+        [notificationId]="notification.notificationId" *ngIf="notification.notificationTypeShortCode == 'C01'" >
+         
         </tr>
-        <tr tournament-invite-notification [data]="notification.data" [index]="i" *ngIf="notification.type == 2">
+        <tr tournament-invite-notification [data]="notification.message" [index]="i" 
+        [notificationId]="notification.notificationId" *ngIf="notification.notificationTypeShortCode == 'T01'">
         </tr>
-        
+        <tr bracket-checkin-notification [data]="notification.message" [index]="i" 
+        [notificationId]="notification.notificationId" *ngIf="notification.notificationTypeShortCode == 'T02'">
+      
+        </tr>
       </tbody>
     </table>
   </div>

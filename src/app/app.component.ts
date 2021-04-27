@@ -10,7 +10,9 @@ import { BehaviorSubject, combineLatest, zip } from 'rxjs';
 import { EasterEventStateService } from '@app-services/state/easter-event-state.service';
 import { StaticService } from '@app-services/static/static.service';
 import { StaticStateService } from '@app-services/state/static-state.service';
-import { SignalRService} from "@app-services/live/signal-r.service"
+import { SignalRService } from "@app-services/live/signal-r.service";
+import { NotificationApiService } from "@app-services/api/notification-api.service";
+import { NotificationStateService } from '@app-services/state/notification-state.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -21,7 +23,7 @@ export class AppComponent {
     public api: ApiService, public auth: AuthService,
     public tApi: TourneyApiService, private easterState: EasterEventStateService,
     public staticService: StaticService, public stateState: StaticStateService,
-    public live: SignalRService) {
+    public live: SignalRService, private noService:NotificationApiService, private noState:NotificationStateService) {
     //live.startConnection();
     //live.buildConnection();
     if (this.auth.isLogined()) {
@@ -30,8 +32,11 @@ export class AppComponent {
         
       })
       this.getMyClan();
-      this.app.getNotification();
-      
+      //this.app.getNotification();
+      this.noService.getMyNotification().subscribe(res => {
+        console.log('noc:', res);
+        this.noState.notifications$.next(res);
+      });
     }
     this.easterState.getEvent();
     this.staticService.getNotificationType().subscribe(res => {
