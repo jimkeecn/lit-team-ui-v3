@@ -404,7 +404,7 @@ export class PlayerGameAccount{
 }
 
 export class UserNotificationTypeConfigDTO{
-  notificationId: number;
+  notificationTypeId: number;
   createAt: Date;
   updateAt: Date;
   email: boolean;

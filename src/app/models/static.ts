@@ -57,11 +57,11 @@ export class GamesStatic{
 }
 
 export class NotificationType{
-    notificationId: number;
-    notificationName: string;
+    notificationTypeId: number;
+    notificationTypeName: string;
     email: boolean;
     inbox: boolean;
-    notificationDescription: string;
+    notificationTypeDescription: string;
 }
 
 export enum TournamentTimeEnum{

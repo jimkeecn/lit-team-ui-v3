@@ -19,17 +19,17 @@ export class AccountNotificationsComponent implements OnInit {
 
   ngOnInit(): void {
     combineLatest([this.state.notificationTypes$, this.auth.currentUserSubject]).subscribe(res => {
-    
       if (res[0].length > 0 && res[1]?.user) {
         var notifications = res[0];
         var userSetting = res[1]?.user.notification;
         
         notifications.forEach(noc => {
           
-          let setting = userSetting.find(x => x.notificationId == noc.notificationId);
-          if (setting !== null) {
+          let setting = userSetting.find(x => x.notificationTypeId == noc.notificationTypeId);
+          if (setting) {
             noc.email = setting.email;
             noc.inbox = setting.inbox;
+           
           }
           this.notifications.push(noc);
         })
@@ -40,7 +40,7 @@ export class AccountNotificationsComponent implements OnInit {
   notificationChange(id,event,type) {
     //console.log(id, event.target.checked);
     this.notifications.forEach(x => { 
-      if (x.notificationId == id) {
+      if (x.notificationTypeId == id) {
         switch (type) {
           case "email":
             x.email = event.target.checked;

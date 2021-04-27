@@ -4,10 +4,10 @@
 <ul class="notification-list">
     <li class="notification-item" *ngFor="let notification of notifications">
         <div class="notification-name ">
-            {{notification.notificationName}}
+            {{notification.notificationTypeName}}
         </div>
         <div class="notification-description">
-            {{notification.notificationDescription}}
+            {{notification.notificationTypeDescription}}
         </div>
         <ul class="inner-list">
             <li>
@@ -27,7 +27,7 @@
                 </div>
                 <div class="action">
                     <label class="switch">
-                        <input type="checkbox" [checked]="notification.email" (change)="notificationChange(notification.notificationId,$event,'email')">
+                        <input type="checkbox" [checked]="notification.email" (change)="notificationChange(notification.notificationTypeId,$event,'email')">
                         <span class="slider round"></span>
                       </label>
                 </div>
