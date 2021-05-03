@@ -56,11 +56,12 @@
         </nav>
       </div>
     </li>
+    -->
     <li class="mobile-bar-item">
       <a class="mobile-bar-item__header" [routerLink]="['teams']" [ngClass]="{'active':app.routeState == 6 }" >
         Clans
       </a>
-    </li> -->
+    </li> 
     <li class="mobile-bar-item">
       <a class="mobile-bar-item__header" [routerLink]="['/account/setting']" *ngIf="auth.isLogined()">
         My Account

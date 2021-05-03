@@ -47,16 +47,7 @@ export class AccountTeamComponent implements OnInit {
   }
 
   getMyTeam() {
-    // combineLatest([this.auth.currentUserSubject, this.api.getMyTeam()]).subscribe(res => {
-    //   let userId = res[0].user.id;
-    //   this.hasClan = true;
-    //   this.detailForm.patchValue(res);
-    //   this.clanInfo = res[1];
-    //   this.members = res[1].members;
-    //   this.clanIcon = res[1].iconUrl;
-    // })
     this.api.getMyTeam().subscribe(res => { 
-      console.log(res);
       if (res) {
         this.hasClan = true;
         this.detailForm.patchValue(res);

@@ -240,7 +240,8 @@ export class AddUpdateClanModel{
    clanInstagram: string;
    clanDiscord: string;
    clanTwitter: string;
-   members:ClanMemberViewModel[] = []
+   createdAt: Date;
+   members: ClanMemberViewModel[] = [];
   }
 
   export class ClanMemberViewModel extends MyFullDetailExtend{

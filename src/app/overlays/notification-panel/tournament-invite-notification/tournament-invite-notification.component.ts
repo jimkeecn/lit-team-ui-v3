@@ -22,7 +22,7 @@ export class TournamentInviteNotificationComponent implements OnInit {
 
   accept(id) {
     console.log(id);
-    this.api.acceptTournamentInvitation(id,this.notificationId).subscribe(res => { 
+    this.api.acceptTournamentInvitation(this.notificationId).subscribe(res => { 
       this.app.openSnackBar(`Start tournament with your team mates!`, 'success');
       this.nocState.removeFromNotifications(this.index);
     }, (err: HttpErrorResponse) => {
@@ -32,7 +32,7 @@ export class TournamentInviteNotificationComponent implements OnInit {
 
   reject(id) {
     console.log(id);
-    this.api.rejectTournamentInvitation(id,this.notificationId).subscribe(res => { 
+    this.api.rejectTournamentInvitation(this.notificationId).subscribe(res => { 
       this.app.openSnackBar(`You rejected an invitation`, 'success');
       this.nocState.removeFromNotifications(this.index);
     }, (err: HttpErrorResponse) => {

@@ -30,9 +30,10 @@
             <li class=""><a >Litcoin Shop</a></li>
           </ul>
         </li>
+        -->
         <li [ngClass]="{'active':app.routeState == 6 }">
           <a [routerLink]="['teams']">Clans</a>
-        </li> -->
+        </li> 
         <li>
           <a  [routerLink]="['sign']" *ngIf="!auth.isLogined()">Login/Register</a>
         </li>

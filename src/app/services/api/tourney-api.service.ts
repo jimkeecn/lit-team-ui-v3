@@ -117,13 +117,13 @@ export class TourneyApiService {
   //   return this.http.get<TournamentInvitationNotification[]>(url).pipe(tap());
   // }
 
-  acceptTournamentInvitation(id:number,nocId:number):Observable<number> {
-    const url = `${this.baseUrl}/TournamentRegistration/${id}/Accept/${nocId}`;
+  acceptTournamentInvitation(id:number):Observable<number> {
+    const url = `${this.baseUrl}/TournamentRegistration/${id}/Accept`;
     return this.http.post<number>(url,null).pipe(tap());
   }
 
-  rejectTournamentInvitation(id:number,nocId:number):Observable<number> {
-    const url = `${this.baseUrl}/TournamentRegistration/${id}/Reject/${nocId}`;
+  rejectTournamentInvitation(id:number):Observable<number> {
+    const url = `${this.baseUrl}/TournamentRegistration/${id}/Reject`;
     return this.http.post<number>(url,null).pipe(tap());
   }
 

@@ -22,7 +22,7 @@ export class ClanInviteNotificationComponent implements OnInit {
 
   accept(id) {
     console.log(id);
-    this.api.acceptApplication(id).subscribe(res => { 
+    this.api.acceptApplication(this.notificationId).subscribe(res => { 
       this.app.openSnackBar(`Start journey with your clan mates!`, 'success');
       this.nocState.removeFromNotifications(this.index);
     }, (err: HttpErrorResponse) => {
@@ -32,7 +32,7 @@ export class ClanInviteNotificationComponent implements OnInit {
 
   reject(id) {
     console.log(id);
-    this.api.denialApplication(id).subscribe(res => { 
+    this.api.denialApplication(this.notificationId).subscribe(res => { 
       this.app.openSnackBar(`You rejected an invitation`, 'success');
       this.nocState.removeFromNotifications(this.index);
     }, (err: HttpErrorResponse) => {
