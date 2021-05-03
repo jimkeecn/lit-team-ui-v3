@@ -24,8 +24,8 @@
         [routerLink]="['/account/setting']">Account Detail</a></li>
     <li><a [ngClass]="{'active': (state.menuState$ | async) == 2}" 
         [routerLink]="['/account/games']">My Game Accounts</a></li>
-    <!-- <li><a [ngClass]="{'active': (state.menuState$ | async) == 3}" 
-        [routerLink]="['/account/clan']">My Clan</a></li> -->
+    <li><a [ngClass]="{'active': (state.menuState$ | async) == 3}" 
+        [routerLink]="['/account/clan']">My Clan</a></li>
     <li><a [ngClass]="{'active': (state.menuState$ | async) == 4}" 
         [routerLink]="['/account/notification']">Notification</a></li>   
 </ul>

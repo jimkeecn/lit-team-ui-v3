@@ -119,13 +119,13 @@
 	<table class="table matches-table">
 		<tbody>
 			<tr *ngFor="let member of members">
-				<td>{{member.gameId}}</td>
+				<td>{{member.gameId}} {{member.isLeader ? '(Owner)' : ''}}</td>
 				<td>{{member.acceptedDate | date : 'dd/MM/yyyy'}}</td>
-				<td class="standings-table__losses">Allow Edit <input type="checkbox" [checked]="member.canEdit" (change)="memberChange(member.id,$event,'edit')"></td>
-				<td class="standings-table__losses">Allow Invite <input type="checkbox" [checked]="member.caninvite" (change)="memberChange(member.id,$event,'invite')"></td>
-				<td class="standings-table__losses">Allow Kick <input type="checkbox" [checked]="member.canKick" (change)="memberChange(member.id,$event,'kick')"></td>
-				<td><button class="btn btn-secondary" [disabled]="submitDisable" (click)="updateMember(member)">Change</button></td>
-				<td><button class="btn btn-danger" [disabled]="submitDisable" (click)="kickMember(member)">Kick</button></td>
+				<td class="standings-table__losses" ><span *ngIf="!member.isLeader">Allow Edit <input type="checkbox" [checked]="member.canEdit" (change)="memberChange(member.id,$event,'edit')"></span></td>
+				<td class="standings-table__losses" ><span *ngIf="!member.isLeader">Allow Invite <input type="checkbox" [checked]="member.caninvite" (change)="memberChange(member.id,$event,'invite')"></span></td>
+				<td class="standings-table__losses" > <span *ngIf="!member.isLeader">Allow Kick <input type="checkbox" [checked]="member.canKick" (change)="memberChange(member.id,$event,'kick')"></span></td>
+				<td><button class="btn btn-secondary" [disabled]="submitDisable" (click)="updateMember(member)" *ngIf="!member.isLeader">Change</button></td>
+				<td><button class="btn btn-danger" [disabled]="submitDisable" (click)="kickMember(member)" *ngIf="!member.isLeader">Kick</button></td>
 			</tr>
 		</tbody>
 	</table>
