@@ -17,7 +17,7 @@
                         <span class="form-notice">This name will be displayed to other member.</span>
                     </div>
                 </div>
-                <!-- <div class="col-md-6">
+                <div class="col-md-6">
                     <div class="form-group">
                         <label>Represent your CLAN</label>
                         <select class="form-control" formControlName="isClan">
@@ -25,14 +25,14 @@
                         </select>
                         <span class="form-notice">Represent your CLAN to earn reputation for your clan.</span>
                     </div>
-                </div> -->
+                </div>
             </div>
         </form>
     </ng-container>
     <ng-container *ngIf="step == 2">
-        <h2 class="h4">Invite your teammate to <b>{{detailForm.get('name').value}}</b></h2>
+        <h2 class="h4" *ngIf="isLeader">Invite your teammate to <b>{{detailForm.get('name').value}}</b></h2>
             <div class="table-responsive mt-sm-auto mb-sm-auto">
-                <p *ngIf="isLeader">Please invite your teammate by using Summoner Name.</p>
+                <p *ngIf="isLeader">Please invite your teammate by using his Username.</p>
                 <div class="table-actions" *ngIf="isLeader">
                     <input class="form-control" [(ngModel)]="inviteMemberName">
                     <button class="btn btn-secondary" [disabled]="submitDisable" (click)="inviteMember()">Invite</button>
@@ -70,7 +70,7 @@
         <button class="btn btn-danger" [disabled]="submitDisable" (click)="quit()" *ngIf="step == 2 && !isLeader">Widthdraw</button>
         <button class="btn btn-secondary" [disabled]="submitDisable" (click)="register()" *ngIf="step == 1" >Next</button>
     </div>
-    <ng-container *ngIf="(state.recentTeams$ | async)?.length > 0">
+    <ng-container *ngIf="(state.recentTeams$ | async)?.length > 0 && isLeader">
         <h2 class="h4 line-breaker" style="margin-top:60px"></h2>
         <p class="h4">Last two teams you created.</p>
         <div class="table-responsive mt-sm-auto mb-sm-auto">

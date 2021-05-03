@@ -20,7 +20,7 @@ export class TournamentFreeAgentsComponent implements OnInit {
 
   invite(name) {
     let obj: MemberRequestCreateModel = {
-      gameId: name,
+      userName: name,
       clanId: 0
     }
     this.api.inviteToTournamentById(this.state.detail$.value.tournamentId,obj).subscribe(res => { 

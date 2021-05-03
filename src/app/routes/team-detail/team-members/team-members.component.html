@@ -37,9 +37,9 @@
                                 </h1>
                                 <ul class="social-menu social-menu--default">
                                     <!-- <li><a class="op-gg"  [href]="getOpGG(member.gameId)" target="_blank">op.gg</a></li> -->
-                                    <li><a href="https://twitter.com/" target="_blank"></a></li>
-                                    <li><a class="live" href="https://www.twitch.tv/happyf333tz" target="_blank"></a></li>
-                                    <li><a href="https://www.instagram.com/" target="_blank"></a></li>
+                                    <li><a [href]="getTwitter(member.twitterId)" target="_blank" *ngIf="member.twitterId"></a></li>
+                                    <li><a class="live" [href]="getTwitch(member.twitchId)" target="_blank" *ngIf="member.twitchId"></a></li>
+                                    <li><a [href]="getInstagram(member.instagramId)" target="_blank" *ngIf="member.instagramId"></a></li>
                                 </ul>
                             </div>
                             <div class="team-player__photo">

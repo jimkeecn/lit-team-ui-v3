@@ -97,7 +97,7 @@ export class AccountTeamComponent implements OnInit {
   inviteMember() {
     this.submitDisable = true;
     let obj: MemberRequestCreateModel = {
-      gameId: this.inviteMemberName,
+      userName: this.inviteMemberName,
       clanId: this.clanInfo.id
     }
     console.log(obj);

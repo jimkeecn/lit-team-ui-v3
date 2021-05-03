@@ -54,14 +54,6 @@ export class TournamentRegistrationComponent implements OnInit {
       }
       
     })
-    this.detailForm.get("isClan").valueChanges.subscribe(res => { 
-      if (res == true) {
-        this.detailForm.patchValue({clanId:this.clanId})
-      } else {
-        this.detailForm.patchValue({clanId:null})
-      }
-      console.log(this.detailForm.value);
-    })
 
     this.state.teams$.subscribe(res => { 
       if (this.auth.isLogined()) {
@@ -108,6 +100,7 @@ export class TournamentRegistrationComponent implements OnInit {
         return "Full";
     }
   }
+  
   discard() {
     document.querySelector(".tournament-container").classList.remove("registration-overlay-active");
   }
@@ -156,10 +149,15 @@ export class TournamentRegistrationComponent implements OnInit {
         })
     }
   }
+
   register() {
     switch (this.step) {
       case 1:
         if (this.detailForm.valid) {
+          if (this.detailForm.value.isClan) {
+            this.detailForm.patchValue({clanId:this.clanId})
+          }
+
           this.submitDisable = true;
           this.api.registerTournamentById(this.state.detail$.value.tournamentId, this.detailForm.value).subscribe(res => {
             this.app.openSnackBar(`Created a new team.`, 'success');
@@ -189,7 +187,7 @@ export class TournamentRegistrationComponent implements OnInit {
   inviteMember() {
     this.submitDisable = true;
     let obj: MemberRequestCreateModel = {
-      gameId: this.inviteMemberName,
+      userName: this.inviteMemberName,
       clanId:0
     }
     console.log(obj);

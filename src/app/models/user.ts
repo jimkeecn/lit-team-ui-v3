@@ -297,7 +297,7 @@ export class ClanMemberUIModel extends ClanMemberViewModel{
   }
 
   export class MemberRequestCreateModel{
-    gameId:string;
+    userName:string;
     clanId:number;
   }
 
