@@ -121,3 +121,18 @@
 .table-actions button {
   padding: 5px 15px;
 }
+
+.social-media-input {
+  background-color: transparent;
+  border-bottom: 1px solid #dfe0e5;
+  display: flex;
+}
+
+.social-media-input span {
+  cursor: default;
+}
+
+.social-media-input input {
+  border-bottom: none;
+  font-weight: 700;
+}
