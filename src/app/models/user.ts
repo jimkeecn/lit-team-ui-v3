@@ -242,7 +242,24 @@ export class AddUpdateClanModel{
    clanTwitter: string;
    createdAt: Date;
    members: ClanMemberViewModel[] = [];
-  }
+}
+  
+export class ClanTournamentHistoryDTO{
+  clanID: number;
+  clanName: string;
+  clanSubTitle: string;
+  clanDescription: string;
+  tournamentRegistrationID: number;
+  tournamentID: number;
+  tournamentName: string;
+  tournamentDescription: string;
+  isWinner: boolean;
+  isGroup: boolean;
+  knockOutID: number;
+  knockOutDescription: string;
+}
+
+
 
   export class ClanMemberViewModel extends MyFullDetailExtend{
     id:number;
