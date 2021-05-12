@@ -1,3 +1,39 @@
 h5 {
   color: #5e627e;
 }
+
+.overview-tabs {
+  list-style-type: none;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  padding: 0;
+  margin: 0;
+  padding: 6px;
+  border-radius: 12px;
+  border: solid #5e627e 2px;
+  background-color: #151720;
+}
+
+.overview-tabs li {
+  float: left;
+  padding: 0 12px 0 0;
+  cursor: pointer;
+  font-weight: 500;
+  text-align: center;
+  min-width: 100px;
+  padding: 6px;
+  border-radius: 12px;
+  color: #f2f2f2;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+}
+
+.overview-tabs li:hover {
+  transform: scale(1.1);
+}
+
+.overview-tabs li.active {
+  background-color: #5e627e;
+}

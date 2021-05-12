@@ -219,10 +219,17 @@ button[type="button"]:disabled {
   color: #fff !important;
 }
 
+/* Notification */
 .cart-panel .product__remove {
   padding-top: 0;
   vertical-align: middle;
 }
 .notification-detail {
   font-size: 0.75rem !important;
+}
+
+/** Clan Page **/
+.team-carousel__item {
+  align-items: flex-start;
+  padding-top: 10%;
 }

@@ -71,6 +71,8 @@ import { GameStateComponent } from './routes/match-detail/match-states/game-stat
 import { MatchCheckinComponent } from './routes/match-detail/match-checkin/match-checkin.component';
 import { TeamReadyComponent } from './routes/match-detail/match-checkin/team-ready/team-ready.component';
 import { BracketCheckinNotificationComponent } from './overlays/notification-panel/bracket-checkin-notification/bracket-checkin-notification.component';
+import { TeamTournamentHistoryComponent } from './routes/team-detail/team-overview/team-tournament-history/team-tournament-history.component';
+import { TeamDescriptionComponent } from './routes/team-detail/team-overview/team-description/team-description.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -135,6 +137,8 @@ import { BracketCheckinNotificationComponent } from './overlays/notification-pan
     MatchCheckinComponent,
     TeamReadyComponent,
     BracketCheckinNotificationComponent,
+    TeamTournamentHistoryComponent,
+    TeamDescriptionComponent,
   ],
   imports: [
     BrowserModule,

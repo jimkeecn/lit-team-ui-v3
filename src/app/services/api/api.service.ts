@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { distinctUntilChanged, map, tap } from 'rxjs/operators';
-import { MatchClipRequest, MatchViewModel, MemberRequestCreateModel, MemberRequestViewModel, MyFullDetail, PlayerUpdateModel, ClanViewModel } from '@app-models/user';
+import { MatchClipRequest, MatchViewModel, MemberRequestCreateModel, MemberRequestViewModel, MyFullDetail, PlayerUpdateModel, ClanViewModel, ClanTournamentHistoryDTO } from '@app-models/user';
 import { ApplicationService } from '@app-services/app/application.service';
 import { environment } from "../../../environments/environment";
 @Injectable({
@@ -78,6 +78,13 @@ export class ApiService {
   GetTeamByName(name: string): Observable<ClanViewModel[]>{
     const url = `${this.baseUrl}/clan/search/${name}`;
     return this.http.get<ClanViewModel[]>(url).pipe(tap(x=>{
+      //do something
+    }));
+  }
+
+  GetTeamHistoryById(id: number): Observable<ClanTournamentHistoryDTO[]>{
+    const url = `${this.baseUrl}/clan/${id}/history`;
+    return this.http.get<ClanTournamentHistoryDTO[]>(url).pipe(tap(x=>{
       //do something
     }));
   }

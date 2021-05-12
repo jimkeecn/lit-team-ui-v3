@@ -1,0 +1,28 @@
+section {
+  margin-top: 20px;
+}
+
+.history {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  width: 100%;
+  height: 300px;
+  overflow-y: auto;
+}
+
+.history li {
+  font-size: 1rem;
+}
+
+.fa-medal.first {
+  color: yellow;
+}
+
+.fa-medal.second {
+  color: silver;
+}
+
+.fa-medal.third {
+  color: brown;
+}

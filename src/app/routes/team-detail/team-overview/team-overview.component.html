@@ -16,17 +16,24 @@
                         <div class="player-info-detail__title">{{ (state.overview$ | async).createdAt | date : 'dd/MM/yyyy'}}</div>
                     </div>
                 </div>
-                <div class="col-6 col-md-6 col-xl-4">
+                <!-- <div class="col-6 col-md-6 col-xl-4">
                     <div class="player-info-detail">
                         <div class="player-info-detail__label">Tournament Champions</div>
                         <div class="player-info-detail__title color-primary"></div>
                     </div>
-                </div>
+                </div> -->
             </div>
-            <h5>ABout this clan</h5>
-            <p>
-                {{ (state.overview$ | async).clanDescription }}
-            </p>
+            <ul class="overview-tabs">
+                <li [ngClass]="{'active': (state.overviewTabs$ | async) == tab.value }" 
+                *ngFor="let tab of state.overviewTabs"
+                (click)="state.setOverviewTabs(tab.value)">{{tab.text}}</li>
+            </ul>
+            <ng-container [ngSwitch]="(state.overviewTabs$ | async)">
+                <team-description *ngSwitchCase="1" 
+                [description]="clanDescription"></team-description>
+                <team-tournament-history *ngSwitchCase="2" 
+                [history]="history"></team-tournament-history>
+            </ng-container>
         </div>
     </div>
 </div>
