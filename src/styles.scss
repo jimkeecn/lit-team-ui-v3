@@ -44,6 +44,14 @@ app-header-actions {
   margin-left: auto;
 }
 
+/** ##general **/
+@media (min-width: 992px) {
+  h2,
+  .h2 {
+    font-size: 3rem;
+  }
+}
+
 /** ##overide angular material **/
 .cdk-overlay-container {
   z-index: 999999;

@@ -5,6 +5,7 @@
             <!-- <div class="match-score__date">{{match.date | date : 'dd/MM/yyyy hh:mm a'}}</div> -->
             <div class="match-score__competition" *ngIf="match.matchIndex <= 4">Next Match : #1</div>
             <div class="match-score__competition" *ngIf="match.matchIndex > 4">Next Match : #{{match.matchIndex % 2 == 0 ? match.matchIndex / 2 : (match.matchIndex + 1) / 2}}</div>
+            <div class="match-score__competition" >Start At : {{match.date | date : "dd/MM hh:mm aa"}}</div>
         </div>
         <div class="match-score__body">
             <figure class="match-team" role="group" *ngIf="match.teamAName">
