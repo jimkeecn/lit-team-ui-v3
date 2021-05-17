@@ -237,7 +237,20 @@ button[type="button"]:disabled {
 }
 
 /** Clan Page **/
+.team-info-page {
+  overflow: auto;
+}
 .team-carousel__item {
   align-items: flex-start;
   padding-top: 10%;
+  padding-bottom: 80px;
+}
+
+@media (min-width: 1920px) {
+  .player-info-title.h1 {
+    font-size: 3.125rem;
+  }
+  .player-info-subtitle.h4 {
+    font-size: 1.25rem;
+  }
 }

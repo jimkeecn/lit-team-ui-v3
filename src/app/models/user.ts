@@ -164,11 +164,11 @@ export class AddResultModel{
     switch (field) {
       case 'name':
         if(type == "required"){
-          return "Team Name is required."
+          return "Clan Name is required."
         } else if(type == "maxlength"){
-          return "Team Name must less than 16 characters."
+          return "Clan Name must less than 16 characters."
         } else if(type == "pattern"){
-          return "Team Name must only contain english letter and space."
+          return "Clan Name must only contain english letter and space."
         }
         break;
       case 'file':
@@ -203,18 +203,18 @@ export class AddUpdateClanModel{
     switch (field) {
       case 'name':
         if(type == "required"){
-          return "Team Name is required."
+          return "Clan Name is required."
         } else if(type == "maxlength"){
-          return "Team Name must less than 30 characters."
+          return "Clan Name must less than 30 characters."
         } else if (type == "pattern") {
-          return "Team Name only allow english letter and space and digits."
+          return "Clan Name only allow english letter and space and digits."
         }
         break;
       case 'clanSubTitle':
           if(type == "required"){
-            return "Team Name is required."
+            return "Clan sub title is required."
           } else if(type == "maxlength"){
-            return "Team Name must less than 50 characters."
+            return "Clan sub title must less than 50 characters."
           } 
           break;
       default:
