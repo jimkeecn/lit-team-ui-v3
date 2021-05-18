@@ -78,6 +78,7 @@ import { TimeBlockComponent } from './routes/scrim/scrim-dashboard/time-block/ti
 import { ScrimTableTeamComponent } from './routes/scrim/scrim-dashboard/scrim-table-team/scrim-table-team.component';
 import { BrowserScrimsComponent } from './routes/scrim/scrim-dashboard/browser-scrims/browser-scrims.component';
 import { ManageScrimsComponent } from './routes/scrim/scrim-dashboard/manage-scrims/manage-scrims.component';
+import { MyScrimsComponent } from './routes/scrim/scrim-dashboard/manage-scrims/my-scrims/my-scrims.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -149,6 +150,7 @@ import { ManageScrimsComponent } from './routes/scrim/scrim-dashboard/manage-scr
     ScrimTableTeamComponent,
     BrowserScrimsComponent,
     ManageScrimsComponent,
+    MyScrimsComponent,
   ],
   imports: [
     BrowserModule,

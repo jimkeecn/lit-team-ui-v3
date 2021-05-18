@@ -11,3 +11,34 @@
   width: 100%;
   overflow-y: auto;
 }
+.scrim-section-header button {
+  color: #222;
+  font-weight: 500;
+}
+
+.scrim-tabs {
+  width: 100%;
+  display: flex;
+  margin-top: 20px;
+}
+
+.scrim-tabs .tab {
+  flex: 1;
+  padding: 12px;
+  text-transform: uppercase;
+  text-align: center;
+  background-color: #5e627e;
+  color: #fff;
+  position: relative;
+  cursor: pointer;
+}
+
+.scrim-tabs .tab.active::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  background-color: rgb(255, 224, 0);
+}
