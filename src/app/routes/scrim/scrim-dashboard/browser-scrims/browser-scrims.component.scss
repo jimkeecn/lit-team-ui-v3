@@ -1,0 +1,114 @@
+@import "../../../../../styles.scss";
+:host {
+  max-width: 960px;
+  min-width: 420px;
+  width: 100%;
+}
+.scrim-section-header,
+.time-block-container,
+.scrim-table,
+.scrim-controller {
+  width: 100%;
+  overflow-y: auto;
+}
+
+.scrim-controller button {
+  border: none;
+  outline: none;
+  margin-right: 20px;
+  background-color: rgb(255, 224, 0);
+  color: #222;
+}
+
+.scrim-controller button:active {
+  outline: none;
+  border: none;
+}
+
+.time-block-container {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.scrim-section-header * {
+  color: #fff;
+}
+
+.scrim-section-sperator {
+  height: 2px;
+  width: 100%;
+  background-color: $lt-border-color;
+  margin: 20px 0;
+}
+.scrim-table {
+  padding-bottom: 20px;
+}
+.scrim-table table {
+  width: 100%;
+  min-width: 700px;
+}
+
+.scrim-table table th {
+  color: $lt-light-text-color;
+  font-size: 1rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  padding: 12px;
+}
+
+.scrim-table table td:first-child,
+.scrim-table table th:first-child {
+  padding-left: 40px;
+}
+.scrim-table table td {
+  color: #fff;
+  background-color: $lt-border-color;
+  padding: 20px 12px;
+}
+.scrim-table table tr:first-child {
+  border: none;
+}
+.scrim-table table tbody tr {
+  border-bottom: solid 1px $lt-light-text-color;
+}
+
+.scrim-table table tbody tr:last-child {
+  border-bottom: none;
+}
+.scrim-table table tbody tr td {
+  position: relative;
+}
+
+.scrim-table table tbody tr td:last-child {
+  width: 50px;
+  text-align: center;
+}
+.scrim-table table tbody tr td.active::before {
+  content: "";
+  height: 40px;
+  position: absolute;
+  left: 0;
+  top: calc(50% - 20px);
+  width: 3px;
+  background-color: $lt-success;
+}
+
+.scrim-table table tbody tr td.inactive::before {
+  content: "";
+  height: 40px;
+  position: absolute;
+  left: 0;
+  top: calc(50% - 20px);
+  width: 3px;
+  background-color: $lt-light-text-color;
+}
+
+.scrim-table table tbody tr td .fas {
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.scrim-table table tbody tr td .fas:hover {
+  color: #fff;
+}

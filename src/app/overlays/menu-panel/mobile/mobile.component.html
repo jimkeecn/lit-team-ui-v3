@@ -63,9 +63,17 @@
       </a>
     </li> 
     <li class="mobile-bar-item">
-      <a class="mobile-bar-item__header" [ngClass]="{'active':app.routeState == 8 }" [routerLink]="['scrims']">
-        Scrims
+      <a class="mobile-bar-item__header collapsed" data-toggle="collapse" href="#scrim-menu" role="button" aria-expanded="false" aria-controls="scrim-menu" [ngClass]="{'active':app.routeState == 8 }" >
+        Scrims <span class="main-nav__toggle">&nbsp;</span>
       </a>
+      <div id="scrim-menu" class="collapse mobile-bar-item__body">
+        <nav class="mobile-nav">
+          <ul class="mobile-nav__list">
+            <li class=""><a routerLink="scrims/browser">Browsers Scrims</a></li>
+            <li class=""><a routerLink="scrims/manage">Manage Scrims</a></li>
+          </ul>
+        </nav>
+      </div>
     </li>
     <li class="mobile-bar-item">
       <a class="mobile-bar-item__header" [routerLink]="['/account/setting']" *ngIf="auth.isLogined()">

@@ -32,7 +32,11 @@
       <a routerLink="teams">Clans</a>
     </li>
     <li [ngClass]="{'active':app.routeState == 8 }">
-      <a routerLink="scrims">Scrims</a>
+      <a href="#">Scrims</a>
+      <ul class="main-nav__sub">
+        <li class=""><a routerLink="scrims/browser">Browsers Scrims</a></li>
+        <li class=""><a routerLink="scrims/manage">Manage Scrims</a></li>
+      </ul>
     </li>
   </ul>
 </nav>

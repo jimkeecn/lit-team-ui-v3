@@ -35,8 +35,12 @@
           <a [routerLink]="['teams']">Clans</a>
         </li> 
         <li [ngClass]="{'active':app.routeState == 8 }">
-          <a [routerLink]="['scrims']">Scrims</a>
-        </li> 
+          <a href="#">Scrims</a>
+          <ul class="dl-submenu">
+            <li class=""><a routerLink="scrims/browser">Browsers Scrims</a></li>
+            <li class=""><a routerLink="scrims/manage">Manage Scrims</a></li>
+          </ul>
+        </li>
         <li>
           <a  [routerLink]="['sign']" *ngIf="!auth.isLogined()">Login/Register</a>
         </li>

@@ -1,61 +1,10 @@
-<div class="scrim-section-header">
-    <h5>Scrims Available </h5> 
-</div>
-<div class="time-block-container">
-    <scrim-time-block></scrim-time-block>
-
-    <scrim-time-block></scrim-time-block>
-
-    <scrim-time-block></scrim-time-block>
-
-    <scrim-time-block></scrim-time-block>
+<div class="scrim-controller">
+    <button>
+        Browser Scrims
+    </button>
+    <button>
+        Manage Scrims
+    </button>
 </div>
 <div class="scrim-section-sperator"></div>
-<div class="scrim-section-header">
-    <h5>All Scrims</h5> 
-</div>
-<div class="scrim-table">
-    <table>
-        <thead>
-            <tr>
-                <th>Date</th>
-                <th>Owner</th>
-                <th>Challenger</th>
-                <th>Rank</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td class="active">
-                    <span>May 25</span>
-                </td>
-                <td>
-                    <scrim-table-team></scrim-table-team>
-                </td>
-                <td>
-                    <scrim-table-team></scrim-table-team>
-                </td>
-                <td>
-                    <span>Iron IV - Silver I</span>
-                </td>
-                <td><i class="fas fa-eye" title="View Detail"></i></td>
-            </tr>
-            <tr>
-                <td class="inactive">
-                    <span>May 26</span>
-                </td>
-                <td>
-                    <scrim-table-team></scrim-table-team>
-                </td>
-                <td>
-                    <scrim-table-team></scrim-table-team>
-                </td>
-                <td>
-                    <span>Iron IV - Silver I</span>
-                </td>
-                <td><i class="fas fa-eye" title="View Detail"></i></td>
-            </tr>
-        </tbody>
-    </table>
-</div>
+<router-outlet></router-outlet>

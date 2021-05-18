@@ -61,6 +61,10 @@ export class ApplicationService {
         url = "/tournament-invite";
       }
 
+      if (url.includes("scrims")) {
+        url = "/scrims";
+      }
+
       switch (url) {
         case "/home":
           document.body.classList.add('preloader-is--active');
