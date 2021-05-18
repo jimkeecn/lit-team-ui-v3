@@ -74,6 +74,8 @@ import { BracketCheckinNotificationComponent } from './overlays/notification-pan
 import { TeamTournamentHistoryComponent } from './routes/team-detail/team-overview/team-tournament-history/team-tournament-history.component';
 import { TeamDescriptionComponent } from './routes/team-detail/team-overview/team-description/team-description.component';
 import { ScrimDashboardComponent } from './routes/scrim/scrim-dashboard/scrim-dashboard.component';
+import { TimeBlockComponent } from './routes/scrim/scrim-dashboard/time-block/time-block.component';
+import { ScrimTableTeamComponent } from './routes/scrim/scrim-dashboard/scrim-table-team/scrim-table-team.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -141,6 +143,8 @@ import { ScrimDashboardComponent } from './routes/scrim/scrim-dashboard/scrim-da
     TeamTournamentHistoryComponent,
     TeamDescriptionComponent,
     ScrimDashboardComponent,
+    TimeBlockComponent,
+    ScrimTableTeamComponent,
   ],
   imports: [
     BrowserModule,
