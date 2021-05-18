@@ -66,7 +66,7 @@ export class ApplicationService {
           document.body.classList.add('preloader-is--active');
           document.body.classList.add('scroll-is--active');
           document.body.classList.add('site-layout--horizontal');
-          this.routeState = 1;
+          this.routeState = RouterActiveEnum.home;
           break;
         case "/upcoming-tournaments":
           //document.body.classList.add('preloader-is--active');
@@ -77,7 +77,7 @@ export class ApplicationService {
           document.body.classList.add('bg-image');
           document.getElementById("wrapper").classList.add("site-content--center");
           document.getElementById("wrapper").classList.add("page");
-          this.routeState = 2;
+          this.routeState = RouterActiveEnum.tournaments;
           break;
           case "/tournament-invite":
           //document.body.classList.add('preloader-is--active');
@@ -88,7 +88,7 @@ export class ApplicationService {
           document.body.classList.add('bg-image');
           document.getElementById("wrapper").classList.add("site-content--center");
           document.getElementById("wrapper").classList.add("page");
-          this.routeState = 2;
+          this.routeState = RouterActiveEnum.tournaments;
           break;
           case "/tournament-detail":
             //document.body.classList.add('preloader-is--active');
@@ -98,7 +98,7 @@ export class ApplicationService {
             document.body.classList.add('bg-image');
             document.getElementById("wrapper").classList.add("site-content--center");
             document.getElementById("wrapper").classList.add("page");
-            this.routeState = 2;
+            this.routeState = RouterActiveEnum.tournaments;
             break;
         case "/teams":
           //document.body.classList.add('preloader-is--active');
@@ -109,7 +109,7 @@ export class ApplicationService {
           document.body.classList.add('bg-image');
           document.getElementById("wrapper").classList.add("site-content--center");
           document.getElementById("wrapper").classList.add("page");
-          this.routeState = 6;
+          this.routeState = RouterActiveEnum.teams;
           break;
           case "/team-detail":
             //document.body.classList.add('preloader-is--active');
@@ -118,17 +118,24 @@ export class ApplicationService {
             document.body.classList.add('bg--texture-05');
             document.body.classList.add('bg-image');
             document.getElementById("wrapper").classList.add("team-info-page");
-            this.routeState = 6;
+            this.routeState = RouterActiveEnum.teams;
           break;
          case "/easter-event":
             //document.body.classList.add('preloader-is--active');
             document.body.classList.add('scroll-is--active');
           document.body.classList.add('full-screen-preview');
           document.body.classList.add('bg-image');
-            this.routeState = 7;
+            this.routeState = RouterActiveEnum.easter;
           break;
-  
-   
+        case "/scrims":
+            //document.body.classList.add('preloader-is--active');
+            document.body.classList.add('scroll-is--active');
+            document.body.classList.add('bg-fixed');
+            document.body.classList.add('bg--texture-01');
+            document.body.classList.add('bg--dotted-3x3');
+            document.body.classList.add('bg-image');
+            this.routeState = RouterActiveEnum.scrims;
+          break;
         case "/account":
           //document.body.classList.add('preloader-is--active');
           document.body.classList.add('scroll-is--active');

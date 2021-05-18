@@ -8,8 +8,8 @@
         </li>
         <li [ngClass]="{'active':app.routeState == 2 }"><a [routerLink]="['upcoming-tournaments']">Tournaments</a>
         </li>
-        <li [ngClass]="{'active':app.routeState == 7 }"><a [routerLink]="['easter-event']">Easter</a>
-        </li>
+        <!-- <li [ngClass]="{'active':app.routeState == 7 }"><a [routerLink]="['easter-event']">Easter</a>
+        </li> -->
         <!-- <li [ngClass]="{'active':app.routeState == 3 }"><a href="#">Steams and Videos</a>
           <ul class="dl-submenu">
             <li class=""><a >Lives</a></li>
@@ -33,6 +33,9 @@
         -->
         <li [ngClass]="{'active':app.routeState == 6 }">
           <a [routerLink]="['teams']">Clans</a>
+        </li> 
+        <li [ngClass]="{'active':app.routeState == 8 }">
+          <a [routerLink]="['scrims']">Scrims</a>
         </li> 
         <li>
           <a  [routerLink]="['sign']" *ngIf="!auth.isLogined()">Login/Register</a>

@@ -10,11 +10,11 @@
         Tournaments
       </a>
     </li>
-    <li class="mobile-bar-item">
+    <!-- <li class="mobile-bar-item">
       <a class="mobile-bar-item__header" [ngClass]="{'active':app.routeState == 7 }" [routerLink]="['easter-event']">
         Easter
       </a>
-    </li>
+    </li> -->
     <!-- <li class="mobile-bar-item">
       <a class="mobile-bar-item__header collapsed" data-toggle="collapse" href="#youtubers_lit_team" role="button" aria-expanded="false" aria-controls="youtubers" [ngClass]="{'active':app.routeState == 3 }" >
         Steams and Videos <span class="main-nav__toggle">&nbsp;</span>
@@ -62,6 +62,11 @@
         Clans
       </a>
     </li> 
+    <li class="mobile-bar-item">
+      <a class="mobile-bar-item__header" [ngClass]="{'active':app.routeState == 8 }" [routerLink]="['scrims']">
+        Scrims
+      </a>
+    </li>
     <li class="mobile-bar-item">
       <a class="mobile-bar-item__header" [routerLink]="['/account/setting']" *ngIf="auth.isLogined()">
         My Account

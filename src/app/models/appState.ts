@@ -13,7 +13,9 @@ export enum RouterActiveEnum{
     streams = 3,
     coaching = 4,
     shop = 5,
-    teams = 6
+    teams = 6,
+    easter = 7,
+    scrims = 8
 }
 
 

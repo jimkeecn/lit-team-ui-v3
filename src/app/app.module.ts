@@ -73,6 +73,7 @@ import { TeamReadyComponent } from './routes/match-detail/match-checkin/team-rea
 import { BracketCheckinNotificationComponent } from './overlays/notification-panel/bracket-checkin-notification/bracket-checkin-notification.component';
 import { TeamTournamentHistoryComponent } from './routes/team-detail/team-overview/team-tournament-history/team-tournament-history.component';
 import { TeamDescriptionComponent } from './routes/team-detail/team-overview/team-description/team-description.component';
+import { ScrimDashboardComponent } from './routes/scrim/scrim-dashboard/scrim-dashboard.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -139,6 +140,7 @@ import { TeamDescriptionComponent } from './routes/team-detail/team-overview/tea
     BracketCheckinNotificationComponent,
     TeamTournamentHistoryComponent,
     TeamDescriptionComponent,
+    ScrimDashboardComponent,
   ],
   imports: [
     BrowserModule,

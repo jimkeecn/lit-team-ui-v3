@@ -32,6 +32,7 @@ import { TournamentFreeAgentsComponent } from './routes/tournament-detail/tourna
 import { EasterEventComponent } from './routes/easter-event/easter-event.component';
 import { TournamentInviteComponent } from './routes/tournament-invite/tournament-invite.component';
 import { AccountNotificationsComponent } from './routes/account/account-notifications/account-notifications.component';
+import { ScrimDashboardComponent } from './routes/scrim/scrim-dashboard/scrim-dashboard.component';
 const routes: Routes = [
   {
     path:"home",
@@ -147,6 +148,10 @@ const routes: Routes = [
   {
     path: "easter-event",
     component:EasterEventComponent
+  },
+  {
+    path: "scrims",
+    component:ScrimDashboardComponent
   },
   { path: '', redirectTo: 'home', pathMatch: 'full' }, // redirect to `first-component`
   { path: '**', redirectTo: 'home' },
