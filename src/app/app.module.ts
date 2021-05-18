@@ -79,6 +79,7 @@ import { ScrimTableTeamComponent } from './routes/scrim/scrim-dashboard/scrim-ta
 import { BrowserScrimsComponent } from './routes/scrim/scrim-dashboard/browser-scrims/browser-scrims.component';
 import { ManageScrimsComponent } from './routes/scrim/scrim-dashboard/manage-scrims/manage-scrims.component';
 import { MyScrimsComponent } from './routes/scrim/scrim-dashboard/manage-scrims/my-scrims/my-scrims.component';
+import { NewScrimComponent } from './routes/scrim/scrim-dashboard/new-scrim/new-scrim.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -151,6 +152,7 @@ import { MyScrimsComponent } from './routes/scrim/scrim-dashboard/manage-scrims/
     BrowserScrimsComponent,
     ManageScrimsComponent,
     MyScrimsComponent,
+    NewScrimComponent,
   ],
   imports: [
     BrowserModule,

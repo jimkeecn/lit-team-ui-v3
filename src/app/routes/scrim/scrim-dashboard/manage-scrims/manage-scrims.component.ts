@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-manage-scrims',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ManageScrimsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private route:Router) { }
 
   ngOnInit(): void {
+  }
+
+  createNewScrim() {
+    this.route.navigate(['/scrims/new']);
   }
 
 }

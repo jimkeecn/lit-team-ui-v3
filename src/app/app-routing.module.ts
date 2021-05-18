@@ -35,6 +35,7 @@ import { AccountNotificationsComponent } from './routes/account/account-notifica
 import { ScrimDashboardComponent } from './routes/scrim/scrim-dashboard/scrim-dashboard.component';
 import { BrowserScrimsComponent } from './routes/scrim/scrim-dashboard/browser-scrims/browser-scrims.component';
 import { ManageScrimsComponent } from './routes/scrim/scrim-dashboard/manage-scrims/manage-scrims.component';
+import { NewScrimComponent } from './routes/scrim/scrim-dashboard/new-scrim/new-scrim.component';
 const routes: Routes = [
   {
     path:"home",
@@ -162,6 +163,10 @@ const routes: Routes = [
       {
         path: "manage",
         component:ManageScrimsComponent
+      },
+      {
+        path: "new",
+        component:NewScrimComponent
       }
     ]
   },
