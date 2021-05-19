@@ -3,17 +3,16 @@
 </div>
 
 <div class="scrim-tabs">
-    <div class="tab active">
+    <div class="tab" [ngClass]="{'active':scrimTabs == 1}" (click)="scrimTabs = 1">
         Upcoming Scrims
     </div>
-    <div class="tab" *ngIf="amIOwner">
+    <div class="tab" [ngClass]="{'active':scrimTabs == 2}" *ngIf="amIOwner" (click)="scrimTabs = 2">
         My Scrims
     </div>
-    <div class="tab">
+    <div class="tab" [ngClass]="{'active':scrimTabs == 3}" (click)="scrimTabs = 3">
         History Scrims
     </div>
 </div>
-<!-- 
-<my-scrims [_amIOwner]="amIOwner"></my-scrims> -->
-
-<upcoming-scrims></upcoming-scrims>
+<upcoming-scrims *ngIf="scrimTabs == 1"></upcoming-scrims>
+<my-scrims [_amIOwner]="amIOwner" *ngIf="scrimTabs == 2"></my-scrims>
+<history-scrims *ngIf="scrimTabs == 3"></history-scrims>

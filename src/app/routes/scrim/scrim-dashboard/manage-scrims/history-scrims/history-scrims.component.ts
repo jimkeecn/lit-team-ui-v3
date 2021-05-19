@@ -9,14 +9,13 @@ import { BehaviorSubject } from 'rxjs';
 import { ClanApiService } from '@app-services/api/clan-api.service';
 
 @Component({
-  selector: 'app-browser-scrims',
-  templateUrl: './browser-scrims.component.html',
-  styleUrls: ['./browser-scrims.component.scss']
+  selector: 'history-scrims',
+  templateUrl: './history-scrims.component.html',
+  styleUrls: ['./history-scrims.component.scss']
 })
-export class BrowserScrimsComponent implements OnInit {
+export class HistoryScrimsComponent implements OnInit {
 
   scrims = new BehaviorSubject<ScrimViewModel[]>([]);
-  timeBlocks: any[] = [];
   constructor(private app: ApplicationService,
   private scrimApi:ScrimApiService, private route:Router,private clanApi:ClanApiService) { }
 
@@ -25,9 +24,8 @@ export class BrowserScrimsComponent implements OnInit {
   }
 
   getScrims() {
-    this.scrimApi.GetAllScrim().subscribe(res => {
+    this.scrimApi.GetHistoryScrim().subscribe(res => {
       this.scrims.next(res);
-      this.calculateTimeBlocks();
     }, (err: HttpErrorResponse) => {
       this.app.errorHandler(err);
     });
@@ -49,27 +47,5 @@ export class BrowserScrimsComponent implements OnInit {
     }
   }
 
-  private calculateTimeBlocks() {
-    let scrims = [...this.scrims.value];
-    const groups = scrims.reduce((groups, obj) => {
-      const date = obj.date.toString().split('T')[0];
-      if (!groups[date]) {
-        groups[date] = [];
-      }
-      if (obj.challengerClanId == 0) {
-        groups[date].push(obj);
-      }
-      return groups;
-    }, {})
-
-    const groupArrays = Object.keys(groups).map((date) => {
-      return {
-        date,
-        objs: groups[date]
-      };
-    });
-
-    this.timeBlocks = groupArrays;
-  }
 
 }

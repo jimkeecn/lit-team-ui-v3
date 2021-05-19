@@ -9,6 +9,7 @@ import { AuthService } from '@app-services/auth/auth.service';
 })
 export class ManageScrimsComponent implements OnInit {
 
+  scrimTabs :number = 1;
   amIOwner: boolean = false;
   constructor(private route:Router, private clanApi:ClanApiService, private auth:AuthService) { }
 

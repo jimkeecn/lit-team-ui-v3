@@ -1,49 +1,10 @@
-@import "../../../../../styles.scss";
-:host {
+@import "../../../../../../styles.scss";
+.scrim-table {
+  padding-bottom: 20px;
   max-width: 960px;
   min-width: 420px;
   width: 100%;
-}
-.scrim-section-header,
-.time-block-container,
-.scrim-table,
-.scrim-controller {
-  width: 100%;
   overflow-y: auto;
-}
-
-.scrim-controller button {
-  border: none;
-  outline: none;
-  margin-right: 20px;
-  background-color: rgb(255, 224, 0);
-  color: #222;
-}
-
-.scrim-controller button:active {
-  outline: none;
-  border: none;
-}
-
-.time-block-container {
-  display: flex;
-  margin-bottom: 20px;
-  flex-direction: row-reverse;
-  justify-content: flex-end;
-}
-
-.scrim-section-header * {
-  color: #fff;
-}
-
-.scrim-section-sperator {
-  height: 2px;
-  width: 100%;
-  background-color: $lt-border-color;
-  margin: 20px 0;
-}
-.scrim-table {
-  padding-bottom: 20px;
 }
 .scrim-table table {
   width: 100%;
@@ -82,7 +43,6 @@
 }
 
 .scrim-table table tbody tr td:last-child {
-  width: 50px;
   text-align: center;
 }
 .scrim-table table tbody tr td.active::before {
@@ -109,6 +69,7 @@
   font-size: 1.2rem;
   cursor: pointer;
   color: rgba(255, 255, 255, 0.7);
+  margin-right: 12px;
 }
 
 .scrim-table table tbody tr td .fas:hover {

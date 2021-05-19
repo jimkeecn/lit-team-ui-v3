@@ -26,6 +26,13 @@ export class ScrimApiService {
     }));
   }
 
+  GetAllScrim() : Observable<ScrimViewModel[]>{
+    const url = `${this.baseUrl}/Scrim`;
+    return this.http.get<ScrimViewModel[]>(url).pipe(tap(x=>{
+      //do something
+    }));
+  }
+
   GetMyScrim() : Observable<ScrimViewModel[]>{
     const url = `${this.baseUrl}/Scrim/My`;
     return this.http.get<ScrimViewModel[]>(url).pipe(tap(x=>{
@@ -35,6 +42,13 @@ export class ScrimApiService {
 
   GetUpcomingScrim() : Observable<ScrimViewModel[]>{
     const url = `${this.baseUrl}/Scrim/Upcoming`;
+    return this.http.get<ScrimViewModel[]>(url).pipe(tap(x=>{
+      //do something
+    }));
+  }
+
+  GetHistoryScrim() : Observable<ScrimViewModel[]>{
+    const url = `${this.baseUrl}/Scrim/History`;
     return this.http.get<ScrimViewModel[]>(url).pipe(tap(x=>{
       //do something
     }));
