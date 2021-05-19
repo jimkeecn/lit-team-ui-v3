@@ -4,10 +4,9 @@
             <tr>
                 <th>Date</th>
                 <th>Time</th>
+                <th>Owner</th>
                 <th>Opponent</th>
                 <th>Rank</th>
-                <th class="text-center">Requests</th>
-                <th *ngIf="amIOwner">Action</th>
             </tr>
         </thead>
         <tbody>
@@ -19,15 +18,14 @@
                     <span>{{scrim.date | date : "h:mm a"}}</span>
                 </td>
                 <td>
+                    <scrim-table-team [clan]="getOwnerClan(scrim)"></scrim-table-team>
+                </td>
+                <td>
                     <scrim-table-team [clan]="getChallengerClan(scrim)"></scrim-table-team>
                 </td>
                 <td>
                     <span>{{scrim.minRank}} - {{scrim.maxRank}}</span>
                 </td>
-                <td class="text-center">
-                    {{scrim.challengers.length}}
-                </td>
-                <td *ngIf="amIOwner"><i class="fas fa-edit" title="View Detail"></i><i class="fas fa-trash" (click)="disableScrimRequest(scrim.id)"></i></td>
             </tr>
         </tbody>
     </table>

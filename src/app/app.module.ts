@@ -80,6 +80,7 @@ import { BrowserScrimsComponent } from './routes/scrim/scrim-dashboard/browser-s
 import { ManageScrimsComponent } from './routes/scrim/scrim-dashboard/manage-scrims/manage-scrims.component';
 import { MyScrimsComponent } from './routes/scrim/scrim-dashboard/manage-scrims/my-scrims/my-scrims.component';
 import { NewScrimComponent } from './routes/scrim/scrim-dashboard/new-scrim/new-scrim.component';
+import { UpcomingScrimsComponent } from './routes/scrim/scrim-dashboard/manage-scrims/upcoming-scrims/upcoming-scrims.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -153,6 +154,7 @@ import { NewScrimComponent } from './routes/scrim/scrim-dashboard/new-scrim/new-
     ManageScrimsComponent,
     MyScrimsComponent,
     NewScrimComponent,
+    UpcomingScrimsComponent,
   ],
   imports: [
     BrowserModule,

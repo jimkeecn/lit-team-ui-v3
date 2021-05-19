@@ -23,7 +23,7 @@
             <div class="form-group">
                 <label>Game Format?</label>
                 <select class="form-control" formControlName="gameFormatId">
-                    <option *ngFor="let type of types" [value]="type.bracketFormatId">{{type.bracketFormatName}}</option>
+                    <option *ngFor="let type of types" [ngValue]="type.bracketFormatId">{{type.bracketFormatName}}</option>
                 </select>
                 <span class="form-notice" >How manyt games you want to play?</span>
             </div>
@@ -34,7 +34,7 @@
             <div class="form-group">
                 <label>Min Rank</label>
                 <select class="form-control" formControlName="minRankId">
-                    <option *ngFor="let rank of ranks" [value]="rank.teamRankId">{{rank.teamRankName}}</option>
+                    <option *ngFor="let rank of ranks" [ngValue]="rank.teamRankId">{{rank.teamRankName}}</option>
                 </select>
             </div>
         </div>
@@ -42,7 +42,7 @@
             <div class="form-group">
                 <label>Max Rank</label>
                 <select class="form-control" formControlName="maxRankId">
-                    <option *ngFor="let rank of ranks" [value]="rank.teamRankId">{{rank.teamRankName}}</option>
+                    <option *ngFor="let rank of ranks" [ngValue]="rank.teamRankId">{{rank.teamRankName}}</option>
                 </select>
             </div>
         </div>

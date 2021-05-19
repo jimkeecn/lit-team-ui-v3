@@ -39,3 +39,34 @@ export class ScrimUpdateModel{
         }
       }
 }
+
+export class ScrimViewModel{
+  id: number;
+  minRankId: number;
+  minRank: string;
+  maxRankId: number;
+  maxRank: string;
+  date: Date;
+  gameDescription: string;
+  gameFormatId: number;
+  gameFormat: string;
+  gameTypeId: number;
+  gameType: string;
+  gameMapId: number;
+  gameMap: string;
+  gameStaticId: number;
+  gameStatic: string;
+  ownerClanId: number;
+  ownerClan: string;
+  ownerClanImg: string;
+  challengerClanId: number;
+  challengerClan: string;
+  challengerClanImg: string;
+  challengers: ScrimChallenger[]
+}
+
+export class ScrimChallenger{
+  registrationID: number;
+  clanID: number;
+  clanName: string;
+}

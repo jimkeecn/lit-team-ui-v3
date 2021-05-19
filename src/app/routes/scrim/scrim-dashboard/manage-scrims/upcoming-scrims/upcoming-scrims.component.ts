@@ -8,31 +8,26 @@ import { ChangeDetectionStrategy } from '@angular/compiler/src/compiler_facade_i
 import { BehaviorSubject } from 'rxjs';
 import { ClanApiService } from '@app-services/api/clan-api.service';
 @Component({
-  selector: 'my-scrims',
-  templateUrl: './my-scrims.component.html',
-  styleUrls: ['./my-scrims.component.scss']
+  selector: 'upcoming-scrims',
+  templateUrl: './upcoming-scrims.component.html',
+  styleUrls: ['./upcoming-scrims.component.scss']
 })
-export class MyScrimsComponent implements OnInit {
+export class UpcomingScrimsComponent implements OnInit {
 
-  amIOwner: boolean = false;
-  @Input('_amIOwner')
-  set getamIOwner(val) {
-    this.amIOwner = val;
-    if (val) {
-      this.getScrims();
-    }
-  };
+
   scrims = new BehaviorSubject<ScrimViewModel[]>([]);
   constructor(private app: ApplicationService,
   private scrimApi:ScrimApiService, private route:Router,private clanApi:ClanApiService) { }
 
   ngOnInit(): void {
-    
+    this.getScrims();
   }
 
   getScrims() {
-    this.scrimApi.GetMyScrim().subscribe(res => {
+    this.scrimApi.GetUpcomingScrim().subscribe(res => {
       this.scrims.next(res);
+    }, (err: HttpErrorResponse) => {
+      this.app.errorHandler(err);
     });
   }
 
@@ -52,23 +47,7 @@ export class MyScrimsComponent implements OnInit {
     }
   }
 
-  disableScrimRequest(id) {
-    let confirm = window.confirm("Are you sure to remove this scrim?");
-    if (confirm) {
-      this.scrimApi.disableScrimRequest(id).subscribe(res => {
-        this.app.openSnackBar('You have removed a scrim.', 'success');
-        this.removeScrimFromList(id);
-      }, (err: HttpErrorResponse) => {
-        this.app.errorHandler(err);
-      })
-    }
-    
-  }
+ 
 
-  removeScrimFromList(id) {
-    let scrims = [...this.scrims.value];
-    let index = scrims.findIndex(x => x.id == id);
-    scrims.splice(index, 1);
-    this.scrims.next(scrims);
-  }
+
 }

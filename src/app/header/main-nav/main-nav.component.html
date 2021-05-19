@@ -35,7 +35,7 @@
       <a href="#">Scrims</a>
       <ul class="main-nav__sub">
         <li class=""><a routerLink="scrims/browser">Browsers Scrims</a></li>
-        <li class=""><a routerLink="scrims/manage">Manage Scrims</a></li>
+        <li class="" *ngIf="auth.isLogined()" ><a routerLink="scrims/manage">Manage Scrims</a></li>
       </ul>
     </li>
   </ul>

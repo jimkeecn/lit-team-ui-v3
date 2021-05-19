@@ -18,11 +18,11 @@ export class NewScrimComponent implements OnInit {
   types: BracketFormat[] = [];
   errors: any[] = [];
   detailForm = this.fb.group({
-    minRankId: new FormControl(null,[Validators.required]),
-    maxRankId: new FormControl(null, [Validators.required]),
+    minRankId: new FormControl(0,[Validators.required]),
+    maxRankId: new FormControl(0, [Validators.required]),
     date: new FormControl(null, [Validators.required]),
     gameDescription: new FormControl('', [Validators.required, Validators.maxLength(100)]),
-    gameFormatId: new FormControl(null, [Validators.required])
+    gameFormatId: new FormControl(0, [Validators.required])
   })
 
   submitDisable: boolean = false;

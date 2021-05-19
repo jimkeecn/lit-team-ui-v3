@@ -2,8 +2,8 @@
     <button>
         <a routerLink="browser">Browser Scrims</a>
     </button>
-    <button>
-        <a routerLink="manage"> Manage Scrims</a>
+    <button *ngIf="auth.isLogined()">
+        <a routerLink="manage"> Check My Scrims</a>
     </button>
 </div>
 <div class="scrim-section-sperator"></div>

@@ -1,17 +1,19 @@
-<div class="scrim-section-header">
-    <button class="btn btn-sm btn-primary"><a (click)="createNewScrim()">Add New Scrim</a></button>
+<div class="scrim-section-header" *ngIf="amIOwner">
+    <button class="btn btn-sm btn-primary" ><a (click)="createNewScrim()">Add New Scrim</a></button>
 </div>
 
 <div class="scrim-tabs">
-    <div class="tab ">
+    <div class="tab active">
         Upcoming Scrims
     </div>
-    <div class="tab active">
+    <div class="tab" *ngIf="amIOwner">
         My Scrims
     </div>
     <div class="tab">
         History Scrims
     </div>
 </div>
+<!-- 
+<my-scrims [_amIOwner]="amIOwner"></my-scrims> -->
 
-<my-scrims></my-scrims>
+<upcoming-scrims></upcoming-scrims>
