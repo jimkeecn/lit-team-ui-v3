@@ -66,7 +66,9 @@ export class ScrimViewModel{
 }
 
 export class ScrimChallenger{
-  registrationID: number;
-  clanID: number;
+  registrationId: number;
+  clanId: number;
   clanName: string;
+  clanImg: string;
+  date: Date;
 }

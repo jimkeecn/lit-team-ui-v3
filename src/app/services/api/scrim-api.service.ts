@@ -67,4 +67,11 @@ export class ScrimApiService {
       //do something
     }));
   }
+
+  pickScrimRequest(scrimId,clanId) : Observable<number>{
+    const url = `${this.baseUrl}/Scrim/${scrimId}/pick/${clanId}`;
+    return this.http.post<number>(url,null).pipe(tap(x=>{
+      //do something
+    }));
+  }
 }

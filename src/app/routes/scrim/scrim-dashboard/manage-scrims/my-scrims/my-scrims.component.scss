@@ -70,9 +70,18 @@
   font-size: 1.2rem;
   cursor: pointer;
   color: rgba(255, 255, 255, 0.7);
-  margin-right: 12px;
+  margin-right: 20px;
 }
 
 .scrim-table table tbody tr td .fas:hover {
   color: #fff;
+}
+
+.scrim-table table tbody tr td.clans-column span {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.scrim-table table tbody tr td.clans-column span:hover {
+  color: $lt-main-color;
 }

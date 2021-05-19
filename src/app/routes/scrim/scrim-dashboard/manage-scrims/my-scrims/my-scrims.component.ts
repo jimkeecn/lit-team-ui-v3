@@ -3,7 +3,7 @@ import { ApplicationService } from '@app-services/app/application.service';
 import { ScrimApiService } from "@app-services/api/scrim-api.service";
 import { Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
-import { ScrimViewModel } from '@app-models/scrim';
+import { ScrimChallenger, ScrimViewModel } from '@app-models/scrim';
 import { ChangeDetectionStrategy } from '@angular/compiler/src/compiler_facade_interface';
 import { BehaviorSubject } from 'rxjs';
 import { ClanApiService } from '@app-services/api/clan-api.service';
@@ -52,6 +52,14 @@ export class MyScrimsComponent implements OnInit {
     }
   }
 
+  getClan(clan: ScrimChallenger) {
+    return {
+      img: clan.clanImg,
+      name: clan.clanName,
+      clanId:clan.clanId
+    }
+  }
+
   disableScrimRequest(id) {
     let confirm = window.confirm("Are you sure to remove this scrim?");
     if (confirm) {
@@ -70,5 +78,19 @@ export class MyScrimsComponent implements OnInit {
     let index = scrims.findIndex(x => x.id == id);
     scrims.splice(index, 1);
     this.scrims.next(scrims);
+  }
+
+
+  pickClan(scrimId, clanId) {
+    debugger;
+    let confirm = window.confirm("Are you sure to pick this clan for your opponent?");
+    if (confirm) {
+      this.scrimApi.pickScrimRequest(scrimId, clanId).subscribe(res => {
+        this.app.openSnackBar('You have selected a Opponent.', 'success');
+        this.getScrims();
+      }, (err: HttpErrorResponse) => {
+        this.app.errorHandler(err);
+      })
+    }
   }
 }

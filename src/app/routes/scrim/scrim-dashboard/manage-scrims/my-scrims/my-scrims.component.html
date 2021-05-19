@@ -11,24 +11,41 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let scrim of (scrims | async)">
-                <td [ngClass]="{'active': scrim.challengerClanId > 0 , 'inactive':scrim.challengerClanId == 0 }">
-                    <span>{{scrim.date | date : "MMM d"}}</span>
-                </td>
-                <td>
-                    <span>{{scrim.date | date : "h:mm a"}}</span>
-                </td>
-                <td>
-                    <scrim-table-team [clan]="getChallengerClan(scrim)"></scrim-table-team>
-                </td>
-                <td>
-                    <span>{{scrim.minRank}} - {{scrim.maxRank}}</span>
-                </td>
-                <td class="text-center">
-                    {{scrim.challengers.length}}
-                </td>
-                <td *ngIf="amIOwner"><i class="fas fa-edit" title="View Detail"></i><i class="fas fa-trash" (click)="disableScrimRequest(scrim.id)"></i></td>
-            </tr>
+            <ng-container *ngFor="let scrim of (scrims | async)">
+                <tr>
+                    <td [ngClass]="{'active': scrim.challengerClanId > 0 , 'inactive':scrim.challengerClanId == 0 }">
+                        <span>{{scrim.date | date : "MMM d"}}</span>
+                    </td>
+                    <td>
+                        <span>{{scrim.date | date : "h:mm a"}}</span>
+                    </td>
+                    <td>
+                        <scrim-table-team [clan]="getChallengerClan(scrim)"></scrim-table-team>
+                    </td>
+                    <td>
+                        <span>{{scrim.minRank}} - {{scrim.maxRank}}</span>
+                    </td>
+                    <td class="text-center clans-column">
+                        <span title="Pick Opponent">{{scrim.challengers.length}}</span>
+                    </td>
+                    <td *ngIf="amIOwner">
+                        <i class="fas fa-expand-alt" (click)="scrim.open = !scrim.open"></i>
+                        <i class="fas fa-trash" (click)="disableScrimRequest(scrim.id)"></i>
+                    </td>
+                </tr>
+                <ng-container *ngIf="scrim.open && amIOwner">
+                    <tr class="clan-row" *ngFor="let clan of scrim.challengers">
+                        <td [attr.colspan]="amIOwner ? 4 : 3">
+                            <scrim-table-team [clan]="getClan(clan)"></scrim-table-team>
+                        </td>
+                        <td>Applied at : {{clan.date | date : "MMM d hh:mm"}}</td>
+                        <td >
+                            <button class="btn btn-sm btn-primary" (click)="pickClan(scrim.id,clan.clanId)">pick</button>
+                        </td>
+                    </tr>
+                </ng-container>
+            </ng-container>
+           
         </tbody>
     </table>
 </div>
