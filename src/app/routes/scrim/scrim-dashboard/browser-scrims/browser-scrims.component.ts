@@ -33,6 +33,19 @@ export class BrowserScrimsComponent implements OnInit {
     });
   }
 
+
+  joinScrimRequest(id) {
+    let confirm = window.confirm("Are you sure to join this scrim?");
+    if (confirm) {
+      this.scrimApi.joinScrimRequest(id).subscribe(res => {
+        this.app.openSnackBar("You have requested to join this scrim.","success")
+      }, (err: HttpErrorResponse) => {
+        this.app.errorHandler(err);
+      })
+    }
+    
+  }
+
   getOwnerClan(scrim: ScrimViewModel) {
     return {
       img: scrim.ownerClanImg,

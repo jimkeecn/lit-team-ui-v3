@@ -60,4 +60,11 @@ export class ScrimApiService {
       //do something
     }));
   }
+
+  joinScrimRequest(id) : Observable<number>{
+    const url = `${this.baseUrl}/Scrim/${id}/request`;
+    return this.http.post<number>(url,null).pipe(tap(x=>{
+      //do something
+    }));
+  }
 }
