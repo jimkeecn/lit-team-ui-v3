@@ -6,43 +6,58 @@
         Please use this tournament code repeatly for multiple game if needed.
     </p>
 </div>
-<div class="row">
-    <div class="col-md-6">
-        <div class="form-group">
-            <label>Start Time</label>
-            <input class="form-control" type="datetime-local">
+<form class="form" [formGroup]="detailForm">
+    <div class="error-list" *ngIf="errors && errors.length > 0">
+        <ul>
+            <li *ngFor="let error of errors">{{error}}</li>
+        </ul>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>Start Time</label>
+                <input class="form-control" type="datetime-local" formControlName="date">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>Game Format?</label>
+                <select class="form-control" formControlName="gameFormatId">
+                    <option *ngFor="let type of types" [value]="type.bracketFormatId">{{type.bracketFormatName}}</option>
+                </select>
+                <span class="form-notice" >How manyt games you want to play?</span>
+            </div>
         </div>
     </div>
-    <div class="col-md-6">
-        <div class="form-group">
-            <label>How Many Games?</label>
-            <select class="form-control" >
-                <option value=1>Best of One</option>
-                <option value=1>Best of Three</option>
-                <option value=1>Best of Five</option>
-            </select>
-            <span class="form-notice" >Currently we only support league of legends in OCE region</span>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>Min Rank</label>
+                <select class="form-control" formControlName="minRankId">
+                    <option *ngFor="let rank of ranks" [value]="rank.teamRankId">{{rank.teamRankName}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>Max Rank</label>
+                <select class="form-control" formControlName="maxRankId">
+                    <option *ngFor="let rank of ranks" [value]="rank.teamRankId">{{rank.teamRankName}}</option>
+                </select>
+            </div>
         </div>
     </div>
-</div>
-<div class="row">
-    <div class="col-md-6">
-        <div class="form-group">
-            <label>Min Rank</label>
-            <select class="form-control" >
-                <option value=1>League of legends (OCE)</option>
-            </select>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>Description</label>
+                <textarea class="form-control" formControlName="gameDescription"></textarea>
+                <span class="form-notice" >No more than 100 characters</span>
+            </div>
         </div>
     </div>
-    <div class="col-md-6">
-        <div class="form-group">
-            <label>Max Rank</label>
-            <select class="form-control" >
-                <option value=1>League of legends (OCE)</option>
-            </select>
-        </div>
-    </div>
-</div>
+</form>
+
 <div class="form-group d-sm-flex justify-content-sm-between align-items-sm-center action-bar">
-    <button class="btn btn-secondary">Create</button>
+    <button class="btn btn-secondary" [disabled]="submitDisable" (click)="submit()">Create</button>
 </div>

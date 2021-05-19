@@ -64,6 +64,16 @@ export class NotificationType{
     notificationTypeDescription: string;
 }
 
+export class TeamRank{
+    teamRankId: number;
+    teamRankName: string;
+}
+
+export class BracketFormat{
+    bracketFormatId: number;
+    bracketFormatName: string;
+}
+
 export enum TournamentTimeEnum{
     Past = 1,
     Future = 2,

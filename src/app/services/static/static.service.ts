@@ -4,7 +4,8 @@ import { Router } from '@angular/router';
 import { ApplicationService } from '@app-services/app/application.service';
 import { BehaviorSubject, Observable } from 'rxjs';
 import {
-  GameMode, GamesStatic, NotificationType, StaticList, TournamentFormat,
+  BracketFormat,
+  GameMode, GamesStatic, NotificationType, StaticList, TeamRank, TournamentFormat,
   TournamentMap, TournamentType
 } from '@app-models/static';
 import { environment } from '../../../environments/environment';
@@ -72,6 +73,20 @@ export class StaticService {
   getNotificationType() : Observable<NotificationType[]>{
     const url = `${this.baseUrl}/static/NotificationTypes`;
     return this.http.get<NotificationType[]>(url).pipe(tap(x=>{
+      //do something
+    }));
+  }
+
+  getTeamRank() : Observable<TeamRank[]>{
+    const url = `${this.baseUrl}/static/Ranks`;
+    return this.http.get<TeamRank[]>(url).pipe(tap(x=>{
+      //do something
+    }));
+  }
+
+  getBracketFormat() : Observable<BracketFormat[]>{
+    const url = `${this.baseUrl}/static/BracketFormats`;
+    return this.http.get<BracketFormat[]>(url).pipe(tap(x=>{
       //do something
     }));
   }
