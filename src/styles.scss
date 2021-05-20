@@ -44,19 +44,6 @@ app-header-actions {
   margin-left: auto;
 }
 
-/** ##general **/
-@media (min-width: 992px) {
-  h2,
-  .h2 {
-    font-size: 3rem;
-  }
-}
-
-/** ##overide angular material **/
-.cdk-overlay-container {
-  z-index: 999999;
-}
-
 /**  ##mixin **/
 $lt-main-text-color: rgb(58, 58, 58);
 $lt-main-color: rgb(255, 224, 0);
@@ -78,6 +65,23 @@ $lt-border-color: rgb(53, 63, 75);
   @media only screen and (min-width: 801px) {
     @content;
   }
+}
+
+/** ##general **/
+@media (min-width: 992px) {
+  h2,
+  .h2 {
+    font-size: 3rem;
+  }
+}
+
+/** ##overide angular material **/
+.cdk-overlay-container {
+  z-index: 999999;
+}
+
+.cdk-overlay-pane.dark-panel .mat-dialog-container {
+  background-color: $lt-border-color;
 }
 
 /**  ##button **/

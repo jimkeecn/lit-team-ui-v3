@@ -1,2 +1,2 @@
 <div class="img"> <img [src]="clan.img" *ngIf="clan.img"></div>
-<div class="name" [title]="clan.name">{{clan.name}}</div>
+<div class="name" [title]="clan.name" (click)="checkClan()">{{clan.name}}</div>

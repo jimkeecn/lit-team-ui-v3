@@ -12,6 +12,7 @@ import { TournamentDetailStateService } from '@app-services/state/tournament-det
 import { map, switchMap, tap } from 'rxjs/operators';
 import { ApiService } from '@app-services/api/api.service';
 import { TourneyApiService } from '@app-services/api/tourney-api.service';
+import { LeagueOfLegendsPosition } from '@app-models/static';
 
 
 
@@ -251,50 +252,7 @@ formErrorHandler(form: FormGroup){
 }
 
 
-  /*** Notification Deprecated ***/
 
-  // notifications$ = new BehaviorSubject<notificationObject[]>([]);
-
-
-
-  // removeFromNotifications(index) {
-  //   let invs = [...this.notifications$.value];
-  //   invs.splice(index, 1);
-  //   this.notifications$.next(invs);
-  // }
-
-  // getNotification() {
-  //   combineLatest([this.api.getAllInvitations(), this.tApi.getTournamentInvitation()]).pipe(map(data => { 
-  //     const clanInvs = JSON.parse(JSON.stringify(data[0]));
-  //     const tourInvs = JSON.parse(JSON.stringify(data[1]));
-
-  //     let array:notificationObject[] = [];
-
-  //     for (let x = 0; x < clanInvs.length; x++){
-  //     let obj:notificationObject = {
-  //       data: clanInvs[x],
-  //       time: clanInvs[x].date,
-  //       type: notificationType.ClanInvitation
-  //     }
-  //     array.push(obj);
-  //     }
-      
-  //     for (let x = 0; x < tourInvs.length; x++){
-  //       let obj:notificationObject = {
-  //         data: tourInvs[x],
-  //         time: tourInvs[x].date,
-  //         type: notificationType.TournamentInvitation
-  //       }
-  //       array.push(obj);
-  //     }
-
-  //     return array;
-  //   })).subscribe(res => { 
-  //     console.log(`invitations:${res.length}`);
-  //     this.notifications$.next(res);
-  //     console.log(res);
-  //   })
-  // }
 }
 
 

@@ -82,6 +82,7 @@ import { MyScrimsComponent } from './routes/scrim/scrim-dashboard/manage-scrims/
 import { NewScrimComponent } from './routes/scrim/scrim-dashboard/new-scrim/new-scrim.component';
 import { UpcomingScrimsComponent } from './routes/scrim/scrim-dashboard/manage-scrims/upcoming-scrims/upcoming-scrims.component';
 import { HistoryScrimsComponent } from './routes/scrim/scrim-dashboard/manage-scrims/history-scrims/history-scrims.component';
+import { ScrimClanMemberDialogComponent } from './routes/scrim/scrim-clan-member-dialog/scrim-clan-member-dialog.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -157,6 +158,7 @@ import { HistoryScrimsComponent } from './routes/scrim/scrim-dashboard/manage-sc
     NewScrimComponent,
     UpcomingScrimsComponent,
     HistoryScrimsComponent,
+    ScrimClanMemberDialogComponent,
   ],
   imports: [
     BrowserModule,
