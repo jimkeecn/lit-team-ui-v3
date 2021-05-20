@@ -7,38 +7,70 @@
 <div class="scrim-section-header">
     <h5>All Scrims</h5> 
 </div>
-<div class="scrim-table">
+<div class="scrim-table expandable">
     <table>
         <thead>
             <tr>
                 <th>Date</th>
                 <th>Time</th>
                 <th>Owner</th>
-                <th>Opponent</th>
                 <th>Rank</th>
-                <th>Action</th>
+                <th></th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let scrim of (scrims | async)">
-                <td [ngClass]="{'active': scrim.challengerClanId > 0 , 'inactive':scrim.challengerClanId == 0 }">
-                    <span>{{scrim.date | date : "MMM d"}}</span>
-                </td>
-                <td>
-                    <span>{{scrim.date | date : "h:mm a"}}</span>
-                </td>
-                <td>
-                    <scrim-table-team [clan]="getOwnerClan(scrim)"></scrim-table-team>
-                </td>
-                <td>
-                    <scrim-table-team [clan]="getChallengerClan(scrim)"></scrim-table-team>
-                </td>
-                
-                <td>
-                    <span>{{scrim.minRank}} - {{scrim.maxRank}}</span>
-                </td>
-                <td><i class="fas fa-fist-raised" (click)="joinScrimRequest(scrim.id)"></i></td>
-            </tr>
+            <ng-container *ngFor="let scrim of (scrims | async)">
+                <tr >
+                    <td [ngClass]="{'active': scrim.challengerClanId > 0 , 'inactive':scrim.challengerClanId == 0 }">
+                        <span>{{scrim.date | date : "MMM d"}}</span>
+                    </td>
+                    <td>
+                        <span>{{scrim.date | date : "h:mm a"}}</span>
+                    </td>
+                    <td>
+                        <scrim-table-team [clan]="getOwnerClan(scrim)"></scrim-table-team>
+                    </td>
+                    <td>
+                        <span>{{scrim.minRank}} - {{scrim.maxRank}}</span>
+                    </td>
+                    <td> <i class="fas fa-expand-alt" title="Get Code" (click)="scrim.open = !scrim.open"></i></td>
+                    <td>
+                        <i class="fas fa-fist-raised" (click)="joinScrimRequest(scrim.id)"></i>
+                    </td>
+                </tr>
+                <ng-container *ngIf="scrim.open">
+                    <tr >
+                        <td>Opponent</td>
+                        <td colspan="5">
+                            <scrim-table-team [clan]="getChallengerClan(scrim)"></scrim-table-team>
+                        </td>
+                    </tr>
+                    <tr >
+                        <td>Format</td>
+                        <td colspan="5">
+                            {{scrim.gameFormat}}
+                        </td>
+                    </tr>
+                    <tr >
+                        <td>Type</td>
+                        <td colspan="5">
+                            {{scrim.gameType}}
+                        </td>
+                    </tr>
+                    <tr >
+                        <td>Map</td>
+                        <td colspan="5">
+                            {{scrim.gameMap}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Description</td>
+                        <td colspan="5">{{scrim.gameDescription}}</td>
+                    </tr>
+                </ng-container>
+            </ng-container>
+        
         </tbody>
     </table>
 </div>

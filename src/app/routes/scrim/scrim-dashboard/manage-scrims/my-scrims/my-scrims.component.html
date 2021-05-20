@@ -1,4 +1,4 @@
-<div class="scrim-table">
+<div class="scrim-table expandable">
     <table>
         <thead>
             <tr>
@@ -7,7 +7,8 @@
                 <th>Opponent</th>
                 <th>Rank</th>
                 <th class="text-center">Requests</th>
-                <th *ngIf="amIOwner">Action</th>
+                <th *ngIf="amIOwner"></th>
+                <th *ngIf="amIOwner"></th>
             </tr>
         </thead>
         <tbody>
@@ -28,18 +29,21 @@
                     <td class="text-center clans-column">
                         <span title="Pick Opponent">{{scrim.challengers.length}}</span>
                     </td>
-                    <td *ngIf="amIOwner">
+                    <td *ngIf="amIOwner" class="action-column">
                         <i class="fas fa-expand-alt" (click)="scrim.open = !scrim.open"></i>
+                       
+                    </td>
+                    <td *ngIf="amIOwner" class="action-column">
                         <i class="fas fa-trash" (click)="disableScrimRequest(scrim.id)"></i>
                     </td>
                 </tr>
                 <ng-container *ngIf="scrim.open && amIOwner">
                     <tr class="clan-row" *ngFor="let clan of scrim.challengers">
-                        <td [attr.colspan]="amIOwner ? 4 : 3">
+                        <td colspan="3">
                             <scrim-table-team [clan]="getClan(clan)"></scrim-table-team>
-                        </td>
-                        <td>Applied at : {{clan.date | date : "MMM d hh:mm"}}</td>
-                        <td >
+                        </td >
+                        <td  [attr.colspan]="amIOwner ? 2 : 1">Applied at : {{clan.date | date : "MMM d hh:mm"}}</td>
+                        <td  [attr.colspan]="amIOwner ? 2 : 1">
                             <button class="btn btn-sm btn-primary" (click)="pickClan(scrim.id,clan.clanId)">pick</button>
                         </td>
                     </tr>
