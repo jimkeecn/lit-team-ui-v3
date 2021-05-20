@@ -83,6 +83,9 @@ import { NewScrimComponent } from './routes/scrim/scrim-dashboard/new-scrim/new-
 import { UpcomingScrimsComponent } from './routes/scrim/scrim-dashboard/manage-scrims/upcoming-scrims/upcoming-scrims.component';
 import { HistoryScrimsComponent } from './routes/scrim/scrim-dashboard/manage-scrims/history-scrims/history-scrims.component';
 import { ScrimClanMemberDialogComponent } from './routes/scrim/scrim-clan-member-dialog/scrim-clan-member-dialog.component';
+import { ScrimStartNotificationComponent } from './overlays/notification-panel/scrim-start-notification/scrim-start-notification.component';
+import { ScrimAcceptNotificationComponent } from './overlays/notification-panel/scrim-accept-notification/scrim-accept-notification.component';
+import { ScrimJoinNotificationComponent } from './overlays/notification-panel/scrim-join-notification/scrim-join-notification.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -159,6 +162,9 @@ import { ScrimClanMemberDialogComponent } from './routes/scrim/scrim-clan-member
     UpcomingScrimsComponent,
     HistoryScrimsComponent,
     ScrimClanMemberDialogComponent,
+    ScrimStartNotificationComponent,
+    ScrimAcceptNotificationComponent,
+    ScrimJoinNotificationComponent,
   ],
   imports: [
     BrowserModule,

@@ -48,6 +48,29 @@ export class UpcomingScrimsComponent implements OnInit {
   }
 
  
-
+  getTournamentCode(id) {
+    this.scrimApi.getScrimTournamentCode(id).subscribe(res => {
+      let textArea = document.createElement("textarea");
+      textArea.style.top = "-1000px";
+      textArea.style.left = "-1000px";
+      textArea.style.position = "fixed";
+      textArea.style.opacity = "0";
+      textArea.value = res;
+      document.body.appendChild(textArea);
+      textArea.focus();
+      textArea.select();
+      try {
+        var successful = document.execCommand('copy');
+        var msg = successful ? 'successful' : 'unsuccessful';
+        console.log('Fallback: Copying text command was ' + msg);
+      } catch (err) {
+        console.error('Fallback: Oops, unable to copy', err);
+      }
+      document.body.removeChild(textArea);
+      this.app.openSnackBar("We have copy the code to your clipboard", "success");
+    }, (err: HttpErrorResponse) => {
+      this.app.errorHandler(err);
+    })
+  }
 
 }

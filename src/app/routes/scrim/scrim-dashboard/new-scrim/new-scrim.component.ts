@@ -45,14 +45,17 @@ export class NewScrimComponent implements OnInit {
     this.errors = [];
     if (this.detailForm.valid) {
       console.log(this.detailForm.value);
-      this.scrimApi.CreateNewScrim(this.detailForm.value).subscribe(res => {
-        this.submitDisable = false;
-        this.app.openSnackBar('You have created a new scrim.', 'success');
-        this.route.navigate(['scrims/manage']);
-      }, (err: HttpErrorResponse) => {
-        this.submitDisable = false;
-        this.app.errorHandler(err);
-      });
+      let confirm = window.confirm("Have you read the information above, press OK to continue");
+      if (confirm) {
+        this.scrimApi.CreateNewScrim(this.detailForm.value).subscribe(res => {
+          this.submitDisable = false;
+          this.app.openSnackBar('You have created a new scrim.', 'success');
+          this.route.navigate(['scrims/manage']);
+        }, (err: HttpErrorResponse) => {
+          this.submitDisable = false;
+          this.app.errorHandler(err);
+        });
+      }
     } else {
       let errorList = this.app.formErrorHandler(this.detailForm);
       errorList.forEach(error => { 

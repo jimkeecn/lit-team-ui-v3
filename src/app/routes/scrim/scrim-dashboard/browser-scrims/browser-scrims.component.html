@@ -6,6 +6,7 @@
 </div>
 <div class="scrim-section-header">
     <h5>All Scrims</h5> 
+    <span>Click Fist Icon   <i class="fas fa-fist-raised" title="Join Scrim"></i> to apply scrim, click Clan Name to check Player detail.</span>
 </div>
 <div class="scrim-table expandable">
     <table>
@@ -34,9 +35,9 @@
                     <td>
                         <span>{{scrim.minRank}} - {{scrim.maxRank}}</span>
                     </td>
-                    <td> <i class="fas fa-expand-alt" title="Get Code" (click)="scrim.open = !scrim.open"></i></td>
+                    <td> <i class="fas fa-expand-alt" title="Expand Info" (click)="scrim.open = !scrim.open"></i></td>
                     <td>
-                        <i class="fas fa-fist-raised" (click)="joinScrimRequest(scrim.id)"></i>
+                        <i class="fas fa-fist-raised" title="Join Scrim" (click)="joinScrimRequest(scrim.id)"></i>
                     </td>
                 </tr>
                 <ng-container *ngIf="scrim.open">

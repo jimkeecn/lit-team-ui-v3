@@ -12,16 +12,17 @@
       <!---*ngFor="let inv of (app.invitations$ | async)"  [src]="team.team.iconUrl"-->
       <tbody *ngFor="let notification of (nocService.notifications$ | async); let i = index">
         <tr clan-invite-notification [data]="notification.message" [index]="i" 
-        [notificationId]="notification.notificationId" *ngIf="notification.notificationTypeShortCode == 'C01'" >
-         
-        </tr>
+        [notificationId]="notification.notificationId" *ngIf="notification.notificationTypeShortCode == 'C01'" ></tr>
         <tr tournament-invite-notification [data]="notification.message" [index]="i" 
-        [notificationId]="notification.notificationId" *ngIf="notification.notificationTypeShortCode == 'T01'">
-        </tr>
+        [notificationId]="notification.notificationId" *ngIf="notification.notificationTypeShortCode == 'T01'"> </tr>
         <tr bracket-checkin-notification [data]="notification.message" [index]="i" 
-        [notificationId]="notification.notificationId" *ngIf="notification.notificationTypeShortCode == 'T02'">
-      
-        </tr>
+        [notificationId]="notification.notificationId" *ngIf="notification.notificationTypeShortCode == 'T02'"></tr>
+        <tr scrim-start-notification [data]="notification.message" [index]="i" 
+        [notificationId]="notification.notificationId" *ngIf="notification.notificationTypeShortCode == 'S01'"></tr>
+        <tr scrim-join-notification [data]="notification.message" [index]="i" 
+        [notificationId]="notification.notificationId" *ngIf="notification.notificationTypeShortCode == 'S02'"></tr>
+        <tr scrim-accept-notification [data]="notification.message" [index]="i" 
+        [notificationId]="notification.notificationId" *ngIf="notification.notificationTypeShortCode == 'S03'"></tr>
       </tbody>
     </table>
   </div>

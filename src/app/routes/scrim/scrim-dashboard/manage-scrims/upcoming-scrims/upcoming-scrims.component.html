@@ -25,7 +25,7 @@
                         <span>{{scrim.minRank}} - {{scrim.maxRank}}</span>
                     </td>
                     <td>
-                        <i class="fas fa-expand-alt" title="Get Code" (click)="scrim.open = !scrim.open"></i>
+                        <i class="fas fa-expand-alt" title="Expand Info"  (click)="scrim.open = !scrim.open"></i>
                     </td>
                 </tr>
                 <ng-container *ngIf="scrim.open">
@@ -56,6 +56,10 @@
                     <tr>
                         <td>Description</td>
                         <td colspan="4">{{scrim.gameDescription}}</td>
+                    </tr>
+                    <tr>
+                        <td>Game Code</td>
+                        <td colspan="4"><button class="btn btn-sm btn-primary" type="button" (click)="getTournamentCode(scrim.id)">Get Code</button></td>
                     </tr>
                 </ng-container>
             </ng-container>

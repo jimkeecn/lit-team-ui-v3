@@ -1,9 +1,15 @@
 <div class="scrim-section-header">
     <h5>Create a new scrim</h5>
-    <p>Currently, we only support Scrim for tournament-draft and Summoner's rift. 
-        We do not keep match record for scrim.
-        Tournament code will be provided to both team 1 hour before the scrim's Start Time.
-        Please use this tournament code repeatly for multiple game if needed.
+    <b>Please read before create a scrim!</b>
+    <p>
+        1. Currently, we only support Scrim for 5v5 tournament draft mode and summoner's rift. <br>
+        2. You game detail will be recorded for our future feature "Reporting".  <br>
+        3. Tournament code will be provided to both Clan 1 hour before the scrim's Start Time.  <br>
+        4. You cannot change opponent after choosen one. You can remove the scrim to make a new one. <br>
+        5. You can have up to 3 active (un-removed) scrims in the next 7 days. Please manage your time well <br>
+        6. You can use the tournament code for repeated games during your scrim.  <br>
+        7. Do not use the tournament code for other purpose other than Scrim. You may get banned if the tournament code is being abused. <br>
+        9. Need help with more information, please contact our discord staff.
     </p>
 </div>
 <form class="form" [formGroup]="detailForm">
@@ -52,7 +58,7 @@
             <div class="form-group">
                 <label>Description</label>
                 <textarea class="form-control" formControlName="gameDescription"></textarea>
-                <span class="form-notice" >No more than 100 characters</span>
+                <span class="form-notice" >No more than 100 characters</span>            
             </div>
         </div>
     </div>

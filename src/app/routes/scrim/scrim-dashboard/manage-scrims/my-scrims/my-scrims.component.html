@@ -30,11 +30,11 @@
                         <span title="Pick Opponent">{{scrim.challengers.length}}</span>
                     </td>
                     <td *ngIf="amIOwner" class="action-column">
-                        <i class="fas fa-expand-alt" (click)="scrim.open = !scrim.open"></i>
+                        <i class="fas fa-expand-alt" title="Expand Info" (click)="scrim.open = !scrim.open"></i>
                        
                     </td>
                     <td *ngIf="amIOwner" class="action-column">
-                        <i class="fas fa-trash" (click)="disableScrimRequest(scrim.id)"></i>
+                        <i class="fas fa-trash" title="Remove Scrim" (click)="disableScrimRequest(scrim.id)"></i>
                     </td>
                 </tr>
                 <ng-container *ngIf="scrim.open && amIOwner">

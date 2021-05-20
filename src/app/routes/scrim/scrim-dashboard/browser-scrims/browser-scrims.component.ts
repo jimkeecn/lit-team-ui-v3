@@ -38,7 +38,7 @@ export class BrowserScrimsComponent implements OnInit {
     let confirm = window.confirm("Are you sure to join this scrim?");
     if (confirm) {
       this.scrimApi.joinScrimRequest(id).subscribe(res => {
-        this.app.openSnackBar("You have requested to join this scrim.","success")
+        this.app.openSnackBar("You will receive a notification once you got approved.","success")
       }, (err: HttpErrorResponse) => {
         this.app.errorHandler(err);
       })

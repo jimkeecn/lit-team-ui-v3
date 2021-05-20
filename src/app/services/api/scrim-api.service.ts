@@ -74,4 +74,11 @@ export class ScrimApiService {
       //do something
     }));
   }
+
+  getScrimTournamentCode(scrimId) : Observable<string>{
+    const url = `${this.baseUrl}/Scrim/${scrimId}/getCode`;
+    return this.http.get(url, { responseType: 'text' }).pipe(tap(x=>{
+      //do something
+    }));
+  }
 }
