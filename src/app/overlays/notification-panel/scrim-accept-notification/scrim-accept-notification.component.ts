@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { NotificationStateService } from '@app-services/state/notification-state.service';
 
 @Component({
   selector: '[scrim-accept-notification]',
@@ -11,7 +12,7 @@ export class ScrimAcceptNotificationComponent implements OnInit {
   @Input() data: null;
   @Input() notificationId: number;
   
-  constructor() { }
+  constructor(public state:NotificationStateService) { }
 
   ngOnInit(): void {
   }

@@ -236,6 +236,30 @@ button[type="button"]:disabled {
   padding-top: 0;
   vertical-align: middle;
 }
+
+.product__remove .df-icon {
+  transition: 0.3s all ease;
+}
+
+.product__remove .df-icon:hover {
+  transform: translateX(6px);
+}
+
+.product__remove i.archive {
+  width: 20px;
+  height: 20px;
+  font-size: 20px;
+  color: #ffe1009c;
+  cursor: pointer;
+  margin-top: 6px;
+  transition: all 0.3s ease;
+}
+
+.product__remove i.archive:hover {
+  color: #ffe000;
+  transform: rotate(180deg);
+}
+
 .notification-detail {
   font-size: 0.75rem !important;
 }

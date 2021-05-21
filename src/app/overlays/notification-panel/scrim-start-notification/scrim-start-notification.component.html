@@ -7,11 +7,12 @@
       <span class="product__info-details notification-detail">You have a scrim is about to start, Check out your scrim in scrim page.</span>
     </div>
   </td>
-  <td class="product__remove">
 
-  </td>
   <td class="product__remove">
-    <a [routerLink]="['scrims/manage']">
+    <a [routerLink]="['scrims/manage']" (click)="state.archiveNotification(notificationId,index)">
       <svg role="img" class="df-icon df-icon--bag" ><use xlink:href="assets/img/necromancers.svg#right-arrow"></use></svg>
     </a>
+  </td>
+  <td class="product__remove">
+    <i class="fas fa-minus-circle archive" title="archive" (click)="state.archiveNotification(notificationId,index)"></i>
   </td>

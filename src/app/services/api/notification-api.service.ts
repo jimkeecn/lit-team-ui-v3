@@ -24,4 +24,11 @@ export class NotificationApiService {
       //do something
     }));
   }
+
+  setMyNotificationIsView(id) : Observable<number>{
+    const url = `${this.baseUrl}/notification/${id}/Viewed`;
+    return this.http.get<number>(url).pipe(tap(x=>{
+      //do something
+    }));
+  }
 }
