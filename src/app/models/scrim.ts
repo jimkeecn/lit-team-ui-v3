@@ -4,6 +4,7 @@ export class ScrimUpdateModel{
     date: Date;
     gameDescription: string;
     gameFormatId: number;
+    dateUtc: string;
 
     static getErrorMessage(field,type){
         switch (field) {

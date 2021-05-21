@@ -13,10 +13,10 @@
             <ng-container *ngFor="let scrim of (scrims | async)">
                 <tr >
                     <td [ngClass]="{'active': scrim.challengerClanId > 0 , 'inactive':scrim.challengerClanId == 0 }">
-                        <span>{{scrim.date | date : "MMM d"}}</span>
+                        <span>{{scrim.date | amLocal | amDateFormat: 'MMM D'}}</span>
                     </td>
                     <td>
-                        <span>{{scrim.date | date : "h:mm a"}}</span>
+                        <span>{{scrim.date | amLocal | amDateFormat: 'h:mm a'}}</span>
                     </td>
                     <td>
                         <scrim-table-team [clan]="getOwnerClan(scrim)"></scrim-table-team>

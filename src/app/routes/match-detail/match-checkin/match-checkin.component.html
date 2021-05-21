@@ -1,24 +1,27 @@
 <div class="check-in-container" [hidden]="!isStartCheckedIn">
-    <div class="header-counterdown" [hidden]="isPassCheckedIn">
-        <h5 class="h5">Check In Timer : <span id="timer" ></span> </h5>
-        <p>Check Ready to check in this bracket.</p>
-        <span class="check-in-collapser" (click)="isCollapsed = !isCollapsed">
-            <i class="fas fa-chevron-down"></i>
-        </span>
-    </div>
-    <div class="header-counterdown" [hidden]="!isPassCheckedIn">
-        <h5 class="h5">Check in has end</h5>
-    </div>
-    <div class="team-list" *ngIf="!isCollapsed">
-        <div class="team-a-list team-ready-list " *ngIf="teamA">
-            <team-ready [player]="inv" *ngFor="let inv of teamA.individuals" [ngClass]="{'ready':inv.isCheckedIn}"></team-ready>
+    <ng-container *ngIf="teamA && teamB">
+        <div class="header-counterdown" [hidden]="isPassCheckedIn">
+            <h5 class="h5">Check In Timer : <span id="timer" ></span> </h5>
+            <p>Check Ready to check in this bracket.</p>
+            <span class="check-in-collapser" (click)="isCollapsed = !isCollapsed">
+                <i class="fas fa-chevron-down"></i>
+            </span>
         </div>
-        <div class="team-b-list team-ready-list " *ngIf="teamB">
-            <team-ready [player]="inv" class="reverse" *ngFor="let inv of teamB.individuals" [ngClass]="{'ready':inv.isCheckedIn}"></team-ready>
+        <div class="header-counterdown" [hidden]="!isPassCheckedIn">
+            <h5 class="h5">Check in has end</h5>
         </div>
-    </div>
-    <div class="footer-ready" *ngIf="!isCollapsed && isMyGame">
-        <button class="btn btn-md btn-secondary" type="button" (click)="checkOrUnCheck()" [disabled]="submitDisable">{{ !isReady ? "Ready" : "Cancel"}}</button>
-    </div>
+        <div class="team-list" *ngIf="!isCollapsed">
+            <div class="team-a-list team-ready-list " >
+                <team-ready [player]="inv" *ngFor="let inv of teamA.individuals" [ngClass]="{'ready':inv.isCheckedIn}"></team-ready>
+            </div>
+            <div class="team-b-list team-ready-list ">
+                <team-ready [player]="inv" class="reverse" *ngFor="let inv of teamB.individuals" [ngClass]="{'ready':inv.isCheckedIn}"></team-ready>
+            </div>
+        </div>
+        <div class="footer-ready" *ngIf="!isCollapsed && isMyGame">
+            <button class="btn btn-md btn-secondary" type="button" (click)="checkOrUnCheck()" [disabled]="submitDisable">{{ !isReady ? "Ready" : "Cancel"}}</button>
+        </div>
+    </ng-container>
+   
 </div>
 

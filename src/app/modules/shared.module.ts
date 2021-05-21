@@ -34,6 +34,7 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 import { ClipboardModule } from '@angular/cdk/clipboard'
+import { MomentModule } from 'ngx-moment';
 @NgModule({
   declarations: [],
   imports: [CommonModule],
@@ -73,7 +74,8 @@ import { ClipboardModule } from '@angular/cdk/clipboard'
     MatPaginatorModule,
     MatBottomSheetModule,
     MatRippleModule,
-    ClipboardModule
+    ClipboardModule,
+    MomentModule
   ],
 })
 export class SharedModule {}

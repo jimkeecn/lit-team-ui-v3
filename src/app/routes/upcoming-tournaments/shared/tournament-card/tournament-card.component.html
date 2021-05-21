@@ -7,7 +7,7 @@
         <img [hidden]="!_tournament.isFeatured" class="team-selection-item__logo team-selection-item__logo--middle"  src="assets/img/team-selection-logo-01-70.png" srcset="assets/img/team-selection-logo-01-140.png 2x" alt="">
     </a>
     <span class="team-selection-item__subtitle h6"> 
-        {{_tournament.startDate | date : 'dd/MM'}} - {{_tournament.endDate | date : 'dd/MM'}} 
+        {{_tournament.startDate | amLocal | amDateFormat: 'DD/MM'}} - {{_tournament.endDate | amLocal | amDateFormat: 'DD/MM'}} 
         / {{_tournament.prizePool | currency}} 
         / {{_tournament.tournamentFormat}}  {{_tournament.isFeatured ? "/ Featured" : ""}}</span>
     <h2 class="team-selection-item__title"> {{_tournament.name}}</h2>

@@ -24,7 +24,9 @@
     "@fortawesome/fontawesome-free": "^5.15.2",
     "@microsoft/signalr": "^5.0.5",
     "file-saver": "^2.0.2",
+    "moment": "^2.29.1",
     "ng-image-fullscreen-view": "^2.0.0",
+    "ngx-moment": "^5.0.0",
     "rxjs": "~6.5.5",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.3"

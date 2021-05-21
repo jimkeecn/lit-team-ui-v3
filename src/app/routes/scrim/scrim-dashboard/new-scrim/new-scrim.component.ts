@@ -7,6 +7,7 @@ import { ApplicationService } from '@app-services/app/application.service';
 import { ScrimApiService } from "@app-services/api/scrim-api.service";
 import { Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
+import * as moment from 'moment';
 @Component({
   selector: 'app-new-scrim',
   templateUrl: './new-scrim.component.html',
@@ -39,6 +40,7 @@ export class NewScrimComponent implements OnInit {
     this.staticApi.getBracketFormat().subscribe(res => {
       this.types = res;
     })
+
   }
 
   submit() {
@@ -46,8 +48,10 @@ export class NewScrimComponent implements OnInit {
     if (this.detailForm.valid) {
       console.log(this.detailForm.value);
       let confirm = window.confirm("Have you read the information above, press OK to continue");
+      let updateParam: ScrimUpdateModel = this.detailForm.value;
+      updateParam.date = new Date(this.detailForm.get('date').value);
       if (confirm) {
-        this.scrimApi.CreateNewScrim(this.detailForm.value).subscribe(res => {
+        this.scrimApi.CreateNewScrim(updateParam).subscribe(res => {
           this.submitDisable = false;
           this.app.openSnackBar('You have created a new scrim.', 'success');
           this.route.navigate(['scrims/manage']);
@@ -63,5 +67,13 @@ export class NewScrimComponent implements OnInit {
       })
     }
   }
+
+  // dateConvertToUTCZero(data: any) {
+  //   let date = new Date(data);
+  //   let localTime = date.getTime();
+  //   let offset = Math.abs(date.getTimezoneOffset() / 60);
+  //   let bombay = localTime + 3600000 * offset;
+  //   return new Date(bombay);
+  // }
 
 }
