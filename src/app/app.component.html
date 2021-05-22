@@ -53,7 +53,7 @@
   </div>
   
   <!-- Menu Panel / End -->
-
+  <casual-time-zone *ngIf="!timeZoneClosed" (close)="timeZoneClose($event)"></casual-time-zone>
 </div>
 
 <div class="preloader-overlay">

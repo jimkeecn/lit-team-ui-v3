@@ -86,6 +86,7 @@ import { ScrimClanMemberDialogComponent } from './routes/scrim/scrim-clan-member
 import { ScrimStartNotificationComponent } from './overlays/notification-panel/scrim-start-notification/scrim-start-notification.component';
 import { ScrimAcceptNotificationComponent } from './overlays/notification-panel/scrim-accept-notification/scrim-accept-notification.component';
 import { ScrimJoinNotificationComponent } from './overlays/notification-panel/scrim-join-notification/scrim-join-notification.component';
+import { CasualTimeZoneComponent } from './overlays/casual-time-zone/casual-time-zone.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -165,6 +166,7 @@ import { ScrimJoinNotificationComponent } from './overlays/notification-panel/sc
     ScrimStartNotificationComponent,
     ScrimAcceptNotificationComponent,
     ScrimJoinNotificationComponent,
+    CasualTimeZoneComponent,
   ],
   imports: [
     BrowserModule,

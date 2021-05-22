@@ -19,6 +19,7 @@ import { NotificationStateService } from '@app-services/state/notification-state
 })
 export class AppComponent {
   title = 'Lit-Team-App';
+  timeZoneClosed = false;
   constructor(public app: ApplicationService,
     public api: ApiService, public auth: AuthService,
     public tApi: TourneyApiService, private easterState: EasterEventStateService,
@@ -44,7 +45,9 @@ export class AppComponent {
     })
   }
 
-  
+  timeZoneClose(event) {
+    this.timeZoneClosed = true;
+  }
 
   getMyClan() {
     this.api.getMyTeam().subscribe(res => { 
