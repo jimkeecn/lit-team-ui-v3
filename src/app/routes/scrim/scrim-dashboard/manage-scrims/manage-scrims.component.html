@@ -1,7 +1,10 @@
 <div class="scrim-section-header" *ngIf="amIOwner">
     <button class="btn btn-sm btn-primary" ><a (click)="createNewScrim()">Add New Scrim</a></button>
 </div>
-
+<div class="scrim-section-header" *ngIf="!amIOwner">
+    <p>You can only create Scrim if you are an owner of Clan.</p>
+    <p>Create a new Clan Click <a [routerLink]="['/account/clan']">Here</a></p>
+</div>
 <div class="scrim-tabs">
     <div class="tab" [ngClass]="{'active':scrimTabs == 1}" (click)="scrimTabs = 1">
         Upcoming Scrims
