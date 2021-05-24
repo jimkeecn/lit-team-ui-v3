@@ -35,6 +35,24 @@
 .scrim-section-header * {
   color: #fff;
 }
+.scrim-section-header.filter {
+  margin-top: 20px;
+}
+.scrim-section-header .row {
+  margin: 0 !important;
+}
+.scrim-section-header div[class^="col-"] {
+  margin-right: 12px;
+  padding: 0 !important;
+}
+
+.scrim-section-header div[class^="col-"] .form-group {
+  margin: 0;
+}
+
+.scrim-section-header .form-control option {
+  color: #222 !important;
+}
 
 .scrim-section-sperator {
   height: 2px;

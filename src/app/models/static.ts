@@ -67,6 +67,13 @@ export class NotificationType{
 export class TeamRank{
     teamRankId: number;
     teamRankName: string;
+
+    static createDefaultValue() {
+        return {
+            teamRankId: 0,
+            teamRankName:""
+        }
+    }
 }
 
 export class BracketFormat{

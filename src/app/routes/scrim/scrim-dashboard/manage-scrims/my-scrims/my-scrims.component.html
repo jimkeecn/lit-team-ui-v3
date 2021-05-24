@@ -42,7 +42,7 @@
                         <td colspan="3">
                             <scrim-table-team [clan]="getClan(clan)"></scrim-table-team>
                         </td >
-                        <td  [attr.colspan]="amIOwner ? 2 : 1">Applied at : {{clan.date | date : "MMM d hh:mm"}}</td>
+                        <td  [attr.colspan]="amIOwner ? 2 : 1">Applied at : {{clan.date | amLocal | amDateFormat: 'MMM D h:mm a'}}</td>
                         <td  [attr.colspan]="amIOwner ? 2 : 1">
                             <button class="btn btn-sm btn-primary" (click)="pickClan(scrim.id,clan.clanId)">pick</button>
                         </td>

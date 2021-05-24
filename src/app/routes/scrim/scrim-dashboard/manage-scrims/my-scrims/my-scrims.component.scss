@@ -1,8 +1,8 @@
 @import "../../../../../../styles.scss";
 
 .scrim-table table tbody tr td.clans-column span {
-  cursor: pointer;
   text-decoration: underline;
+  cursor: default;
 }
 
 .scrim-table table tbody tr td.clans-column span:hover {

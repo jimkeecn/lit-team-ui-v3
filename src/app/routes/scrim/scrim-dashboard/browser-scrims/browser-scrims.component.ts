@@ -5,8 +5,12 @@ import { Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
 import { ScrimViewModel } from '@app-models/scrim';
 import { ChangeDetectionStrategy } from '@angular/compiler/src/compiler_facade_interface';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, combineLatest } from 'rxjs';
 import { ClanApiService } from '@app-services/api/clan-api.service';
+import { StaticService } from '@app-services/static/static.service';
+import { FormBuilder, FormControl } from '@angular/forms';
+import { TeamRank } from '@app-models/static';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-browser-scrims',
@@ -15,17 +19,47 @@ import { ClanApiService } from '@app-services/api/clan-api.service';
 })
 export class BrowserScrimsComponent implements OnInit {
 
+  ranks: TeamRank[] = [];
   scrims = new BehaviorSubject<ScrimViewModel[]>([]);
+  originalScrims : ScrimViewModel[] = [];
   timeBlocks: any[] = [];
+  filterForm = this.fb.group({
+    minRankId: new FormControl(0,),
+    maxRankId: new FormControl(0,),
+  })
   constructor(private app: ApplicationService,
-  private scrimApi:ScrimApiService, private route:Router,private clanApi:ClanApiService) { }
+    private scrimApi: ScrimApiService, private route: Router, private clanApi: ClanApiService,
+    private staticApi: StaticService, private fb: FormBuilder) { }
 
   ngOnInit(): void {
     this.getScrims();
+    this.staticApi.getTeamRank().pipe(map(x => {
+      let defaultValue = TeamRank.createDefaultValue();
+      x.splice(0, 0, defaultValue);
+      return x;
+    })).subscribe(res => {
+      this.ranks = res;
+    })
+
+    combineLatest([this.filterForm.valueChanges]).subscribe(res => {
+      let filter = res[0];
+      let scrims = [...this.originalScrims];
+      let max = filter.maxRankId;
+      let min = filter.minRankId;
+      if (max > 0 && min > 0) {
+        scrims = scrims.filter(x =>x.maxRankId <=  max  &&  x.minRankId >= filter.minRankId );
+      } else if (max > 0 && min == 0) {
+        scrims = scrims.filter(x =>x.maxRankId <=  max);
+      } else if (max == 0 && min > 0) {
+        scrims = scrims.filter(x =>x.minRankId >=  min);
+      }
+      this.scrims.next(scrims);
+    })
   }
 
   getScrims() {
     this.scrimApi.GetAllScrim().subscribe(res => {
+      this.originalScrims = res;
       this.scrims.next(res);
       this.calculateTimeBlocks();
     }, (err: HttpErrorResponse) => {

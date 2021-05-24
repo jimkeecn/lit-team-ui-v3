@@ -5,8 +5,29 @@
     <scrim-time-block *ngFor="let time of timeBlocks" [date]="time.date" [number]="time.objs.length"></scrim-time-block>
 </div>
 <div class="scrim-section-header">
-    <h5>All Scrims</h5> 
-    <span>Click Fist Icon   <i class="fas fa-fist-raised" title="Join Scrim"></i> to apply scrim, click Clan Name to check Player detail.</span>
+    <h5>All Scrims (Next 7 days)</h5> 
+    <p>Please use scrim system wisely, only create a scrim when you needed. We hope to create a reliable and friendly enviorment for all teams that want to practice with others. So please make sure do not abandone Scrim without a valid reason. Your clan may be suspended for using our scrim system if such behaviour were found or reported.</p>
+    <span>Click Fist Icon  <i class="fas fa-fist-raised" title="Join Scrim"></i> to apply scrim, click Clan Name to check Player detail.</span>
+</div>
+<div class="scrim-section-header filter">
+    <form class="row" [formGroup]="filterForm">
+        <div class="col-md-3">
+            <div class="form-group">
+                <label>Min Rank</label>
+                <select class="form-control" formControlName="minRankId">
+                    <option *ngFor="let rank of ranks" [ngValue]="rank.teamRankId">{{rank.teamRankName}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label>Max Rank</label>
+                <select class="form-control" formControlName="maxRankId">
+                    <option *ngFor="let rank of ranks" [ngValue]="rank.teamRankId">{{rank.teamRankName}}</option>
+                </select>
+            </div>
+        </div>
+    </form>
 </div>
 <div class="scrim-table expandable">
     <table>
@@ -71,7 +92,6 @@
                     </tr>
                 </ng-container>
             </ng-container>
-        
         </tbody>
     </table>
 </div>

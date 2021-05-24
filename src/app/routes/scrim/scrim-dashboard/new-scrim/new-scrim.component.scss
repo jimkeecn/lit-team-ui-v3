@@ -20,3 +20,7 @@
 .row option {
   color: #222;
 }
+
+::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+}
