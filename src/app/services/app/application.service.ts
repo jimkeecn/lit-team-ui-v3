@@ -170,7 +170,7 @@ export class ApplicationService {
         x.classList.remove("hide");
         x.classList.remove("toggled");
       })
-      document.querySelector(".header-account").classList.add("hide");
+      //document.querySelector(".header-account").classList.add("hide");
       
       setTimeout(() => {
         document.body.classList.remove('preloader-is--active');

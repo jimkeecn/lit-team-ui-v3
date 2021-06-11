@@ -25295,7 +25295,7 @@ body:not(.cursor-is--active) .header-top-bar-toggle {
 .header-account {
   position: absolute;
   top: 0;
-  right: 72px;
+  right: 200px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -25337,6 +25337,7 @@ body:not(.cursor-is--active) .header-top-bar-toggle {
   font-size: 0.625rem;
   line-height: 1;
   color: #5e627e;
+  cursor: pointer;
 }
 
 @media (min-width: 1920px) {
